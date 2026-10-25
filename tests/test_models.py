@@ -59,6 +59,18 @@ class ModelTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'Missing dependencies'):
                     preview(assets,'world/test.m2',128)
 
+    def test_negative_near_zero_uv_does_not_index_outside_texture(self):
+        model,skin,texture=fixture()
+        model=bytearray(model);count,offset=struct.unpack_from('<II',model,60)
+        for i in range(count): struct.pack_into('<2f',model,offset+i*48+32,-1e-12,-1e-12)
+        with tempfile.TemporaryDirectory() as temp:
+            with ZipFile(Path(temp)/'assets.zip','w') as z:
+                z.writestr('world/test.m2',model);z.writestr('world/test00.skin',skin)
+                z.writestr('tileset/test/red.png',texture)
+            with RawAssets(temp) as assets:
+                image,_=preview(assets,'world/test.m2',128)
+                self.assertGreater(image.getpixel((64,64))[0],150)
+
     def test_malformed_model_rejected(self):
         with self.assertRaises(ValueError):model_info(b'bad','world/test.m2')
         model,_,_=fixture();bad=bytearray(model)
