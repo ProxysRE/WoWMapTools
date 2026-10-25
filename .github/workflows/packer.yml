@@ -1,0 +1,70 @@
+name: Windows packer
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'wowmap/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '*.bat'
+      - 'PACK_FOR_DRIVE.md'
+      - '.github/workflows/packer.yml'
+permissions:
+  contents: read
+jobs:
+  native-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download pinned StormLib source
+        run: |
+          git clone https://github.com/ladislav-zezula/StormLib.git stormlib-source
+          git -C stormlib-source checkout 6bb1882bd00ddbc3729cac5dac0fda81a61e5514
+      - name: Configure StormLib
+        run: cmake -S stormlib-source -B stormlib-build -DBUILD_SHARED_LIBS=ON -DSTORM_USE_BUNDLED_LIBRARIES=ON -DSTORM_UNICODE=ON -DCMAKE_BUILD_TYPE=Release
+      - name: Build StormLib
+        run: cmake --build stormlib-build --config Release --parallel 4
+      - run: python -m pip install -r requirements.txt
+      - name: Prepare native library
+        shell: python
+        run: |
+          from pathlib import Path
+          import os, shutil
+          root=Path('stormlib-build')
+          candidates=list(root.rglob('StormLib.dll' if os.name=='nt' else 'libstorm.so'))
+          assert len(candidates)==1, candidates
+          Path('tools').mkdir(exist_ok=True)
+          target=Path('tools')/candidates[0].name
+          shutil.copy2(candidates[0],target)
+          shutil.copy2('stormlib-source/LICENSE','tools/StormLib.LICENSE')
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8') as stream:
+              stream.write('WOWMAP_STORMLIB='+str(target.resolve())+'\n')
+      - run: python -m unittest discover -s tests -v
+      - name: Package Windows tools
+        if: runner.os == 'Windows'
+        shell: python
+        run: |
+          from pathlib import Path
+          import subprocess,zipfile
+          with zipfile.ZipFile('WoWMapTools-DEV0.2-Windows.zip','w',compression=zipfile.ZIP_DEFLATED) as archive:
+              for name in subprocess.check_output(['git','ls-files'],text=True).splitlines():
+                  data=Path(name).read_bytes()
+                  if name.endswith('.bat'):
+                      data=data.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n')
+                  archive.writestr('WoWMapTools/'+name,data)
+              for name in ['StormLib.dll','StormLib.LICENSE']:
+                  archive.write(Path('tools')/name,'WoWMapTools/tools/'+name)
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Windows'
+        with:
+          name: WoWMapTools-DEV0.2-Windows
+          path: WoWMapTools-DEV0.2-Windows.zip
+          if-no-files-found: error
+          retention-days: 30
