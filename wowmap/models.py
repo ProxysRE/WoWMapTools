@@ -16,7 +16,7 @@ from .pack import normalize
 
 
 class RawAssets:
-    def __init__(self, folder):
+    def __init__(self, folder, verify_archives=False):
         self.files = {}
         self.archives = []
         self.cache = OrderedDict()
@@ -24,7 +24,7 @@ class RawAssets:
             for path in sorted(Path(folder).glob('*.zip')):
                 archive = ZipFile(path)
                 self.archives.append(archive)
-                if archive.testzip() is not None:
+                if verify_archives and archive.testzip() is not None:
                     raise ValueError(f'Corrupt ZIP: {path.name}')
                 for info in archive.infolist():
                     if info.is_dir():
@@ -178,8 +178,8 @@ def preview(assets, name, size=512):
             db=depth[ymin:ymax+1,xmin:xmax+1]
             covered &= height>db
             tuv=weights@uv
-            tx=np.floor((tuv[:,:,0]%1)*tex.shape[1]).astype(int)
-            ty=np.floor((tuv[:,:,1]%1)*tex.shape[0]).astype(int)
+            tx=np.floor((tuv[:,:,0]%1)*tex.shape[1]).astype(int)%tex.shape[1]
+            ty=np.floor((tuv[:,:,1]%1)*tex.shape[0]).astype(int)%tex.shape[0]
             color=tex[ty,tx].astype(np.float32)/255
             if draw['blend']==0: color[:,:,3]=1
             else: covered &= color[:,:,3]>=.5
