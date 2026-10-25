@@ -17,8 +17,10 @@ def main():
     gallery = sub.add_parser('gallery', help='Contact sheet of base terrain textures')
     gallery.add_argument('--assets', default='assets'); gallery.add_argument('--out', default='output/catalog.jpg')
     ren = sub.add_parser('render', help='Render a JSON scene plan')
+    ren.add_argument('--packages', help='Folder with raw resource ZIPs (required for model objects)')
     ren.add_argument('plan'); ren.add_argument('--assets', default='assets'); ren.add_argument('--out', default='output/scene')
     val = sub.add_parser('validate', help='Validate scene and resolve assets')
+    val.add_argument('--packages', help='Folder with raw resource ZIPs')
     val.add_argument('plan'); val.add_argument('--assets', default='assets')
     args = parser.parse_args()
     try:
@@ -47,12 +49,23 @@ def main():
         else:
             plan = json.loads(Path(args.plan).read_text(encoding='utf-8-sig'))
             if args.command == 'validate':
-                validate(plan); assets = Assets(args.assets)
-                for layer in [plan['base']] + plan.get('layers', []):
-                    assets.resolve(layer['asset'])
+                validate(plan)
+                if args.packages:
+                    from .models import RawAssets, inspect_model
+                    with RawAssets(args.packages) as raw:
+                        for layer in [plan['base']] + plan.get('layers', []):
+                            if not raw.has(layer['asset']):
+                                Assets(args.assets).resolve(layer['asset'])
+                        for obj in plan.get('objects', []):
+                            info = inspect_model(raw,obj['model'])
+                            if info['missing']: raise ValueError('Missing model dependencies: '+', '.join(info['missing']))
+                else:
+                    if plan.get('objects'): raise ValueError('A scene with model objects requires --packages')
+                    assets = Assets(args.assets)
+                    for layer in [plan['base']] + plan.get('layers', []): assets.resolve(layer['asset'])
                 print('Scene and assets valid')
             else:
-                print(json.dumps(render(plan,args.assets,args.out),ensure_ascii=False,indent=2))
+                print(json.dumps(render(plan,args.assets,args.out,packages=args.packages),ensure_ascii=False,indent=2))
     except (ValueError, KeyError, OSError) as exc:
         print(f'ERROR: {exc}', file=sys.stderr)
         return 1
