@@ -1,0 +1,453 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Ясеневый лес — мост через реку",
+  "seed": 4502,
+  "size_cells": [
+    36,
+    28
+  ],
+  "pixels_per_cell": 72,
+  "export_format": "webp",
+  "distance_per_cell": 5,
+  "units": "ft",
+  "surface_variation": 0.08,
+  "base": {
+    "id": "base",
+    "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+    "tile_cells": 3.2,
+    "texture_variation": 0.16
+  },
+  "layers": [
+    {
+      "id": "road",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 3,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            -3,
+            17
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            15,
+            13.5
+          ],
+          [
+            23,
+            13.5
+          ],
+          [
+            30,
+            11
+          ],
+          [
+            39,
+            10
+          ]
+        ],
+        "width": 2.4,
+        "smooth": true,
+        "feather": 0.45,
+        "roughness": 0.25
+      }
+    },
+    {
+      "id": "bank",
+      "asset": "tileset/ashenvale/ashenvaleshore.blp",
+      "tile_cells": 2.5,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            21,
+            -3
+          ],
+          [
+            18,
+            6
+          ],
+          [
+            19,
+            14
+          ],
+          [
+            22,
+            22
+          ],
+          [
+            20,
+            31
+          ]
+        ],
+        "width": 6.7,
+        "smooth": true,
+        "feather": 0.65,
+        "roughness": 0.3
+      }
+    },
+    {
+      "id": "water",
+      "asset": "xtextures/river/lake_b.1.blp",
+      "tint": "#73b6df",
+      "tile_cells": 3.1,
+      "texture_variation": 0.12,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            21,
+            -3
+          ],
+          [
+            18,
+            6
+          ],
+          [
+            19,
+            14
+          ],
+          [
+            22,
+            22
+          ],
+          [
+            20,
+            31
+          ]
+        ],
+        "width": 5.1,
+        "smooth": true,
+        "feather": 0.2,
+        "roughness": 0.12
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "bridge",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 0.9,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          14,
+          12,
+          25,
+          15
+        ],
+        "feather": 0
+      }
+    }
+  ],
+  "walls": [
+    {
+      "id": "bridge-north",
+      "points": [
+        [
+          14,
+          12
+        ],
+        [
+          25,
+          12
+        ]
+      ],
+      "thickness": 0.16,
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.8,
+      "openings": []
+    },
+    {
+      "id": "bridge-south",
+      "points": [
+        [
+          14,
+          15
+        ],
+        [
+          25,
+          15
+        ]
+      ],
+      "thickness": 0.16,
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.8,
+      "openings": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "crate-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        12.5,
+        11.4
+      ],
+      "size_cells": 0.8,
+      "rotation": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    },
+    {
+      "id": "crate-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        12,
+        12.5
+      ],
+      "size_cells": 0.8,
+      "rotation": 30,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    },
+    {
+      "id": "crate-3",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        26,
+        16
+      ],
+      "size_cells": 0.8,
+      "rotation": 45,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    },
+    {
+      "id": "rock-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock02.m2",
+      "position": [
+        15,
+        8
+      ],
+      "size_cells": 2.5,
+      "rotation": 25,
+      "layer": "ground",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    },
+    {
+      "id": "rock-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock03.m2",
+      "position": [
+        23.7,
+        19
+      ],
+      "size_cells": 2.5,
+      "rotation": 45,
+      "layer": "ground",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    },
+    {
+      "id": "rock-3",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock04.m2",
+      "position": [
+        26.5,
+        7
+      ],
+      "size_cells": 2.5,
+      "rotation": 155,
+      "layer": "ground",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    },
+    {
+      "id": "rock-4",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock01.m2",
+      "position": [
+        10,
+        22
+      ],
+      "size_cells": 2.5,
+      "rotation": 5,
+      "layer": "ground",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.12,
+        "offset_cells": [
+          0.12,
+          0.16
+        ]
+      }
+    }
+  ],
+  "scatter": [
+    {
+      "id": "forest",
+      "count": 36,
+      "region": {
+        "type": "rectangle",
+        "bounds": [
+          0,
+          0,
+          36,
+          28
+        ],
+        "feather": 0
+      },
+      "exclude": [
+        {
+          "type": "path",
+          "points": [
+            [
+              -3,
+              17
+            ],
+            [
+              8,
+              15
+            ],
+            [
+              15,
+              13.5
+            ],
+            [
+              23,
+              13.5
+            ],
+            [
+              30,
+              11
+            ],
+            [
+              39,
+              10
+            ]
+          ],
+          "width": 3.2,
+          "smooth": true,
+          "feather": 0,
+          "roughness": 0.25
+        },
+        {
+          "type": "path",
+          "points": [
+            [
+              21,
+              -3
+            ],
+            [
+              18,
+              6
+            ],
+            [
+              19,
+              14
+            ],
+            [
+              22,
+              22
+            ],
+            [
+              20,
+              31
+            ]
+          ],
+          "width": 6.7,
+          "smooth": true,
+          "feather": 0.65,
+          "roughness": 0.3
+        }
+      ],
+      "size_range": [
+        4.3,
+        6.4
+      ],
+      "radius": 1.15,
+      "prototypes": [
+        {
+          "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+          "layer": "overhead",
+          "shadow": {
+            "opacity": 0.2,
+            "blur_cells": 0.18,
+            "offset_cells": [
+              0.15,
+              0.22
+            ]
+          }
+        },
+        {
+          "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+          "layer": "overhead",
+          "shadow": {
+            "opacity": 0.2,
+            "blur_cells": 0.18,
+            "offset_cells": [
+              0.15,
+              0.22
+            ]
+          }
+        },
+        {
+          "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree03.m2",
+          "layer": "overhead",
+          "shadow": {
+            "opacity": 0.2,
+            "blur_cells": 0.18,
+            "offset_cells": [
+              0.15,
+              0.22
+            ]
+          }
+        },
+        {
+          "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree04.m2",
+          "layer": "overhead",
+          "shadow": {
+            "opacity": 0.2,
+            "blur_cells": 0.18,
+            "offset_cells": [
+              0.15,
+              0.22
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
