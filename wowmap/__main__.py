@@ -49,20 +49,22 @@ def main():
         else:
             plan = json.loads(Path(args.plan).read_text(encoding='utf-8-sig'))
             if args.command == 'validate':
+                from .planning import expand
+                from .render import resource_names
+                plan,_=expand(plan)
                 validate(plan)
                 if args.packages:
                     from .models import RawAssets, inspect_model
                     with RawAssets(args.packages) as raw:
-                        for layer in [plan['base']] + plan.get('layers', []):
-                            if not raw.has(layer['asset']):
-                                Assets(args.assets).resolve(layer['asset'])
+                        for selector in resource_names(plan):
+                            if not raw.has(selector):Assets(args.assets).resolve(selector)
                         for obj in plan.get('objects', []):
                             info = inspect_model(raw,obj['model'])
                             if info['missing']: raise ValueError('Missing model dependencies: '+', '.join(info['missing']))
                 else:
                     if plan.get('objects'): raise ValueError('A scene with model objects requires --packages')
                     assets = Assets(args.assets)
-                    for layer in [plan['base']] + plan.get('layers', []): assets.resolve(layer['asset'])
+                    for selector in resource_names(plan):assets.resolve(selector)
                 print('Scene and assets valid')
             else:
                 print(json.dumps(render(plan,args.assets,args.out,packages=args.packages),ensure_ascii=False,indent=2))
