@@ -1,0 +1,52 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Ясеневый лес — поляна для ночного лагеря",
+  "seed": 1731,
+  "size_cells": [40, 30],
+  "pixels_per_cell": 80,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "surface_variation": 0.12,
+  "base": {
+    "id": "moss",
+    "asset": "common.MPQ/tileset/ashenvale/ashenvalemossbase.png",
+    "tile_cells": 3.2
+  },
+  "layers": [
+    {
+      "id": "grass-north", "asset": "common.MPQ/tileset/ashenvale/ashenvalegrass.png",
+      "tile_cells": 3.2,
+      "shape": {"type": "polygon", "points": [[-2,-2],[42,-2],[42,8],[30,7],[23,10],[13,7],[-2,11]], "feather": 1.4, "roughness": 0.55}
+    },
+    {
+      "id": "grass-south", "asset": "common.MPQ/tileset/ashenvale/ashenvalegrass.png",
+      "tile_cells": 3.2,
+      "shape": {"type": "polygon", "points": [[-2,24],[10,21],[20,25],[30,22],[42,21],[42,32],[-2,32]], "feather": 1.7, "roughness": 0.6}
+    },
+    {
+      "id": "western-ferns", "asset": "common.MPQ/tileset/ashenvale/ashenvaleferns.png",
+      "tile_cells": 2.4, "opacity": 0.8,
+      "shape": {"type": "ellipse", "bounds": [-6,5,8,27], "feather": 1.0, "roughness": 0.7}
+    },
+    {
+      "id": "eastern-ferns", "asset": "common.MPQ/tileset/ashenvale/ashenvaleferns.png",
+      "tile_cells": 2.4, "opacity": 0.85,
+      "shape": {"type": "ellipse", "bounds": [33,-3,46,31], "feather": 1.2, "roughness": 0.7}
+    },
+    {
+      "id": "camp-clearing", "asset": "common.MPQ/tileset/ashenvale/ashenvaledirt.png",
+      "tile_cells": 3.2, "opacity": 0.8,
+      "shape": {"type": "ellipse", "bounds": [12,8,30,23], "feather": 1.2, "roughness": 0.7}
+    },
+    {
+      "id": "forest-trail", "asset": "common.MPQ/tileset/ashenvale/ashenvaledirt.png",
+      "tile_cells": 3.2,
+      "shape": {"type": "path", "points": [[-2,20],[5,18],[10,19],[15,17],[21,15],[27,14],[32,11],[36,10],[42,8]], "width": 2.1, "feather": 0.55, "roughness": 0.5}
+    },
+    {
+      "id": "fireplace-ground", "asset": "common.MPQ/tileset/ashenvale/ashenvaledirt.png",
+      "tile_cells": 2.5,
+      "shape": {"type": "ellipse", "bounds": [19,15,23,19], "feather": 0.4, "roughness": 0.25}
+    }
+  ]
+}
