@@ -2,6 +2,8 @@
 import hashlib
 import json
 import math
+import io
+from contextlib import ExitStack
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
@@ -57,6 +59,8 @@ def validate(plan):
     for layer in plan.get('layers', []):
         if 'shape' not in layer:
             raise ValueError('Overlay layers require a shape')
+    from .objects import validate_objects
+    validate_objects(plan.get('objects', []))
     return width, height
 
 
@@ -75,7 +79,7 @@ def layer_rng(seed, identifier):
 def texture(path, size, tile_pixels, rng):
     # One periodic texture plane; do not randomly rotate individual tiles (visible seams).
     tile_pixels = max(1, tile_pixels)
-    with Image.open(path) as source:
+    with (path.copy() if isinstance(path, Image.Image) else Image.open(path)) as source:
         ratio = source.height / source.width
         tile = source.convert('RGB').resize((tile_pixels, max(1, round(tile_pixels * ratio))), Image.Resampling.LANCZOS)
     ox = int(rng.integers(tile.width)); oy = int(rng.integers(tile.height))
@@ -112,11 +116,38 @@ def mask_for(shape, size, ppc, rng):
     return a
 
 
-def render(plan, assets_root, output):
+def render(plan, assets_root, output, packages=None):
     size = validate(plan)
-    assets = Assets(assets_root)
+    if plan.get('objects') and packages is None:
+        raise ValueError('A scene with model objects requires --packages')
+    with ExitStack() as stack:
+        raw = None
+        if packages is not None:
+            from .models import RawAssets
+            raw = stack.enter_context(RawAssets(packages))
+        assets = Assets(assets_root) if (Path(assets_root)/'catalog.json').is_file() else None
+        paths = []
+        for layer in [plan['base']] + plan.get('layers', []):
+            selector = layer['asset']
+            if raw is not None and raw.has(selector):
+                with Image.open(io.BytesIO(raw.read(selector))) as image:
+                    image.load(); paths.append(image.copy())
+            elif assets is not None:
+                paths.append(assets.resolve(selector))
+            else:
+                raise ValueError(f'Terrain resource unavailable: {selector}')
+        # Resolve all model dependencies before writing any output files.
+        if raw is not None:
+            from .models import inspect_model
+            for model in sorted({obj['model'] for obj in plan.get('objects', [])}):
+                info = inspect_model(raw, model)
+                if info['missing']:
+                    raise ValueError('Missing model dependencies: '+', '.join(info['missing']))
+        return _render(plan, size, paths, output, raw)
+
+
+def _render(plan, size, paths, output, raw):
     all_layers = [plan['base']] + plan.get('layers', [])
-    paths = [assets.resolve(layer['asset']) for layer in all_layers]
     ppc = plan['pixels_per_cell']
     seed = plan['seed']
     image = None
@@ -138,6 +169,17 @@ def render(plan, assets_root, output):
     rgb *= (1 + (variation - .5) * strength)[..., None]
     image = Image.fromarray(np.uint8(np.clip(rgb, 0, 255)))
     output = Path(output)
+    object_report = None
+    if plan.get('objects'):
+        from .objects import compose_objects
+        props, overhead, object_report = compose_objects(plan['objects'], raw, size, ppc, output.parent/'.sprite-cache')
+        ground = Image.alpha_composite(image.convert('RGBA'), props)
+        image = Image.alpha_composite(ground, overhead).convert('RGB')
+        output.mkdir(parents=True, exist_ok=True)
+        props.save(output/'objects-ground.png')
+        overhead.save(output/'objects-overhead.png')
+        ground.convert('RGB').save(output/'map-ground.png')
+        (output/'objects.json').write_text(json.dumps(object_report,ensure_ascii=False,indent=2),encoding='utf-8')
     output.mkdir(parents=True, exist_ok=True)
     image.save(output / 'map.png')
     preview = image.copy()
@@ -153,7 +195,8 @@ def render(plan, assets_root, output):
     metadata = dict(format='wowmap.render/1', name=plan.get('name', ''), width=size[0], height=size[1],
                     pixels_per_cell=ppc, distance_per_cell=plan.get('distance_per_cell', 5),
                     units=plan.get('units', 'ft'), origin='top-left', axis_y='down', seed=seed,
-                    image='map.png', foundry_scene_export=False,
+                    image='map.png', foundry_scene_export=False, object_count=len(plan.get('objects', [])),
+                    overhead_image='objects-overhead.png' if object_report else None,
                     plan_sha256=hashlib.sha256(json.dumps(plan, sort_keys=True).encode()).hexdigest())
     (output / 'render.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding='utf-8')
     return metadata
