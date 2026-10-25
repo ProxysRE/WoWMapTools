@@ -66,7 +66,7 @@ def strip(target,a,b,thickness,texture,ppc,tile_cells,shade=True):
     target.alpha_composite(patch,(left,top))
 
 
-def render_walls(walls,resolve,size,ppc):
+def render_walls(walls,resolve,size,ppc,draw_doors=True):
     image=Image.new('RGBA',size);geometry=[]
     for wall in walls:
         pieces,openings=wall_parts(wall)
@@ -77,7 +77,7 @@ def render_walls(walls,resolve,size,ppc):
         for a,b,opening in openings:
             kind=opening['type'];state=opening.get('state','closed')
             geometry.append(dict(id=opening['id'],wall=wall['id'],type=kind,points=[a.tolist(),b.tolist()],state=state))
-            if kind=='passage':continue
+            if kind=='passage' or (kind=='door' and not draw_doors):continue
             tex=resolve(opening['asset'])
             if kind=='door':
                 end=b if state!='open' else a+np.array([-(b-a)[1],(b-a)[0]])

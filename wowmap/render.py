@@ -181,9 +181,12 @@ def _render(plan, size, paths, output, raw, images, source_plan, placement_repor
     ground=Image.alpha_composite(image.convert('RGBA'),props)
     from .structures import render_walls
     walls,geometry=render_walls(plan.get('walls',[]),lambda name:images[name],size,ppc)
+    vtt_walls,_=render_walls(plan.get('walls',[]),lambda name:images[name],size,ppc,draw_doors=False)
+    vtt_ground=Image.alpha_composite(ground,vtt_walls).convert('RGB')
     ground=Image.alpha_composite(ground,walls)
     image=Image.alpha_composite(ground,overhead).convert('RGB')
     output.mkdir(parents=True, exist_ok=True)
+    vtt_ground.save(output/'map-vtt.webp',lossless=True,method=4)
     if object_report:
         save_image(props,'objects-ground')
         save_image(overhead,'objects-overhead')
@@ -205,7 +208,7 @@ def _render(plan, size, paths, output, raw, images, source_plan, placement_repor
     metadata = dict(format='wowmap.render/1', name=plan.get('name', ''), width=size[0], height=size[1],
                     pixels_per_cell=ppc, distance_per_cell=plan.get('distance_per_cell', 5),
                     units=plan.get('units', 'ft'), origin='top-left', axis_y='down', seed=seed,
-                    image='map.'+extension, foundry_scene_export=False, grid_baked=False, wall_count=len(plan.get('walls',[])), object_count=len(plan.get('objects', [])),
+                    image='map.'+extension, vtt_image='map-vtt.webp', foundry_scene_export=False, grid_baked=False, wall_count=len(plan.get('walls',[])), object_count=len(plan.get('objects', [])),
                     overhead_image='objects-overhead.'+extension if object_report else None,
                     plan_sha256=hashlib.sha256(json.dumps(source_plan, sort_keys=True).encode()).hexdigest(),
                     expanded_plan_sha256=hashlib.sha256(json.dumps(plan,sort_keys=True).encode()).hexdigest())
