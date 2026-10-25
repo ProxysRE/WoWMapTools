@@ -1,0 +1,50 @@
+name: Render on local Windows runner
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['requests/active.json']
+permissions:
+  contents: read
+concurrency:
+  group: local-map-render
+  cancel-in-progress: false
+jobs:
+  render:
+    # Enable ONLY after configuring a dedicated local runner and asset directory.
+    # Repository variable ENABLE_LOCAL_RENDER must be the string true.
+    if: vars.ENABLE_LOCAL_RENDER == 'true'
+    runs-on: [self-hosted, Windows, X64, wowmap]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check local configuration
+        shell: pwsh
+        env:
+          WOWMAP_ASSETS: ${{ vars.WOWMAP_ASSETS }}
+        run: |
+          if (-not $env:WOWMAP_ASSETS -or -not (Test-Path (Join-Path $env:WOWMAP_ASSETS 'catalog.json'))) {
+            throw 'Set WOWMAP_ASSETS to an absolute local directory containing catalog.json'
+          }
+      - name: Prepare environment
+        shell: pwsh
+        run: |
+          py -3 -m venv .venv
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .venv\Scripts\python.exe -m pip install -r requirements.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Render current request
+        shell: pwsh
+        env:
+          WOWMAP_ASSETS: ${{ vars.WOWMAP_ASSETS }}
+        run: |
+          .venv\Scripts\python.exe -m wowmap render requests/active.json --assets "$env:WOWMAP_ASSETS" --out output/current
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wowmap-render
+          path: output/current/
+          if-no-files-found: error
+          retention-days: 7
