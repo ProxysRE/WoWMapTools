@@ -1,0 +1,119 @@
+import ctypes as C
+import gzip
+import io
+import json
+import os
+from pathlib import Path
+import tempfile
+import unittest
+from zipfile import ZipFile
+from PIL import Image
+from wowmap.mpq import Storm, HANDLE, U32, PATCH_FILE, DELETE_MARKER
+from wowmap.pack import build, normalize, scan
+
+
+class FakeArchive:
+    def __init__(self, entries): self.items=entries
+    def __enter__(self): return self
+    def __exit__(self,*args): pass
+    def entries(self,listfile=None):
+        for path,(data,flags) in self.items.items():
+            yield dict(path=path,size=len(data),flags=flags,locale=0)
+    def read(self,name,locale=0): return self.items[name][0]
+
+
+class FakeStorm:
+    def __init__(self,archives): self.archives=archives
+    def open(self,path): return FakeArchive(self.archives[Path(path).name])
+
+
+def silent(*args,**kwargs): pass
+
+
+class PackerTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
+        self.root=Path(self.tmp.name);self.data=self.root/'Data';self.data.mkdir()
+        raw=io.BytesIO();Image.new('RGB',(16,16),'green').save(raw,format='PNG')
+        self.archives={
+            'common.MPQ': {'Tileset\\Ashenvale\\grass.png':(raw.getvalue(),0),
+                           'World\\Kalimdor\\Ashenvale\\tree.m2':(b'model-original',0),
+                           'World\\Kalimdor\\Ashenvale\\old.m2':(b'delete me',0),
+                           'Sound\\test.ogg':(b'sound',0), 'Wow.exe':(b'executable',0)},
+            'patch.MPQ': {'World\\Kalimdor\\Ashenvale\\tree.m2':(b'model-updated',0),
+                          'World\\Kalimdor\\Ashenvale\\old.m2':(b'',DELETE_MARKER)}}
+        for name in self.archives: (self.data/name).write_bytes(b'placeholder')
+        self.storm=FakeStorm(self.archives)
+
+    def test_selection_patches_catalog_and_resume(self):
+        out=self.root/'bundle'
+        report=build(self.data,out,storm=self.storm,progress=silent)
+        self.assertEqual(report['status'],'complete')
+        self.assertEqual(report['resources'],2)
+        with gzip.open(out/'upload/catalog.jsonl.gz','rt',encoding='utf-8') as stream:
+            records=[json.loads(line) for line in stream]
+        model=next(r for r in records if r['path'].endswith('.m2'))
+        with ZipFile(out/'upload'/model['package']) as zip:
+            self.assertEqual(zip.read(model['member']),b'model-updated')
+        self.assertNotIn(str(self.data),json.dumps(report))
+        hashes=[p['sha256'] for p in report['packages']]
+        report2=build(self.data,out,storm=self.storm,progress=silent)
+        self.assertEqual(hashes,[p['sha256'] for p in report2['packages']])
+        package=out/'upload'/report2['packages'][0]['file']
+        package.write_bytes(b'corrupted')
+        repaired=build(self.data,out,storm=self.storm,progress=silent)
+        self.assertEqual(hashes,[p['sha256'] for p in repaired['packages']])
+
+    def test_change_of_source_and_output_inside_client_rejected(self):
+        out=self.root/'bundle';build(self.data,out,storm=self.storm,index_only=True,progress=silent)
+        (self.data/'common.MPQ').write_bytes(b'different size')
+        with self.assertRaisesRegex(ValueError,'Source archives'):
+            build(self.data,out,storm=self.storm,progress=silent)
+        with self.assertRaisesRegex(ValueError,'outside'):
+            build(self.data,self.data/'out',storm=self.storm,progress=silent)
+
+    def test_delta_patch_and_traversal_rejected(self):
+        self.archives['patch.MPQ']['World\\Kalimdor\\Ashenvale\\tree.m2']=(b'patch',PATCH_FILE)
+        with self.assertRaisesRegex(ValueError,'delta'):
+            scan(self.data,self.storm,progress=silent)
+        for name in ('../evil.blp','C:/evil.blp','/evil.blp'):
+            with self.assertRaises(ValueError): normalize(name)
+
+    def test_interruption_retains_finished_groups(self):
+        out=self.root/'bundle';seen=[]
+        def stop(message,**kwargs):
+            if 'Packing world/' in message: raise KeyboardInterrupt
+            seen.append(message)
+        with self.assertRaises(KeyboardInterrupt): build(self.data,out,storm=self.storm,progress=stop)
+        self.assertEqual(json.loads((out/'upload/summary.json').read_text())['status'],'interrupted')
+        report=build(self.data,out,storm=self.storm,progress=silent)
+        self.assertEqual(report['status'],'complete')
+
+
+@unittest.skipUnless(os.environ.get('WOWMAP_STORMLIB'),'Native StormLib not configured')
+class NativeMPQTests(unittest.TestCase):
+    def test_real_compressed_mpq_roundtrip_and_pack(self):
+        storm=Storm()
+        native_path=C.c_wchar_p if os.name=='nt' else C.c_char_p
+        storm.bind('SFileCreateArchive',[native_path,U32,U32,C.POINTER(HANDLE)],C.c_bool)
+        storm.bind('SFileAddFileEx',[HANDLE,native_path,C.c_char_p,U32,U32,U32],C.c_bool)
+        with tempfile.TemporaryDirectory(prefix='wowmap-') as temp:
+            root=Path(temp);data=root/'Data';data.mkdir()
+            original=b'MD20'+b'0123456789'*4096
+            for archive_name,content in [('common.MPQ',original),('patch.MPQ',b'MD20updated')]:
+                h=HANDLE()
+                self.assertTrue(storm.lib.SFileCreateArchive(storm.path_arg(data/archive_name),0x100000,32,C.byref(h)))
+                source=root/'source.bin';source.write_bytes(content)
+                self.assertTrue(storm.lib.SFileAddFileEx(h,storm.path_arg(source),b'World\\Kalimdor\\Ashenvale\\Tree.m2',0x200,2,2))
+                self.assertTrue(storm.lib.SFileCloseArchive(h))
+            with storm.open(data/'common.MPQ') as archive:
+                found=list(archive.entries())
+                self.assertTrue(any(e['path'].lower().endswith('tree.m2') for e in found))
+                self.assertEqual(archive.read('World\\Kalimdor\\Ashenvale\\Tree.m2'),original)
+            report=build(data,root/'bundle',storm=storm,progress=silent)
+            self.assertEqual(report['resources'],1)
+            with ZipFile(root/'bundle/upload'/report['packages'][0]['file']) as archive:
+                self.assertEqual(archive.read('world/kalimdor/ashenvale/tree.m2'),b'MD20updated')
+
+
+if __name__=='__main__': unittest.main()
