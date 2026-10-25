@@ -6,3 +6,9 @@ output/
 *.MPQ
 *.mpq
 *.zip
+
+# Local native dependency and packer work files
+tools/*.dll
+tools/*.so*
+stormlib-source/
+stormlib-build/
