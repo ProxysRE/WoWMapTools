@@ -1,0 +1,1098 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Ясеневый лес — стоянка путников",
+  "seed": 1731,
+  "size_cells": [
+    40,
+    30
+  ],
+  "pixels_per_cell": 80,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "surface_variation": 0.12,
+  "base": {
+    "id": "moss",
+    "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+    "tile_cells": 3.2
+  },
+  "layers": [
+    {
+      "id": "grass-north",
+      "asset": "tileset/ashenvale/ashenvalegrass.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            -2,
+            -2
+          ],
+          [
+            42,
+            -2
+          ],
+          [
+            42,
+            8
+          ],
+          [
+            30,
+            7
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            13,
+            7
+          ],
+          [
+            -2,
+            11
+          ]
+        ],
+        "feather": 1.4,
+        "roughness": 0.55
+      }
+    },
+    {
+      "id": "grass-south",
+      "asset": "tileset/ashenvale/ashenvalegrass.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            -2,
+            24
+          ],
+          [
+            10,
+            21
+          ],
+          [
+            20,
+            25
+          ],
+          [
+            30,
+            22
+          ],
+          [
+            42,
+            21
+          ],
+          [
+            42,
+            32
+          ],
+          [
+            -2,
+            32
+          ]
+        ],
+        "feather": 1.7,
+        "roughness": 0.6
+      }
+    },
+    {
+      "id": "western-ferns",
+      "asset": "tileset/ashenvale/ashenvaleferns.blp",
+      "tile_cells": 2.4,
+      "opacity": 0.8,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          -6,
+          5,
+          8,
+          27
+        ],
+        "feather": 1.0,
+        "roughness": 0.7
+      }
+    },
+    {
+      "id": "eastern-ferns",
+      "asset": "tileset/ashenvale/ashenvaleferns.blp",
+      "tile_cells": 2.4,
+      "opacity": 0.85,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          33,
+          -3,
+          46,
+          31
+        ],
+        "feather": 1.2,
+        "roughness": 0.7
+      }
+    },
+    {
+      "id": "camp-clearing",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 3.2,
+      "opacity": 0.8,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          12,
+          8,
+          30,
+          23
+        ],
+        "feather": 1.2,
+        "roughness": 0.7
+      }
+    },
+    {
+      "id": "forest-trail",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            -2,
+            20
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            10,
+            19
+          ],
+          [
+            15,
+            17
+          ],
+          [
+            21,
+            15
+          ],
+          [
+            27,
+            14
+          ],
+          [
+            32,
+            11
+          ],
+          [
+            36,
+            10
+          ],
+          [
+            42,
+            8
+          ]
+        ],
+        "width": 2.1,
+        "feather": 0.55,
+        "roughness": 0.5
+      }
+    },
+    {
+      "id": "fireplace-ground",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2.5,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          19,
+          15,
+          23,
+          19
+        ],
+        "feather": 0.4,
+        "roughness": 0.25
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "tent-1",
+      "model": "world/generic/nightelf/passive doodads/tent/nightelfsingletent02.m2",
+      "position": [
+        16.2,
+        11.2
+      ],
+      "size_cells": 3.3,
+      "rotation": 125,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tent-2",
+      "model": "world/generic/nightelf/passive doodads/tent/nightelfsingletent01.m2",
+      "position": [
+        25.6,
+        10.4
+      ],
+      "size_cells": 3.3,
+      "rotation": 205,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tent-3",
+      "model": "world/generic/nightelf/passive doodads/tent/nightelfsingletent02.m2",
+      "position": [
+        26.2,
+        20.4
+      ],
+      "size_cells": 3.3,
+      "rotation": -35,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "firepit",
+      "model": "world/azeroth/burningsteppes/passivedoodads/bonfire/orcbonfireoff.m2",
+      "position": [
+        21,
+        16.4
+      ],
+      "size_cells": 1.65,
+      "rotation": 25,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "firewood",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        23.1,
+        17.9
+      ],
+      "size_cells": 0.85,
+      "rotation": 70,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "barrel-1",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        15.4,
+        13.2
+      ],
+      "size_cells": 0.58,
+      "rotation": 0,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "barrel-2",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        27.2,
+        11.8
+      ],
+      "size_cells": 0.58,
+      "rotation": 25,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "barrel-3",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        27.8,
+        19.6
+      ],
+      "size_cells": 0.58,
+      "rotation": -15,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "crate-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        14.2,
+        13.1
+      ],
+      "size_cells": 0.8,
+      "rotation": 15,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "crate-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        27.5,
+        21.6
+      ],
+      "size_cells": 0.8,
+      "rotation": -15,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "rock-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock02.m2",
+      "position": [
+        9.5,
+        11
+      ],
+      "size_cells": 2.2,
+      "rotation": 40,
+      "layer": "ground",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "rock-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock03.m2",
+      "position": [
+        11.5,
+        23
+      ],
+      "size_cells": 2.6,
+      "rotation": 130,
+      "layer": "ground",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "rock-3",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock04.m2",
+      "position": [
+        30.7,
+        18
+      ],
+      "size_cells": 2.4,
+      "rotation": -20,
+      "layer": "ground",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "rock-4",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock01.m2",
+      "position": [
+        29.3,
+        7.2
+      ],
+      "size_cells": 2.5,
+      "rotation": 10,
+      "layer": "ground",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "rock-5",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock02.m2",
+      "position": [
+        5.5,
+        7
+      ],
+      "size_cells": 2.8,
+      "rotation": 85,
+      "layer": "ground",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "rock-6",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalerocks/ashenvalerock03.m2",
+      "position": [
+        34,
+        24
+      ],
+      "size_cells": 2.9,
+      "rotation": 70,
+      "layer": "ground",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "fallen-log-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletreelogs/ashenvaletreelog01.m2",
+      "position": [
+        11.6,
+        14.6
+      ],
+      "size_cells": 2.7,
+      "rotation": 50,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "fallen-log-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletreelogs/ashenvaletreelog02.m2",
+      "position": [
+        30.5,
+        21.5
+      ],
+      "size_cells": 3,
+      "rotation": 150,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "stump-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalestumps/ashenvalestump02.m2",
+      "position": [
+        12.5,
+        12
+      ],
+      "size_cells": 1.1,
+      "rotation": 20,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "stump-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalestumps/ashenvalestump01.m2",
+      "position": [
+        28.3,
+        24
+      ],
+      "size_cells": 1.1,
+      "rotation": 150,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "stump-3",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvalestumps/ashenvalestump02.m2",
+      "position": [
+        31,
+        7
+      ],
+      "size_cells": 1.1,
+      "rotation": 80,
+      "layer": "props",
+      "order": 0,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        1,
+        2
+      ],
+      "size_cells": 7,
+      "rotation": 15,
+      "layer": "overhead",
+      "order": 1,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree03.m2",
+      "position": [
+        7,
+        1
+      ],
+      "size_cells": 6.5,
+      "rotation": 80,
+      "layer": "overhead",
+      "order": 2,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-3",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree04.m2",
+      "position": [
+        13,
+        1
+      ],
+      "size_cells": 5.8,
+      "rotation": 145,
+      "layer": "overhead",
+      "order": 3,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-4",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree05.m2",
+      "position": [
+        19,
+        1
+      ],
+      "size_cells": 6.2,
+      "rotation": 35,
+      "layer": "overhead",
+      "order": 4,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-5",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        25,
+        1
+      ],
+      "size_cells": 6.5,
+      "rotation": 210,
+      "layer": "overhead",
+      "order": 5,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-6",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        32,
+        1
+      ],
+      "size_cells": 7.1,
+      "rotation": 270,
+      "layer": "overhead",
+      "order": 6,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-7",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree03.m2",
+      "position": [
+        39,
+        2
+      ],
+      "size_cells": 7.5,
+      "rotation": 60,
+      "layer": "overhead",
+      "order": 7,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-8",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree04.m2",
+      "position": [
+        0,
+        9
+      ],
+      "size_cells": 7,
+      "rotation": 120,
+      "layer": "overhead",
+      "order": 8,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-9",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree05.m2",
+      "position": [
+        5,
+        11
+      ],
+      "size_cells": 6,
+      "rotation": 10,
+      "layer": "overhead",
+      "order": 9,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-10",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        0,
+        16
+      ],
+      "size_cells": 5.5,
+      "rotation": 225,
+      "layer": "overhead",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-11",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        38,
+        8
+      ],
+      "size_cells": 7,
+      "rotation": 315,
+      "layer": "overhead",
+      "order": 11,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-12",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree03.m2",
+      "position": [
+        36,
+        15
+      ],
+      "size_cells": 6.5,
+      "rotation": 25,
+      "layer": "overhead",
+      "order": 12,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-13",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree04.m2",
+      "position": [
+        41,
+        20
+      ],
+      "size_cells": 7,
+      "rotation": 175,
+      "layer": "overhead",
+      "order": 13,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-14",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree05.m2",
+      "position": [
+        1,
+        25
+      ],
+      "size_cells": 7,
+      "rotation": 30,
+      "layer": "overhead",
+      "order": 14,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-15",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        7,
+        28
+      ],
+      "size_cells": 6.5,
+      "rotation": 70,
+      "layer": "overhead",
+      "order": 15,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-16",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        14,
+        29
+      ],
+      "size_cells": 6.2,
+      "rotation": 205,
+      "layer": "overhead",
+      "order": 16,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-17",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree03.m2",
+      "position": [
+        21,
+        30
+      ],
+      "size_cells": 6.5,
+      "rotation": 155,
+      "layer": "overhead",
+      "order": 17,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-18",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree04.m2",
+      "position": [
+        28,
+        29
+      ],
+      "size_cells": 6.5,
+      "rotation": 305,
+      "layer": "overhead",
+      "order": 18,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-19",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree05.m2",
+      "position": [
+        36,
+        29
+      ],
+      "size_cells": 7.5,
+      "rotation": 20,
+      "layer": "overhead",
+      "order": 19,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-20",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        7,
+        23
+      ],
+      "size_cells": 5.8,
+      "rotation": 90,
+      "layer": "overhead",
+      "order": 20,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-21",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        33,
+        26
+      ],
+      "size_cells": 5.5,
+      "rotation": 145,
+      "layer": "overhead",
+      "order": 21,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-22",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree03.m2",
+      "position": [
+        5,
+        3
+      ],
+      "size_cells": 6,
+      "rotation": 10,
+      "layer": "overhead",
+      "order": 22,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    },
+    {
+      "id": "tree-23",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree04.m2",
+      "position": [
+        35,
+        4
+      ],
+      "size_cells": 6,
+      "rotation": 250,
+      "layer": "overhead",
+      "order": 23,
+      "shadow": {
+        "opacity": 0.22,
+        "blur_cells": 0.16,
+        "offset_cells": [
+          0.14,
+          0.22
+        ]
+      }
+    }
+  ]
+}
