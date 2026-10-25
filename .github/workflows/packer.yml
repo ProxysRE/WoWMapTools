@@ -53,7 +53,7 @@ jobs:
         run: |
           from pathlib import Path
           import subprocess,zipfile
-          with zipfile.ZipFile('WoWMapTools-DEV0.2-Windows.zip','w',compression=zipfile.ZIP_DEFLATED) as archive:
+          with zipfile.ZipFile('WoWMapTools-DEV0.3-Windows.zip','w',compression=zipfile.ZIP_DEFLATED) as archive:
               for name in subprocess.check_output(['git','ls-files'],text=True).splitlines():
                   data=Path(name).read_bytes()
                   if name.endswith('.bat'):
@@ -64,7 +64,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: runner.os == 'Windows'
         with:
-          name: WoWMapTools-DEV0.2-Windows
-          path: WoWMapTools-DEV0.2-Windows.zip
+          name: WoWMapTools-DEV0.3-Windows
+          path: WoWMapTools-DEV0.3-Windows.zip
           if-no-files-found: error
           retention-days: 30
