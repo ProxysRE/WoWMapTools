@@ -3,6 +3,7 @@ import gzip
 import io
 import json
 import os
+import struct
 from pathlib import Path
 import tempfile
 import unittest
@@ -149,9 +150,61 @@ class PackerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'delta'):
             scan(self.data,self.storm,profile='icons',progress=silent)
 
+    def test_dbc_profile_validates_localized_patched_tables_and_resume(self):
+        from wowmap.dbc import DBC
+        self.add_localized()
+        def table(value):return struct.pack('<4s4I',b'WDBC',1,1,4,1)+struct.pack('<I',value)+b'\0'
+        key='DBFilesClient\\CreatureDisplayInfo.dbc'
+        self.archives['common.MPQ'][key]=(table(1),0)
+        self.archives['ruRU/locale-ruRU.MPQ'][key]=(table(2),0)
+        self.archives['ruRU/patch-ruRU-2.MPQ'][key]=(table(3),0)
+        self.archives['ruRU/locale-ruRU.MPQ']['Other\\Skip.dbc']=(table(4),0)
+        out=self.root/'dbc'
+        report=build(self.data,out,storm=self.storm,profile='dbc',progress=silent)
+        self.assertEqual(report['resources'],1)
+        self.assertEqual(report['extensions'],{'.dbc':1})
+        self.assertTrue(report['locale_archives_included'])
+        details=json.loads((out/'upload/dbc-report.json').read_text())
+        self.assertEqual(details['tables'][0]['records'],1)
+        self.assertEqual(details['appearance_tables']['creatures']['missing'],['creaturemodeldata.dbc'])
+        self.assertNotIn(str(self.data),json.dumps(report))
+        with ZipFile(out/'upload'/report['packages'][0]['file']) as z:
+            self.assertEqual(DBC(z.read('dbfilesclient/creaturedisplayinfo.dbc')).cell(0,0),3)
+        again=build(self.data,out,storm=self.storm,profile='dbc',progress=silent)
+        self.assertEqual(again['packages'],report['packages'])
+        self.assertEqual(json.loads((out/'upload/dbc-report.json').read_text()),details)
+
+    def test_invalid_dbc_stops_export_instead_of_reporting_complete(self):
+        self.add_localized()
+        self.archives['ruRU/locale-ruRU.MPQ']['DBFilesClient\\Broken.dbc']=(b'not a table',0)
+        out=self.root/'bad-dbc'
+        with self.assertRaisesRegex(ValueError,'Invalid DBC'):
+            build(self.data,out,storm=self.storm,profile='dbc',progress=silent)
+        self.assertEqual(json.loads((out/'upload/summary.json').read_text())['status'],'failed')
+
 
 @unittest.skipUnless(os.environ.get('WOWMAP_STORMLIB'),'Native StormLib not configured')
 class NativeMPQTests(unittest.TestCase):
+    def test_native_localized_dbc_export(self):
+        from wowmap.dbc import DBC
+        storm=Storm()
+        native_path=C.c_wchar_p if os.name=='nt' else C.c_char_p
+        storm.bind('SFileCreateArchive',[native_path,U32,U32,C.POINTER(HANDLE)],C.c_bool)
+        storm.bind('SFileAddFileEx',[HANDLE,native_path,C.c_char_p,U32,U32,U32],C.c_bool)
+        with tempfile.TemporaryDirectory(prefix='wowmap-dbc-') as temp:
+            root=Path(temp);data=root/'Data';(data/'ruRU').mkdir(parents=True)
+            for name,value in [('common.MPQ',1),('ruRU/locale-ruRU.MPQ',2),('ruRU/patch-ruRU-3.MPQ',3)]:
+                h=HANDLE()
+                self.assertTrue(storm.lib.SFileCreateArchive(storm.path_arg(data/name),0x100000,32,C.byref(h)))
+                source=root/'table.bin'
+                source.write_bytes(struct.pack('<4s4I',b'WDBC',1,1,4,1)+struct.pack('<I',value)+b'\0')
+                self.assertTrue(storm.lib.SFileAddFileEx(h,storm.path_arg(source),b'DBFilesClient\\CreatureDisplayInfo.dbc',0x200,2,2))
+                self.assertTrue(storm.lib.SFileCloseArchive(h))
+            report=build(data,root/'export',storm=storm,profile='dbc',progress=silent)
+            self.assertEqual(report['resources'],1)
+            with ZipFile(root/'export/upload'/report['packages'][0]['file']) as z:
+                self.assertEqual(DBC(z.read('dbfilesclient/creaturedisplayinfo.dbc')).cell(0,0),3)
+
     def test_native_localized_icon_export(self):
         storm=Storm()
         native_path=C.c_wchar_p if os.name=='nt' else C.c_char_p

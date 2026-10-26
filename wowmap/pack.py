@@ -27,7 +27,7 @@ ICON_EXTENSIONS = {'.blp', '.png', '.dds', '.tga'}
 
 def archive_order(data_root, profile='graphics', locale=None):
     """Return relative paths, keeping localized and root patch generations aligned."""
-    if profile not in ('graphics', 'icons'):
+    if profile not in ('graphics', 'icons', 'dbc'):
         raise ValueError('Unknown export profile')
     available = {p.name.lower(): p.name for p in data_root.iterdir()
                  if p.is_file() and p.suffix.lower() == '.mpq'}
@@ -35,7 +35,7 @@ def archive_order(data_root, profile='graphics', locale=None):
         raise ValueError('No standard WotLK MPQ archives found in this directory')
     if profile == 'graphics':
         if locale:
-            raise ValueError('--locale is supported only with --profile icons')
+            raise ValueError('--locale is supported only with --profile icons or dbc')
         return [available[n] for n in ARCHIVES if n in available]
     languages = {}
     for folder in sorted(data_root.iterdir()):
@@ -116,7 +116,7 @@ def scan(data_root, storm, listfile=None, progress=print, profile='graphics', lo
     stats = []
     warnings = []
     warnings.extend(f'Standard archive missing: {n}' for n in ARCHIVES if n not in available)
-    if profile == 'icons' and not any('/' in n for n in ordered):
+    if profile in ('icons', 'dbc') and not any('/' in n for n in ordered):
         warnings.append('No standard locale archives found; searched root archives only')
     for relative_name in ordered:
         source = data_root / relative_name
@@ -138,6 +138,8 @@ def scan(data_root, storm, listfile=None, progress=print, profile='graphics', lo
                     continue
                 if profile == 'icons' and (not path.startswith('interface/icons/')
                                           or PurePosixPath(path).suffix not in ICON_EXTENSIONS):
+                    continue
+                if profile == 'dbc' and (not path.startswith('dbfilesclient/') or not path.endswith('.dbc')):
                     continue
                 # Root archives normally use neutral locale. Prefer that version if both exist.
                 existing = effective.get(path)
@@ -164,10 +166,10 @@ def scan(data_root, storm, listfile=None, progress=print, profile='graphics', lo
     return effective, stats, warnings
 
 
-def write_parts(group, entries, handles, upload, part_bytes):
+def write_parts(group, entries, handles, upload, part_bytes, validate_dbc=False):
     slug = re.sub(r'[^a-z0-9_-]', '-', group)[:72]
     slug += '-' + hashlib.sha256(group.encode()).hexdigest()[:8]
-    records, parts = [], []
+    records, parts, tables = [], [], []
     zip_handle = None
     temporary = None
     size = 0
@@ -186,6 +188,12 @@ def write_parts(group, entries, handles, upload, part_bytes):
     try:
         for entry in entries:
             content = handles[entry['archive']].read(entry['original'], entry['locale'])
+            if validate_dbc:
+                from .dbc import DBC
+                try:
+                    tables.append(dict(path=entry['path'],**DBC(content).metadata()))
+                except ValueError as error:
+                    raise ValueError(f"Invalid DBC {entry['path']}: {error}") from error
             # Conservative room for local header + central directory, including UTF-8 names.
             overhead = 256 + 2 * len(entry['path'].encode('utf-8'))
             if zip_handle and size + len(content) + overhead > part_bytes:
@@ -210,7 +218,9 @@ def write_parts(group, entries, handles, upload, part_bytes):
             zip_handle.close()
         if temporary and temporary.exists():
             temporary.unlink()
-    return dict(group=group, records=records, packages=parts)
+    result=dict(group=group, records=records, packages=parts)
+    if validate_dbc:result['tables']=tables
+    return result
 
 
 def previews(upload, records, max_zones=64, per_zone=8):
@@ -264,7 +274,7 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
     # No absolute client paths are recorded in uploadable metadata.
     signature = hashlib.sha256(json.dumps(dict(archives=archives,part_mib=part_mib,
                                               listfile_sha256=digest_file(listfile) if listfile else None,
-                                              schema=SCHEMA,packer_version='0.2.1',
+                                              schema=SCHEMA,packer_version='0.2.2',
                                               profile=profile,locale=locale),sort_keys=True).encode()).hexdigest()
     output.mkdir(parents=True,exist_ok=True)
     work=output/'work'; upload=output/'upload'
@@ -282,7 +292,8 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
                 resources=len(effective),estimated_raw_bytes=total_bytes,warnings=warnings,
                 profile=profile,
                 coverage=('named Interface/Icons images in standard root and selected locale archives'
-                          if profile == 'icons' else 'named root-archive graphics only; not a complete client backup'),
+                          if profile == 'icons' else 'named DBFilesClient/*.dbc in standard root and selected locale archives'
+                          if profile == 'dbc' else 'named root-archive graphics only; not a complete client backup'),
                 locale_archives_included=any('/' in a['name'] for a in archives),
                 custom_archives_included=False)
     json_write(upload/'summary.json',report)
@@ -292,7 +303,7 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
     groups=defaultdict(list)
     for path,entry in sorted(effective.items()):
         groups[group_for(path)].append(entry)
-    records=[]; packages=[]; completed_groups=0
+    records=[]; packages=[]; tables=[]; completed_groups=0
     report['status']='packing';json_write(upload/'summary.json',report)
     try:
         with ExitStack() as stack:
@@ -306,22 +317,32 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
                         result=candidate
                 if result is None:
                     progress(f'[{index}/{len(groups)}] Packing {group}: {len(entries)} resources',flush=True)
-                    result=write_parts(group,entries,handles,upload,part_mib*1024*1024)
+                    result=write_parts(group,entries,handles,upload,part_mib*1024*1024,validate_dbc=profile=='dbc')
                     json_write(checkpoint,result)
                 else:
                     progress(f'[{index}/{len(groups)}] Reusing {group}',flush=True)
                 records.extend(result['records']);packages.extend(result['packages']);completed_groups += 1
+                tables.extend(result.get('tables',[]))
         with gzip.open(upload/'catalog.jsonl.gz','wt',encoding='utf-8') as stream:
             for record in records:
                 stream.write(json.dumps(record,ensure_ascii=False)+'\n')
         preview_report=previews(upload,records)
+        if profile == 'dbc':
+            from .dbc import appearance_coverage
+            coverage=appearance_coverage(r['path'] for r in records)
+            json_write(upload/'dbc-report.json',dict(format='wowmap.dbc-report/1',tables=tables,
+                       appearance_tables=coverage,client_build='not inferred from WDBC header'))
+            report['dbc_report']='dbc-report.json'
+            report['appearance_tables']=coverage
+            missing=[name for group in coverage.values() for name in group['missing']]
+            if missing:warnings.append('Appearance support tables missing: '+', '.join(missing))
         report.update(status='complete',packages=packages,preview=preview_report,
                       extensions=dict(Counter(PurePosixPath(r['path']).suffix for r in records)),
                       groups=[dict(group=g,resources=len(v)) for g,v in sorted(groups.items())],
                       actual_package_bytes=sum(p['bytes'] for p in packages),
                       oversized_packages=[p['file'] for p in packages if p['bytes']>part_mib*1024*1024])
         (upload/'READ_ME.txt').write_text(
-            'WoWMapTools raw graphics bundle\nUpload this folder to your private Drive.\n'
+            f'WoWMapTools raw resource bundle (profile: {profile})\nUpload this folder to your private Drive.\n'
             'summary.json: package hashes and status. catalog.jsonl.gz: resource -> ZIP lookup.\n'
             'Each ZIP is independent; paths are preserved and lowercased. No game executable or audio.\n'
             'This is not a complete client backup. See warnings and coverage in summary.json.\n'
@@ -337,17 +358,17 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
 
 
 def main():
-    parser=argparse.ArgumentParser(description='Prepare local WoW graphics for Google Drive')
+    parser=argparse.ArgumentParser(description='Prepare local WoW resource exports for Google Drive')
     parser.add_argument('--data',help='Client Data folder; opens a folder chooser if omitted')
-    parser.add_argument('--out',help='Default: output/drive-export or output/icons-export for icons')
+    parser.add_argument('--out',help='Default: output/drive-export, output/icons-export or output/dbc-export')
     parser.add_argument('--part-mib',type=int,default=128)
     parser.add_argument('--listfile',help='Optional plaintext MPQ listfile')
     parser.add_argument('--index-only',action='store_true')
-    parser.add_argument('--profile',choices=('graphics','icons'),default='graphics')
-    parser.add_argument('--locale',help='Client language folder, e.g. ruRU; icons profile only')
+    parser.add_argument('--profile',choices=('graphics','icons','dbc'),default='graphics')
+    parser.add_argument('--locale',help='Client language folder, e.g. ruRU; icons and dbc profiles only')
     args=parser.parse_args()
     if not args.out:
-        args.out='output/icons-export' if args.profile == 'icons' else 'output/drive-export'
+        args.out={'graphics':'output/drive-export','icons':'output/icons-export','dbc':'output/dbc-export'}[args.profile]
     try:
         if not args.data:
             import tkinter as tk

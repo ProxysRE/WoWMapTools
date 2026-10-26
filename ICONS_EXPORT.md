@@ -9,7 +9,7 @@
 
 1. Скачайте **Windows packer** для ветки **foundry-builder**, содержащий `pack_icons.bat`
    и `tools/StormLib.dll`. Ссылка на успешный запуск предоставляется отдельно.
-   Артефакт `WoWMapTools-DEV0.6.1-Windows` содержит ZIP программы; распакуйте оба уровня.
+   Артефакт `WoWMapTools-DEV0.6.2-Windows` содержит ZIP программы; распакуйте оба уровня.
 2. В новой папке программы запустите `setup_windows.bat`.
 3. Запустите `pack_icons.bat`. В окне выберите **Data клиента**, а не папку `ruRU`/`enUS`.
 4. Дождитесь сообщения об успехе. Откроется `output\icons-export\upload`.
