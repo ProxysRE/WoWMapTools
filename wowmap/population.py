@@ -1,11 +1,13 @@
 """Link validated Builder actors to rendered scene bundles without touching game assets."""
 import argparse
 import copy
+import hashlib
 import json
 from pathlib import Path
 import re
 from .foundry import uid,number,boolean
 from .objects import pair
+from .icons import PREFIX, relative_file
 
 
 def slug(value,label):
@@ -18,6 +20,14 @@ def validate_population(population):
     actors=population.get('actors',[]);placements=population.get('placements',[])
     if not isinstance(actors,list) or not isinstance(placements,list) or len(actors)>200 or len(placements)>2000:raise ValueError('Invalid population size')
     keys=set();ids=set()
+    media=population.get('media',[])
+    if not isinstance(media,list) or len(media)>2000:raise ValueError('Invalid population media list')
+    files=set()
+    for row in media:
+        digest=row.get('sha256','');path=row.get('file','')
+        if not re.fullmatch(r'[0-9a-f]{64}',digest) or path!=PREFIX+digest+'.webp':raise ValueError('Invalid population icon path or hash')
+        if path in files:raise ValueError('Duplicate population media path')
+        files.add(path)
     for actor in actors:
         key=slug(actor['key'],'Actor key')
         if key in keys:raise ValueError('Duplicate actor key')
@@ -70,6 +80,8 @@ def populate(bundle,population):
         prototype.setdefault('flags',{}).setdefault('wowmap',{})['placement']=p['id']
         scene.setdefault('tokens',[]).append(prototype)
     result['actors']=list(actors.values())
+    if population.get('media'):
+        result['externalMedia']=sorted(set(result.get('externalMedia',[])) | {r['file'] for r in population['media']})
     result['targets']={**result.get('targets',{}),'dnd5e':population.get('targets',{}).get('dnd5e','5.3.3')}
     return result
 
@@ -77,13 +89,25 @@ def populate(bundle,population):
 def write_population(bundle_path,population_path):
     bundle_path=Path(bundle_path);population_path=Path(population_path)
     if bundle_path.name!='bundle.json' or bundle_path.parent.parent.name!='wowmap':raise ValueError('Expected <export>/wowmap/<package>/bundle.json')
-    result=populate(json.loads(bundle_path.read_text(encoding='utf-8-sig')),json.loads(population_path.read_text(encoding='utf-8-sig')))
+    population=json.loads(population_path.read_text(encoding='utf-8-sig'))
+    result=populate(json.loads(bundle_path.read_text(encoding='utf-8-sig')),population)
     macro=Path(__file__).with_name('import_foundry.js').read_text(encoding='utf-8').replace('__BUNDLE_URL__',result['mediaRoot']+'/bundle.json')
     # All validation happens before file writes. Keep standalone scene exports consistent.
     for scene in result['scenes']:
         key=slug(scene['flags']['wowmap']['key'],'Scene key')
         dest=bundle_path.parent/key/'scene.json'
         if not dest.is_file():raise ValueError('Expected native per-scene export beside bundle.json')
+    media=[]
+    for row in population.get('media',[]):
+        source=relative_file(population_path.parent,row['file'])
+        if source.stat().st_size>4*1024*1024:raise ValueError('Population image exceeds 4 MiB')
+        data=source.read_bytes()
+        if hashlib.sha256(data).hexdigest()!=row['sha256']:raise ValueError('Population icon checksum mismatch')
+        target=relative_file(bundle_path.parent.parent.parent,row['file'])
+        if target.exists() and target.read_bytes()!=data:raise ValueError('Existing population image differs')
+        media.append((target,data))
+    for target,data in media:
+        target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
     for scene in result['scenes']:
         (bundle_path.parent/scene['flags']['wowmap']['key']/'scene.json').write_text(json.dumps(scene,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     bundle_path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

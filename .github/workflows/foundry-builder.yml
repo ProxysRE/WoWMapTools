@@ -7,6 +7,7 @@ on:
       - 'requests/builder/**'
       - 'tools/build_foundry_batch.py'
       - 'wowmap/population.py'
+      - 'wowmap/icons.py'
       - '.github/workflows/foundry-builder.yml'
   workflow_dispatch:
     inputs:

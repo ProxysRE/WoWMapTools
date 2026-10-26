@@ -32,17 +32,21 @@
     const SceneClass = CONFIG.Scene.documentClass;
     const ActorClass = actors.length ? CONFIG.Actor.documentClass : null;
     const actorIds = new Set();
+    function prepareImages(value, parentKey = '') {
+      if (!value || typeof value !== 'object') return;
+      for (const [key, child] of Object.entries(value)) {
+        if ((key === 'img' || (parentKey === 'texture' && key === 'src')) && typeof child === 'string' && child) {
+          value[key] = remap(child);
+          files.add(value[key]);
+        } else if (child && typeof child === 'object') prepareImages(child, key);
+      }
+    }
     for (const actor of actors) {
       if (actorIds.has(actor._id) || game.actors.has(actor._id)) throw new Error(`Actor ID already exists: ${actor.name}. Use a new export package id.`);
       actorIds.add(actor._id);
       if (actor.type !== 'npc') throw new Error('Population only supports NPC actors.');
       actor.folder = null;
-      actor.img = remap(actor.img);
-      if (actor.img) files.add(actor.img);
-      if (actor.prototypeToken?.texture?.src) {
-        actor.prototypeToken.texture.src = remap(actor.prototypeToken.texture.src);
-        files.add(actor.prototypeToken.texture.src);
-      }
+      prepareImages(actor);
       const model = new ActorClass(actor, {strict: true});
       model.validate({strict: true});
     }
