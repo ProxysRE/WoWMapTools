@@ -41,8 +41,9 @@ def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_asset
     if not isinstance(entries,list) or not 1<=len(entries)<=200:raise ValueError('Batch must contain 1..200 documents')
     output=Path(output).resolve()
     if output.exists() and any(output.iterdir()):raise ValueError('Output directory must be empty')
-    prepared=[];ids=set();icons=None;tokens=None
-    if any(entry.get('icons') for entry in entries):
+    if any(not isinstance(entry,dict) for entry in entries):raise ValueError('Each document entry must be an object')
+    prepared=[];ids=set();icons=None;tokens=None;icon_bindings=[]
+    if any(entry.get('icons') or entry.get('item_icons') for entry in entries):
         if icon_assets is None:raise ValueError('This request needs --icon-assets pointing to a private icon export')
         sys.path.insert(0,str(ROOT))
         from wowmap.icons import IconAssets
@@ -57,11 +58,24 @@ def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_asset
         if not isinstance(key,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}',key) or key in ids:raise ValueError('Document ids must be unique ASCII slugs')
         ids.add(key);mode=entry['mode'];source=read_json(source_path(entry['source']))
         outcome=builder_app.build_document(mode,copy.deepcopy(source),source_name=entry['source'])
+        binding_start=len(icons.bindings) if icons else 0
         if 'icons' in entry:
             if not isinstance(entry['icons'],dict):raise ValueError('icons must be an object')
             if entry['icons']:
                 if outcome.kind=='enhancement_set':raise ValueError('Icon bindings for enhancement_set archives are not supported')
                 outcome.document=icons.bind(outcome.document,entry['icons'])
+        if 'item_icons' in entry:
+            if not isinstance(entry['item_icons'],dict):raise ValueError('item_icons must be an object')
+            if entry['item_icons']:
+                if outcome.kind!='actor':raise ValueError('item_icons belongs to an NPC document')
+                start=len(icons.bindings)
+                candidate=icons.bind_items(outcome.document,entry['item_icons'])
+                old={row['pointer'] for row in icons.bindings[binding_start:start]}
+                if old & {row['pointer'] for row in icons.bindings[start:]}:
+                    raise ValueError('icons and item_icons target the same image')
+                outcome.document=candidate
+        if icons:
+            icon_bindings.extend(dict(document=key,**row) for row in icons.bindings[binding_start:])
         if 'appearance' in entry:
             if outcome.kind!='actor':raise ValueError('Creature appearance belongs to an NPC document')
             options=entry['appearance']
@@ -75,22 +89,22 @@ def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_asset
         prepared.append((key,outcome))
     actors={key:out.document for key,out in prepared if out.kind=='actor'}
     placements=copy.deepcopy(request.get('placements',[]))
-    for placement in placements:
-        if placement.get('actor') not in actors:raise ValueError('Placement must reference a built NPC id')
     population=dict(format='wowmap.population/1',targets=dict(dnd5e=project_config.DND5E_VERSION),
                     actors=[dict(key=key,document=doc) for key,doc in actors.items()],placements=placements)
     media=(list(icons.media.values()) if icons else [])+(list(tokens.media.values()) if tokens else [])
     if media:population['media']=media
     # Shared validator checks source population independently of any rendered map.
-    if placements:
-        sys.path.insert(0,str(ROOT))
-        from wowmap.population import validate_population
-        validate_population(population)
+    sys.path.insert(0,str(ROOT))
+    from wowmap.population import validate_population
+    validate_population(population)
     output.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(dir=output.parent,prefix='.builder-stage-') as temporary:
         stage=Path(temporary);rows=[]
         if icons:icons.write(stage)
         if tokens:tokens.write(stage)
+        review_files=icons.review(stage,icon_bindings) if icons else []
+        if icon_bindings:
+            (stage/'icon-bindings.json').write_text(json.dumps(icon_bindings,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         for key,outcome in prepared:
             extension='.zip' if outcome.kind=='enhancement_set' else '.json'
             dest=stage/(key+extension)
@@ -102,7 +116,7 @@ def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_asset
             rows.append(dict(id=key,mode=outcome.builder_key,file=dest.name,report=report.name,sha256=hashlib.sha256(dest.read_bytes()).hexdigest()))
         if actors:(stage/'population.json').write_text(json.dumps(population,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         result=dict(format='foundry-builder.result/1',request=str(request_path.relative_to(ROOT)),targets=project_config.TARGETS,documents=rows,
-                    population='population.json' if actors else None,media=media)
+                    population='population.json' if actors else None,media=media,icon_reviews=review_files)
         if media:
             (stage/'INSTALL_MEDIA.txt').write_text(
                 'Copy the included wowmap folder into your Foundry server user Data folder.\n'

@@ -108,3 +108,52 @@ class IconTests(unittest.TestCase):
         out=self.root/'bad'
         with self.assertRaises(ValueError):adapter.build_batch('requests/builder/icons-demo.json',out,self.assets)
         self.assertFalse(out.exists())
+
+    def test_item_identifiers_survive_reordering_and_reject_ambiguity(self):
+        icons=IconAssets(self.assets)
+        items=[dict(name='Fire',system=dict(identifier='fire')),dict(name='Key',system=dict(identifier='key'))]
+        for order in (items,list(reversed(items))):
+            doc={'items':copy.deepcopy(order)}
+            result=icons.bind_items(doc,{'key':'inv_misc_key_01'})
+            self.assertNotIn('img',doc['items'][0])
+            chosen=next(i for i in result['items'] if i['system']['identifier']=='key')
+            self.assertEqual(chosen['img'],icons.select('inv_misc_key_01'))
+            other=next(i for i in result['items'] if i['system']['identifier']=='fire')
+            self.assertNotIn('img',other)
+        for doc,key in [({'items':items},'missing'),({'items':items*2},'key')]:
+            with self.assertRaisesRegex(ValueError,'exactly once'):icons.bind_items(doc,{key:'inv_misc_key_01'})
+
+    def test_review_paginates_and_shows_selected_pixels_and_provenance(self):
+        icons=IconAssets(self.assets)
+        icons.bind({'name':'Ключ от кладовой'},{'/img':'inv_misc_key_01'})
+        rows=[dict(document='marta',**icons.bindings[0])]*25
+        files=icons.review(self.root/'review',rows)
+        self.assertEqual(files,['icon-review-001.png','icon-review-002.png'])
+        with Image.open(self.root/'review'/files[0]) as page:
+            self.assertEqual(page.size,(1000,1140))
+            self.assertNotEqual(page.getpixel((125,15)),page.getpixel((0,0)))
+        self.assertEqual(rows[0]['icon'],self.records[0]['path'])
+
+    def test_named_batch_bindings_conflicts_and_empty_population_validation(self):
+        spec=importlib.util.spec_from_file_location('named_icon_batch',ROOT/'tools/build_foundry_batch.py')
+        adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
+        original=adapter.read_json
+        source=original(ROOT/'requests/builder/sources/brum-scavenger.json')
+        entry=dict(id='brum',mode='npc',source='requests/builder/sources/brum-scavenger.json',
+                   item_icons={'brum-stone':'inv_misc_key_01'})
+        request=dict(format='foundry-builder.batch/1',documents=[entry],placements=[])
+        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else original(path)
+        out=self.root/'named';report=adapter.build_batch('requests/builder/active.json',out,self.assets)
+        doc=json.loads((out/'brum.json').read_text(encoding='utf-8'))
+        self.assertTrue(doc['items'][1]['img'].startswith(PREFIX))
+        review=json.loads((out/'icon-bindings.json').read_text(encoding='utf-8'))
+        self.assertEqual(review[0]['name'],'Бросок камня')
+        self.assertTrue((out/report['icon_reviews'][0]).is_file())
+        entry['icons']={'/items/1/img':'spell_fire_fireball'}
+        with self.assertRaisesRegex(ValueError,'same image'):
+            adapter.build_batch('requests/builder/active.json',self.root/'conflict',self.assets)
+        self.assertFalse((self.root/'conflict').exists())
+        del entry['icons'];request['placements']={}
+        with self.assertRaisesRegex(ValueError,'population size'):
+            adapter.build_batch('requests/builder/active.json',self.root/'invalid',self.assets)
+        self.assertFalse((self.root/'invalid').exists())

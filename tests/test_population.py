@@ -32,6 +32,18 @@ class PopulationTests(unittest.TestCase):
         result=populate(bundle(),p);a,b=result['scenes'][0]['tokens']
         self.assertEqual(a['actorId'],b['actorId']);self.assertNotEqual(a['_id'],b['_id']);self.assertFalse(b['actorLink'])
 
+    def test_placement_inherits_prototype_and_explicit_overrides_win(self):
+        p=population();del p['placements'][0]['actor_link']
+        prototype=p['actors'][0]['document']['prototypeToken']
+        prototype.update(disposition=-1,actorLink=False,hidden=True,elevation=10,width=2,height=2)
+        token=populate(bundle(),p)['scenes'][0]['tokens'][0]
+        self.assertEqual((token['disposition'],token['actorLink'],token['hidden'],token['elevation']),(-1,False,True,10))
+        self.assertEqual((token['x'],token['y'],token['width'],token['height']),(300,200,2,2))
+        p['placements'][0].update(disposition='friendly',actor_link=True,hidden=False,elevation=0,width=1,height=1)
+        token=populate(bundle(),p)['scenes'][0]['tokens'][0]
+        self.assertEqual((token['disposition'],token['actorLink'],token['hidden'],token['elevation']),(1,True,False,0))
+        self.assertEqual((token['x'],token['y']),(350,250))
+
     def test_invalid_references_bounds_duplicate_and_raw_sources_are_rejected(self):
         cases=[]
         p=population();p['placements'][0]['actor']='unknown';cases.append(p)

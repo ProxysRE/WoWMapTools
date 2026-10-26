@@ -74,9 +74,10 @@ def populate(bundle,population):
         cx,cy=p['position'];x=(cx-width/2)*ppc;y=(cy-height/2)*ppc
         if x<0 or y<0 or x+width*ppc>scene['width'] or y+height*ppc>scene['height']:raise ValueError(f"Token {p['id']} lies outside its scene")
         prototype.update(_id=uid(package,'token',p['id']),name=p.get('name',actor['name']),actorId=actor['_id'],
-                         actorLink=p.get('actor_link',True),x=x,y=y,width=width,height=height,
-                         hidden=p.get('hidden',False),disposition={'friendly':1,'neutral':0,'hostile':-1}[p.get('disposition','neutral')],
-                         elevation=number(p.get('elevation',0),'token elevation'))
+                         actorLink=p.get('actor_link',prototype.get('actorLink',True)),x=x,y=y,width=width,height=height,
+                         hidden=p.get('hidden',prototype.get('hidden',False)),disposition=({'friendly':1,'neutral':0,'hostile':-1}[p['disposition']]
+                             if 'disposition' in p else prototype.get('disposition',0)),
+                         elevation=number(p.get('elevation',prototype.get('elevation',0)),'token elevation'))
         if not prototype.setdefault('texture',{}).get('src'):prototype['texture']['src']=actor.get('img','icons/svg/mystery-man.svg')
         prototype.setdefault('flags',{}).setdefault('wowmap',{})['placement']=p['id']
         scene.setdefault('tokens',[]).append(prototype)

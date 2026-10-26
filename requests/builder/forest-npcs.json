@@ -12,10 +12,10 @@
         "portrait_size": 768,
         "portrait_yaw": 0
       },
-      "icons": {
-        "/items/0/img": "ability_druid_rake",
-        "/items/1/img": "ability_druid_ferociousbite",
-        "/items/2/img": "ability_hunter_pathfinding"
+      "item_icons": {
+        "ryk-claws": "ability_druid_rake",
+        "ryk-bite": "ability_druid_ferociousbite",
+        "ryk-tracker": "ability_hunter_pathfinding"
       }
     },
     {
@@ -29,10 +29,10 @@
         "portrait_size": 768,
         "portrait_yaw": 0
       },
-      "icons": {
-        "/items/0/img": "ability_druid_ferociousbite",
-        "/items/1/img": "inv_stone_01",
-        "/items/2/img": "ability_hunter_beastsoothe"
+      "item_icons": {
+        "brum-bite": "ability_druid_ferociousbite",
+        "brum-stone": "inv_stone_16",
+        "brum-hearing": "ability_vehicle_sonicshockwave"
       }
     },
     {
@@ -46,11 +46,11 @@
         "portrait_size": 768,
         "portrait_yaw": 0
       },
-      "icons": {
-        "/items/0/img": "ability_druid_rake",
-        "/items/1/img": "ability_druid_swipe",
-        "/items/2/img": "spell_nature_healingtouch",
-        "/items/3/img": "ability_hunter_pathfinding"
+      "item_icons": {
+        "tarn-paw": "ability_druid_rake",
+        "tarn-multiattack": "ability_druid_swipe",
+        "tarn-healing": "spell_nature_healingtouch",
+        "tarn-forest": "ability_hunter_pathfinding"
       }
     }
   ],

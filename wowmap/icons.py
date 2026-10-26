@@ -11,8 +11,9 @@ import io
 import json
 from pathlib import Path, PurePosixPath
 import re
+import textwrap
 from zipfile import ZipFile
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 PREFIX = 'wowmap/content/icons/'
 MAX_ICON_BYTES = 4 * 1024 * 1024
@@ -39,6 +40,7 @@ class IconAssets:
         self.images = {}
         self.media = {}
         self.selected = {}
+        self.bindings = []
         with gzip.open(catalog, 'rb') as stream:
             content = stream.read(64 * 1024 * 1024 + 1)
         if len(content) > 64 * 1024 * 1024:
@@ -141,7 +143,60 @@ class IconAssets:
             if not isinstance(parent, dict):
                 raise ValueError('Icon target must be an image property')
             parent[tokens[-1]] = self.select(icon)
+            self.bindings.append(dict(pointer=pointer, name=parent.get('name', pointer),
+                                      icon=self.resolve(icon), file=parent[tokens[-1]]))
         return result
+
+    def bind_items(self, document, bindings):
+        """Bind embedded item icons by their exact system.identifier, never list order."""
+        if not isinstance(bindings, dict) or len(bindings) > 2000:
+            raise ValueError('item_icons must map item identifiers to exact icon names')
+        pointers = {}
+        for identifier, icon in bindings.items():
+            if not isinstance(identifier, str) or not identifier:
+                raise ValueError('Item icon identifier must be nonempty text')
+            matches = [i for i, item in enumerate(document.get('items', []))
+                       if item.get('system', {}).get('identifier') == identifier]
+            if len(matches) != 1:
+                raise ValueError(f'Item icon identifier must resolve exactly once: {identifier} ({len(matches)} matches)')
+            pointers[f'/items/{matches[0]}/img'] = icon
+        return self.bind(document, pointers)
+
+    def review(self, root, rows, stem='icon-review'):
+        """Paginated contact sheets of actual selected pixels, for human review only."""
+        root = Path(root)
+        if not re.fullmatch(r'[a-z0-9-]+', stem):
+            raise ValueError('Review filename must be an ASCII slug')
+        font = None
+        for name in ('DejaVuSans.ttf', 'arial.ttf'):
+            try:
+                font = ImageFont.truetype(name, 14)
+                break
+            except OSError:
+                pass
+        if font is None:
+            font = ImageFont.load_default(size=14)
+        files = []
+        for start in range(0, len(rows), 24):
+            page = rows[start:start + 24]
+            image = Image.new('RGB', (1000, ((len(page) + 3) // 4) * 190), '#20252d')
+            draw = ImageDraw.Draw(image)
+            for index, row in enumerate(page):
+                x, y = (index % 4) * 250, (index // 4) * 190
+                with Image.open(io.BytesIO(self.images[row['file']])) as source:
+                    icon = source.convert('RGBA')
+                    icon.thumbnail((80, 80), Image.Resampling.NEAREST)
+                    image.paste(icon, (x + (250 - icon.width) // 2, y + 8), icon)
+                label = row.get('document', '')
+                lines = [label[:29]] if label else []
+                lines += textwrap.wrap(str(row['name']), 28)[:2]
+                lines += textwrap.wrap(PurePosixPath(row['icon']).stem, 28)[:2]
+                draw.multiline_text((x + 8, y + 94), '\n'.join(lines), fill='white', font=font, spacing=2)
+            path = root / f'{stem}-{start // 24 + 1:03}.png'
+            path.parent.mkdir(parents=True, exist_ok=True)
+            image.save(path)
+            files.append(path.name)
+        return files
 
     def write(self, root):
         for path, data in self.images.items():
@@ -155,9 +210,15 @@ def main():
     parser.add_argument('--assets', required=True, help='Folder containing catalog.jsonl.gz and ZIP packages')
     parser.add_argument('--query', required=True, help='English filename words, e.g. fire or inv_misc_key')
     parser.add_argument('--limit', type=int, default=30)
+    parser.add_argument('--preview-dir', help='Also render matching icons with filenames for visual selection')
     args = parser.parse_args()
     try:
-        print(json.dumps(IconAssets(args.assets).search(args.query, args.limit), indent=2))
+        icons = IconAssets(args.assets)
+        result = icons.search(args.query, args.limit)
+        if args.preview_dir:
+            rows = [dict(name=PurePosixPath(p).stem, icon=p, file=icons.select(p)) for p in result['paths']]
+            result['previews'] = icons.review(args.preview_dir, rows)
+        print(json.dumps(result, indent=2))
     except (OSError, ValueError, KeyError) as error:
         parser.exit(1, f'ERROR: {error}\n')
 
