@@ -22,6 +22,54 @@ ARCHIVES = ('common.mpq', 'common-2.mpq', 'expansion.mpq', 'lichking.mpq',
 GRAPHICS = {'.blp', '.png', '.dds', '.tga', '.m2', '.mdx', '.skin', '.anim',
             '.wmo', '.adt', '.wdt', '.wdl', '.dbc'}
 SCHEMA = 'wowmap.drive-bundle/1'
+ICON_EXTENSIONS = {'.blp', '.png', '.dds', '.tga'}
+
+
+def archive_order(data_root, profile='graphics', locale=None):
+    """Return relative paths, keeping localized and root patch generations aligned."""
+    if profile not in ('graphics', 'icons'):
+        raise ValueError('Unknown export profile')
+    available = {p.name.lower(): p.name for p in data_root.iterdir()
+                 if p.is_file() and p.suffix.lower() == '.mpq'}
+    if not any(name in available for name in ARCHIVES):
+        raise ValueError('No standard WotLK MPQ archives found in this directory')
+    if profile == 'graphics':
+        if locale:
+            raise ValueError('--locale is supported only with --profile icons')
+        return [available[n] for n in ARCHIVES if n in available]
+    languages = {}
+    for folder in sorted(data_root.iterdir()):
+        if not folder.is_dir() or not re.fullmatch(r'[a-zA-Z]{4}', folder.name):
+            continue
+        code = folder.name.lower()
+        names = {p.name.lower(): p for p in folder.iterdir()
+                 if p.is_file() and p.suffix.lower() == '.mpq'}
+        chain = [f'locale-{code}.mpq', f'expansion-locale-{code}.mpq',
+                 f'lichking-locale-{code}.mpq', f'patch-{code}.mpq',
+                 f'patch-{code}-2.mpq', f'patch-{code}-3.mpq']
+        selected = [names[n].relative_to(data_root).as_posix() for n in chain if n in names]
+        if selected:
+            languages[code] = selected
+    if locale:
+        if locale.lower() not in languages:
+            raise ValueError('No standard locale archives for requested language; found: '
+                             + ', '.join(languages))
+        localized = languages[locale.lower()]
+    elif len(languages) > 1:
+        raise ValueError('Multiple client languages found: ' + ', '.join(languages)
+                         + '. Choose one with --locale (for example --locale ruRU).')
+    else:
+        localized = next(iter(languages.values()), [])
+    result = [available[n] for n in ARCHIVES[:4] if n in available]
+    result.extend(n for n in localized if not Path(n).name.lower().startswith('patch-'))
+    for root_patch in ARCHIVES[4:]:
+        if root_patch in available:
+            result.append(available[root_patch])
+        suffix = root_patch.removeprefix('patch').removesuffix('.mpq')
+        result.extend(n for n in localized
+                      if re.fullmatch(r'patch-[a-z]{4}' + re.escape(suffix) + r'\.mpq',
+                                      Path(n).name.lower()))
+    return result
 
 
 def json_write(path, data):
@@ -58,22 +106,21 @@ def group_for(path):
     return parts[0]
 
 
-def scan(data_root, storm, listfile=None, progress=print):
+def scan(data_root, storm, listfile=None, progress=print, profile='graphics', locale=None):
     data_root = Path(data_root)
     if not data_root.is_dir():
         raise ValueError('Choose an existing client Data directory')
     available = {p.name.lower(): p for p in data_root.iterdir() if p.is_file() and p.suffix.lower() == '.mpq'}
-    if not any(name in available for name in ARCHIVES):
-        raise ValueError('No standard WotLK MPQ archives found in this directory')
+    ordered = archive_order(data_root, profile, locale)
     effective = {}
     stats = []
     warnings = []
-    for name in ARCHIVES:
-        if name not in available:
-            warnings.append(f'Standard archive missing: {name}')
-            continue
-        source = available[name]
-        progress(f'Indexing {source.name} ...', flush=True)
+    warnings.extend(f'Standard archive missing: {n}' for n in ARCHIVES if n not in available)
+    if profile == 'icons' and not any('/' in n for n in ordered):
+        warnings.append('No standard locale archives found; searched root archives only')
+    for relative_name in ordered:
+        source = data_root / relative_name
+        progress(f'Indexing {relative_name} ...', flush=True)
         named = unnamed = selected = 0
         with storm.open(source) as archive:
             for item in archive.entries(listfile):
@@ -89,22 +136,25 @@ def scan(data_root, storm, listfile=None, progress=print):
                 named += 1
                 if PurePosixPath(path).suffix not in GRAPHICS:
                     continue
+                if profile == 'icons' and (not path.startswith('interface/icons/')
+                                          or PurePosixPath(path).suffix not in ICON_EXTENSIONS):
+                    continue
                 # Root archives normally use neutral locale. Prefer that version if both exist.
                 existing = effective.get(path)
-                if existing and existing['archive'] == source.name and existing['locale'] == 0 and item['locale'] != 0:
+                if existing and existing['archive'] == relative_name and existing['locale'] == 0 and item['locale'] != 0:
                     continue
-                effective[path] = dict(path=path, original=original, archive=source.name,
+                effective[path] = dict(path=path, original=original, archive=relative_name,
                                        size=item['size'], flags=item['flags'], locale=item['locale'])
                 selected += 1
         stat = source.stat()
-        stats.append(dict(name=source.name, bytes=stat.st_size, modified_ns=stat.st_mtime_ns,
+        stats.append(dict(name=relative_name, bytes=stat.st_size, modified_ns=stat.st_mtime_ns,
                           named=named, unnamed=unnamed, graphics_entries=selected))
         if unnamed:
-            warnings.append(f'{source.name}: {unnamed} unnamed entries; an external listfile may improve coverage')
+            warnings.append(f'{relative_name}: {unnamed} unnamed entries; an external listfile may improve coverage')
     ignored = [p.name for key,p in available.items() if key not in ARCHIVES]
     if ignored:
         warnings.append('Unrecognized/custom root archives not used: ' + ', '.join(sorted(ignored)))
-    # Localized archives are intentionally outside the graphics-only root chain.
+    # General graphics retains the original root-only export scope.
     deleted = [path for path,item in effective.items() if item['flags'] & DELETE_MARKER]
     for path in deleted:
         del effective[path]
@@ -194,7 +244,8 @@ def previews(upload, records, max_zones=64, per_zone=8):
                 zones_previewed=min(len(groups),max_zones), samples_per_zone=per_zone)
 
 
-def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only=False, progress=print):
+def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only=False,
+          progress=print, profile='graphics', locale=None):
     if not 8 <= part_mib <= 1024:
         raise ValueError('part-mib must be between 8 and 1024')
     output = Path(output).resolve()
@@ -202,13 +253,19 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
     if output == data_root or output.is_relative_to(data_root):
         raise ValueError('Choose an output folder outside the client Data directory')
     storm = storm or Storm()
-    effective, archives, warnings = scan(data_root,storm,listfile,progress)
+    effective, archives, warnings = scan(data_root,storm,listfile,progress,profile,locale)
     if not effective:
-        raise ValueError('No named graphics resources found; provide an external listfile')
+        # A separate diagnostic survives even when there is nothing to package.
+        output.mkdir(parents=True,exist_ok=True)
+        json_write(output/'scan-diagnostic.json',dict(status='no_resources',profile=profile,
+                   archive_order=archives,warnings=warnings))
+        raise ValueError('No matching named resources found. See scan-diagnostic.json; '
+                         'an external --listfile may improve coverage.')
     # No absolute client paths are recorded in uploadable metadata.
     signature = hashlib.sha256(json.dumps(dict(archives=archives,part_mib=part_mib,
                                               listfile_sha256=digest_file(listfile) if listfile else None,
-                                              schema=SCHEMA,packer_version='0.2.0'),sort_keys=True).encode()).hexdigest()
+                                              schema=SCHEMA,packer_version='0.2.1',
+                                              profile=profile,locale=locale),sort_keys=True).encode()).hexdigest()
     output.mkdir(parents=True,exist_ok=True)
     work=output/'work'; upload=output/'upload'
     work.mkdir(exist_ok=True); upload.mkdir(exist_ok=True)
@@ -223,8 +280,11 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
     total_bytes=sum(entry['size'] for entry in effective.values())
     report=dict(format=SCHEMA,status='indexed',signature=signature,archive_order=archives,
                 resources=len(effective),estimated_raw_bytes=total_bytes,warnings=warnings,
-                coverage='named root-archive graphics only; not a complete client backup',
-                locale_archives_included=False,custom_archives_included=False)
+                profile=profile,
+                coverage=('named Interface/Icons images in standard root and selected locale archives'
+                          if profile == 'icons' else 'named root-archive graphics only; not a complete client backup'),
+                locale_archives_included=any('/' in a['name'] for a in archives),
+                custom_archives_included=False)
     json_write(upload/'summary.json',report)
     progress(f'Found {len(effective)} resources; raw size approx {total_bytes/1024**3:.2f} GiB',flush=True)
     if index_only:
@@ -279,11 +339,15 @@ def build(data_root, output, storm=None, part_mib=128, listfile=None, index_only
 def main():
     parser=argparse.ArgumentParser(description='Prepare local WoW graphics for Google Drive')
     parser.add_argument('--data',help='Client Data folder; opens a folder chooser if omitted')
-    parser.add_argument('--out',default='output/drive-export')
+    parser.add_argument('--out',help='Default: output/drive-export or output/icons-export for icons')
     parser.add_argument('--part-mib',type=int,default=128)
     parser.add_argument('--listfile',help='Optional plaintext MPQ listfile')
     parser.add_argument('--index-only',action='store_true')
+    parser.add_argument('--profile',choices=('graphics','icons'),default='graphics')
+    parser.add_argument('--locale',help='Client language folder, e.g. ruRU; icons profile only')
     args=parser.parse_args()
+    if not args.out:
+        args.out='output/icons-export' if args.profile == 'icons' else 'output/drive-export'
     try:
         if not args.data:
             import tkinter as tk
@@ -293,7 +357,8 @@ def main():
             root.destroy()
             if not args.data:
                 print('Cancelled.');return 1
-        report=build(args.data,args.out,part_mib=args.part_mib,listfile=args.listfile,index_only=args.index_only)
+        report=build(args.data,args.out,part_mib=args.part_mib,listfile=args.listfile,
+                     index_only=args.index_only,profile=args.profile,locale=args.locale)
         print(json.dumps({k:report[k] for k in ('status','resources','estimated_raw_bytes','warnings')},ensure_ascii=False,indent=2))
         return 0
     except KeyboardInterrupt:

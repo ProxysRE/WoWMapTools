@@ -23,8 +23,10 @@ class FakeArchive:
 
 
 class FakeStorm:
-    def __init__(self,archives): self.archives=archives
-    def open(self,path): return FakeArchive(self.archives[Path(path).name])
+    def __init__(self,archives,root=None): self.archives,self.root=archives,root
+    def open(self,path):
+        key=Path(path).relative_to(self.root).as_posix() if self.root else Path(path).name
+        return FakeArchive(self.archives[key])
 
 
 def silent(*args,**kwargs): pass
@@ -89,9 +91,86 @@ class PackerTests(unittest.TestCase):
         report=build(self.data,out,storm=self.storm,progress=silent)
         self.assertEqual(report['status'],'complete')
 
+    def add_localized(self):
+        extra={
+            'ruRU/locale-ruRU.MPQ': {'Interface\\Icons\\INV_Test.blp':(b'base icon',0),
+                                   'Interface\\Icons\\Deleted.blp':(b'old icon',0),
+                                   'Interface\\Frame.blp':(b'not an icon',0)},
+            'ruRU/patch-ruRU.MPQ': {'Interface\\Icons\\INV_Test.blp':(b'locale patch',0)},
+            'patch-2.MPQ': {'Interface\\Icons\\INV_Test.blp':(b'root patch2',0)},
+            'ruRU/patch-ruRU-2.MPQ': {'Interface\\Icons\\INV_Test.blp':(b'locale patch2',0),
+                                     'Interface\\Icons\\Deleted.blp':(b'',DELETE_MARKER)}}
+        self.archives.update(extra)
+        for name in extra:
+            target=self.data/name;target.parent.mkdir(exist_ok=True);target.write_bytes(b'archive')
+        self.storm=FakeStorm(self.archives,self.data)
+
+    def test_icons_locale_patch_order_filter_catalog_and_resume(self):
+        self.add_localized()
+        out=self.root/'icons'
+        report=build(self.data,out,storm=self.storm,profile='icons',progress=silent)
+        self.assertEqual(report['resources'],1)
+        self.assertTrue(report['locale_archives_included'])
+        self.assertEqual(report['profile'],'icons')
+        self.assertNotIn(str(self.data),json.dumps(report))
+        with gzip.open(out/'upload/catalog.jsonl.gz','rt') as f: records=[json.loads(l) for l in f]
+        self.assertEqual(records[0]['archive'],'ruRU/patch-ruRU-2.MPQ')
+        with ZipFile(out/'upload'/records[0]['package']) as z:
+            self.assertEqual(z.read('interface/icons/inv_test.blp'),b'locale patch2')
+        repeated=build(self.data,out,storm=self.storm,profile='icons',progress=silent)
+        self.assertEqual(report['packages'],repeated['packages'])
+        with self.assertRaisesRegex(ValueError,'Source archives'):
+            build(self.data,out,storm=self.storm,progress=silent)
+        # The original full graphics profile still excludes language archives.
+        effective,_,_=scan(self.data,self.storm,progress=silent)
+        self.assertFalse(any('/' in r['archive'] for r in effective.values()))
+
+    def test_icons_multiple_languages_require_explicit_choice(self):
+        self.add_localized()
+        name='enUS/locale-enUS.MPQ';target=self.data/name
+        target.parent.mkdir();target.write_bytes(b'archive')
+        self.archives[name]={'Interface\\Icons\\INV_Test.blp':(b'enUS',0)}
+        with self.assertRaisesRegex(ValueError,'Multiple client languages'):
+            scan(self.data,self.storm,profile='icons',progress=silent)
+        effective,_,_=scan(self.data,self.storm,profile='icons',locale='rUrU',progress=silent)
+        self.assertEqual(len(effective),1)
+        with self.assertRaisesRegex(ValueError,'requested language'):
+            scan(self.data,self.storm,profile='icons',locale='zzZZ',progress=silent)
+
+    def test_icons_empty_diagnostic_and_delta_rejection(self):
+        out=self.root/'empty'
+        with self.assertRaisesRegex(ValueError,'scan-diagnostic'):
+            build(self.data,out,storm=self.storm,profile='icons',progress=silent)
+        diagnostic=json.loads((out/'scan-diagnostic.json').read_text())
+        self.assertEqual(diagnostic['status'],'no_resources')
+        self.assertNotIn(str(self.data),json.dumps(diagnostic))
+        self.add_localized()
+        self.archives['ruRU/patch-ruRU-2.MPQ']['Interface\\Icons\\INV_Test.blp']=(b'delta',PATCH_FILE)
+        with self.assertRaisesRegex(ValueError,'delta'):
+            scan(self.data,self.storm,profile='icons',progress=silent)
+
 
 @unittest.skipUnless(os.environ.get('WOWMAP_STORMLIB'),'Native StormLib not configured')
 class NativeMPQTests(unittest.TestCase):
+    def test_native_localized_icon_export(self):
+        storm=Storm()
+        native_path=C.c_wchar_p if os.name=='nt' else C.c_char_p
+        storm.bind('SFileCreateArchive',[native_path,U32,U32,C.POINTER(HANDLE)],C.c_bool)
+        storm.bind('SFileAddFileEx',[HANDLE,native_path,C.c_char_p,U32,U32,U32],C.c_bool)
+        with tempfile.TemporaryDirectory(prefix='wowmap-icons-') as temp:
+            root=Path(temp);data=root/'Data';(data/'ruRU').mkdir(parents=True)
+            for name,content in [('common.MPQ',b'base'),('ruRU/locale-ruRU.MPQ',b'localized'),
+                                 ('ruRU/patch-ruRU-3.MPQ',b'latest')]:
+                h=HANDLE()
+                self.assertTrue(storm.lib.SFileCreateArchive(storm.path_arg(data/name),0x100000,32,C.byref(h)))
+                source=root/'icon.bin';source.write_bytes(content)
+                self.assertTrue(storm.lib.SFileAddFileEx(h,storm.path_arg(source),b'Interface\\Icons\\INV_Test.blp',0x200,2,2))
+                self.assertTrue(storm.lib.SFileCloseArchive(h))
+            report=build(data,root/'icons',storm=storm,profile='icons',progress=silent)
+            self.assertEqual(report['resources'],1)
+            with ZipFile(root/'icons/upload'/report['packages'][0]['file']) as z:
+                self.assertEqual(z.read('interface/icons/inv_test.blp'),b'latest')
+
     def test_real_compressed_mpq_roundtrip_and_pack(self):
         storm=Storm()
         native_path=C.c_wchar_p if os.name=='nt' else C.c_char_p
