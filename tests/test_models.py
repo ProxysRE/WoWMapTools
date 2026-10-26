@@ -3,6 +3,7 @@ from pathlib import Path
 import struct
 import tempfile
 import unittest
+from unittest.mock import patch
 from zipfile import ZipFile
 from PIL import Image
 from wowmap.models import RawAssets, inspect_model, model_info, preview
@@ -38,6 +39,38 @@ def fixture():
 
 
 class ModelTests(unittest.TestCase):
+    def test_raw_cache_avoids_repeated_decompression_and_evicts_by_bytes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/'assets.zip'
+            with ZipFile(path,'w') as z:
+                z.writestr('a',b'12345');z.writestr('b',b'67890');z.writestr('large',b'x'*20)
+            with RawAssets(temp) as assets, patch('wowmap.models.RAW_CACHE_BYTES',8):
+                archive=assets.archives[0]
+                with patch.object(archive,'read',wraps=archive.read) as read:
+                    self.assertEqual(assets.read('A'),assets.read('a'))
+                    self.assertEqual(read.call_count,1)
+                    assets.read('b');self.assertNotIn('a',assets.raw_cache)
+                    assets.read('a');self.assertEqual(read.call_count,3)
+                    assets.read('large');self.assertNotIn('large',assets.raw_cache)
+                    self.assertLessEqual(sum(map(len,assets.raw_cache.values())),8)
+            self.assertEqual(assets.raw_cache,{})
+            self.assertEqual(assets.files,{})
+            path.unlink()  # Also checks handle release on Windows.
+
+    def test_image_cache_is_bounded_by_bytes_and_oversized_entries_are_not_retained(self):
+        _,_,texture=fixture()
+        with tempfile.TemporaryDirectory() as temp:
+            with ZipFile(Path(temp)/'assets.zip','w') as z:
+                z.writestr('a.png',texture);z.writestr('b.png',texture)
+            with RawAssets(temp) as assets, patch('wowmap.models.IMAGE_CACHE_BYTES',300):
+                a=assets.image('a.png');self.assertEqual(a.nbytes,256)
+                self.assertIs(assets.image('a.png'),a)
+                assets.image('b.png');self.assertNotIn('a.png',assets.cache)
+                self.assertLessEqual(sum(v.nbytes for v in assets.cache.values()),300)
+                with patch('wowmap.models.IMAGE_CACHE_BYTES',128):
+                    self.assertEqual(assets.image('a.png').nbytes,256)
+                    self.assertNotIn('a.png',assets.cache)
+
     def test_preview_geometry_transparency_and_missing_dependency(self):
         model,skin,texture=fixture()
         with tempfile.TemporaryDirectory() as temp:

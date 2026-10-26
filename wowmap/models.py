@@ -15,12 +15,16 @@ import numpy as np
 from PIL import Image
 from .pack import normalize
 
+RAW_CACHE_BYTES = 16 * 1024 * 1024
+IMAGE_CACHE_BYTES = 32 * 1024 * 1024
+
 
 class RawAssets:
     def __init__(self, folder, verify_archives=False):
         self.files = {}
         self.archives = []
         self.cache = OrderedDict()
+        self.raw_cache = OrderedDict()
         try:
             folder=Path(folder)
             for path in sorted([*folder.glob('*.zip'),*(folder/'packages').glob('*.zip')]):
@@ -48,25 +52,42 @@ class RawAssets:
 
     def close(self):
         for archive in self.archives: archive.close()
+        self.archives.clear()
+        self.files.clear()
+        self.cache.clear()
+        self.raw_cache.clear()
 
     def has(self, name): return normalize(name) in self.files
 
     def read(self, name):
         name = normalize(name)
+        if name in self.raw_cache:
+            self.raw_cache.move_to_end(name)
+            return self.raw_cache[name]
         if name not in self.files:
             raise ValueError(f'Missing resource: {name}')
         archive, info = self.files[name]
-        return archive.read(info)
+        data = archive.read(info)
+        if len(data) <= RAW_CACHE_BYTES:
+            self.raw_cache[name] = data
+            while (len(self.raw_cache) > 128 or
+                   sum(map(len, self.raw_cache.values())) > RAW_CACHE_BYTES):
+                self.raw_cache.popitem(last=False)
+        return data
 
     def image(self, name):
         name = normalize(name)
         if name not in self.cache:
             with Image.open(io.BytesIO(self.read(name))) as image:
-                image.load()
                 if max(image.size) > 4096:
                     raise ValueError(f'Texture too large for preview: {name}')
-                self.cache[name] = np.asarray(image.convert('RGBA')).copy()
-            if len(self.cache) > 32: self.cache.popitem(last=False)
+                image.load()
+                pixels = np.asarray(image.convert('RGBA')).copy()
+            if pixels.nbytes > IMAGE_CACHE_BYTES:
+                return pixels
+            self.cache[name] = pixels
+            while len(self.cache) > 32 or sum(a.nbytes for a in self.cache.values()) > IMAGE_CACHE_BYTES:
+                self.cache.popitem(last=False)
         self.cache.move_to_end(name)
         return self.cache[name]
 

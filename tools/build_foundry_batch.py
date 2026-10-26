@@ -4,6 +4,7 @@ Run from any directory. Request and source paths are resolved inside this reposi
 Outputs are staged and published only after every document passes the real builder.
 """
 import argparse
+from contextlib import ExitStack
 import copy
 import hashlib
 import json
@@ -35,6 +36,11 @@ def source_path(path):
 
 
 def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_assets=None):
+    with ExitStack() as resources:
+        return _build_batch(request_path,output,icon_assets,dbc_assets,model_assets,resources)
+
+
+def _build_batch(request_path,output,icon_assets,dbc_assets,model_assets,resources):
     request_path=source_path(str(request_path));request=read_json(request_path)
     if request.get('format')!='foundry-builder.batch/1':raise ValueError('Expected foundry-builder.batch/1')
     entries=request.get('documents')
@@ -52,7 +58,7 @@ def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_asset
         if dbc_assets is None or model_assets is None:raise ValueError('Creature appearances need --dbc-assets and --model-assets')
         sys.path.insert(0,str(ROOT))
         from wowmap.tokens import TokenAssets
-        tokens=TokenAssets(dbc_assets,model_assets)
+        tokens=resources.enter_context(TokenAssets(dbc_assets,model_assets).session())
     for entry in entries:
         key=entry['id']
         if not isinstance(key,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}',key) or key in ids:raise ValueError('Document ids must be unique ASCII slugs')

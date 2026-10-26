@@ -6,6 +6,7 @@ GAMEOBJECT1..3 in wowmodelviewer/src/games/wow/wow_enums.h.
 Humanoid assembly, animation sampling and special geosets are deliberately rejected.
 """
 import argparse
+from contextlib import contextmanager, ExitStack
 import hashlib
 import io
 import json
@@ -86,6 +87,20 @@ class TokenAssets:
     def __init__(self, dbc_folder, model_folder):
         self.db=AppearanceDB(dbc_folder);self.model_folder=model_folder
         self.images={};self.media={};self.selected={}
+        self._stack=None;self._assets=None
+
+    @contextmanager
+    def session(self):
+        """Lazily index model ZIPs once; close them even when a build fails."""
+        if self._stack is not None:
+            yield self
+            return
+        with ExitStack() as stack:
+            self._stack=stack
+            try:
+                yield self
+            finally:
+                self._stack=None;self._assets=None
 
     def select(self, options, view='top'):
         if view not in ('top','front'):raise ValueError('Token view must be top or front')
@@ -106,7 +121,9 @@ class TokenAssets:
         key=(display_id,size,yaw,view)
         if key in self.selected:return self.selected[key]
         if len(self.selected)>=400:raise ValueError('At most 400 creature views per batch')
-        with RawAssets(self.model_folder) as assets:
+        with self.session():
+            if self._assets is None:self._assets=self._stack.enter_context(RawAssets(self.model_folder))
+            assets=self._assets
             info=inspect_model(assets,appearance['model'])
             replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
             image,render=preview(assets,appearance['model'],size,replacements,yaw,view)
@@ -122,8 +139,9 @@ class TokenAssets:
         return path
 
     def pair(self, options):
-        token=self.select(options)
-        portrait=self.select(options,'front') if options.get('actor_image',True) else None
+        with self.session():
+            token=self.select(options)
+            portrait=self.select(options,'front') if options.get('actor_image',True) else None
         return dict(token=token,portrait=portrait)
 
     def write(self, root):

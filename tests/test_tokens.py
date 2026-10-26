@@ -7,6 +7,7 @@ from pathlib import Path
 import struct
 import tempfile
 import unittest
+from unittest.mock import patch
 from zipfile import ZipFile
 from PIL import Image
 from test_models import fixture
@@ -50,6 +51,24 @@ class TokenTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name);self.dbc,self.models=appearance_fixture(self.root)
+
+    def test_session_shares_archives_between_views_and_variants_and_closes_on_failure(self):
+        tokens=TokenAssets(self.dbc,self.models)
+        options=dict(display_id=165,size=128,portrait_size=128)
+        with patch('wowmap.tokens.RawAssets',wraps=RawAssets) as opened:
+            with tokens.session():
+                first=tokens.pair(options)
+                tokens.pair({**options,'display_id':644})
+                assets=tokens._assets
+                self.assertEqual(opened.call_count,1)
+            self.assertFalse(assets.archives);self.assertIsNone(tokens._assets)
+            self.assertEqual(first,tokens.pair(options))
+            self.assertEqual(opened.call_count,1)  # Cached pairs never reopen ZIPs.
+            with self.assertRaisesRegex(RuntimeError,'render failed'):
+                with tokens.session(), patch('wowmap.tokens.preview',side_effect=RuntimeError('render failed')):
+                    tokens.select({**options,'yaw':30})
+            self.assertIsNone(tokens._assets);self.assertIsNone(tokens._stack)
+        (self.models/'packages/test.zip').unlink()
 
     def test_display_links_choose_distinct_skins_without_changing_geometry(self):
         tokens=TokenAssets(self.dbc,self.models)
