@@ -1,0 +1,36 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "wolf-timber",
+      "mode": "npc",
+      "source": "requests/builder/sources/wolf-timber.json",
+      "appearance": {
+        "display_id": 165,
+        "size": 512,
+        "yaw": 90
+      }
+    },
+    {
+      "id": "wolf-black",
+      "mode": "npc",
+      "source": "requests/builder/sources/wolf-black.json",
+      "appearance": {
+        "display_id": 644,
+        "size": 512,
+        "yaw": 90
+      }
+    },
+    {
+      "id": "wolf-arctic",
+      "mode": "npc",
+      "source": "requests/builder/sources/wolf-arctic.json",
+      "appearance": {
+        "display_id": 776,
+        "size": 512,
+        "yaw": 90
+      }
+    }
+  ],
+  "placements": []
+}

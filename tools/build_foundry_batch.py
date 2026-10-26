@@ -34,19 +34,24 @@ def source_path(path):
     return target
 
 
-def build_batch(request_path,output,icon_assets=None):
+def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_assets=None):
     request_path=source_path(str(request_path));request=read_json(request_path)
     if request.get('format')!='foundry-builder.batch/1':raise ValueError('Expected foundry-builder.batch/1')
     entries=request.get('documents')
     if not isinstance(entries,list) or not 1<=len(entries)<=200:raise ValueError('Batch must contain 1..200 documents')
     output=Path(output).resolve()
     if output.exists() and any(output.iterdir()):raise ValueError('Output directory must be empty')
-    prepared=[];ids=set();icons=None
+    prepared=[];ids=set();icons=None;tokens=None
     if any(entry.get('icons') for entry in entries):
         if icon_assets is None:raise ValueError('This request needs --icon-assets pointing to a private icon export')
         sys.path.insert(0,str(ROOT))
         from wowmap.icons import IconAssets
         icons=IconAssets(icon_assets)
+    if any('appearance' in entry for entry in entries):
+        if dbc_assets is None or model_assets is None:raise ValueError('Creature appearances need --dbc-assets and --model-assets')
+        sys.path.insert(0,str(ROOT))
+        from wowmap.tokens import TokenAssets
+        tokens=TokenAssets(dbc_assets,model_assets)
     for entry in entries:
         key=entry['id']
         if not isinstance(key,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}',key) or key in ids:raise ValueError('Document ids must be unique ASCII slugs')
@@ -57,6 +62,16 @@ def build_batch(request_path,output,icon_assets=None):
             if entry['icons']:
                 if outcome.kind=='enhancement_set':raise ValueError('Icon bindings for enhancement_set archives are not supported')
                 outcome.document=icons.bind(outcome.document,entry['icons'])
+        if 'appearance' in entry:
+            if outcome.kind!='actor':raise ValueError('Creature appearance belongs to an NPC document')
+            options=entry['appearance']
+            if not isinstance(options,dict):raise ValueError('appearance must be an object')
+            conflicts={'/prototypeToken/texture/src'}
+            if options.get('actor_image',True):conflicts.add('/img')
+            if conflicts & set(entry.get('icons',{})):raise ValueError('Icon and appearance target the same image')
+            image=tokens.select(options)
+            outcome.document.setdefault('prototypeToken',{}).setdefault('texture',{})['src']=image
+            if options.get('actor_image',True):outcome.document['img']=image
         prepared.append((key,outcome))
     actors={key:out.document for key,out in prepared if out.kind=='actor'}
     placements=copy.deepcopy(request.get('placements',[]))
@@ -64,7 +79,7 @@ def build_batch(request_path,output,icon_assets=None):
         if placement.get('actor') not in actors:raise ValueError('Placement must reference a built NPC id')
     population=dict(format='wowmap.population/1',targets=dict(dnd5e=project_config.DND5E_VERSION),
                     actors=[dict(key=key,document=doc) for key,doc in actors.items()],placements=placements)
-    media=list(icons.media.values()) if icons else []
+    media=(list(icons.media.values()) if icons else [])+(list(tokens.media.values()) if tokens else [])
     if media:population['media']=media
     # Shared validator checks source population independently of any rendered map.
     if placements:
@@ -75,6 +90,7 @@ def build_batch(request_path,output,icon_assets=None):
     with tempfile.TemporaryDirectory(dir=output.parent,prefix='.builder-stage-') as temporary:
         stage=Path(temporary);rows=[]
         if icons:icons.write(stage)
+        if tokens:tokens.write(stage)
         for key,outcome in prepared:
             extension='.zip' if outcome.kind=='enhancement_set' else '.json'
             dest=stage/(key+extension)
@@ -88,10 +104,10 @@ def build_batch(request_path,output,icon_assets=None):
         result=dict(format='foundry-builder.result/1',request=str(request_path.relative_to(ROOT)),targets=project_config.TARGETS,documents=rows,
                     population='population.json' if actors else None,media=media)
         if media:
-            (stage/'INSTALL_ICONS.txt').write_text(
+            (stage/'INSTALL_MEDIA.txt').write_text(
                 'Copy the included wowmap folder into your Foundry server user Data folder.\n'
                 'Images must exist before importing the JSON documents. Merge folders; keep existing files.\n'
-                'Images use content hashes and are shared by standalone documents and NPC inventories.\n',encoding='utf-8')
+                'Images use content hashes and include selected icons and/or creature tokens.\n',encoding='utf-8')
         (stage/'build-report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         if output.exists():output.rmdir()
         shutil.move(str(stage),str(output))
@@ -102,8 +118,10 @@ def main():
     parser=argparse.ArgumentParser(description='Build Foundry JSON without opening the GUI')
     parser.add_argument('request');parser.add_argument('--out',default='output/builder')
     parser.add_argument('--icon-assets',help='Private export folder with icon catalog and ZIPs')
+    parser.add_argument('--dbc-assets',help='Private folder of exported DBC ZIPs')
+    parser.add_argument('--model-assets',help='Private folder of model, SKIN and texture ZIPs')
     args=parser.parse_args()
-    try:print(json.dumps(build_batch(args.request,args.out,args.icon_assets),ensure_ascii=False,indent=2))
+    try:print(json.dumps(build_batch(args.request,args.out,args.icon_assets,args.dbc_assets,args.model_assets),ensure_ascii=False,indent=2))
     except (OSError,ValueError,KeyError,builder_app.AppBuildError,build_enhancement_module.EnhancementModuleBuildError) as error:
         parser.exit(1,f'ERROR: {error}\n')
 

@@ -11,6 +11,7 @@ on:
       - 'PACK_FOR_DRIVE.md'
       - 'ICONS_EXPORT.md'
       - 'DBC_EXPORT.md'
+      - 'TOKENS.md'
       - '.github/workflows/packer.yml'
 permissions:
   contents: read

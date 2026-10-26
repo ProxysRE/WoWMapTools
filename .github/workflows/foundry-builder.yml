@@ -8,6 +8,9 @@ on:
       - 'tools/build_foundry_batch.py'
       - 'wowmap/population.py'
       - 'wowmap/icons.py'
+      - 'wowmap/tokens.py'
+      - 'wowmap/models.py'
+      - 'wowmap/dbc.py'
       - '.github/workflows/foundry-builder.yml'
   workflow_dispatch:
     inputs:

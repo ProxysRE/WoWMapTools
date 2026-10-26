@@ -21,7 +21,8 @@ class RawAssets:
         self.archives = []
         self.cache = OrderedDict()
         try:
-            for path in sorted(Path(folder).glob('*.zip')):
+            folder=Path(folder)
+            for path in sorted([*folder.glob('*.zip'),*(folder/'packages').glob('*.zip')]):
                 archive = ZipFile(path)
                 self.archives.append(archive)
                 if verify_archives and archive.testzip() is not None:
@@ -101,13 +102,22 @@ def inspect_model(assets, name):
     return info
 
 
-def mesh_data(assets, name):
+def mesh_data(assets, name, texture_overrides=None):
     data = assets.read(name)
     info = inspect_model(assets,name)
     if info['missing']:
         raise ValueError('Missing dependencies: '+', '.join(info['missing']))
-    if info['replaceable_texture_types']:
+    overrides=texture_overrides or {}
+    if not isinstance(overrides,dict) or any(type(k) is not int or k<=0 for k in overrides):
+        raise ValueError('Texture overrides must map positive texture types to resource paths')
+    if set(info['replaceable_texture_types'])-set(overrides):
         raise ValueError('Replaceable textures require explicit skin selection')
+    if set(overrides)-set(info['replaceable_texture_types']):
+        raise ValueError('Texture override type is not used by this model')
+    for texture in info['textures']:
+        if texture['kind']:
+            texture['path']=normalize(overrides[texture['kind']])
+            if not assets.has(texture['path']):raise ValueError('Missing selected skin: '+texture['path'])
     count, offset = array_at(data,60,48)
     vertex_dtype=np.dtype(dict(names=['position','weights','bones','normal','uv','uv2'],
                               formats=[('<f4',3),('u1',4),('u1',4),('<f4',3),('<f4',2),('<f4',2)],
@@ -145,9 +155,15 @@ def mesh_data(assets, name):
     return vertices,draws,info
 
 
-def preview(assets, name, size=512):
+def preview(assets, name, size=512, texture_overrides=None, yaw=0):
     if not 64<=size<=2048: raise ValueError('Preview size must be 64..2048')
-    vertices,draws,info=mesh_data(assets,name)
+    if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not np.isfinite(yaw) or not -360<=yaw<=360:
+        raise ValueError('Preview yaw must be finite degrees between -360 and 360')
+    vertices,draws,info=mesh_data(assets,name,texture_overrides)
+    if yaw:
+        angle=np.deg2rad(yaw);c,s=np.cos(angle),np.sin(angle)
+        rotation=np.array([[c,-s],[s,c]])
+        for key in ('position','normal'):vertices[key][:,:2]=vertices[key][:,:2]@rotation.T
     xyz=vertices['position']; low=xyz[:,:2].min(axis=0); high=xyz[:,:2].max(axis=0)
     span=max(high-low)
     if span<1e-6: raise ValueError('Degenerate XY bounds')
@@ -195,6 +211,8 @@ def preview(assets, name, size=512):
                   anchor_pixels=[float(v) for v in pivot],pixels_per_world_unit=float(scale),
                   limitations=['static base pose','no billboarding','no particles or ribbons',
                                'single texture per batch','alpha blend approximated by cutout'])
+    if texture_overrides:metadata['selected_textures']={str(k):normalize(v) for k,v in texture_overrides.items()}
+    if yaw:metadata['yaw_degrees']=yaw
     return Image.fromarray(np.uint8(np.clip(image,0,1)*255)),metadata
 
 

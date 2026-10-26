@@ -25,7 +25,7 @@ def validate_population(population):
     files=set()
     for row in media:
         digest=row.get('sha256','');path=row.get('file','')
-        if not re.fullmatch(r'[0-9a-f]{64}',digest) or path!=PREFIX+digest+'.webp':raise ValueError('Invalid population icon path or hash')
+        if not re.fullmatch(r'[0-9a-f]{64}',digest) or path not in (PREFIX+digest+'.webp','wowmap/content/tokens/'+digest+'.webp'):raise ValueError('Invalid population media path or hash')
         if path in files:raise ValueError('Duplicate population media path')
         files.add(path)
     for actor in actors:
@@ -102,7 +102,7 @@ def write_population(bundle_path,population_path):
         source=relative_file(population_path.parent,row['file'])
         if source.stat().st_size>4*1024*1024:raise ValueError('Population image exceeds 4 MiB')
         data=source.read_bytes()
-        if hashlib.sha256(data).hexdigest()!=row['sha256']:raise ValueError('Population icon checksum mismatch')
+        if hashlib.sha256(data).hexdigest()!=row['sha256']:raise ValueError('Population media checksum mismatch')
         target=relative_file(bundle_path.parent.parent.parent,row['file'])
         if target.exists() and target.read_bytes()!=data:raise ValueError('Existing population image differs')
         media.append((target,data))
