@@ -25,7 +25,7 @@ class FakeArchive:
 class FakeStorm:
     def __init__(self,archives,root=None): self.archives,self.root=archives,root
     def open(self,path):
-        key=Path(path).relative_to(self.root).as_posix() if self.root else Path(path).name
+        key=Path(path).resolve().relative_to(self.root.resolve()).as_posix() if self.root else Path(path).name
         return FakeArchive(self.archives[key])
 
 
