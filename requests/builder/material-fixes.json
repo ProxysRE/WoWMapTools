@@ -1,0 +1,30 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "murloc-material-test",
+      "mode": "npc",
+      "source": "requests/builder/sources/murloc-material-test.json",
+      "appearance": {
+        "display_id": 188,
+        "size": 512,
+        "yaw": -90,
+        "portrait_size": 768,
+        "portrait_yaw": 0
+      }
+    },
+    {
+      "id": "kobold-material-test",
+      "mode": "npc",
+      "source": "requests/builder/sources/kobold-material-test.json",
+      "appearance": {
+        "display_id": 26,
+        "size": 512,
+        "yaw": -90,
+        "portrait_size": 768,
+        "portrait_yaw": 0
+      }
+    }
+  ],
+  "placements": []
+}

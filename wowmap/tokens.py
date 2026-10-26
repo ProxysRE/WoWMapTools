@@ -108,10 +108,9 @@ class TokenAssets:
         if len(self.selected)>=400:raise ValueError('At most 400 creature views per batch')
         with RawAssets(self.model_folder) as assets:
             info=inspect_model(assets,appearance['model'])
-            replacements={k:v for k,v in appearance['textures'].items() if k in info['replaceable_texture_types']}
+            replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
             image,render=preview(assets,appearance['model'],size,replacements,yaw,view)
-            deps={appearance['model'],info['skins'][0],*replacements.values()}
-            deps.update(t['path'] for t in info['textures'] if t['path'])
+            deps={appearance['model'],info['skins'][0],*render['used_textures']}
             sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]
         buffer=io.BytesIO();image.save(buffer,format='WEBP',lossless=True,exact=True)
         data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest()

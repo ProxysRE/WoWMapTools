@@ -90,6 +90,20 @@ class TokenTests(unittest.TestCase):
         db.models.clear()
         with self.assertRaisesRegex(ValueError,'unknown model'):db.appearance(165)
 
+    def test_token_provenance_does_not_require_unused_declared_resources(self):
+        from test_materials import unused_reference
+        package=self.models/'packages/test.zip'
+        with ZipFile(package) as z:files={name:z.read(name) for name in z.namelist()}
+        files['creature/test/test.m2']=unused_reference(files['creature/test/test.m2'])
+        with ZipFile(package,'w') as z:
+            for name,data in files.items():z.writestr(name,data)
+        tokens=TokenAssets(self.dbc,self.models)
+        pair=tokens.pair(dict(display_id=165,size=128,portrait_size=128))
+        for path in pair.values():
+            variant=tokens.media[path]['appearances'][0]
+            self.assertIn('world/unneeded/glow.blp',variant['render']['unused_missing_resources'])
+            self.assertNotIn('world/unneeded/glow.blp',[r['path'] for r in variant['sources']])
+
     def test_pair_front_camera_is_not_mirrored_and_has_transparent_margins(self):
         tokens=TokenAssets(self.dbc,self.models)
         pair=tokens.pair(dict(display_id=165,size=128,portrait_size=128))

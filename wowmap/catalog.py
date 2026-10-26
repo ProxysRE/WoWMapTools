@@ -31,8 +31,9 @@ def requirements(plan,records,raw=None):
         wanted.add(model)
         if raw is not None and raw.has(model):
             info=inspect_model(raw,model)
-            wanted.update(info['skins']);wanted.update(t['path'] for t in info['textures'] if t['path'])
-            if info['replaceable_texture_types']:replaceable.append(model)
+            wanted.update(info['required_skins']);wanted.update(info['required_textures'])
+            if info['used_replaceable_texture_types']:replaceable.append(model)
+            if not info['inspection_complete']:uninspected.append(model)
         else:uninspected.append(model)
     found=[];unknown=[]
     for name in sorted(wanted):
@@ -42,7 +43,7 @@ def requirements(plan,records,raw=None):
     return dict(resources=found,missing_packages=sorted({r['package'] for r in found if not r['available']}),
                 not_in_catalog=unknown,models_needing_inspection=uninspected,replaceable_texture_models=replaceable,
                 dependencies_complete=not uninspected and not replaceable and not unknown,
-                note='Model texture references become known after the M2 is available; this is not an automatic downloader.')
+                note='Material references require the M2 and selected SKIN; this is not an automatic downloader.')
 
 
 def main():

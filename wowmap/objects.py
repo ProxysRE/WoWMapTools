@@ -9,7 +9,7 @@ from PIL import Image, ImageFilter
 from .models import inspect_model, preview
 
 LAYERS = ('ground', 'props', 'overhead')
-CACHE_VERSION = 'm2-topdown-2'
+CACHE_VERSION = 'm2-topdown-3'
 
 
 def finite(value, label):
@@ -58,7 +58,7 @@ def validate_objects(objects):
 def cached_sprite(assets, model, cache, resolution=768):
     info=inspect_model(assets,model)
     if info['missing']: raise ValueError('Missing model dependencies: '+', '.join(info['missing']))
-    paths=[info['path']]+info['skins']+[t['path'] for t in info['textures'] if t['path']]
+    paths=[info['path']]+info['required_skins']+info['required_textures']
     digest=hashlib.sha256((CACHE_VERSION+str(resolution)).encode())
     for path in sorted(set(paths)):
         digest.update(path.encode());digest.update(hashlib.sha256(assets.read(path)).digest())

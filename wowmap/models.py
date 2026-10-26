@@ -1,6 +1,7 @@
 """Static M2 (WotLK v264) inspection and CPU orthographic previews.
 
-Not a game renderer: no skeleton animation, billboarding, particles or shader effects.
+Limited fixed-function materials, not a game renderer: no skeleton animation,
+billboarding, particles or arbitrary shader effects.
 """
 import argparse
 from collections import OrderedDict
@@ -95,47 +96,40 @@ def model_info(data, name):
 
 
 def inspect_model(assets, name):
-    info = model_info(assets.read(name),name)
-    info['missing'] = sorted({t['path'] for t in info['textures'] if t['path'] and not assets.has(t['path'])} |
-                             {s for s in info['skins'] if not assets.has(s)})
+    data=assets.read(name);info = model_info(data,name)
+    declared={t['path'] for t in info['textures'] if t['path']} | set(info['skins'])
+    info['declared_missing']=sorted(p for p in declared if not assets.has(p))
     info['replaceable_texture_types'] = sorted({t['kind'] for t in info['textures'] if t['kind'] != 0})
+    if assets.has(info['skins'][0]):
+        draws=material_draws(assets,data,info)
+        used={d['texture'] for d in draws if d['texture']}
+        info['required_textures']=sorted(used)
+        info['used_replaceable_texture_types']=sorted({d['texture_kind'] for d in draws if d['texture_kind']})
+        info['blend_modes']=sorted({d['blend'] for d in draws})
+        info['inspection_complete']=True
+    else:
+        used=set();info['required_textures']=[];info['inspection_complete']=False
+        info['used_replaceable_texture_types']=[];info['blend_modes']=[]
+    info['required_skins']=[info['skins'][0]]
+    info['missing']=sorted(p for p in used | {info['skins'][0]} if not assets.has(p))
+    info['unused_missing']=sorted(set(info['declared_missing'])-set(info['missing'])) if info['inspection_complete'] else []
     return info
 
 
-def mesh_data(assets, name, texture_overrides=None):
-    data = assets.read(name)
-    info = inspect_model(assets,name)
-    if info['missing']:
-        raise ValueError('Missing dependencies: '+', '.join(info['missing']))
-    overrides=texture_overrides or {}
-    if not isinstance(overrides,dict) or any(type(k) is not int or k<=0 for k in overrides):
-        raise ValueError('Texture overrides must map positive texture types to resource paths')
-    if set(info['replaceable_texture_types'])-set(overrides):
-        raise ValueError('Replaceable textures require explicit skin selection')
-    if set(overrides)-set(info['replaceable_texture_types']):
-        raise ValueError('Texture override type is not used by this model')
-    for texture in info['textures']:
-        if texture['kind']:
-            texture['path']=normalize(overrides[texture['kind']])
-            if not assets.has(texture['path']):raise ValueError('Missing selected skin: '+texture['path'])
-    count, offset = array_at(data,60,48)
-    vertex_dtype=np.dtype(dict(names=['position','weights','bones','normal','uv','uv2'],
-                              formats=[('<f4',3),('u1',4),('u1',4),('<f4',3),('<f4',2),('<f4',2)],
-                              offsets=[0,12,16,20,32,40],itemsize=48))
-    vertices=np.frombuffer(data,dtype=vertex_dtype,count=count,offset=offset).copy()
-    if not all(np.isfinite(vertices[key]).all() for key in ('position','normal','uv')):
-        raise ValueError('Non-finite model geometry')
+def material_draws(assets, data, info):
+    """Resolve batches of the selected first SKIN, rather than every declaration."""
     skin=assets.read(info['skins'][0])
     if skin[:4]!=b'SKIN': raise ValueError('Invalid SKIN header')
     count,offset=array_at(skin,4,2); lookup=np.frombuffer(skin,dtype='<u2',count=count,offset=offset)
     count,offset=array_at(skin,12,2); indices=np.frombuffer(skin,dtype='<u2',count=count,offset=offset)
-    if len(indices)%3 or (len(indices) and indices.max()>=len(lookup)) or (len(lookup) and lookup.max()>=len(vertices)):
+    if len(indices)%3 or (len(indices) and indices.max()>=len(lookup)) or (len(lookup) and lookup.max()>=info['vertices']):
         raise ValueError('Invalid triangle indices')
     count,offset=array_at(skin,28,48)
     sections=[struct.unpack_from('<10H',skin,offset+i*48) for i in range(count)]
     count,offset=array_at(skin,36,24)
     batches=[struct.unpack_from('<BB11H',skin,offset+i*24) for i in range(count)]
     count,offset=array_at(data,128,2); texture_lookup=np.frombuffer(data,dtype='<u2',count=count,offset=offset)
+    count,offset=array_at(data,136,2); coordinates=np.frombuffer(data,dtype='<i2',count=count,offset=offset)
     count,offset=array_at(data,112,4); materials=[struct.unpack_from('<HH',data,offset+i*4) for i in range(count)]
     draws=[]
     for batch in batches:
@@ -146,13 +140,70 @@ def mesh_data(assets, name, texture_overrides=None):
         tex_index=int(texture_lookup[combo])
         if tex_index>=len(info['textures']): raise ValueError('Invalid texture lookup')
         flags,blend=materials[material_index]
-        if blend not in (0,1,2): raise ValueError(f'Unsupported preview blend mode: {blend}')
+        if len(coordinates):
+            if batch[7]>=len(coordinates):raise ValueError('Invalid texture-coordinate lookup')
+            coordinate=int(coordinates[batch[7]])
+        else:coordinate=0
         section=sections[section_index]
         start=section[4]+(section[1]<<16); length=section[5]
         if start+length>len(indices) or length%3: raise ValueError('Invalid section index range')
         triangles=lookup[indices[start:start+length]].reshape(-1,3)
-        draws.append(dict(triangles=triangles,texture=info['textures'][tex_index]['path'],blend=blend,flags=flags))
+        texture=info['textures'][tex_index]
+        if texture['kind']==0 and not texture['path']:raise ValueError('Selected material has no texture path')
+        draws.append(dict(triangles=triangles,texture=texture['path'],texture_kind=texture['kind'],
+                          coordinate=coordinate,blend=blend,flags=flags))
+    return draws
+
+
+def mesh_data(assets, name, texture_overrides=None):
+    data=assets.read(name);info=inspect_model(assets,name)
+    if info['missing']:raise ValueError('Missing dependencies: '+', '.join(info['missing']))
+    overrides=texture_overrides or {}
+    if not isinstance(overrides,dict) or any(type(k) is not int or k<=0 for k in overrides):
+        raise ValueError('Texture overrides must map positive texture types to resource paths')
+    if set(info['used_replaceable_texture_types'])-set(overrides):
+        raise ValueError('Replaceable textures require explicit skin selection')
+    if set(overrides)-set(info['replaceable_texture_types']):
+        raise ValueError('Texture override type is not declared by this model')
+    count,offset=array_at(data,60,48)
+    vertex_dtype=np.dtype(dict(names=['position','weights','bones','normal','uv','uv2'],
+                              formats=[('<f4',3),('u1',4),('u1',4),('<f4',3),('<f4',2),('<f4',2)],
+                              offsets=[0,12,16,20,32,40],itemsize=48))
+    vertices=np.frombuffer(data,dtype=vertex_dtype,count=count,offset=offset).copy()
+    if not all(np.isfinite(vertices[key]).all() for key in ('position','normal','uv','uv2')):
+        raise ValueError('Non-finite model geometry')
+    draws=material_draws(assets,data,info)
+    for draw in draws:
+        if draw['blend'] not in (0,1,2,4):raise ValueError(f"Unsupported preview blend mode: {draw['blend']}")
+        if draw['coordinate'] not in (-1,0,1):raise ValueError('Unsupported texture coordinate type')
+        if draw['texture_kind']:draw['texture']=normalize(overrides[draw['texture_kind']])
+        if not assets.has(draw['texture']):raise ValueError('Missing selected skin: '+draw['texture'])
     return vertices,draws,info
+
+
+def sphere_uv(normals):
+    """Orthographic GL_SPHERE_MAP equivalent, camera toward local +Z."""
+    length=np.linalg.norm(normals,axis=-1,keepdims=True)
+    n=np.divide(normals,length,out=np.zeros_like(normals),where=length>1e-8)
+    reflected=2*n*n[...,2:3];reflected[...,2]-=1
+    divisor=2*np.sqrt(reflected[...,0]**2+reflected[...,1]**2+(reflected[...,2]+1)**2)
+    uv=np.divide(reflected[...,:2],divisor[...,None],out=np.zeros_like(reflected[...,:2]),where=divisor[...,None]>1e-8)
+    return uv+.5
+
+
+def additive_composite(destination, source):
+    """Mode 4: add alpha-weighted light; flatten coverage for ordinary RGBA files.
+
+    Additive light over an opaque surface is preserved. A transparent image cannot
+    add light to an arbitrary future background, so uncovered glow uses an
+    energy-based alpha approximation. Black additive texels add no coverage.
+    """
+    emitted=source[...,:3]*source[...,3:4]
+    old_alpha=destination[...,3:4]
+    alpha=old_alpha+(1-old_alpha)*np.max(emitted,axis=-1,keepdims=True)
+    premultiplied=destination[...,:3]*old_alpha+emitted
+    rgb=np.divide(premultiplied,alpha,out=np.zeros_like(premultiplied),where=alpha>1e-8)
+    return np.concatenate((np.clip(rgb,0,1),np.clip(alpha,0,1)),axis=-1)
 
 
 def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
@@ -180,10 +231,15 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
     depth=np.full((size,size),-np.inf,dtype=np.float32)
     light=np.array([-.3,.4,.85]);light=light/np.linalg.norm(light)
     # Base static pose only; no particle, ribbon, skeletal or UV animation evaluation.
-    for draw in draws:
+    epsilon=span*1e-5
+    # Finish solid/cutout geometry before its additive overlay, including coplanar passes.
+    for draw in sorted(draws,key=lambda d:d['blend']==4):
+        additive=draw['blend']==4
+        layer=np.zeros_like(image) if additive else image
+        layer_depth=np.full_like(depth,-np.inf) if additive else depth
         tex=assets.image(draw['texture'])
         for tri in draw['triangles']:
-            p=screen[tri]; uv=vertices['uv'][tri]; z=xyz[tri,2]
+            p=screen[tri]; z=xyz[tri,2]
             xmin=max(0,int(np.floor(p[:,0].min())));xmax=min(size-1,int(np.ceil(p[:,0].max())))
             ymin=max(0,int(np.floor(p[:,1].min())));ymax=min(size-1,int(np.ceil(p[:,1].max())))
             if xmin>xmax or ymin>ymax: continue
@@ -197,26 +253,39 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
             covered=(w0>=-1e-5)&(w1>=-1e-5)&(w2>=-1e-5)
             weights=np.stack([w0,w1,w2],axis=-1)
             height=weights@z
-            db=depth[ymin:ymax+1,xmin:xmax+1]
+            db=layer_depth[ymin:ymax+1,xmin:xmax+1]
             covered &= height>db
-            tuv=weights@uv
+            if additive and not draw['flags']&8:
+                covered &= height>=depth[ymin:ymax+1,xmin:xmax+1]-epsilon
+            normals=weights@vertices['normal'][tri]
+            if draw['coordinate']==-1:tuv=sphere_uv(normals)
+            else:tuv=weights@vertices['uv2' if draw['coordinate']==1 else 'uv'][tri]
             tx=np.floor((tuv[:,:,0]%1)*tex.shape[1]).astype(int)%tex.shape[1]
             ty=np.floor((tuv[:,:,1]%1)*tex.shape[0]).astype(int)%tex.shape[0]
             color=tex[ty,tx].astype(np.float32)/255
             if draw['blend']==0: color[:,:,3]=1
+            elif additive:covered &= (color[:,:,3]>0)&(color[:,:,:3].max(axis=-1)>0)
             else: covered &= color[:,:,3]>=.5
-            normals=weights@vertices['normal'][tri]
             shade=.65+.35*np.maximum(normals@light,0)
             if draw['flags']&1:shade=np.ones_like(shade)
             color[:,:,:3]*=shade[:,:,None]
-            dest=image[ymin:ymax+1,xmin:xmax+1]
+            dest=layer[ymin:ymax+1,xmin:xmax+1]
             dest[covered]=color[covered];db[covered]=height[covered]
+        if additive:
+            image=additive_composite(image,layer)
+            if not draw['flags']&16:
+                valid=layer[:,:,3]>0;depth[valid]=np.maximum(depth[valid],layer_depth[valid])
     if not image[:,:,3].any(): raise ValueError(f'No visible {view} triangles')
     pivot=[size/2-center[0]*scale,size/2+center[1]*scale]
     metadata=dict(path=normalize(name),pixels=size,world_xy_bounds=[low.tolist(),high.tolist()],
                   anchor_pixels=[float(v) for v in pivot],pixels_per_world_unit=float(scale),
                   limitations=['static base pose','no billboarding','no particles or ribbons',
                                'single texture per batch','alpha blend approximated by cutout'])
+    metadata['blend_modes']=sorted({d['blend'] for d in draws})
+    metadata['used_textures']=sorted({d['texture'] for d in draws})
+    metadata['unused_missing_resources']=info['unused_missing']
+    if 4 in metadata['blend_modes']:metadata['limitations'].append('additive light flattened to RGBA coverage')
+    if any(d['coordinate']==-1 for d in draws):metadata['environment_mapping']='orthographic sphere map'
     if texture_overrides:metadata['selected_textures']={str(k):normalize(v) for k,v in texture_overrides.items()}
     if yaw:metadata['yaw_degrees']=yaw
     if view=='front':
