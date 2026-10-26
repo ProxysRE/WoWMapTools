@@ -1,0 +1,48 @@
+{
+  "name": "Ключ от кладовой «Старого дуба»",
+  "type": "loot",
+  "img": "systems/dnd5e/icons/svg/items/loot.svg",
+  "system": {
+    "description": {
+      "value": "<p>Железный ключ от двери кладовой постоялого двора «Старый дуб». Открытие двери разыгрывает мастер; автоматического изменения состояния дверей нет.</p>",
+      "chat": ""
+    },
+    "identifier": "old-oak-pantry-key",
+    "source": {
+      "revision": 1,
+      "rules": "2024"
+    },
+    "identified": true,
+    "unidentified": {
+      "description": ""
+    },
+    "container": null,
+    "quantity": 1,
+    "weight": {
+      "value": 0.1,
+      "units": "lb"
+    },
+    "price": {
+      "value": 0,
+      "denomination": "gp"
+    },
+    "rarity": "",
+    "properties": [],
+    "type": {
+      "value": "gear",
+      "subtype": ""
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

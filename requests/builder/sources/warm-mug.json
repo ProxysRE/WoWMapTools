@@ -1,0 +1,104 @@
+{
+  "name": "Тёплая кружка — демонстрационный заговор",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": {
+      "value": "<p>Вы касаетесь одной кружки с немагическим напитком объёмом не более одной пинты. В течение минуты напиток остаётся приятно тёплым, после чего остывает обычным образом. Заговор не наносит урона, не кипятит жидкость и не очищает её от яда. Изменение температуры разыгрывается вручную.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "",
+      "book": "",
+      "page": "",
+      "license": "",
+      "rules": "2024",
+      "revision": 1
+    },
+    "activation": {
+      "type": "action",
+      "value": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    },
+    "target": {
+      "affects": {
+        "type": "object",
+        "count": 1,
+        "choice": true,
+        "special": ""
+      },
+      "template": {
+        "units": "ft",
+        "contiguous": false,
+        "type": "",
+        "stationary": false
+      }
+    },
+    "range": {
+      "value": null,
+      "units": "touch",
+      "special": ""
+    },
+    "uses": {
+      "max": "",
+      "spent": 0,
+      "recovery": []
+    },
+    "level": 0,
+    "school": "trs",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "properties": [
+      "vocal",
+      "somatic"
+    ],
+    "activities": {},
+    "identifier": "warm-mug-demo",
+    "method": "spell",
+    "prepared": 1
+  },
+  "mechanics": {
+    "activity_type": "utility",
+    "activity_name": "Согреть напиток",
+    "activation": {
+      "type": "action",
+      "value": 1
+    },
+    "targeting": {
+      "range": {
+        "units": "touch"
+      },
+      "target": {
+        "affects": {
+          "type": "object",
+          "count": 1,
+          "choice": true
+        }
+      }
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "project": "Генератор JSON для импорта в FoundryVTT",
+  "manifest_version": 24,
+  "canonical_directory": "/Генератор JSON для импорта в FoundryVTT",
+  "targets": {
+    "foundry": "13.351",
+    "export_core": "13.347",
+    "dnd5e": "5.3.3",
+    "midi-qol": "13.0.64",
+    "dae": "13.0.29",
+    "enhancements_module": "0.7.0"
+  },
+  "update_policy": {
+    "mode": "replace_in_place",
+    "forbid_numbered_copies": true,
+    "forbidden_name_pattern": "\\(\\d+\\)(?=\\.[^.]+$)",
+    "rule": "При изменении существующего файла всегда заменять файл с тем же каноническим именем и сохранять его историю версий. Не создавать копии (1), (2), v2, final или fixed.",
+    "new_file_rule": "Создавать новый файл разрешено только для новой самостоятельной сущности с новым смысловым именем."
+  },
+  "pipeline": [
+    "actor_builder.py",
+    "feat_builder.py",
+    "weapon_builder.py",
+    "equipment_builder.py",
+    "spell_builder.py",
+    "consumable_builder.py",
+    "item_builder.py",
+    "enhancement_builder.py",
+    "enhancement_set_builder.py",
+    "rolltable_builder.py",
+    "build_enhancement_module.py"
+  ],
+  "entry_point": "build_npc.py",
+  "gui_entry_point": "builder_app.py",
+  "package_entry_point": "package_project.py",
+  "canonical_files": {
+    "application": [
+      "builder_app.py",
+      "package_project.py",
+      "project_config.py",
+      "start_builder_app.bat"
+    ],
+    "builders": [
+      "actor_builder.py",
+      "build_enhancement_module.py",
+      "build_npc.py",
+      "consumable_builder.py",
+      "enhancement_builder.py",
+      "enhancement_policy.py",
+      "enhancement_set_builder.py",
+      "equipment_builder.py",
+      "feat_builder.py",
+      "item_builder.py",
+      "rolltable_builder.py",
+      "spell_builder.py",
+      "weapon_builder.py"
+    ],
+    "templates": [
+      "templates.json",
+      "enhancement_test_set.json"
+    ],
+    "documentation": [
+      "AI_FOUNDRY_BUILDER_GUIDE.md",
+      "docs/COMMON_JSON.md",
+      "docs/CONSUMABLES_JSON.md",
+      "docs/CONTENT_DESIGN.md",
+      "docs/EQUIPMENT_JSON.md",
+      "docs/ENHANCEMENTS_JSON.md",
+      "docs/ENHANCEMENTS_README.md",
+      "docs/FEATURES_JSON.md",
+      "docs/ITEMS_JSON.md",
+      "docs/ITEM_ENHANCEMENT_POLICY.md",
+      "docs/NPC_JSON.md",
+      "docs/PROJECT_MAINTENANCE.md",
+      "docs/SPELLS_JSON.md",
+      "docs/VALIDATION.md",
+      "docs/WEAPONS_JSON.md"
+    ],
+    "validation": [
+      "project_audit.py",
+      "midi_compat.py"
+    ],
+    "runtime": [
+      "runtime/foundry-json-builder-enhancements/scripts/enhancement-groups.mjs"
+    ]
+  }
+}

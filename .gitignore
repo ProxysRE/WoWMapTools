@@ -12,3 +12,6 @@ tools/*.dll
 tools/*.so*
 stormlib-source/
 stormlib-build/
+
+# GUI Builder local reports
+foundry_builder/logs/

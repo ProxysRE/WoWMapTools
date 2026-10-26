@@ -1,0 +1,58 @@
+name: Foundry JSON Builder
+on:
+  push:
+    branches: [foundry-builder]
+    paths:
+      - 'foundry_builder/**'
+      - 'requests/builder/**'
+      - 'tools/build_foundry_batch.py'
+      - 'wowmap/population.py'
+      - '.github/workflows/foundry-builder.yml'
+  workflow_dispatch:
+    inputs:
+      request:
+        description: Repository-relative batch JSON
+        default: requests/builder/active.json
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: foundry-builder-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      PYTHONUTF8: '1'
+      PYTHON: python
+      BUILDER_REQUEST: ${{ inputs.request || 'requests/builder/active.json' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install scene bridge dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check canonical Builder project
+        working-directory: foundry_builder
+        run: |
+          python builder_app.py --self-test
+          python project_audit.py
+      - name: Build requested JSON documents and population manifest
+        shell: pwsh
+        run: python tools/build_foundry_batch.py "$env:BUILDER_REQUEST" --out output/builder
+      - name: Package standalone Builder application
+        working-directory: foundry_builder
+        run: python package_project.py --output ../output/FoundryVTT_Builder_Project.zip
+      - name: Upload JSON documents, reports and source application
+        uses: actions/upload-artifact@v4
+        with:
+          name: foundry-json-build
+          path: |
+            output/builder/
+            output/FoundryVTT_Builder_Project.zip
+          if-no-files-found: error
+          retention-days: 30

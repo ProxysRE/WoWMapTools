@@ -1,0 +1,924 @@
+{
+  "schema_version": 1,
+  "templates": {
+    "npc": {
+      "name": "Новый НПС",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "abilities": {
+          "str": {
+            "value": 10,
+            "proficient": 0,
+            "bonuses": {
+              "check": "",
+              "save": "",
+              "skill": ""
+            }
+          },
+          "dex": {
+            "value": 10,
+            "proficient": 0,
+            "bonuses": {
+              "check": "",
+              "save": "",
+              "skill": ""
+            }
+          },
+          "con": {
+            "value": 10,
+            "proficient": 0,
+            "bonuses": {
+              "check": "",
+              "save": "",
+              "skill": ""
+            }
+          },
+          "int": {
+            "value": 10,
+            "proficient": 0,
+            "bonuses": {
+              "check": "",
+              "save": "",
+              "skill": ""
+            }
+          },
+          "wis": {
+            "value": 10,
+            "proficient": 0,
+            "bonuses": {
+              "check": "",
+              "save": "",
+              "skill": ""
+            }
+          },
+          "cha": {
+            "value": 10,
+            "proficient": 0,
+            "bonuses": {
+              "check": "",
+              "save": "",
+              "skill": ""
+            }
+          }
+        },
+        "attributes": {
+          "ac": {
+            "calc": "flat",
+            "flat": 10,
+            "formula": ""
+          },
+          "hp": {
+            "value": 1,
+            "max": 1,
+            "temp": 0,
+            "tempmax": 0,
+            "formula": ""
+          },
+          "init": {
+            "ability": "dex",
+            "bonus": ""
+          },
+          "movement": {
+            "walk": 30,
+            "fly": 0,
+            "swim": 0,
+            "climb": 0,
+            "burrow": 0,
+            "units": "ft",
+            "hover": false
+          },
+          "senses": {
+            "ranges": {
+              "darkvision": null,
+              "blindsight": null,
+              "tremorsense": null,
+              "truesight": null
+            },
+            "units": "ft",
+            "special": ""
+          },
+          "spellcasting": "",
+          "spell": {
+            "level": 0
+          },
+          "exhaustion": 0
+        },
+        "spells": {
+          "spell0": {
+            "value": 0,
+            "override": null
+          },
+          "spell1": {
+            "value": 0,
+            "override": null
+          },
+          "spell2": {
+            "value": 0,
+            "override": null
+          },
+          "spell3": {
+            "value": 0,
+            "override": null
+          },
+          "spell4": {
+            "value": 0,
+            "override": null
+          },
+          "spell5": {
+            "value": 0,
+            "override": null
+          },
+          "spell6": {
+            "value": 0,
+            "override": null
+          },
+          "spell7": {
+            "value": 0,
+            "override": null
+          },
+          "spell8": {
+            "value": 0,
+            "override": null
+          },
+          "spell9": {
+            "value": 0,
+            "override": null
+          },
+          "pact": {
+            "value": 0,
+            "override": null
+          }
+        },
+        "details": {
+          "alignment": "",
+          "biography": {
+            "value": "",
+            "public": ""
+          },
+          "race": "",
+          "type": {
+            "value": "humanoid",
+            "subtype": "",
+            "custom": ""
+          },
+          "cr": 0,
+          "xp": {},
+          "source": {
+            "book": "Кастомный статблок",
+            "page": "",
+            "license": ""
+          }
+        },
+        "traits": {
+          "size": "med",
+          "di": {
+            "value": [],
+            "custom": ""
+          },
+          "dr": {
+            "value": [],
+            "custom": ""
+          },
+          "dv": {
+            "value": [],
+            "custom": ""
+          },
+          "ci": {
+            "value": [],
+            "custom": ""
+          },
+          "languages": {
+            "value": [],
+            "custom": "",
+            "communication": {
+              "telepathy": {
+                "value": null,
+                "units": "ft"
+              }
+            }
+          }
+        },
+        "skills": {},
+        "resources": {},
+        "currency": {
+          "pp": 0,
+          "gp": 0,
+          "ep": 0,
+          "sp": 0,
+          "cp": 0
+        }
+      },
+      "prototypeToken": {
+        "name": "Новый НПС",
+        "displayName": 20,
+        "disposition": -1,
+        "displayBars": 20,
+        "bar1": {
+          "attribute": "attributes.hp"
+        },
+        "sight": {
+          "enabled": true,
+          "range": 0,
+          "visionMode": "basic"
+        },
+        "width": 1,
+        "height": 1
+      },
+      "items": [],
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    "feat": {
+      "name": "Особенность",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "",
+          "chat": ""
+        },
+        "identifier": "osobennost",
+        "source": {
+          "revision": 1,
+          "rules": "2024"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      }
+    },
+    "weapon": {
+      "name": "Название оружия",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "",
+          "chat": ""
+        },
+        "identifier": "",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2024",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": false,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": null,
+        "properties": [],
+        "proficient": null,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": null,
+          "units": "ft"
+        },
+        "type": {
+          "value": "",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "activities": [],
+        "effects": []
+      },
+      "enhancement_policy": {
+        "mode": "open",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": ""
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    "equipment": {
+      "name": "Экипировка",
+      "type": "equipment",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "",
+          "chat": ""
+        },
+        "identifier": "ekipirovka",
+        "source": {
+          "revision": 1,
+          "rules": "2024"
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "speed": {
+          "value": null,
+          "conditions": "",
+          "units": "ft"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": false,
+        "crew": {
+          "value": []
+        },
+        "armor": {
+          "value": null,
+          "dex": null,
+          "magicalBonus": ""
+        },
+        "proficient": null,
+        "properties": [],
+        "strength": null,
+        "type": {
+          "value": "",
+          "baseItem": ""
+        }
+      },
+      "enhancement_policy": {
+        "mode": "open",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": ""
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067948432,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.SFP6irxX6U5yatHw",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      }
+    },
+    "spell": {
+      "name": "Новое заклинание",
+      "type": "spell",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": {
+          "value": "",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2024",
+          "revision": 1
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "",
+          "units": "inst"
+        },
+        "target": {
+          "affects": {
+            "type": "creature",
+            "count": "",
+            "choice": false,
+            "special": ""
+          },
+          "template": {
+            "units": "ft",
+            "contiguous": false,
+            "type": "",
+            "stationary": false
+          }
+        },
+        "range": {
+          "value": "",
+          "units": "ft",
+          "special": ""
+        },
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "level": 0,
+        "school": "",
+        "materials": {
+          "value": "",
+          "consumed": false,
+          "cost": 0,
+          "supply": 0
+        },
+        "properties": [],
+        "activities": {},
+        "identifier": "",
+        "method": "spell",
+        "prepared": 1
+      },
+      "mechanics": {
+        "auto_target_action": ""
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    "consumable": {
+      "name": "Расходуемый предмет",
+      "type": "consumable",
+      "img": "systems/dnd5e/icons/svg/items/consumable.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": [],
+          "autoDestroy": false
+        },
+        "description": {
+          "value": "",
+          "chat": ""
+        },
+        "identifier": "rashoduemyj-predmet",
+        "source": {
+          "revision": 1,
+          "rules": "2024"
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": false,
+        "damage": {
+          "base": {
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          },
+          "replace": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785068273845,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.cSinTCLX3SOock1P",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      }
+    },
+    "item": {
+      "name": "Добыча",
+      "type": "loot",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "system": {
+        "description": {
+          "value": "",
+          "chat": ""
+        },
+        "identifier": "dobycha",
+        "source": {
+          "revision": 1,
+          "rules": "2024"
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067616955,
+        "modifiedTime": 1785104112510,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.zEJKoOQTWlWfM1k5",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      }
+    },
+    "enhancement": {
+      "schema_version": 7,
+      "type": "enhancement",
+      "enhancement": {
+        "id": "flaming_edge_t1",
+        "name": "Пламенная кромка",
+        "img": "icons/magic/fire/flame-burning-sword-orange.webp",
+        "group": "additional_damage",
+        "tier": 1,
+        "rank": "standard",
+        "description": "При попадании оружие наносит дополнительно 1d4 урона огнём.",
+        "manual": "",
+        "changes": [
+          {
+            "key": "system.properties",
+            "mode": "add",
+            "value": "mgc"
+          },
+          {
+            "key": "system.damage.parts",
+            "mode": "add",
+            "value": [
+              [
+                "1d4",
+                "fire"
+              ]
+            ]
+          }
+        ],
+        "riders": {
+          "activities": [],
+          "effects": [],
+          "items": []
+        }
+      }
+    },
+    "enhancement_set": {
+      "schema_version": 7,
+      "type": "enhancement_set",
+      "set": {
+        "id": "test_weapon_enhancements",
+        "name": "Тестовые усиления оружия",
+          "version": "0.7.0",
+        "description": "Проверочный модуль из трёх усилений оружия T1."
+      },
+      "groups": [
+        {
+          "id": "additional_damage",
+          "name": "Дополнительный урон",
+          "rule": "replace_any",
+          "description": "На предмете может находиться только одно усиление дополнительного урона."
+        },
+        {
+          "id": "numeric_bonus",
+          "name": "Магический бонус",
+          "rule": "replace_any",
+          "description": "На предмете может находиться только одно усиление магического бонуса."
+        }
+      ],
+      "enhancements": [
+        {
+          "id": "flaming_edge_t1",
+          "name": "Пламенная кромка",
+          "img": "icons/magic/fire/flame-burning-sword-orange.webp",
+          "group": "additional_damage",
+          "tier": 1,
+          "rank": "standard",
+          "description": "При попадании оружие наносит дополнительно 1d4 урона огнём.",
+          "manual": "",
+          "changes": [
+            {
+              "key": "system.properties",
+              "mode": "add",
+              "value": "mgc"
+            },
+            {
+              "key": "system.damage.parts",
+              "mode": "add",
+              "value": [
+                [
+                  "1d4",
+                  "fire"
+                ]
+              ]
+            }
+          ],
+          "riders": {
+            "activities": [],
+            "effects": [],
+            "items": []
+          }
+        },
+        {
+          "id": "frozen_edge_t1",
+          "name": "Морозная кромка",
+          "img": "icons/magic/water/weapon-ice-sword.webp",
+          "group": "additional_damage",
+          "tier": 1,
+          "rank": "standard",
+          "description": "При попадании оружие наносит дополнительно 1d4 урона холодом.",
+          "manual": "",
+          "changes": [
+            {
+              "key": "system.properties",
+              "mode": "add",
+              "value": "mgc"
+            },
+            {
+              "key": "system.damage.parts",
+              "mode": "add",
+              "value": [
+                [
+                  "1d4",
+                  "cold"
+                ]
+              ]
+            }
+          ],
+          "riders": {
+            "activities": [],
+            "effects": [],
+            "items": []
+          }
+        },
+        {
+          "id": "precise_tempering_t1",
+          "name": "Точная закалка",
+          "img": "icons/skills/melee/strike-sword-steel-yellow.webp",
+          "group": "numeric_bonus",
+          "tier": 1,
+          "rank": "standard",
+          "description": "Оружие становится магическим и получает бонус +1 к броскам атаки и урона.",
+          "manual": "",
+          "changes": [
+            {
+              "key": "system.properties",
+              "mode": "add",
+              "value": "mgc"
+            },
+            {
+              "key": "system.magicalBonus",
+              "mode": "override",
+              "value": "1"
+            }
+          ],
+          "riders": {
+            "activities": [],
+            "effects": [],
+            "items": []
+          }
+        }
+      ],
+      "bundles": [],
+      "pools": [
+        {
+          "id": "weapon_t1",
+          "name": "Усиления оружия T1",
+          "tier": 1,
+          "roll": {
+            "formula": "1d100",
+            "domain": [
+              1,
+              100
+            ]
+          },
+          "target": {
+            "item_types": [
+              "weapon"
+            ],
+            "system_types": [],
+            "allow_magical": true,
+            "categories": [],
+            "properties": []
+          },
+          "enhancer": {
+            "name": "Усилитель оружия T1",
+            "img": "icons/commodities/treasure/token-runed-os-grey.webp",
+            "description": "Одноразовый усилитель накладывает случайное усиление T1 на выбранное оружие.",
+            "rarity": "uncommon",
+            "consumable_type": "trinket",
+            "uses": {
+              "max": "1",
+              "spent": 0,
+              "autoDestroy": true
+            }
+          },
+          "results": [
+            {
+              "range": [
+                1,
+                40
+              ],
+              "enhancement_id": "flaming_edge_t1"
+            },
+            {
+              "range": [
+                41,
+                80
+              ],
+              "enhancement_id": "frozen_edge_t1"
+            },
+            {
+              "range": [
+                81,
+                100
+              ],
+              "enhancement_id": "precise_tempering_t1"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
