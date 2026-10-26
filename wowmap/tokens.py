@@ -1,4 +1,4 @@
-"""First creature-token path: WotLK display ID -> model/skins -> static top view.
+"""WotLK display ID -> model/skins -> separate static token and frontal portrait.
 
 Schemas: wowdev/WoWDBDefs CreatureDisplayInfo (16 fields), CreatureModelData
 (28 fields), build 3.3.5.12340. Replacement texture types 11..13 correspond to
@@ -18,6 +18,7 @@ from .models import RawAssets, inspect_model, preview
 from .pack import normalize
 
 PREFIX='wowmap/content/tokens/'
+PORTRAIT_PREFIX='wowmap/content/portraits/'
 SCHEMA='3.3.5.12340'
 
 
@@ -86,10 +87,13 @@ class TokenAssets:
         self.db=AppearanceDB(dbc_folder);self.model_folder=model_folder
         self.images={};self.media={};self.selected={}
 
-    def select(self, options):
-        if not isinstance(options,dict) or set(options)-{'display_id','size','yaw','actor_image'}:
-            raise ValueError('Appearance supports display_id, size, yaw and actor_image only')
-        display_id=options.get('display_id');size=options.get('size',512);yaw=options.get('yaw',90)
+    def select(self, options, view='top'):
+        if view not in ('top','front'):raise ValueError('Token view must be top or front')
+        if not isinstance(options,dict) or set(options)-{'display_id','size','yaw','actor_image','portrait_size','portrait_yaw'}:
+            raise ValueError('Appearance supports display_id, size, yaw, actor_image, portrait_size and portrait_yaw only')
+        display_id=options.get('display_id')
+        size=options.get('size',512) if view=='top' else options.get('portrait_size',768)
+        yaw=options.get('yaw',-90) if view=='top' else options.get('portrait_yaw',0)
         if type(size) is not int or not 64<=size<=2048:raise ValueError('Token size must be an integer from 64 to 2048')
         if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not math.isfinite(yaw) or not -360<=yaw<=360:
             raise ValueError('Token yaw must be finite degrees between -360 and 360')
@@ -99,23 +103,29 @@ class TokenAssets:
             raise ValueError('Humanoid appearance assembly is not implemented yet')
         if appearance['geoset_data']:raise ValueError('Creature geoset selection is not implemented yet')
         if appearance['alpha']!=255:raise ValueError('Translucent creature displays are not implemented yet')
-        key=(display_id,size,yaw)
+        key=(display_id,size,yaw,view)
         if key in self.selected:return self.selected[key]
-        if len(self.selected)>=200:raise ValueError('At most 200 creature renders per batch')
+        if len(self.selected)>=400:raise ValueError('At most 400 creature views per batch')
         with RawAssets(self.model_folder) as assets:
             info=inspect_model(assets,appearance['model'])
             replacements={k:v for k,v in appearance['textures'].items() if k in info['replaceable_texture_types']}
-            image,render=preview(assets,appearance['model'],size,replacements,yaw)
+            image,render=preview(assets,appearance['model'],size,replacements,yaw,view)
             deps={appearance['model'],info['skins'][0],*replacements.values()}
             deps.update(t['path'] for t in info['textures'] if t['path'])
             sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]
         buffer=io.BytesIO();image.save(buffer,format='WEBP',lossless=True,exact=True)
-        data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest();path=PREFIX+digest+'.webp'
+        data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest()
+        path=(PREFIX if view=='top' else PORTRAIT_PREFIX)+digest+'.webp'
         self.images[path]=data
-        variant=dict(**appearance,schema=SCHEMA,dbc_sha256=self.db.hashes,render=render,sources=sources)
+        variant=dict(**appearance,view=view,schema=SCHEMA,dbc_sha256=self.db.hashes,render=render,sources=sources)
         self.media.setdefault(path,dict(file=path,sha256=digest,bytes=len(data),appearances=[]))['appearances'].append(variant)
         self.selected[key]=path
         return path
+
+    def pair(self, options):
+        token=self.select(options)
+        portrait=self.select(options,'front') if options.get('actor_image',True) else None
+        return dict(token=token,portrait=portrait)
 
     def write(self, root):
         for path,data in self.images.items():
@@ -131,7 +141,9 @@ def main():
     parser.add_argument('--limit',type=int,default=30)
     parser.add_argument('--display-id',type=int)
     parser.add_argument('--size',type=int,default=512)
-    parser.add_argument('--yaw',type=float,default=90)
+    parser.add_argument('--yaw',type=float,default=-90)
+    parser.add_argument('--portrait-size',type=int,default=768)
+    parser.add_argument('--portrait-yaw',type=float,default=0)
     parser.add_argument('--out',default='output/token')
     args=parser.parse_args()
     try:
@@ -142,8 +154,9 @@ def main():
             out=Path(args.out)
             if out.exists() and any(out.iterdir()):raise ValueError('Token output directory must be empty')
             tokens=TokenAssets(args.dbc_assets,args.model_assets)
-            path=tokens.select(dict(display_id=args.display_id,size=args.size,yaw=args.yaw))
-            tokens.write(out);result=dict(format='wowmap.tokens/1',image=path,media=list(tokens.media.values()))
+            pair=tokens.pair(dict(display_id=args.display_id,size=args.size,yaw=args.yaw,
+                                 portrait_size=args.portrait_size,portrait_yaw=args.portrait_yaw))
+            tokens.write(out);result=dict(format='wowmap.tokens/1',image=pair['token'],portrait=pair['portrait'],media=list(tokens.media.values()))
             (out/'token-report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps(result,ensure_ascii=False,indent=2))
     except (OSError,ValueError,KeyError) as error:parser.exit(1,f'ERROR: {error}\n')

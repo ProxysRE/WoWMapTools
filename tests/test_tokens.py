@@ -37,6 +37,8 @@ def appearance_fixture(root):
         z.writestr('dbfilesclient/creaturedisplayinfo.dbc',table(16,rows,skins))
     model,skin,red=fixture();model=bytearray(model);_,offset=struct.unpack_from('<II',model,80)
     struct.pack_into('<IIII',model,offset,11,0,0,0)
+    _,vertices_offset=struct.unpack_from('<II',model,60)
+    struct.pack_into('<f',model,vertices_offset+48+8,1)  # A non-flat triangle is visible from both cameras.
     blue=io.BytesIO();Image.new('RGBA',(8,8),'blue').save(blue,format='PNG')
     with ZipFile(models/'packages/test.zip','w') as z:
         z.writestr('creature/test/test.m2',model);z.writestr('creature/test/test00.skin',skin)
@@ -88,6 +90,22 @@ class TokenTests(unittest.TestCase):
         db.models.clear()
         with self.assertRaisesRegex(ValueError,'unknown model'):db.appearance(165)
 
+    def test_pair_front_camera_is_not_mirrored_and_has_transparent_margins(self):
+        tokens=TokenAssets(self.dbc,self.models)
+        pair=tokens.pair(dict(display_id=165,size=128,portrait_size=128))
+        self.assertNotEqual(pair['token'],pair['portrait'])
+        self.assertIn('/tokens/',pair['token']);self.assertIn('/portraits/',pair['portrait'])
+        self.assertEqual(pair['token'],tokens.select(dict(display_id=165,size=128,yaw=-90)))
+        self.assertNotEqual(pair['token'],tokens.select(dict(display_id=165,size=128,yaw=90)))
+        self.assertEqual(pair,tokens.pair(dict(display_id=165,size=128,portrait_size=128)))
+        with Image.open(io.BytesIO(tokens.images[pair['portrait']])) as portrait:
+            self.assertGreater(portrait.getpixel((15,70))[3],0)  # +Y projects right, not left.
+            self.assertEqual(portrait.getpixel((100,70))[3],0)
+            bbox=portrait.getbbox();self.assertGreaterEqual(min(bbox[:2]),8)
+            self.assertLessEqual(max(bbox[2:]),120)
+            self.assertEqual(portrait.getpixel((0,0))[3],0)
+        self.assertIsNone(tokens.pair(dict(display_id=165,actor_image=False))['portrait'])
+
     def test_actual_builder_sets_actor_and_prototype_and_population_copies_token(self):
         spec=importlib.util.spec_from_file_location('token_batch_adapter',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
@@ -100,8 +118,8 @@ class TokenTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'--dbc-assets'):adapter.build_batch('requests/builder/active.json',out)
         result=adapter.build_batch('requests/builder/active.json',out,None,self.dbc,self.models)
         actor=json.loads((out/'test.json').read_text(encoding='utf-8'))
-        self.assertEqual(actor['img'],actor['prototypeToken']['texture']['src'])
-        self.assertTrue((out/actor['img']).is_file());self.assertEqual(len(result['media']),1)
+        self.assertNotEqual(actor['img'],actor['prototypeToken']['texture']['src'])
+        self.assertTrue((out/actor['img']).is_file());self.assertEqual(len(result['media']),2)
         pop=json.loads((out/'population.json').read_text(encoding='utf-8'));validate_population(pop)
         scene=dict(_id='ground',width=500,height=500,grid=dict(size=100),flags={'wowmap':dict(key='ground',package='inn')})
         folder=self.root/'map/wowmap/inn';(folder/'ground').mkdir(parents=True)
@@ -109,6 +127,13 @@ class TokenTests(unittest.TestCase):
         (folder/'ground/scene.json').write_text('{}')
         write_population(bundle,out/'population.json')
         self.assertEqual((self.root/'map'/actor['img']).read_bytes(),(out/actor['img']).read_bytes())
+        token=actor['prototypeToken']['texture']['src']
+        self.assertEqual((self.root/'map'/token).read_bytes(),(out/token).read_bytes())
+        request['documents'][0]['appearance']['actor_image']=False
+        preserved=self.root/'preserved'
+        without_portrait=adapter.build_batch('requests/builder/active.json',preserved,None,self.dbc,self.models)
+        self.assertEqual(len(without_portrait['media']),1)
+        self.assertEqual(json.loads((preserved/'test.json').read_text(encoding='utf-8'))['img'],'icons/svg/mystery-man.svg')
         request['documents'][0]['appearance']['display_id']=999
         with self.assertRaises(ValueError):adapter.build_batch('requests/builder/active.json',self.root/'bad',None,self.dbc,self.models)
         self.assertFalse((self.root/'bad').exists())

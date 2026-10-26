@@ -25,7 +25,8 @@ def validate_population(population):
     files=set()
     for row in media:
         digest=row.get('sha256','');path=row.get('file','')
-        if not re.fullmatch(r'[0-9a-f]{64}',digest) or path not in (PREFIX+digest+'.webp','wowmap/content/tokens/'+digest+'.webp'):raise ValueError('Invalid population media path or hash')
+        prefixes=(PREFIX,'wowmap/content/tokens/','wowmap/content/portraits/')
+        if not re.fullmatch(r'[0-9a-f]{64}',digest) or path not in {p+digest+'.webp' for p in prefixes}:raise ValueError('Invalid population media path or hash')
         if path in files:raise ValueError('Duplicate population media path')
         files.add(path)
     for actor in actors:

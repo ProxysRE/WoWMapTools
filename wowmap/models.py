@@ -1,4 +1,4 @@
-"""Static M2 (WotLK v264) inspection and CPU top-down previews.
+"""Static M2 (WotLK v264) inspection and CPU orthographic previews.
 
 Not a game renderer: no skeleton animation, billboarding, particles or shader effects.
 """
@@ -155,19 +155,25 @@ def mesh_data(assets, name, texture_overrides=None):
     return vertices,draws,info
 
 
-def preview(assets, name, size=512, texture_overrides=None, yaw=0):
+def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
     if not 64<=size<=2048: raise ValueError('Preview size must be 64..2048')
     if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not np.isfinite(yaw) or not -360<=yaw<=360:
         raise ValueError('Preview yaw must be finite degrees between -360 and 360')
+    if view not in ('top','front'):raise ValueError('Preview view must be top or front')
     vertices,draws,info=mesh_data(assets,name,texture_overrides)
     if yaw:
         angle=np.deg2rad(yaw);c,s=np.cos(angle),np.sin(angle)
         rotation=np.array([[c,-s],[s,c]])
         for key in ('position','normal'):vertices[key][:,:2]=vertices[key][:,:2]@rotation.T
+    if view=='front':
+        # Camera at +X looks toward -X; screen-right = +Y, up = +Z.
+        # Apply the same proper rotation to normals; this is not a mirrored image.
+        for key in ('position','normal'):vertices[key][:]=vertices[key][:,[1,2,0]]
     xyz=vertices['position']; low=xyz[:,:2].min(axis=0); high=xyz[:,:2].max(axis=0)
     span=max(high-low)
-    if span<1e-6: raise ValueError('Degenerate XY bounds')
-    scale=(size-16)/span;center=(low+high)/2
+    if span<1e-6: raise ValueError('Degenerate projected bounds')
+    padding=max(8,round(size*.05)) if view=='front' else 8
+    scale=(size-2*padding)/span;center=(low+high)/2
     screen=(xyz[:,:2]-center)*scale
     screen[:,0]+=size/2;screen[:,1]=size/2-screen[:,1]
     image=np.zeros((size,size,4),dtype=np.float32)
@@ -205,7 +211,7 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0):
             color[:,:,:3]*=shade[:,:,None]
             dest=image[ymin:ymax+1,xmin:xmax+1]
             dest[covered]=color[covered];db[covered]=height[covered]
-    if not image[:,:,3].any(): raise ValueError('No visible top-down triangles')
+    if not image[:,:,3].any(): raise ValueError(f'No visible {view} triangles')
     pivot=[size/2-center[0]*scale,size/2+center[1]*scale]
     metadata=dict(path=normalize(name),pixels=size,world_xy_bounds=[low.tolist(),high.tolist()],
                   anchor_pixels=[float(v) for v in pivot],pixels_per_world_unit=float(scale),
@@ -213,6 +219,10 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0):
                                'single texture per batch','alpha blend approximated by cutout'])
     if texture_overrides:metadata['selected_textures']={str(k):normalize(v) for k,v in texture_overrides.items()}
     if yaw:metadata['yaw_degrees']=yaw
+    if view=='front':
+        metadata['view']='front';metadata['camera_axes']=['+Y','+Z','+X']
+        metadata['projected_bounds']=metadata.pop('world_xy_bounds')
+        metadata['padding_pixels']=padding
     return Image.fromarray(np.uint8(np.clip(image,0,1)*255)),metadata
 
 

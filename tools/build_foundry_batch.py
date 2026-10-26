@@ -69,9 +69,9 @@ def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_asset
             conflicts={'/prototypeToken/texture/src'}
             if options.get('actor_image',True):conflicts.add('/img')
             if conflicts & set(entry.get('icons',{})):raise ValueError('Icon and appearance target the same image')
-            image=tokens.select(options)
-            outcome.document.setdefault('prototypeToken',{}).setdefault('texture',{})['src']=image
-            if options.get('actor_image',True):outcome.document['img']=image
+            images=tokens.pair(options)
+            outcome.document.setdefault('prototypeToken',{}).setdefault('texture',{})['src']=images['token']
+            if images['portrait']:outcome.document['img']=images['portrait']
         prepared.append((key,outcome))
     actors={key:out.document for key,out in prepared if out.kind=='actor'}
     placements=copy.deepcopy(request.get('placements',[]))
