@@ -6,6 +6,7 @@ on:
     paths:
       - 'wowmap/**'
       - 'tests/**'
+      - 'tools/**'
       - 'requirements.txt'
       - '*.bat'
       - 'PACK_FOR_DRIVE.md'

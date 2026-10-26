@@ -38,6 +38,9 @@ def check_documents(root, documents):
     errors = []
     count = 0
     for document in sorted(documents):
+        # Windows may spell the same directory as RUNNER~1 or runneradmin.
+        # Normalize both operands before relative_to, including error reporting.
+        document = Path(document).resolve()
         count += 1
         for line, target in local_links(document.read_text(encoding='utf-8-sig')):
             path = (document.parent / target).resolve()
