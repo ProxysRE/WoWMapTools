@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from zipfile import ZipFile
 from PIL import Image
-from wowmap.mpq import Storm, HANDLE, U32, PATCH_FILE, DELETE_MARKER
+from wowmap.mpq import Storm, HANDLE, U32, PATCH_FILE, DELETE_MARKER, FindData, FIND_NAME_BYTES
 from wowmap.pack import build, normalize, scan
 
 
@@ -185,6 +185,29 @@ class PackerTests(unittest.TestCase):
 
 @unittest.skipUnless(os.environ.get('WOWMAP_STORMLIB'),'Native StormLib not configured')
 class NativeMPQTests(unittest.TestCase):
+    def test_find_data_abi_does_not_overwrite_guard_bytes(self):
+        storm=Storm()
+        native_path=C.c_wchar_p if os.name=='nt' else C.c_char_p
+        storm.bind('SFileCreateArchive',[native_path,U32,U32,C.POINTER(HANDLE)],C.c_bool)
+        storm.bind('SFileAddFileEx',[HANDLE,native_path,C.c_char_p,U32,U32,U32],C.c_bool)
+        class GuardedFindData(C.Structure):
+            _fields_=[('record',FindData),('guard',C.c_ubyte*2048)]
+        with tempfile.TemporaryDirectory(prefix='wowmap-abi-') as temp:
+            root=Path(temp);path=root/'check.MPQ';h=HANDLE()
+            self.assertTrue(storm.lib.SFileCreateArchive(storm.path_arg(path),0x100000,32,C.byref(h)))
+            source=root/'source.bin';source.write_bytes(b'ABI check')
+            self.assertTrue(storm.lib.SFileAddFileEx(h,storm.path_arg(source),b'Interface\\Icons\\test.blp',0x200,2,2))
+            self.assertTrue(storm.lib.SFileCloseArchive(h))
+            guarded=GuardedFindData();guarded.guard[:]=[0xA5]*2048
+            with storm.open(path) as archive:
+                search=storm.lib.SFileFindFirstFile(archive.handle,b'*',C.byref(guarded.record),None)
+                self.assertTrue(search)
+                try:
+                    while storm.lib.SFileFindNextFile(search,C.byref(guarded.record)):pass
+                    self.assertEqual(bytes(guarded.guard),bytes([0xA5])*2048)
+                finally:storm.lib.SFileFindClose(search)
+            self.assertEqual(FIND_NAME_BYTES,260 if os.name=='nt' else 1024)
+
     def test_native_localized_dbc_export(self):
         from wowmap.dbc import DBC
         storm=Storm()

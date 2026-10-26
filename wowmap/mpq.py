@@ -9,10 +9,13 @@ INVALID = C.c_void_p(-1).value
 READ_ONLY = 0x100
 PATCH_FILE = 0x00100000
 DELETE_MARKER = 0x02000000
+# StormLib 9.40 StormPort.h defines MAX_PATH=1024 on non-Windows platforms.
+# Windows uses its native MAX_PATH=260. This is part of the C struct ABI.
+FIND_NAME_BYTES = 260 if os.name == 'nt' else 1024
 
 
 class FindData(C.Structure):
-    _fields_ = [('name', C.c_char * 260), ('plain', C.c_char_p)] + [
+    _fields_ = [('name', C.c_char * FIND_NAME_BYTES), ('plain', C.c_char_p)] + [
         (name, U32) for name in ('hash', 'block', 'size', 'flags', 'compressed',
                                 'time_lo', 'time_hi', 'locale')]
 
