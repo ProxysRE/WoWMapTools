@@ -12,7 +12,7 @@
 
 ## Сборка через GitHub Actions
 
-Workflow **Foundry JSON Builder** автоматически запускается при изменении исходников билдера или `requests/builder/**` в этой ветке. Для разового запуска: Actions → Foundry JSON Builder → Run workflow → выбрать ветку foundry-builder и JSON задания.
+Workflow **Foundry JSON Builder** автоматически запускается при изменении исходников билдера или `requests/builder/**` в этой ветке. Проверенный способ запуска сейчас — записать задание в `requests/builder/active.json` и отправить изменение в foundry-builder. Результат находится в Actions → Foundry JSON Builder → соответствующий запуск → Artifacts.
 
 По умолчанию собирается **requests/builder/active.json**. Он содержит список документов с режимом и путём к исходнику. Ассистент может записать очередное задание в ветку; push запускает сборку. Билдер выполняется на GitHub без обращения к вашему компьютеру и без ресурсов WoW.
 
