@@ -1,0 +1,58 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "ryk-tracker",
+      "mode": "npc",
+      "source": "requests/builder/sources/ryk-tracker.json",
+      "appearance": {
+        "display_id": 174,
+        "size": 512,
+        "yaw": -90,
+        "portrait_size": 768,
+        "portrait_yaw": 0
+      },
+      "icons": {
+        "/items/0/img": "ability_druid_rake",
+        "/items/1/img": "ability_druid_ferociousbite",
+        "/items/2/img": "ability_hunter_pathfinding"
+      }
+    },
+    {
+      "id": "brum-scavenger",
+      "mode": "npc",
+      "source": "requests/builder/sources/brum-scavenger.json",
+      "appearance": {
+        "display_id": 160,
+        "size": 512,
+        "yaw": -90,
+        "portrait_size": 768,
+        "portrait_yaw": 0
+      },
+      "icons": {
+        "/items/0/img": "ability_druid_ferociousbite",
+        "/items/1/img": "inv_stone_01",
+        "/items/2/img": "ability_hunter_beastsoothe"
+      }
+    },
+    {
+      "id": "tarn-warden",
+      "mode": "npc",
+      "source": "requests/builder/sources/tarn-warden.json",
+      "appearance": {
+        "display_id": 145,
+        "size": 512,
+        "yaw": -90,
+        "portrait_size": 768,
+        "portrait_yaw": 0
+      },
+      "icons": {
+        "/items/0/img": "ability_druid_rake",
+        "/items/1/img": "ability_druid_swipe",
+        "/items/2/img": "spell_nature_healingtouch",
+        "/items/3/img": "ability_hunter_pathfinding"
+      }
+    }
+  ],
+  "placements": []
+}

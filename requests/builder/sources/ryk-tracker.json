@@ -1,0 +1,604 @@
+{
+  "name": "Рык Косозуб — следопыт-изгой",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "con": {
+        "value": 12,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "int": {
+        "value": 8,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "wis": {
+        "value": 12,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "cha": {
+        "value": 8,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "calc": "flat",
+        "flat": 13,
+        "formula": ""
+      },
+      "hp": {
+        "value": 27,
+        "max": 27,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "5d8+5"
+      },
+      "init": {
+        "ability": "dex",
+        "bonus": ""
+      },
+      "movement": {
+        "walk": 30,
+        "fly": 0,
+        "swim": 0,
+        "climb": 0,
+        "burrow": 0,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": null,
+          "tremorsense": null,
+          "truesight": null
+        },
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "",
+      "spell": {
+        "level": 0
+      },
+      "exhaustion": 0
+    },
+    "spells": {
+      "spell0": {
+        "value": 0,
+        "override": null
+      },
+      "spell1": {
+        "value": 0,
+        "override": null
+      },
+      "spell2": {
+        "value": 0,
+        "override": null
+      },
+      "spell3": {
+        "value": 0,
+        "override": null
+      },
+      "spell4": {
+        "value": 0,
+        "override": null
+      },
+      "spell5": {
+        "value": 0,
+        "override": null
+      },
+      "spell6": {
+        "value": 0,
+        "override": null
+      },
+      "spell7": {
+        "value": 0,
+        "override": null
+      },
+      "spell8": {
+        "value": 0,
+        "override": null
+      },
+      "spell9": {
+        "value": 0,
+        "override": null
+      },
+      "pact": {
+        "value": 0,
+        "override": null
+      }
+    },
+    "details": {
+      "alignment": "Нейтральный",
+      "biography": {
+        "value": "<h2>Рык Косозуб</h2><p>Пятнистый гнолл в потёртой набедренной повязке, с широкими наплечниками и браслетами. Прежде разведывал караванные тропы для стаи, теперь продаёт проводникам сведения о безопасных переходах. Сначала нюхает предложенную еду и только потом отвечает.</p><h3>Мотив и тайна</h3><p>Хочет вернуть украденный родовой амулет, не приводя охотников к молодняку стаи. Знает запасной брод, но скрывает, что рядом укрываются его сородичи. За сушёное мясо и обещание не трогать детёнышей готов провести группу.</p><h3>Отыгрыш</h3><p>Говорит коротко, о себе — по имени. «Рык знает тропу. Ты сперва покажи еду». При угрозе пытается отступить в заросли; если загнан, выбирает одинокую цель. На своём ходу делает одну атаку когтями или укусом. Не сражается насмерть ради добычи.</p><p><em>Авторская адаптация D&amp;D, не канонический статблок WoW. Условные преимущества проверяет мастер; модель использует исходную статичную позу.</em></p>",
+        "public": ""
+      },
+      "race": "Гнолл",
+      "type": {
+        "value": "humanoid",
+        "subtype": "гнолл",
+        "custom": ""
+      },
+      "cr": 0.5,
+      "xp": {},
+      "source": {
+        "book": "Авторские NPC для кампании WoW",
+        "page": "",
+        "license": ""
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [
+          "common"
+        ],
+        "custom": "Гноллий",
+        "communication": {
+          "telepathy": {
+            "value": null,
+            "units": "ft"
+          }
+        }
+      }
+    },
+    "skills": {
+      "ste": {
+        "value": 1,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "sur": {
+        "value": 1,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prc": {
+        "value": 1,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      }
+    },
+    "resources": {},
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    }
+  },
+  "prototypeToken": {
+    "name": "Рык Косозуб — следопыт-изгой",
+    "displayName": 20,
+    "disposition": 0,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 0,
+      "visionMode": "basic"
+    },
+    "width": 1,
+    "height": 1,
+    "actorLink": true
+  },
+  "items": [
+    {
+      "name": "Когти",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие. Рукопашная атака оружием: +4 к попаданию, досягаемость 5 фт., одно существо. Попадание: 1d6+2 рубящего урона.</p>",
+          "chat": ""
+        },
+        "identifier": "ryk-claws",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2024",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": 1,
+            "denomination": 6,
+            "bonus": "2",
+            "types": [
+              "slashing"
+            ],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": true,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": 5,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "4",
+          "flat": true,
+          "type": "melee",
+          "classification": "weapon"
+        },
+        "damage": [
+          {
+            "formula": "1d6+2",
+            "type": "slashing"
+          }
+        ],
+        "range": {
+          "reach": 5,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённая атака тела; не отдельное снаряжение и не основа для усилений."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Укус",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие. Рукопашная атака оружием: +4 к попаданию, досягаемость 5 фт., одно существо. Попадание: 1d8+2 колющего урона.</p>",
+          "chat": ""
+        },
+        "identifier": "ryk-bite",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2024",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": 1,
+            "denomination": 8,
+            "bonus": "2",
+            "types": [
+              "piercing"
+            ],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": true,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": 5,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "4",
+          "flat": true,
+          "type": "melee",
+          "classification": "weapon"
+        },
+        "damage": [
+          {
+            "formula": "1d8+2",
+            "type": "piercing"
+          }
+        ],
+        "range": {
+          "reach": 5,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённая атака тела; не отдельное снаряжение и не основа для усилений."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Читатель следов",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Пассивно. Рык совершает с преимуществом проверки Мудрости (Выживание), чтобы идти по свежим следам существ на естественном грунте. Не действует на голом камне и искусственном полу. Мастер проверяет условия и включает преимущество вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "ryk-tracker",
+        "source": {
+          "revision": 1,
+          "rules": "2024"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "passive": true
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}
