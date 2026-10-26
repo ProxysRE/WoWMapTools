@@ -35,6 +35,7 @@ def validate_objects(objects):
         if not isinstance(obj.get('model'),str) or not obj['model'].lower().endswith('.m2'):
             raise ValueError('Each object needs a model M2 path')
         pair(obj['position'],'position')
+        if obj.get('position_anchor','origin') not in ('origin','bounds-center'):raise ValueError('Invalid position_anchor')
         if finite(obj['size_cells'],'size_cells')<=0 or obj['size_cells']>200:
             raise ValueError('size_cells must be in (0, 200]')
         if not 0<finite(obj.get('scale',1),'scale')<=20:
@@ -93,6 +94,7 @@ def transform_sprite(image, metadata, obj, ppc, canvas_size):
     c,s=math.cos(angle),math.sin(angle)
     matrix=np.array([[c,-s],[s,c]])*scale
     anchor=np.array(metadata['anchor_pixels'],dtype=float)
+    if obj.get('position_anchor')=='bounds-center':anchor=np.array([image.width/2,image.height/2],dtype=float)
     corners=np.array([[0,0],[image.width,0],[image.width,image.height],[0,image.height]],dtype=float)
     transformed=(corners-anchor)@matrix.T+position
     low=np.floor(transformed.min(axis=0)).astype(int);high=np.ceil(transformed.max(axis=0)).astype(int)
@@ -101,7 +103,7 @@ def transform_sprite(image, metadata, obj, ppc, canvas_size):
     right=min(canvas_size[0],int(high[0]));bottom=min(canvas_size[1],int(high[1]))
     record=dict(id=obj['id'],model=obj['model'],position_pixels=position.tolist(),
                 rotation_clockwise=obj.get('rotation',0)%360,layer=obj.get('layer','props'),
-                order=obj.get('order',0),size_cells=obj['size_cells'],scale=obj.get('scale',1),
+                position_anchor=obj.get('position_anchor','origin'),order=obj.get('order',0),size_cells=obj['size_cells'],scale=obj.get('scale',1),
                 bounds_pixels=unclipped,visible=right>left and bottom>top)
     if not record['visible']:return None,(left,top),record
     inv=np.array([[c,s],[-s,c]])/scale

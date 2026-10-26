@@ -55,6 +55,8 @@ def validate(plan):
     validate_structures(plan)
     from .objects import validate_objects
     validate_objects(plan.get('objects', []))
+    from .finishes import validate_finishes
+    validate_finishes(plan)
     return width, height
 
 
@@ -178,10 +180,13 @@ def _render(plan, size, paths, output, raw, images, source_plan, placement_repor
     if plan.get('objects'):
         from .objects import compose_objects
         props, overhead, object_report = compose_objects(plan['objects'], raw, size, ppc, output.parent/'.sprite-cache')
-    ground=Image.alpha_composite(image.convert('RGBA'),props)
     from .structures import render_walls
     walls,geometry=render_walls(plan.get('walls',[]),lambda name:images[name],size,ppc)
     vtt_walls,_=render_walls(plan.get('walls',[]),lambda name:images[name],size,ppc,draw_doors=False)
+    from .finishes import wall_underlay, draw_details
+    surface=Image.alpha_composite(image.convert('RGBA'),draw_details(plan,size,ppc))
+    surface=Image.alpha_composite(surface,wall_underlay(vtt_walls,ppc,plan.get('architecture',{})))
+    ground=Image.alpha_composite(surface,props)
     vtt_ground=Image.alpha_composite(ground,vtt_walls).convert('RGB')
     ground=Image.alpha_composite(ground,walls)
     image=Image.alpha_composite(ground,overhead).convert('RGB')

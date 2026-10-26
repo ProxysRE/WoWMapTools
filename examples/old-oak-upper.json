@@ -1,0 +1,3926 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "«Старый дуб» — гостевые комнаты",
+  "seed": 6042,
+  "size_cells": [
+    36,
+    30
+  ],
+  "pixels_per_cell": 96,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "export_format": "webp",
+  "surface_variation": 0.06,
+  "base": {
+    "id": "base",
+    "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+    "tile_cells": 3,
+    "texture_variation": 0.16,
+    "tint": "#c2cfba"
+  },
+  "layers": [
+    {
+      "id": "road",
+      "asset": "tileset/ashenvale/ashenvaleroad.blp",
+      "tile_cells": 1.7,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            0,
+            28
+          ],
+          [
+            12,
+            27.1
+          ],
+          [
+            25,
+            27.5
+          ],
+          [
+            36,
+            29
+          ]
+        ],
+        "width": 4.2,
+        "smooth": true,
+        "feather": 0.65,
+        "roughness": 0.18
+      }
+    },
+    {
+      "id": "front-yard",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 3,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          3,
+          20,
+          31,
+          28
+        ],
+        "feather": 1,
+        "roughness": 0.16
+      }
+    },
+    {
+      "id": "delivery-path",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2.5,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            34,
+            28
+          ],
+          [
+            32,
+            20
+          ],
+          [
+            32,
+            9
+          ],
+          [
+            29,
+            8.5
+          ]
+        ],
+        "width": 2.3,
+        "smooth": true,
+        "feather": 0.6,
+        "roughness": 0.14
+      }
+    },
+    {
+      "id": "rear-garden",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          6,
+          1.5,
+          19,
+          3.8
+        ],
+        "feather": 0.6,
+        "roughness": 0.14
+      }
+    },
+    {
+      "id": "privy-path",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            33.5,
+            6.7
+          ],
+          [
+            33.5,
+            8
+          ],
+          [
+            32,
+            9
+          ]
+        ],
+        "width": 0.9,
+        "feather": 0.2,
+        "smooth": true
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "foundation",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.9,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          5.6,
+          4.6,
+          29.4,
+          24.4
+        ],
+        "feather": 0
+      },
+      "tint": "#c5bdac"
+    },
+    {
+      "id": "interior",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.15,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          6,
+          5,
+          29,
+          24
+        ],
+        "feather": 0
+      },
+      "tint": "#e4caa5"
+    },
+    {
+      "id": "porch",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.05,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          10.5,
+          24,
+          16,
+          26
+        ],
+        "feather": 0
+      },
+      "tint": "#c9b599"
+    },
+    {
+      "id": "well-apron",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.8,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          30,
+          18,
+          33.5,
+          21.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "privy-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 0.85,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          30.6,
+          3.5,
+          34.5,
+          6.5
+        ],
+        "feather": 0
+      },
+      "tint": "#b7a286"
+    },
+    {
+      "id": "hall-hearth-stone",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.7,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          16.95,
+          5.1,
+          18.45,
+          6
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "kitchen-hearth-stone",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.7,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          26.55,
+          5.1,
+          28.05,
+          6
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stairwell",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.8,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          25.5,
+          18,
+          28.3,
+          22.7
+        ],
+        "feather": 0
+      },
+      "tint": "#77736a"
+    },
+    {
+      "id": "corridor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          6,
+          13,
+          29,
+          16
+        ],
+        "feather": 0
+      },
+      "tint": "#d2b894"
+    },
+    {
+      "id": "room-a-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.1,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          6.15,
+          5.15,
+          11.549999999999999,
+          12.85
+        ],
+        "feather": 0
+      },
+      "tint": "#d9c0a0"
+    },
+    {
+      "id": "room-b-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.1,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          11.85,
+          5.15,
+          16.05,
+          12.85
+        ],
+        "feather": 0
+      },
+      "tint": "#d9c0a0"
+    },
+    {
+      "id": "room-c-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.1,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          16.349999999999998,
+          5.15,
+          22.85,
+          12.85
+        ],
+        "feather": 0
+      },
+      "tint": "#d9c0a0"
+    },
+    {
+      "id": "room-d-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.1,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          23.15,
+          5.15,
+          28.85,
+          12.85
+        ],
+        "feather": 0
+      },
+      "tint": "#d9c0a0"
+    }
+  ],
+  "walls": [
+    {
+      "id": "privy-north",
+      "points": [
+        [
+          30.6,
+          3.5
+        ],
+        [
+          34.5,
+          3.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-west",
+      "points": [
+        [
+          30.6,
+          3.5
+        ],
+        [
+          30.6,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-east",
+      "points": [
+        [
+          34.5,
+          3.5
+        ],
+        [
+          34.5,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-divider",
+      "points": [
+        [
+          32.55,
+          3.5
+        ],
+        [
+          32.55,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-south",
+      "points": [
+        [
+          30.6,
+          6.5
+        ],
+        [
+          34.5,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "privy-door-a",
+          "at": 0.95,
+          "width": 1,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "privy-door-b",
+          "at": 2.9,
+          "width": 1,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-north",
+      "points": [
+        [
+          6,
+          5
+        ],
+        [
+          29,
+          5
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "north-window-1",
+          "at": 3,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "north-window-2",
+          "at": 8.5,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "north-window-3",
+          "at": 16.5,
+          "width": 1.7,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-east",
+      "points": [
+        [
+          29,
+          5
+        ],
+        [
+          29,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "east-window-1",
+          "at": 3.7,
+          "width": 1.5,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "east-window-2",
+          "at": 9.1,
+          "width": 1.4,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "east-window-3",
+          "at": 15.4,
+          "width": 1.7,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-south",
+      "points": [
+        [
+          6,
+          24
+        ],
+        [
+          29,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "south-window-1",
+          "at": 2.2,
+          "width": 1.6,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "south-window-2",
+          "at": 12.8,
+          "width": 1.6,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "south-window-3",
+          "at": 17.1,
+          "width": 1.6,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-west",
+      "points": [
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "west-window-1",
+          "at": 2.5,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "west-window-2",
+          "at": 8,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "west-window-3",
+          "at": 13.5,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "north-corridor",
+      "points": [
+        [
+          6,
+          13
+        ],
+        [
+          29,
+          13
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "room-a-door",
+          "at": 3.1,
+          "width": 1.3,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "room-b-door",
+          "at": 7.0,
+          "width": 1.3,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "room-c-door",
+          "at": 14.2,
+          "width": 1.3,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "room-d-door",
+          "at": 20.4,
+          "width": 1.3,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "north-room-divider-0",
+      "points": [
+        [
+          11.7,
+          5
+        ],
+        [
+          11.7,
+          13
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "north-room-divider-1",
+      "points": [
+        [
+          16.2,
+          5
+        ],
+        [
+          16.2,
+          13
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "north-room-divider-2",
+      "points": [
+        [
+          23,
+          5
+        ],
+        [
+          23,
+          13
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "south-corridor",
+      "points": [
+        [
+          6,
+          16
+        ],
+        [
+          29,
+          16
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "dorm-door",
+          "at": 3.4,
+          "width": 1.4,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "owners-door",
+          "at": 11,
+          "width": 1.25,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "upper-stair-door",
+          "at": 17.8,
+          "width": 1.5,
+          "type": "door",
+          "state": "open",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "south-divider-1",
+      "points": [
+        [
+          13.5,
+          16
+        ],
+        [
+          13.5,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "south-divider-2",
+      "points": [
+        [
+          21,
+          16
+        ],
+        [
+          21,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "yard-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        30.5,
+        10.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.95,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        31.65,
+        10.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 10,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-2",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        31.3,
+        11.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-3",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        30.3,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 30,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-4",
+      "model": "world/azeroth/elwynn/passivedoodads/haystacks/haystack01.m2",
+      "position": [
+        33.3,
+        16.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 40,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "well",
+      "model": "world/generic/passivedoodads/well/well.m2",
+      "position": [
+        31.75,
+        19.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.15,
+      "rotation": 15,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "well-bucket",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        32.8,
+        20.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.48,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-0",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        2.6,
+        3.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.7,
+      "rotation": 0,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        3.4,
+        13.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.5,
+      "rotation": 57,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        35,
+        1.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4.3,
+      "rotation": 114,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-3",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        1.8,
+        22.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.2,
+      "rotation": 171,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-4",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        34.2,
+        23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4.2,
+      "rotation": 228,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "porch-bench-0",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        8.1,
+        24.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.1,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "porch-bench-1",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        18.7,
+        24.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.1,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "entrance-planter-0",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        10,
+        24.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.78,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "entrance-planter-1",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        16.6,
+        24.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.78,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-wood-stack-0",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        30.1,
+        12.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 90,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-wood-stack-1",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        30.1,
+        13.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 90,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-wood-stack-2",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        30.1,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 90,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "stairs-lower",
+      "model": "world/generic/human/passive doodads/woodenstairs/woodenstairs01.m2",
+      "position": [
+        26.9,
+        21.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "stairs-upper",
+      "model": "world/generic/human/passive doodads/woodenstairs/woodenstairs01.m2",
+      "position": [
+        26.9,
+        19.25
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 17,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        8.85,
+        9.0
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.9,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "room-a-bed-0",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        7.25,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.05,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-bedside-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        8.25,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-bed-candle-0",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        8.25,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "room-a-bed-1",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        10.45,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.05,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-bedside-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        9.45,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-bed-candle-1",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        9.45,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "room-a-writing-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        10.2,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.65,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-writing-chair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        10.2,
+        10.35
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.61,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        10.1,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.46,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-a-washstand",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        7.4,
+        11.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.5,
+      "rotation": 0,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-basin",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        7.3,
+        11.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.45,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-a-luggage",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        6.75,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.82,
+      "rotation": 0,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-a-flowers",
+      "model": "world/generic/human/passive doodads/flowers/flowersbunch03.m2",
+      "position": [
+        10.45,
+        11.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 25,
+      "order": 32,
+      "layer": "props"
+    },
+    {
+      "id": "room-b-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        13.95,
+        9.0
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.9,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "room-b-bed-0",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        13.95,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.05,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-b-bedside-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        14.95,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-b-bed-candle-0",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        14.95,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "room-b-writing-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        14.7,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.65,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-b-writing-chair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        14.7,
+        10.35
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.61,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-b-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        14.6,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.46,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-b-washstand",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        12.35,
+        6.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.0,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-b-basin",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        12.35,
+        6.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.45,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-b-luggage",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        15.55,
+        9.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-b-flowers",
+      "model": "world/generic/human/passive doodads/flowers/flowersbunch03.m2",
+      "position": [
+        14.95,
+        11.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 25,
+      "order": 32,
+      "layer": "props"
+    },
+    {
+      "id": "room-c-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnruggreen.m2",
+      "position": [
+        19.6,
+        9.0
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.4,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "room-c-bed-0",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        19.6,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.05,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-bedside-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        20.6,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-bed-candle-0",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        20.6,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "room-c-writing-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        21.5,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.65,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-writing-chair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        21.5,
+        10.35
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.61,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        21.4,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.46,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-c-washstand",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        17.599999999999998,
+        11.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.5,
+      "rotation": 0,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-basin",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        17.5,
+        11.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.45,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-c-luggage",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        16.95,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.82,
+      "rotation": 0,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-flowers",
+      "model": "world/generic/human/passive doodads/flowers/flowersbunch03.m2",
+      "position": [
+        21.75,
+        11.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 25,
+      "order": 32,
+      "layer": "props"
+    },
+    {
+      "id": "room-c-armchair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        17.7,
+        8.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 30,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-extra-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        17.7,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.15,
+      "rotation": 0,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-c-extra-mug",
+      "model": "world/generic/human/passive doodads/mugs/stein01.m2",
+      "position": [
+        17.7,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-d-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        26.0,
+        9.0
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.9,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "room-d-bed-0",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        24.25,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.05,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-bedside-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        25.25,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-bed-candle-0",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        25.25,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "room-d-bed-1",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        27.75,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.05,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-bedside-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        26.75,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-bed-candle-1",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        26.75,
+        6.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "room-d-writing-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        27.5,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.65,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-writing-chair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        27.5,
+        10.35
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.61,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        27.4,
+        11.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.46,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-d-washstand",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        24.4,
+        11.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.5,
+      "rotation": 0,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-basin",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        24.3,
+        11.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.45,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "room-d-luggage",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        23.75,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.82,
+      "rotation": 0,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "room-d-flowers",
+      "model": "world/generic/human/passive doodads/flowers/flowersbunch03.m2",
+      "position": [
+        27.75,
+        11.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 25,
+      "order": 32,
+      "layer": "props"
+    },
+    {
+      "id": "dorm-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        9.75,
+        20
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4.5,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "dorm-bed-0",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        7.25,
+        18.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.0,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-locker-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        7.25,
+        19.650000000000002
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-bed-1",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        12.1,
+        18.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.0,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-locker-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        12.1,
+        19.650000000000002
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-bed-2",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        7.25,
+        21.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.0,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-locker-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        7.25,
+        23.150000000000002
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-bed-3",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        12.1,
+        21.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.0,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-locker-3",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        12.1,
+        23.150000000000002
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-washstand",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        9.8,
+        23.25
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "dorm-basin",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        9.7,
+        23.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.5,
+      "rotation": 0,
+      "order": 27,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "owner-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnruggreen.m2",
+      "position": [
+        17.25,
+        20.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4.9,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "owner-bed",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        15.2,
+        22.25
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.3,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "owner-desk",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        18.6,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.0,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "owner-chair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        18.6,
+        19.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "owner-ledger",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        18.35,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "owner-shelf",
+      "model": "world/generic/human/passive doodads/bookshelves/duskwoodbookshelf01.m2",
+      "position": [
+        20.35,
+        21.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.5,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "owner-luggage",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        18.5,
+        23.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "owner-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        19.2,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "linen-shelf",
+      "model": "world/generic/human/passive doodads/bookshelves/duskwoodbookshelf01.m2",
+      "position": [
+        21.7,
+        20.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.6,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "linen-crate-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        23.5,
+        22.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "linen-crate-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        24.5,
+        22.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "landing-bench",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        23.2,
+        18.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.9,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "hall-runner-0",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        8.8,
+        14.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.4,
+      "rotation": 0,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "hall-runner-1",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        14.4,
+        14.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.4,
+      "rotation": 0,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "hall-runner-2",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        20,
+        14.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.4,
+      "rotation": 0,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "hall-runner-3",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        25.5,
+        14.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.4,
+      "rotation": 0,
+      "order": -8,
+      "layer": "props"
+    }
+  ],
+  "details": [
+    {
+      "id": "porch-beam-24.1",
+      "type": "line",
+      "points": [
+        [
+          10.6,
+          24.1
+        ],
+        [
+          15.9,
+          24.1
+        ]
+      ],
+      "stroke": "#5c4431",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-beam-25.7",
+      "type": "line",
+      "points": [
+        [
+          10.6,
+          25.7
+        ],
+        [
+          15.9,
+          25.7
+        ]
+      ],
+      "stroke": "#5c4431",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-post-10.8",
+      "type": "rectangle",
+      "bounds": [
+        10.65,
+        24.4,
+        10.950000000000001,
+        24.7
+      ],
+      "fill": "#493525",
+      "stroke": "#241d16",
+      "width_cells": 0.04
+    },
+    {
+      "id": "porch-post-15.7",
+      "type": "rectangle",
+      "bounds": [
+        15.549999999999999,
+        24.4,
+        15.85,
+        24.7
+      ],
+      "fill": "#493525",
+      "stroke": "#241d16",
+      "width_cells": 0.04
+    },
+    {
+      "id": "porch-step-0",
+      "type": "line",
+      "points": [
+        [
+          10.55,
+          26.0
+        ],
+        [
+          16,
+          26.0
+        ]
+      ],
+      "stroke": "#89745a",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-step-1",
+      "type": "line",
+      "points": [
+        [
+          10.55,
+          26.16
+        ],
+        [
+          16,
+          26.16
+        ]
+      ],
+      "stroke": "#89745a",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-step-2",
+      "type": "line",
+      "points": [
+        [
+          10.55,
+          26.32
+        ],
+        [
+          16,
+          26.32
+        ]
+      ],
+      "stroke": "#89745a",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "garden-furrow-0",
+      "type": "line",
+      "points": [
+        [
+          7,
+          1.9
+        ],
+        [
+          17.5,
+          1.9
+        ]
+      ],
+      "stroke": "#55462d",
+      "width_cells": 0.22,
+      "opacity": 0.85
+    },
+    {
+      "id": "herb-0-0",
+      "type": "ellipse",
+      "bounds": [
+        7.09,
+        1.7999999999999998,
+        7.3100000000000005,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-1",
+      "type": "ellipse",
+      "bounds": [
+        7.94,
+        1.7999999999999998,
+        8.16,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-2",
+      "type": "ellipse",
+      "bounds": [
+        8.790000000000001,
+        1.7999999999999998,
+        9.01,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-3",
+      "type": "ellipse",
+      "bounds": [
+        9.64,
+        1.7999999999999998,
+        9.86,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-4",
+      "type": "ellipse",
+      "bounds": [
+        10.49,
+        1.7999999999999998,
+        10.709999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-5",
+      "type": "ellipse",
+      "bounds": [
+        11.34,
+        1.7999999999999998,
+        11.559999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-6",
+      "type": "ellipse",
+      "bounds": [
+        12.190000000000001,
+        1.7999999999999998,
+        12.41,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-7",
+      "type": "ellipse",
+      "bounds": [
+        13.040000000000001,
+        1.7999999999999998,
+        13.26,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-8",
+      "type": "ellipse",
+      "bounds": [
+        13.89,
+        1.7999999999999998,
+        14.11,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-9",
+      "type": "ellipse",
+      "bounds": [
+        14.74,
+        1.7999999999999998,
+        14.959999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-10",
+      "type": "ellipse",
+      "bounds": [
+        15.59,
+        1.7999999999999998,
+        15.809999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-11",
+      "type": "ellipse",
+      "bounds": [
+        16.44,
+        1.7999999999999998,
+        16.66,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "garden-furrow-1",
+      "type": "line",
+      "points": [
+        [
+          7,
+          2.45
+        ],
+        [
+          17.5,
+          2.45
+        ]
+      ],
+      "stroke": "#55462d",
+      "width_cells": 0.22,
+      "opacity": 0.85
+    },
+    {
+      "id": "herb-1-0",
+      "type": "ellipse",
+      "bounds": [
+        7.09,
+        2.35,
+        7.3100000000000005,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-1",
+      "type": "ellipse",
+      "bounds": [
+        7.94,
+        2.35,
+        8.16,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-2",
+      "type": "ellipse",
+      "bounds": [
+        8.790000000000001,
+        2.35,
+        9.01,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-3",
+      "type": "ellipse",
+      "bounds": [
+        9.64,
+        2.35,
+        9.86,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-4",
+      "type": "ellipse",
+      "bounds": [
+        10.49,
+        2.35,
+        10.709999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-5",
+      "type": "ellipse",
+      "bounds": [
+        11.34,
+        2.35,
+        11.559999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-6",
+      "type": "ellipse",
+      "bounds": [
+        12.190000000000001,
+        2.35,
+        12.41,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-7",
+      "type": "ellipse",
+      "bounds": [
+        13.040000000000001,
+        2.35,
+        13.26,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-8",
+      "type": "ellipse",
+      "bounds": [
+        13.89,
+        2.35,
+        14.11,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-9",
+      "type": "ellipse",
+      "bounds": [
+        14.74,
+        2.35,
+        14.959999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-10",
+      "type": "ellipse",
+      "bounds": [
+        15.59,
+        2.35,
+        15.809999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-11",
+      "type": "ellipse",
+      "bounds": [
+        16.44,
+        2.35,
+        16.66,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "garden-furrow-2",
+      "type": "line",
+      "points": [
+        [
+          7,
+          3.0
+        ],
+        [
+          17.5,
+          3.0
+        ]
+      ],
+      "stroke": "#55462d",
+      "width_cells": 0.22,
+      "opacity": 0.85
+    },
+    {
+      "id": "herb-2-0",
+      "type": "ellipse",
+      "bounds": [
+        7.09,
+        2.9,
+        7.3100000000000005,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-1",
+      "type": "ellipse",
+      "bounds": [
+        7.94,
+        2.9,
+        8.16,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-2",
+      "type": "ellipse",
+      "bounds": [
+        8.790000000000001,
+        2.9,
+        9.01,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-3",
+      "type": "ellipse",
+      "bounds": [
+        9.64,
+        2.9,
+        9.86,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-4",
+      "type": "ellipse",
+      "bounds": [
+        10.49,
+        2.9,
+        10.709999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-5",
+      "type": "ellipse",
+      "bounds": [
+        11.34,
+        2.9,
+        11.559999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-6",
+      "type": "ellipse",
+      "bounds": [
+        12.190000000000001,
+        2.9,
+        12.41,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-7",
+      "type": "ellipse",
+      "bounds": [
+        13.040000000000001,
+        2.9,
+        13.26,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-8",
+      "type": "ellipse",
+      "bounds": [
+        13.89,
+        2.9,
+        14.11,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-9",
+      "type": "ellipse",
+      "bounds": [
+        14.74,
+        2.9,
+        14.959999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-10",
+      "type": "ellipse",
+      "bounds": [
+        15.59,
+        2.9,
+        15.809999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-11",
+      "type": "ellipse",
+      "bounds": [
+        16.44,
+        2.9,
+        16.66,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "privy-seat-0",
+      "type": "rectangle",
+      "bounds": [
+        31.07,
+        3.9,
+        32.03,
+        4.55
+      ],
+      "fill": "#72573c",
+      "stroke": "#352b20",
+      "width_cells": 0.06
+    },
+    {
+      "id": "privy-hole-0",
+      "type": "ellipse",
+      "bounds": [
+        31.35,
+        4.02,
+        31.75,
+        4.4
+      ],
+      "fill": "#24201a"
+    },
+    {
+      "id": "privy-seat-1",
+      "type": "rectangle",
+      "bounds": [
+        33.02,
+        3.9,
+        33.98,
+        4.55
+      ],
+      "fill": "#72573c",
+      "stroke": "#352b20",
+      "width_cells": 0.06
+    },
+    {
+      "id": "privy-hole-1",
+      "type": "ellipse",
+      "bounds": [
+        33.3,
+        4.02,
+        33.7,
+        4.4
+      ],
+      "fill": "#24201a"
+    },
+    {
+      "id": "garden-fence-0",
+      "type": "line",
+      "points": [
+        [
+          5.8,
+          1.2
+        ],
+        [
+          19.2,
+          1.2
+        ]
+      ],
+      "stroke": "#715e44",
+      "width_cells": 0.13,
+      "opacity": 1
+    },
+    {
+      "id": "garden-fence-1",
+      "type": "line",
+      "points": [
+        [
+          5.8,
+          1.2
+        ],
+        [
+          5.8,
+          3.6
+        ]
+      ],
+      "stroke": "#715e44",
+      "width_cells": 0.13,
+      "opacity": 1
+    },
+    {
+      "id": "garden-fence-2",
+      "type": "line",
+      "points": [
+        [
+          19.2,
+          1.2
+        ],
+        [
+          19.2,
+          3.6
+        ]
+      ],
+      "stroke": "#715e44",
+      "width_cells": 0.13,
+      "opacity": 1
+    },
+    {
+      "id": "hall-chimney-shaft",
+      "type": "rectangle",
+      "bounds": [
+        17.05,
+        5.1,
+        18.349999999999998,
+        5.9
+      ],
+      "fill": "#746c5a",
+      "stroke": "#373229",
+      "width_cells": 0.08
+    },
+    {
+      "id": "kitchen-chimney-shaft",
+      "type": "rectangle",
+      "bounds": [
+        26.650000000000002,
+        5.1,
+        27.95,
+        5.9
+      ],
+      "fill": "#746c5a",
+      "stroke": "#373229",
+      "width_cells": 0.08
+    },
+    {
+      "id": "post-0",
+      "type": "rectangle",
+      "bounds": [
+        5.78,
+        4.78,
+        6.22,
+        5.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-1",
+      "type": "rectangle",
+      "bounds": [
+        28.78,
+        4.78,
+        29.22,
+        5.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-2",
+      "type": "rectangle",
+      "bounds": [
+        5.78,
+        23.78,
+        6.22,
+        24.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-3",
+      "type": "rectangle",
+      "bounds": [
+        28.78,
+        23.78,
+        29.22,
+        24.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-4",
+      "type": "rectangle",
+      "bounds": [
+        13.78,
+        9.78,
+        14.22,
+        10.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-5",
+      "type": "rectangle",
+      "bounds": [
+        20.78,
+        11.78,
+        21.22,
+        12.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-6",
+      "type": "rectangle",
+      "bounds": [
+        20.78,
+        16.78,
+        21.22,
+        17.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "stair-handrail-west",
+      "type": "line",
+      "points": [
+        [
+          25.75,
+          18
+        ],
+        [
+          25.75,
+          22.6
+        ]
+      ],
+      "stroke": "#6a5036",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "stair-handrail-east",
+      "type": "line",
+      "points": [
+        [
+          28.07,
+          18
+        ],
+        [
+          28.07,
+          22.6
+        ]
+      ],
+      "stroke": "#6a5036",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "folded-linen-0",
+      "type": "rectangle",
+      "bounds": [
+        21.48,
+        19.650000000000002,
+        21.95,
+        20.05
+      ],
+      "fill": "#c7bda4",
+      "stroke": "#91846e",
+      "width_cells": 0.035
+    },
+    {
+      "id": "linen-fold-0",
+      "type": "line",
+      "points": [
+        [
+          21.55,
+          19.85
+        ],
+        [
+          21.9,
+          19.85
+        ]
+      ],
+      "stroke": "#a89b83",
+      "width_cells": 0.025,
+      "opacity": 1
+    },
+    {
+      "id": "folded-linen-1",
+      "type": "rectangle",
+      "bounds": [
+        21.48,
+        20.35,
+        21.95,
+        20.75
+      ],
+      "fill": "#c7bda4",
+      "stroke": "#91846e",
+      "width_cells": 0.035
+    },
+    {
+      "id": "linen-fold-1",
+      "type": "line",
+      "points": [
+        [
+          21.55,
+          20.55
+        ],
+        [
+          21.9,
+          20.55
+        ]
+      ],
+      "stroke": "#a89b83",
+      "width_cells": 0.025,
+      "opacity": 1
+    },
+    {
+      "id": "folded-linen-2",
+      "type": "rectangle",
+      "bounds": [
+        21.48,
+        21.0,
+        21.95,
+        21.4
+      ],
+      "fill": "#c7bda4",
+      "stroke": "#91846e",
+      "width_cells": 0.035
+    },
+    {
+      "id": "linen-fold-2",
+      "type": "line",
+      "points": [
+        [
+          21.55,
+          21.2
+        ],
+        [
+          21.9,
+          21.2
+        ]
+      ],
+      "stroke": "#a89b83",
+      "width_cells": 0.025,
+      "opacity": 1
+    }
+  ],
+  "architecture": {
+    "outline_cells": 0.035,
+    "shadow_cells": 0.2,
+    "shadow_opacity": 0.48
+  },
+  "foundry": {
+    "key": "upper",
+    "darkness": 0.18,
+    "global_light": true,
+    "grid_alpha": 0.12,
+    "lights": [
+      {
+        "id": "stairs-lamp",
+        "position": [
+          24.7,
+          20.5
+        ],
+        "bright": 2.5,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "room-a-lamp",
+        "position": [
+          8.85,
+          9.0
+        ],
+        "bright": 2.8,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "room-b-lamp",
+        "position": [
+          13.95,
+          9.0
+        ],
+        "bright": 2.8,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "room-c-lamp",
+        "position": [
+          19.6,
+          9.0
+        ],
+        "bright": 2.8,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "room-d-lamp",
+        "position": [
+          26.0,
+          9.0
+        ],
+        "bright": 2.8,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "dorm-light",
+        "position": [
+          9.8,
+          20.3
+        ],
+        "bright": 3,
+        "dim": 6,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "owner-candle-light",
+        "position": [
+          19.2,
+          18.1
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "owner-lamp",
+        "position": [
+          17,
+          20.5
+        ],
+        "bright": 3,
+        "dim": 6,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "corridor-lamp-0",
+        "position": [
+          8.8,
+          14.5
+        ],
+        "bright": 2,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "corridor-lamp-1",
+        "position": [
+          14.4,
+          14.5
+        ],
+        "bright": 2,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "corridor-lamp-2",
+        "position": [
+          20,
+          14.5
+        ],
+        "bright": 2,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "corridor-lamp-3",
+        "position": [
+          25.5,
+          14.5
+        ],
+        "bright": 2,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      }
+    ],
+    "regions": [
+      {
+        "id": "stairs-down",
+        "name": "Лестница вниз",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              25.95,
+              17.2,
+              27.85,
+              18.35
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "ground",
+              "region": "stairs-up"
+            }
+          }
+        ]
+      },
+      {
+        "id": "inside",
+        "name": "Под крышей",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              6,
+              5,
+              29,
+              24
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "suppressWeather"
+          }
+        ]
+      }
+    ],
+    "barriers": [
+      {
+        "id": "well-rim",
+        "closed": true,
+        "points": [
+          [
+            32.7,
+            19.75
+          ],
+          [
+            32.42175144212722,
+            20.42175144212722
+          ],
+          [
+            31.75,
+            20.7
+          ],
+          [
+            31.07824855787278,
+            20.42175144212722
+          ],
+          [
+            30.8,
+            19.75
+          ],
+          [
+            31.07824855787278,
+            19.07824855787278
+          ],
+          [
+            31.75,
+            18.8
+          ],
+          [
+            32.42175144212722,
+            19.07824855787278
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "stairs-rail-0",
+        "points": [
+          [
+            25.65,
+            18.4
+          ],
+          [
+            25.65,
+            22.7
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "stairs-rail-1",
+        "points": [
+          [
+            28.2,
+            18.4
+          ],
+          [
+            28.2,
+            22.7
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      }
+    ]
+  }
+}

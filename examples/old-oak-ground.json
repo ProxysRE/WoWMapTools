@@ -1,0 +1,5252 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "«Старый дуб» — таверна",
+  "seed": 6041,
+  "size_cells": [
+    36,
+    30
+  ],
+  "pixels_per_cell": 96,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "export_format": "webp",
+  "surface_variation": 0.06,
+  "base": {
+    "id": "base",
+    "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+    "tile_cells": 3,
+    "texture_variation": 0.16,
+    "tint": "#c2cfba"
+  },
+  "layers": [
+    {
+      "id": "road",
+      "asset": "tileset/ashenvale/ashenvaleroad.blp",
+      "tile_cells": 1.7,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            0,
+            28
+          ],
+          [
+            12,
+            27.1
+          ],
+          [
+            25,
+            27.5
+          ],
+          [
+            36,
+            29
+          ]
+        ],
+        "width": 4.2,
+        "smooth": true,
+        "feather": 0.65,
+        "roughness": 0.18
+      }
+    },
+    {
+      "id": "front-yard",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 3,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          3,
+          20,
+          31,
+          28
+        ],
+        "feather": 1,
+        "roughness": 0.16
+      }
+    },
+    {
+      "id": "delivery-path",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2.5,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            34,
+            28
+          ],
+          [
+            32,
+            20
+          ],
+          [
+            32,
+            9
+          ],
+          [
+            29,
+            8.5
+          ]
+        ],
+        "width": 2.3,
+        "smooth": true,
+        "feather": 0.6,
+        "roughness": 0.14
+      }
+    },
+    {
+      "id": "rear-garden",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          6,
+          1.5,
+          19,
+          3.8
+        ],
+        "feather": 0.6,
+        "roughness": 0.14
+      }
+    },
+    {
+      "id": "privy-path",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            33.5,
+            6.7
+          ],
+          [
+            33.5,
+            8
+          ],
+          [
+            32,
+            9
+          ]
+        ],
+        "width": 0.9,
+        "feather": 0.2,
+        "smooth": true
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "foundation",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.9,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          5.6,
+          4.6,
+          29.4,
+          24.4
+        ],
+        "feather": 0
+      },
+      "tint": "#c5bdac"
+    },
+    {
+      "id": "interior",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.15,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          6,
+          5,
+          29,
+          24
+        ],
+        "feather": 0
+      },
+      "tint": "#e4caa5"
+    },
+    {
+      "id": "porch",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.05,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          10.5,
+          24,
+          16,
+          26
+        ],
+        "feather": 0
+      },
+      "tint": "#c9b599"
+    },
+    {
+      "id": "well-apron",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.8,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          30,
+          18,
+          33.5,
+          21.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "privy-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 0.85,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          30.6,
+          3.5,
+          34.5,
+          6.5
+        ],
+        "feather": 0
+      },
+      "tint": "#b7a286"
+    },
+    {
+      "id": "hall-hearth-stone",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.7,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          16.5,
+          5.25,
+          18.9,
+          7.6
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "kitchen-hearth-stone",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.7,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          26.1,
+          5.25,
+          28.5,
+          7.6
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stairwell",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.8,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          25.5,
+          18,
+          28.3,
+          22.7
+        ],
+        "feather": 0
+      },
+      "tint": "#77736a"
+    },
+    {
+      "id": "kitchen",
+      "asset": "dungeons/textures/floor/bm_shdwfang_kchnflr_01.blp",
+      "tile_cells": 1.05,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          21,
+          5,
+          29,
+          12
+        ],
+        "feather": 0
+      },
+      "tint": "#e2d3bd"
+    },
+    {
+      "id": "pantry",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.95,
+      "texture_variation": 0.07,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          25,
+          12,
+          29,
+          17
+        ],
+        "feather": 0
+      },
+      "tint": "#c3b6a0"
+    }
+  ],
+  "walls": [
+    {
+      "id": "privy-north",
+      "points": [
+        [
+          30.6,
+          3.5
+        ],
+        [
+          34.5,
+          3.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-west",
+      "points": [
+        [
+          30.6,
+          3.5
+        ],
+        [
+          30.6,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-east",
+      "points": [
+        [
+          34.5,
+          3.5
+        ],
+        [
+          34.5,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-divider",
+      "points": [
+        [
+          32.55,
+          3.5
+        ],
+        [
+          32.55,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": []
+    },
+    {
+      "id": "privy-south",
+      "points": [
+        [
+          30.6,
+          6.5
+        ],
+        [
+          34.5,
+          6.5
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "privy-door-a",
+          "at": 0.95,
+          "width": 1,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "privy-door-b",
+          "at": 2.9,
+          "width": 1,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-north",
+      "points": [
+        [
+          6,
+          5
+        ],
+        [
+          29,
+          5
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "north-window-1",
+          "at": 3,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "north-window-2",
+          "at": 8.5,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "north-window-3",
+          "at": 16.5,
+          "width": 1.7,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-east",
+      "points": [
+        [
+          29,
+          5
+        ],
+        [
+          29,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "delivery-door",
+          "at": 3.7,
+          "width": 1.5,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "east-window-2",
+          "at": 9.1,
+          "width": 1.4,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "east-window-3",
+          "at": 15.4,
+          "width": 1.7,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-south",
+      "points": [
+        [
+          6,
+          24
+        ],
+        [
+          29,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "front-double-door",
+          "at": 7.3,
+          "width": 2.2,
+          "type": "door",
+          "state": "open",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "south-window-1",
+          "at": 2.2,
+          "width": 1.6,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "south-window-2",
+          "at": 12.8,
+          "width": 1.6,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "south-window-3",
+          "at": 17.1,
+          "width": 1.6,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "exterior-west",
+      "points": [
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.42,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "west-window-1",
+          "at": 2.5,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "west-window-2",
+          "at": 8,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        },
+        {
+          "id": "west-window-3",
+          "at": 13.5,
+          "width": 1.8,
+          "type": "window",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "parlour-south",
+      "points": [
+        [
+          6,
+          10
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "parlour-entry",
+          "at": 5.8,
+          "width": 1.5,
+          "type": "door",
+          "state": "open",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "parlour-east",
+      "points": [
+        [
+          14,
+          5
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "parlour-service",
+          "at": 3.4,
+          "width": 1.1,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "kitchen-west",
+      "points": [
+        [
+          21,
+          5
+        ],
+        [
+          21,
+          12
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "kitchen-hall",
+          "at": 4.5,
+          "width": 1.25,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "kitchen-south",
+      "points": [
+        [
+          21,
+          12
+        ],
+        [
+          29,
+          12
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "kitchen-bar",
+          "at": 2.15,
+          "width": 1.35,
+          "type": "door",
+          "state": "open",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "pantry-west",
+      "points": [
+        [
+          25,
+          12
+        ],
+        [
+          25,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "pantry-door",
+          "at": 2.5,
+          "width": 1.2,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "service-south",
+      "points": [
+        [
+          21,
+          17
+        ],
+        [
+          29,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "service-stairs",
+          "at": 2.05,
+          "width": 1.15,
+          "type": "door",
+          "state": "closed",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    },
+    {
+      "id": "stairs-west",
+      "points": [
+        [
+          21,
+          17
+        ],
+        [
+          21,
+          24
+        ]
+      ],
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "thickness": 0.23,
+      "tile_cells": 0.85,
+      "openings": [
+        {
+          "id": "guest-stairs-door",
+          "at": 4.4,
+          "width": 1.55,
+          "type": "door",
+          "state": "open",
+          "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "yard-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        30.5,
+        10.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.95,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        31.65,
+        10.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 10,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-2",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        31.3,
+        11.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-3",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        30.3,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 30,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-4",
+      "model": "world/azeroth/elwynn/passivedoodads/haystacks/haystack01.m2",
+      "position": [
+        33.3,
+        16.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 40,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "well",
+      "model": "world/generic/passivedoodads/well/well.m2",
+      "position": [
+        31.75,
+        19.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.15,
+      "rotation": 15,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "well-bucket",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        32.8,
+        20.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.48,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-0",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        2.6,
+        3.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.7,
+      "rotation": 0,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-1",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        3.4,
+        13.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.5,
+      "rotation": 57,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-2",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        35,
+        1.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4.3,
+      "rotation": 114,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-3",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree01.m2",
+      "position": [
+        1.8,
+        22.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 5.2,
+      "rotation": 171,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "oak-4",
+      "model": "world/kalimdor/ashenvale/passivedoodads/ashenvaletrees/ashenvaletree02.m2",
+      "position": [
+        34.2,
+        23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4.2,
+      "rotation": 228,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "porch-bench-0",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        8.1,
+        24.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.1,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "porch-bench-1",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        18.7,
+        24.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.1,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "entrance-planter-0",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        10,
+        24.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.78,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "entrance-planter-1",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        16.6,
+        24.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.78,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-wood-stack-0",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        30.1,
+        12.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 90,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-wood-stack-1",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        30.1,
+        13.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 90,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "yard-wood-stack-2",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        30.1,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 90,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "stairs-lower",
+      "model": "world/generic/human/passive doodads/woodenstairs/woodenstairs01.m2",
+      "position": [
+        26.9,
+        21.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "stairs-upper",
+      "model": "world/generic/human/passive doodads/woodenstairs/woodenstairs01.m2",
+      "position": [
+        26.9,
+        19.25
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 17,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-counter-0",
+      "model": "world/generic/human/passive doodads/shopcounter/duskwoodshopcounter.m2",
+      "position": [
+        20.75,
+        13.35
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.45,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-counter-1",
+      "model": "world/generic/human/passive doodads/shopcounter/duskwoodshopcounter.m2",
+      "position": [
+        20.75,
+        15.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.45,
+      "rotation": 0,
+      "order": 16,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-stool-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        19.65,
+        13
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-stool-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        19.65,
+        14.25
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-stool-2",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        19.65,
+        15.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-stool-3",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        19.65,
+        16.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "tap-keg-0",
+      "model": "world/generic/human/passive doodads/beerkegs/beerkeg02.m2",
+      "position": [
+        24.2,
+        12.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.83,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "tap-keg-1",
+      "model": "world/generic/human/passive doodads/beerkegs/beerkeg02.m2",
+      "position": [
+        24.2,
+        16.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.83,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "tap-keg-2",
+      "model": "world/generic/human/passive doodads/beerkegs/beerkeg02.m2",
+      "position": [
+        22.1,
+        16.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.83,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "bar-mug-0",
+      "model": "world/generic/human/passive doodads/mugs/stein01.m2",
+      "position": [
+        20.72,
+        12.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "bar-mug-1",
+      "model": "world/generic/human/passive doodads/mugs/stein01.m2",
+      "position": [
+        20.72,
+        13.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 30,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "bar-mug-2",
+      "model": "world/generic/human/passive doodads/mugs/stein01.m2",
+      "position": [
+        20.72,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 60,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "bar-mug-3",
+      "model": "world/generic/human/passive doodads/mugs/stein01.m2",
+      "position": [
+        20.72,
+        16.15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 90,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "bar-ledger",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        20.7,
+        16.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.48,
+      "rotation": 90,
+      "order": 31,
+      "layer": "props"
+    },
+    {
+      "id": "bar-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        20.8,
+        14.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "main-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        13.25,
+        17.35
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 7.7,
+      "rotation": 90,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "west-1",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        9.3,
+        13.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.65,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-1-north-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        8.620000000000001,
+        12.02
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-1-south-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        8.620000000000001,
+        14.18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-1-n0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        8.620000000000001,
+        12.549999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-n0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        8.89,
+        12.629999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-s0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        8.620000000000001,
+        13.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-s0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        8.89,
+        13.73
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-north-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.98,
+        12.02
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-1-south-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.98,
+        14.18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-1-n1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.98,
+        12.549999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-n1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        10.25,
+        12.629999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-s1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.98,
+        13.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-s1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        10.25,
+        13.73
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        9.3,
+        13.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        9.0,
+        13.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 12,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-1-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        9.620000000000001,
+        13.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.27,
+      "rotation": -15,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-2",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        9.3,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.65,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-2-north-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        8.620000000000001,
+        17.020000000000003
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-2-south-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        8.620000000000001,
+        19.18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-2-n0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        8.620000000000001,
+        17.55
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-n0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        8.89,
+        17.63
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-s0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        8.620000000000001,
+        18.650000000000002
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-s0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        8.89,
+        18.73
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-north-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.98,
+        17.020000000000003
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-2-south-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.98,
+        19.18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "west-2-n1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.98,
+        17.55
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-n1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        10.25,
+        17.63
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-s1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.98,
+        18.650000000000002
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-s1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        10.25,
+        18.73
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        9.3,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        9.0,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 12,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "west-2-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        9.620000000000001,
+        18.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.27,
+      "rotation": -15,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-1",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        16.6,
+        12.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.65,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-1-north-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        15.920000000000002,
+        11.52
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-1-south-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        15.920000000000002,
+        13.68
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-1-n0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        15.920000000000002,
+        12.049999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-n0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        16.19,
+        12.129999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-s0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        15.920000000000002,
+        13.15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-s0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        16.19,
+        13.23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-north-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        17.28,
+        11.52
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-1-south-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        17.28,
+        13.68
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-1-n1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        17.28,
+        12.049999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-n1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.55,
+        12.129999999999999
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-s1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        17.28,
+        13.15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-s1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.55,
+        13.23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        16.6,
+        12.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        16.3,
+        12.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 12,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-1-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        16.92,
+        12.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.27,
+      "rotation": -15,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-2",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        16.6,
+        18.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.65,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-2-north-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        15.920000000000002,
+        17.119999999999997
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-2-south-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        15.920000000000002,
+        19.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-2-n0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        15.920000000000002,
+        17.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-n0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        16.19,
+        17.729999999999997
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-s0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        15.920000000000002,
+        18.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-s0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        16.19,
+        18.83
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-north-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        17.28,
+        17.119999999999997
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-2-south-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        17.28,
+        19.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "east-2-n1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        17.28,
+        17.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-n1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.55,
+        17.729999999999997
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-s1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        17.28,
+        18.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-s1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.55,
+        18.83
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        16.6,
+        18.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        16.3,
+        18.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 12,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "east-2-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        16.92,
+        18.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.27,
+      "rotation": -15,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-table",
+      "model": "world/generic/human/passive doodads/tables/duskwoodtable01.m2",
+      "position": [
+        17.3,
+        8.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.8,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "shared-bench-north",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        17.3,
+        7.28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.9,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "shared-bench-south",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        17.3,
+        9.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.9,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "shared-n-0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        15.9,
+        8.08
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        16.17,
+        8.16
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        15.9,
+        9.12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        16.17,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        16.8,
+        8.08
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.07,
+        8.16
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        16.8,
+        9.12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.07,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-2-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        17.7,
+        8.08
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-2-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.97,
+        8.16
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-2-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        17.7,
+        9.12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-2-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        17.97,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-3-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        18.6,
+        8.08
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-n-3-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        18.87,
+        8.16
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-3-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        18.6,
+        9.12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "shared-s-3-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        18.87,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "shared-fish",
+      "model": "world/generic/human/passive doodads/food/fishplatter01.m2",
+      "position": [
+        17.2,
+        8.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 90,
+      "order": 27,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-rug",
+      "model": "world/generic/human/passive doodads/rugs/karazahnruggreen.m2",
+      "position": [
+        10,
+        7.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 6.3,
+      "rotation": 0,
+      "order": -8,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        10,
+        7.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "parlour-table-north-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.32,
+        6.37
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "parlour-table-south-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.32,
+        8.530000000000001
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "parlour-table-n0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.32,
+        6.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-n0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        9.59,
+        6.98
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-s0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.32,
+        8.0
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-s0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        9.59,
+        8.08
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-north-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        10.68,
+        6.37
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "parlour-table-south-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        10.68,
+        8.530000000000001
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.64,
+      "rotation": 270,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "parlour-table-n1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        10.68,
+        6.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-n1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        10.95,
+        6.98
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-s1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        10.68,
+        8.0
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 180,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-s1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        10.95,
+        8.08
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 205,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        10,
+        7.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        9.7,
+        7.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.36,
+      "rotation": 12,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-table-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        10.32,
+        7.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.27,
+      "rotation": -15,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-sideboard",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        7.75,
+        5.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.4,
+      "rotation": 0,
+      "order": 13,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "parlour-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        7.7,
+        5.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.5,
+      "rotation": 15,
+      "order": 27,
+      "layer": "props"
+    },
+    {
+      "id": "parlour-flowers",
+      "model": "world/generic/human/passive doodads/flowers/flowersbunch03.m2",
+      "position": [
+        10.1,
+        7.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.45,
+      "rotation": 30,
+      "order": 32,
+      "layer": "props"
+    },
+    {
+      "id": "south-booth-table",
+      "model": "world/generic/human/passive doodads/tables/duskwoodtable01.m2",
+      "position": [
+        9,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.5,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "south-booth-bench",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        9,
+        23.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 90,
+      "order": 12,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "south-booth-chair-0",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        8.4,
+        20.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "south-booth-setting-0-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        8.4,
+        21.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "south-booth-setting-0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        8.67,
+        21.58
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "south-booth-chair-1",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        9.6,
+        20.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "south-booth-setting-1-plate",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        9.6,
+        21.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 24,
+      "layer": "props"
+    },
+    {
+      "id": "south-booth-setting-1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        9.87,
+        21.58
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.19,
+      "rotation": 25,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "south-booth-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        9,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "hall-firewood",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        19.5,
+        6.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.05,
+      "rotation": 20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "kitchen-firewood",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        26.15,
+        7.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": -20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "kitchen-stove",
+      "model": "world/generic/human/passive doodads/stoves/potbellystove.m2",
+      "position": [
+        27.1,
+        6.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "kitchen-pot",
+      "model": "world/generic/human/passive doodads/cauldrons/cauldronempty.m2",
+      "position": [
+        27.1,
+        6.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.68,
+      "rotation": 0,
+      "order": 28,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "prep-table",
+      "model": "world/generic/human/passive doodads/tables/duskwoodtable01.m2",
+      "position": [
+        24.1,
+        8.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "prep-0",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        23.4,
+        8.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.55,
+      "rotation": 0,
+      "order": 27,
+      "layer": "props"
+    },
+    {
+      "id": "prep-1",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        24.25,
+        8.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 20,
+      "order": 27,
+      "layer": "props"
+    },
+    {
+      "id": "prep-2",
+      "model": "world/generic/human/passive doodads/food/fishplatter01.m2",
+      "position": [
+        24.9,
+        8.55
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 40,
+      "order": 27,
+      "layer": "props"
+    },
+    {
+      "id": "prep-3",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        23.55,
+        8.85
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.38,
+      "rotation": 60,
+      "order": 27,
+      "layer": "props"
+    },
+    {
+      "id": "wash-bench",
+      "model": "world/generic/human/passive doodads/shopcounter/duskwoodshopcounter.m2",
+      "position": [
+        28.15,
+        10.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.0,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "washing-bucket-0",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        28.1,
+        10.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.58,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "washing-bucket-1",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        28.1,
+        11.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.58,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "kitchen-shelf",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        23.2,
+        5.65
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "kitchen-shelf-dish-0",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        22.3,
+        5.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.35,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "kitchen-shelf-dish-1",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        23,
+        5.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.35,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "kitchen-shelf-dish-2",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        23.7,
+        5.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.35,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "kitchen-shelf-dish-3",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        24.2,
+        5.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.35,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "pantry-crate-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        28.15,
+        12.85
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.95,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-crate-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        28.15,
+        14.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.95,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-crate-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        28.15,
+        15.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.95,
+      "rotation": 180,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-barrel-0",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        25.85,
+        12.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.73,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-barrel-1",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        25.85,
+        16.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.73,
+      "rotation": 25,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-top-shelf",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        27,
+        12.6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-bottom-shelf",
+      "model": "world/generic/human/passive doodads/bookshelves/abbeyshelf01.m2",
+      "position": [
+        27.3,
+        16.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.1,
+      "rotation": 0,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "pantry-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        27.1,
+        16.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.42,
+      "rotation": 0,
+      "order": 26,
+      "layer": "props"
+    },
+    {
+      "id": "reception-desk",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        23.2,
+        18.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.85,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "reception-chair",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        23.2,
+        17.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.63,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.24,
+        "blur_cells": 0.055,
+        "offset_cells": [
+          0.05,
+          0.075
+        ]
+      }
+    },
+    {
+      "id": "guest-register",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        23,
+        18.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.62,
+      "rotation": 5,
+      "order": 28,
+      "layer": "props"
+    },
+    {
+      "id": "reception-candle",
+      "model": "world/generic/passivedoodads/lights/candleoff01.m2",
+      "position": [
+        23.7,
+        18.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.22,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "entry-mat",
+      "model": "world/generic/human/passive doodads/rugs/karazahnruggreen.m2",
+      "position": [
+        13.3,
+        22.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.2,
+      "rotation": 0,
+      "order": -9,
+      "layer": "props"
+    },
+    {
+      "id": "stairs-mat",
+      "model": "world/generic/human/passive doodads/rugs/karazahnrugred.m2",
+      "position": [
+        23.8,
+        21.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3,
+      "rotation": 90,
+      "order": -9,
+      "layer": "props"
+    }
+  ],
+  "details": [
+    {
+      "id": "porch-beam-24.1",
+      "type": "line",
+      "points": [
+        [
+          10.6,
+          24.1
+        ],
+        [
+          15.9,
+          24.1
+        ]
+      ],
+      "stroke": "#5c4431",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-beam-25.7",
+      "type": "line",
+      "points": [
+        [
+          10.6,
+          25.7
+        ],
+        [
+          15.9,
+          25.7
+        ]
+      ],
+      "stroke": "#5c4431",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-post-10.8",
+      "type": "rectangle",
+      "bounds": [
+        10.65,
+        24.4,
+        10.950000000000001,
+        24.7
+      ],
+      "fill": "#493525",
+      "stroke": "#241d16",
+      "width_cells": 0.04
+    },
+    {
+      "id": "porch-post-15.7",
+      "type": "rectangle",
+      "bounds": [
+        15.549999999999999,
+        24.4,
+        15.85,
+        24.7
+      ],
+      "fill": "#493525",
+      "stroke": "#241d16",
+      "width_cells": 0.04
+    },
+    {
+      "id": "porch-step-0",
+      "type": "line",
+      "points": [
+        [
+          10.55,
+          26.0
+        ],
+        [
+          16,
+          26.0
+        ]
+      ],
+      "stroke": "#89745a",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-step-1",
+      "type": "line",
+      "points": [
+        [
+          10.55,
+          26.16
+        ],
+        [
+          16,
+          26.16
+        ]
+      ],
+      "stroke": "#89745a",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "porch-step-2",
+      "type": "line",
+      "points": [
+        [
+          10.55,
+          26.32
+        ],
+        [
+          16,
+          26.32
+        ]
+      ],
+      "stroke": "#89745a",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "garden-furrow-0",
+      "type": "line",
+      "points": [
+        [
+          7,
+          1.9
+        ],
+        [
+          17.5,
+          1.9
+        ]
+      ],
+      "stroke": "#55462d",
+      "width_cells": 0.22,
+      "opacity": 0.85
+    },
+    {
+      "id": "herb-0-0",
+      "type": "ellipse",
+      "bounds": [
+        7.09,
+        1.7999999999999998,
+        7.3100000000000005,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-1",
+      "type": "ellipse",
+      "bounds": [
+        7.94,
+        1.7999999999999998,
+        8.16,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-2",
+      "type": "ellipse",
+      "bounds": [
+        8.790000000000001,
+        1.7999999999999998,
+        9.01,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-3",
+      "type": "ellipse",
+      "bounds": [
+        9.64,
+        1.7999999999999998,
+        9.86,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-4",
+      "type": "ellipse",
+      "bounds": [
+        10.49,
+        1.7999999999999998,
+        10.709999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-5",
+      "type": "ellipse",
+      "bounds": [
+        11.34,
+        1.7999999999999998,
+        11.559999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-6",
+      "type": "ellipse",
+      "bounds": [
+        12.190000000000001,
+        1.7999999999999998,
+        12.41,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-7",
+      "type": "ellipse",
+      "bounds": [
+        13.040000000000001,
+        1.7999999999999998,
+        13.26,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-8",
+      "type": "ellipse",
+      "bounds": [
+        13.89,
+        1.7999999999999998,
+        14.11,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-9",
+      "type": "ellipse",
+      "bounds": [
+        14.74,
+        1.7999999999999998,
+        14.959999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-10",
+      "type": "ellipse",
+      "bounds": [
+        15.59,
+        1.7999999999999998,
+        15.809999999999999,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-0-11",
+      "type": "ellipse",
+      "bounds": [
+        16.44,
+        1.7999999999999998,
+        16.66,
+        2.0
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "garden-furrow-1",
+      "type": "line",
+      "points": [
+        [
+          7,
+          2.45
+        ],
+        [
+          17.5,
+          2.45
+        ]
+      ],
+      "stroke": "#55462d",
+      "width_cells": 0.22,
+      "opacity": 0.85
+    },
+    {
+      "id": "herb-1-0",
+      "type": "ellipse",
+      "bounds": [
+        7.09,
+        2.35,
+        7.3100000000000005,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-1",
+      "type": "ellipse",
+      "bounds": [
+        7.94,
+        2.35,
+        8.16,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-2",
+      "type": "ellipse",
+      "bounds": [
+        8.790000000000001,
+        2.35,
+        9.01,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-3",
+      "type": "ellipse",
+      "bounds": [
+        9.64,
+        2.35,
+        9.86,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-4",
+      "type": "ellipse",
+      "bounds": [
+        10.49,
+        2.35,
+        10.709999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-5",
+      "type": "ellipse",
+      "bounds": [
+        11.34,
+        2.35,
+        11.559999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-6",
+      "type": "ellipse",
+      "bounds": [
+        12.190000000000001,
+        2.35,
+        12.41,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-7",
+      "type": "ellipse",
+      "bounds": [
+        13.040000000000001,
+        2.35,
+        13.26,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-8",
+      "type": "ellipse",
+      "bounds": [
+        13.89,
+        2.35,
+        14.11,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-9",
+      "type": "ellipse",
+      "bounds": [
+        14.74,
+        2.35,
+        14.959999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-10",
+      "type": "ellipse",
+      "bounds": [
+        15.59,
+        2.35,
+        15.809999999999999,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-1-11",
+      "type": "ellipse",
+      "bounds": [
+        16.44,
+        2.35,
+        16.66,
+        2.5500000000000003
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "garden-furrow-2",
+      "type": "line",
+      "points": [
+        [
+          7,
+          3.0
+        ],
+        [
+          17.5,
+          3.0
+        ]
+      ],
+      "stroke": "#55462d",
+      "width_cells": 0.22,
+      "opacity": 0.85
+    },
+    {
+      "id": "herb-2-0",
+      "type": "ellipse",
+      "bounds": [
+        7.09,
+        2.9,
+        7.3100000000000005,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-1",
+      "type": "ellipse",
+      "bounds": [
+        7.94,
+        2.9,
+        8.16,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-2",
+      "type": "ellipse",
+      "bounds": [
+        8.790000000000001,
+        2.9,
+        9.01,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-3",
+      "type": "ellipse",
+      "bounds": [
+        9.64,
+        2.9,
+        9.86,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-4",
+      "type": "ellipse",
+      "bounds": [
+        10.49,
+        2.9,
+        10.709999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-5",
+      "type": "ellipse",
+      "bounds": [
+        11.34,
+        2.9,
+        11.559999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-6",
+      "type": "ellipse",
+      "bounds": [
+        12.190000000000001,
+        2.9,
+        12.41,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-7",
+      "type": "ellipse",
+      "bounds": [
+        13.040000000000001,
+        2.9,
+        13.26,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-8",
+      "type": "ellipse",
+      "bounds": [
+        13.89,
+        2.9,
+        14.11,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-9",
+      "type": "ellipse",
+      "bounds": [
+        14.74,
+        2.9,
+        14.959999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-10",
+      "type": "ellipse",
+      "bounds": [
+        15.59,
+        2.9,
+        15.809999999999999,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "herb-2-11",
+      "type": "ellipse",
+      "bounds": [
+        16.44,
+        2.9,
+        16.66,
+        3.1
+      ],
+      "fill": "#647151",
+      "stroke": "#455338",
+      "width_cells": 0.025
+    },
+    {
+      "id": "privy-seat-0",
+      "type": "rectangle",
+      "bounds": [
+        31.07,
+        3.9,
+        32.03,
+        4.55
+      ],
+      "fill": "#72573c",
+      "stroke": "#352b20",
+      "width_cells": 0.06
+    },
+    {
+      "id": "privy-hole-0",
+      "type": "ellipse",
+      "bounds": [
+        31.35,
+        4.02,
+        31.75,
+        4.4
+      ],
+      "fill": "#24201a"
+    },
+    {
+      "id": "privy-seat-1",
+      "type": "rectangle",
+      "bounds": [
+        33.02,
+        3.9,
+        33.98,
+        4.55
+      ],
+      "fill": "#72573c",
+      "stroke": "#352b20",
+      "width_cells": 0.06
+    },
+    {
+      "id": "privy-hole-1",
+      "type": "ellipse",
+      "bounds": [
+        33.3,
+        4.02,
+        33.7,
+        4.4
+      ],
+      "fill": "#24201a"
+    },
+    {
+      "id": "garden-fence-0",
+      "type": "line",
+      "points": [
+        [
+          5.8,
+          1.2
+        ],
+        [
+          19.2,
+          1.2
+        ]
+      ],
+      "stroke": "#715e44",
+      "width_cells": 0.13,
+      "opacity": 1
+    },
+    {
+      "id": "garden-fence-1",
+      "type": "line",
+      "points": [
+        [
+          5.8,
+          1.2
+        ],
+        [
+          5.8,
+          3.6
+        ]
+      ],
+      "stroke": "#715e44",
+      "width_cells": 0.13,
+      "opacity": 1
+    },
+    {
+      "id": "garden-fence-2",
+      "type": "line",
+      "points": [
+        [
+          19.2,
+          1.2
+        ],
+        [
+          19.2,
+          3.6
+        ]
+      ],
+      "stroke": "#715e44",
+      "width_cells": 0.13,
+      "opacity": 1
+    },
+    {
+      "id": "hall-firebox",
+      "type": "rectangle",
+      "bounds": [
+        16.9,
+        5.32,
+        18.5,
+        6.05
+      ],
+      "fill": "#211b17",
+      "stroke": "#746351",
+      "width_cells": 0.12
+    },
+    {
+      "id": "hall-log-0",
+      "type": "line",
+      "points": [
+        [
+          17.15,
+          5.53
+        ],
+        [
+          18.2,
+          5.58
+        ]
+      ],
+      "stroke": "#70503a",
+      "width_cells": 0.1,
+      "opacity": 1
+    },
+    {
+      "id": "hall-log-1",
+      "type": "line",
+      "points": [
+        [
+          17.15,
+          5.66
+        ],
+        [
+          18.2,
+          5.71
+        ]
+      ],
+      "stroke": "#70503a",
+      "width_cells": 0.1,
+      "opacity": 1
+    },
+    {
+      "id": "hall-log-2",
+      "type": "line",
+      "points": [
+        [
+          17.15,
+          5.79
+        ],
+        [
+          18.2,
+          5.84
+        ]
+      ],
+      "stroke": "#70503a",
+      "width_cells": 0.1,
+      "opacity": 1
+    },
+    {
+      "id": "hall-coal-0",
+      "type": "ellipse",
+      "bounds": [
+        17.25,
+        5.57,
+        17.34,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "hall-coal-1",
+      "type": "ellipse",
+      "bounds": [
+        17.38,
+        5.57,
+        17.47,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "hall-coal-2",
+      "type": "ellipse",
+      "bounds": [
+        17.51,
+        5.57,
+        17.6,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "hall-coal-3",
+      "type": "ellipse",
+      "bounds": [
+        17.64,
+        5.57,
+        17.73,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "hall-coal-4",
+      "type": "ellipse",
+      "bounds": [
+        17.77,
+        5.57,
+        17.86,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "hall-coal-5",
+      "type": "ellipse",
+      "bounds": [
+        17.9,
+        5.57,
+        17.99,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "hall-coal-6",
+      "type": "ellipse",
+      "bounds": [
+        18.03,
+        5.57,
+        18.12,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-firebox",
+      "type": "rectangle",
+      "bounds": [
+        26.5,
+        5.32,
+        28.1,
+        6.05
+      ],
+      "fill": "#211b17",
+      "stroke": "#746351",
+      "width_cells": 0.12
+    },
+    {
+      "id": "kitchen-log-0",
+      "type": "line",
+      "points": [
+        [
+          26.75,
+          5.53
+        ],
+        [
+          27.8,
+          5.58
+        ]
+      ],
+      "stroke": "#70503a",
+      "width_cells": 0.1,
+      "opacity": 1
+    },
+    {
+      "id": "kitchen-log-1",
+      "type": "line",
+      "points": [
+        [
+          26.75,
+          5.66
+        ],
+        [
+          27.8,
+          5.71
+        ]
+      ],
+      "stroke": "#70503a",
+      "width_cells": 0.1,
+      "opacity": 1
+    },
+    {
+      "id": "kitchen-log-2",
+      "type": "line",
+      "points": [
+        [
+          26.75,
+          5.79
+        ],
+        [
+          27.8,
+          5.84
+        ]
+      ],
+      "stroke": "#70503a",
+      "width_cells": 0.1,
+      "opacity": 1
+    },
+    {
+      "id": "kitchen-coal-0",
+      "type": "ellipse",
+      "bounds": [
+        26.85,
+        5.57,
+        26.94,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-coal-1",
+      "type": "ellipse",
+      "bounds": [
+        26.98,
+        5.57,
+        27.07,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-coal-2",
+      "type": "ellipse",
+      "bounds": [
+        27.110000000000003,
+        5.57,
+        27.200000000000003,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-coal-3",
+      "type": "ellipse",
+      "bounds": [
+        27.240000000000002,
+        5.57,
+        27.330000000000002,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-coal-4",
+      "type": "ellipse",
+      "bounds": [
+        27.37,
+        5.57,
+        27.46,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-coal-5",
+      "type": "ellipse",
+      "bounds": [
+        27.5,
+        5.57,
+        27.59,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "kitchen-coal-6",
+      "type": "ellipse",
+      "bounds": [
+        27.630000000000003,
+        5.57,
+        27.720000000000002,
+        5.69
+      ],
+      "fill": "#c66d32",
+      "opacity": 0.7
+    },
+    {
+      "id": "post-0",
+      "type": "rectangle",
+      "bounds": [
+        5.78,
+        4.78,
+        6.22,
+        5.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-1",
+      "type": "rectangle",
+      "bounds": [
+        28.78,
+        4.78,
+        29.22,
+        5.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-2",
+      "type": "rectangle",
+      "bounds": [
+        5.78,
+        23.78,
+        6.22,
+        24.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-3",
+      "type": "rectangle",
+      "bounds": [
+        28.78,
+        23.78,
+        29.22,
+        24.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-4",
+      "type": "rectangle",
+      "bounds": [
+        13.78,
+        9.78,
+        14.22,
+        10.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-5",
+      "type": "rectangle",
+      "bounds": [
+        20.78,
+        11.78,
+        21.22,
+        12.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "post-6",
+      "type": "rectangle",
+      "bounds": [
+        20.78,
+        16.78,
+        21.22,
+        17.22
+      ],
+      "fill": "#453225",
+      "stroke": "#251c17",
+      "width_cells": 0.045
+    },
+    {
+      "id": "stair-handrail-west",
+      "type": "line",
+      "points": [
+        [
+          25.75,
+          18
+        ],
+        [
+          25.75,
+          22.6
+        ]
+      ],
+      "stroke": "#6a5036",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "stair-handrail-east",
+      "type": "line",
+      "points": [
+        [
+          28.07,
+          18
+        ],
+        [
+          28.07,
+          22.6
+        ]
+      ],
+      "stroke": "#6a5036",
+      "width_cells": 0.11,
+      "opacity": 1
+    },
+    {
+      "id": "hall-mantel",
+      "type": "line",
+      "points": [
+        [
+          16.7,
+          6.1
+        ],
+        [
+          18.7,
+          6.1
+        ]
+      ],
+      "stroke": "#907452",
+      "width_cells": 0.13,
+      "opacity": 1
+    }
+  ],
+  "architecture": {
+    "outline_cells": 0.035,
+    "shadow_cells": 0.2,
+    "shadow_opacity": 0.48
+  },
+  "foundry": {
+    "key": "ground",
+    "darkness": 0.18,
+    "global_light": true,
+    "grid_alpha": 0.12,
+    "lights": [
+      {
+        "id": "hall-fire",
+        "position": [
+          17.7,
+          6.1
+        ],
+        "bright": 3,
+        "dim": 7,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "kitchen-fire",
+        "position": [
+          27.3,
+          6.1
+        ],
+        "bright": 3,
+        "dim": 7,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "stairs-lamp",
+        "position": [
+          24.7,
+          20.5
+        ],
+        "bright": 2.5,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "bar-candle-light",
+        "position": [
+          20.8,
+          14.65
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "west-1-candle-light",
+        "position": [
+          9.3,
+          13.1
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "west-2-candle-light",
+        "position": [
+          9.3,
+          18.1
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "east-1-candle-light",
+        "position": [
+          16.6,
+          12.6
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "east-2-candle-light",
+        "position": [
+          16.6,
+          18.2
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "parlour-table-candle-light",
+        "position": [
+          10,
+          7.45
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "south-booth-candle-light",
+        "position": [
+          9,
+          22
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "kitchen-lamp",
+        "position": [
+          24.3,
+          10.6
+        ],
+        "bright": 3,
+        "dim": 6,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "pantry-lamp",
+        "position": [
+          27.1,
+          14.4
+        ],
+        "bright": 1.5,
+        "dim": 3,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "reception-candle-light",
+        "position": [
+          23.7,
+          18.8
+        ],
+        "bright": 1.5,
+        "dim": 4,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      },
+      {
+        "id": "entrance-light",
+        "position": [
+          13.3,
+          24.8
+        ],
+        "bright": 2.5,
+        "dim": 5,
+        "color": "#ffd49a",
+        "alpha": 0.24
+      }
+    ],
+    "regions": [
+      {
+        "id": "stairs-up",
+        "name": "Лестница наверх",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              25.95,
+              22.7,
+              27.85,
+              23.65
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "upper",
+              "region": "stairs-down"
+            }
+          }
+        ]
+      },
+      {
+        "id": "inside",
+        "name": "Под крышей",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              6,
+              5,
+              29,
+              24
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "suppressWeather"
+          }
+        ]
+      }
+    ],
+    "barriers": [
+      {
+        "id": "well-rim",
+        "closed": true,
+        "points": [
+          [
+            32.7,
+            19.75
+          ],
+          [
+            32.42175144212722,
+            20.42175144212722
+          ],
+          [
+            31.75,
+            20.7
+          ],
+          [
+            31.07824855787278,
+            20.42175144212722
+          ],
+          [
+            30.8,
+            19.75
+          ],
+          [
+            31.07824855787278,
+            19.07824855787278
+          ],
+          [
+            31.75,
+            18.8
+          ],
+          [
+            32.42175144212722,
+            19.07824855787278
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "stairs-rail-0",
+        "points": [
+          [
+            25.65,
+            18.4
+          ],
+          [
+            25.65,
+            22.7
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "stairs-rail-1",
+        "points": [
+          [
+            28.2,
+            18.4
+          ],
+          [
+            28.2,
+            22.7
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "bar-counter",
+        "points": [
+          [
+            20.75,
+            12.15
+          ],
+          [
+            20.75,
+            16.95
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      }
+    ]
+  }
+}
