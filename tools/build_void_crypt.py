@@ -15,7 +15,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 
 from wowmap.foundry import compile_scene, export_bundle
-from wowmap.models import RawAssets, inspect_model
+from wowmap.models import RawAssets, inspect_model, preview
 from wowmap.render import render, resource_names, validate
 
 SCENES=("crypt-entrance","crypt-passages","crypt-sanctum")
@@ -23,6 +23,7 @@ PACKAGE_NAMES=(
     "dungeons-textures-c1558cc2-001.zip",
     "tileset-ashenvale-fabe58ef-001.zip",
     "world-azeroth-duskwood-fa40c120-001.zip",
+    "world-generic-human-36964228-001.zip",
 )
 
 
@@ -62,6 +63,12 @@ def preflight(packages,package_id):
                     continue
                 info=inspect_model(raw,model)
                 missing.update(info["missing"])
+                # Detect models with no visible top-facing triangles before long renders.
+                # M2s consisting solely of vertical billboards cannot yield top-down sprites.
+                try:
+                    preview(raw, model, 96)
+                except ValueError as error:
+                    raise ValueError(key+": unrenderable top-down M2 "+model+": "+str(error)) from error
                 if not info["inspection_complete"] or info["used_replaceable_texture_types"]:
                     model_notes.append({"model":model,
                                         "inspection_complete":info["inspection_complete"],
