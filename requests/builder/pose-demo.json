@@ -1,0 +1,258 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "human-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/human-male.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 1190
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "orc-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/orc-female.json",
+      "appearance": {
+        "character": {
+          "race": "orc",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "tauren-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/tauren-male.json",
+      "appearance": {
+        "character": {
+          "race": "tauren",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "naga-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/naga-female.json",
+      "appearance": {
+        "character": {
+          "race": "naga_",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "wolf",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/wolf.json",
+      "appearance": {
+        "display_id": 165,
+        "portrait_yaw": 55,
+        "size": 512,
+        "portrait_size": 768,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "greatsword",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/greatsword.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "main_hand": 647
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "staff",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/staff.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "main_hand": 35
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "archer",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/archer.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "main_hand": 2504
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "rifle",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/rifle.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "main_hand": 2508
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": "combat"
+        }
+      }
+    },
+    {
+      "id": "caster",
+      "mode": "npc",
+      "source": "requests/builder/sources/pose-demo/caster.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718
+        },
+        "size": 512,
+        "portrait_size": 768,
+        "portrait_yaw": 30,
+        "pose_variants": {
+          "normal": "idle",
+          "combat": {
+            "animation_id": 51,
+            "fraction": 0.5
+          }
+        }
+      }
+    }
+  ],
+  "placements": []
+}

@@ -1,0 +1,2 @@
+.wowmap-pose-toggle[aria-pressed="true"] { color: #ffbf69; border-color: #ffbf69; }
+.wowmap-pose-toggle:disabled { opacity: 0.5; cursor: wait; }

@@ -52,6 +52,29 @@ class TokenTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name);self.dbc,self.models=appearance_fixture(self.root)
 
+    def test_variants_are_exported_and_builder_preserves_normal_images(self):
+        # Bind snapshots let this integration check focus on packaging/flags,
+        # independently of skeleton arithmetic tested with real-format tracks.
+        spec=importlib.util.spec_from_file_location('pose_batch_adapter',ROOT/'tools/build_foundry_batch.py')
+        adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
+        options=dict(display_id=165,size=128,portrait_size=128,pose_variants={'normal':'bind','combat':'bind'})
+        request=dict(format='foundry-builder.batch/1',documents=[dict(id='wolf',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
+        request_file=ROOT/'requests/builder/test-pose-fixture.json'
+        try:
+            request_file.write_text(json.dumps(request),encoding='utf-8')
+            output=self.root/'variant-build';adapter.build_batch(request_file.relative_to(ROOT).as_posix(),output,dbc_assets=self.dbc,model_assets=self.models)
+            actor=json.loads((output/'wolf.json').read_text())
+            variants=actor['flags']['wowmap']['poseVariants']
+            self.assertEqual(actor['prototypeToken']['texture']['src'],variants['normal']['token'])
+            self.assertEqual(actor['img'],variants['normal']['portrait'])
+            self.assertEqual(actor['prototypeToken']['flags']['wowmap']['pose'],'normal')
+            for pair in variants.values():
+                for path in pair.values():self.assertTrue((output/path).is_file())
+            tokens=TokenAssets(self.dbc,self.models)
+            for invalid in [True,{}, {'normal':'bind'}, {'normal':'bind','combat':'bind','extra':'bind'}]:
+                with self.assertRaisesRegex(ValueError,'normal and combat'):tokens.variants({**options,'pose_variants':invalid})
+        finally:request_file.unlink(missing_ok=True)
+
     def test_session_shares_archives_between_views_and_variants_and_closes_on_failure(self):
         tokens=TokenAssets(self.dbc,self.models)
         options=dict(display_id=165,size=128,portrait_size=128)

@@ -1,7 +1,7 @@
 """Static M2 (WotLK v264) inspection and CPU orthographic previews.
 
-Limited fixed-function materials, not a game renderer: no skeleton animation,
-billboarding, particles or arbitrary shader effects.
+Limited fixed-function materials, with optional sampled skeleton frames.
+No playback, billboarding, particles or arbitrary shader effects.
 """
 import argparse
 from collections import OrderedDict
@@ -227,27 +227,44 @@ def additive_composite(destination, source):
     return np.concatenate((np.clip(rgb,0,1),np.clip(alpha,0,1)),axis=-1)
 
 
-def composed_mesh(assets,name,texture_overrides=None,geosets=None,attachments=None):
-    """Prepare bind-space geometry once for multiple camera views."""
+def composed_mesh(assets,name,texture_overrides=None,geosets=None,attachments=None,pose=None,gear=None):
+    """Prepare bind or sampled skeleton geometry once for multiple camera views."""
     vertices,draws,info=mesh_data(assets,name,texture_overrides,geosets)
+    skeleton=None
+    if pose is not None:
+        from .poses import Skeleton,pose_options
+        options=pose_options(pose)
+        if options.get('preset')!='bind':
+            skeleton=Skeleton(assets,name,options,gear)
+            vertices=skeleton.skin(vertices)
     for part in attachments or []:
         extra,batches,part_info=mesh_data(assets,part['model'],part.get('textures'))
         translation=np.asarray(part['position'],dtype=np.float32)
         if translation.shape!=(3,) or not np.isfinite(translation).all():raise ValueError('Invalid attachment position')
         extra['position']+=translation
+        if skeleton is not None:
+            bone=part['bone']
+            if type(bone) is not int or not 0<=bone<len(skeleton.bones):raise ValueError('Invalid attachment bone')
+            matrix=skeleton.matrix(bone)
+            extra['position']=extra['position']@matrix[:3,:3].T+matrix[:3,3]
+            normal_matrix=np.linalg.pinv(matrix[:3,:3]).T
+            extra['normal']=extra['normal']@normal_matrix.T
+            length=np.linalg.norm(extra['normal'],axis=1,keepdims=True)
+            extra['normal']=np.divide(extra['normal'],length,out=np.zeros_like(extra['normal']),where=length>1e-8)
         offset=len(vertices)
         for batch in batches:batch['triangles']=batch['triangles'].astype(np.uint32)+offset
         vertices=np.concatenate((vertices,extra));draws+=batches
         info['unused_missing']+=part_info['unused_missing']
+    if skeleton is not None:info['pose']=skeleton.metadata()
     return vertices,draws,info
 
 
-def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', geosets=None, attachments=None, prepared_mesh=None):
+def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', geosets=None, attachments=None, prepared_mesh=None,pose=None,gear=None):
     if not 64<=size<=2048: raise ValueError('Preview size must be 64..2048')
     if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not np.isfinite(yaw) or not -360<=yaw<=360:
         raise ValueError('Preview yaw must be finite degrees between -360 and 360')
     if view not in ('top','front'):raise ValueError('Preview view must be top or front')
-    vertices,draws,info=prepared_mesh if prepared_mesh is not None else composed_mesh(assets,name,texture_overrides,geosets,attachments)
+    vertices,draws,info=prepared_mesh if prepared_mesh is not None else composed_mesh(assets,name,texture_overrides,geosets,attachments,pose,gear)
     # Camera transforms must never mutate reusable bind-space vertices.
     vertices=vertices.copy()
     part_metadata=attachments or []
@@ -275,7 +292,7 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
     image=np.zeros((size,size,4),dtype=np.float32)
     depth=np.full((size,size),-np.inf,dtype=np.float32)
     light=np.array([-.3,.4,.85]);light=light/np.linalg.norm(light)
-    # Base static pose only; no particle, ribbon, skeletal or UV animation evaluation.
+    # Geometry may already be posed; no particle, ribbon or UV animation evaluation.
     epsilon=span*1e-5
     # Finish solid/cutout geometry before its additive overlay, including coplanar passes.
     for draw in sorted(draws,key=lambda d:d['blend']==4):
@@ -328,6 +345,9 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
                                'single texture per batch','alpha blend approximated by cutout'])
     metadata['blend_modes']=sorted({d['blend'] for d in draws})
     metadata['used_textures']=sorted({d['texture'] for d in draws})
+    if 'pose' in info:
+        metadata['pose']=info['pose']
+        metadata['limitations'][0]='single sampled skeletal frame'
     metadata['unused_missing_resources']=info['unused_missing']
     if geosets is not None:metadata['selected_geosets']=sorted(geosets)
     if 4 in metadata['blend_modes']:metadata['limitations'].append('additive light flattened to RGBA coverage')

@@ -1,0 +1,10 @@
+{
+  "id": "wowmap-poses",
+  "title": "WoWMap — позы токенов",
+  "description": "Ручное переключение готовых изображений токена и портрета: обычный и боевой облик.",
+  "version": "0.1.0",
+  "compatibility": {"minimum": "13", "verified": "13.351", "maximum": "13"},
+  "authors": [{"name": "WoWMapTools"}],
+  "esmodules": ["poses.mjs"],
+  "styles": ["poses.css"]
+}

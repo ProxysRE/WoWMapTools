@@ -2,7 +2,7 @@
 
 Schemas are pinned to 3.3.5.12340 (WoWDBDefs). Atlas regions and equipment
 ordering follow the legacy client layout documented in WoW Model Viewer.
-Attachments use original M2 attachment lookup positions in the unanimated bind pose.
+Attachments use original M2 lookup positions, optionally transformed by sampled bones.
 """
 import argparse
 import copy
@@ -342,13 +342,16 @@ class CharacterDB:
             elif slot=='shoulders':
                 attach(slot,0,6,'shoulder');attach(slot,1,5,'shoulder')
             elif slot=='off_hand' and gear[slot]['inventory_type']==14:attach(slot,0,0,'shield')
-            else:attach(slot,0,1 if slot=='main_hand' else 2,'weapon')
+            else:
+                subclass=self.tables['item'].cell(self.items[gear[slot]['item_id']],2)
+                point=2 if slot=='off_hand' or subclass in (2,18) else 1
+                attach(slot,0,point,'weapon')
             if not any(p['slot']==slot for p in parts):raise ValueError('Item has no attachment model: '+str(gear[slot]['item_id']))
         if gear.get('main_hand',{}).get('inventory_type')==17 and 'off_hand' in gear:
             raise ValueError('Two-handed equipment cannot be combined with an off-hand item')
         return parts
 
-    def prepare(self,raw,character,equipment):
+    def prepare(self,raw,character,equipment,pose=None):
         assets,model,replacements,geosets,metadata=self.assemble(raw,character,equipment)
         # Only selected parts request replacements; an unused hair type need not be bound.
         from .models import inspect_model
@@ -358,7 +361,8 @@ class CharacterDB:
         if 'cape' in equipment and 2 not in info['used_replaceable_texture_types']:raise ValueError('Selected cape has no cape material')
         overrides={k:v for k,v in replacements.items() if k in info['used_replaceable_texture_types']}
         attachments=self.attachments(assets,model,metadata['character'],metadata['equipment'])
-        mesh=composed_mesh(assets,model,overrides,geosets,attachments)
+        pose_gear={slot:dict(value,subclass=self.tables['item'].cell(self.items[value['item_id']],2)) for slot,value in metadata['equipment'].items()}
+        mesh=composed_mesh(assets,model,overrides,geosets,attachments,pose,pose_gear)
         metadata['model']=model
         return dict(assets=assets,model=model,overrides=overrides,geosets=geosets,metadata=metadata,attachments=attachments,mesh=mesh,sources=None)
 
@@ -368,7 +372,8 @@ class CharacterDB:
                              geosets=prepared['geosets'],attachments=prepared['attachments'],prepared_mesh=prepared['mesh'])
         if prepared['sources'] is None:
             prepared['sources']=[dict(path=p,sha256=hashlib.sha256(assets.raw.read(p)).hexdigest()) for p in sorted(assets.used)]
-        render['limitations']+=['bind-pose attachments; hands remain in base pose','no item visual/enchantment particle effects','underwear layer retained where available']
+        if 'pose' not in render:render['limitations']+=['bind-pose attachments; hands remain in base pose']
+        render['limitations']+=['no item visual/enchantment particle effects','underwear layer retained where available']
         return image,render,copy.deepcopy(prepared['metadata']),copy.deepcopy(prepared['sources'])
 
     def render(self,raw,character,equipment,size,yaw,view):

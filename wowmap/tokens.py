@@ -4,7 +4,7 @@ Schemas: wowdev/WoWDBDefs CreatureDisplayInfo (16 fields), CreatureModelData
 (28 fields), build 3.3.5.12340. Replacement texture types 11..13 correspond to
 GAMEOBJECT1..3 in wowmodelviewer/src/games/wow/wow_enums.h.
 Explicit character equipment assembly is handled separately from creature display IDs.
-Animation sampling and creature geoset overrides remain unsupported.
+Skeletal snapshots are optional; creature geoset overrides remain unsupported.
 """
 import argparse
 from contextlib import contextmanager, ExitStack
@@ -106,8 +106,10 @@ class TokenAssets:
 
     def select(self, options, view='top'):
         if view not in ('top','front'):raise ValueError('Token view must be top or front')
-        if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw'}:
+        if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw','pose'}:
             raise ValueError('Appearance contains unsupported options')
+        from .poses import pose_options
+        pose=pose_options(options.get('pose'))
         assembled='character' in options
         if assembled and 'display_id' in options:raise ValueError('Choose character or display_id, not both')
         if 'equipment' in options and not assembled:raise ValueError('Equipment requires an explicit character appearance')
@@ -130,7 +132,8 @@ class TokenAssets:
             if appearance['geoset_data']:raise ValueError('Creature geoset selection is not implemented yet')
             if appearance['alpha']!=255:raise ValueError('Translucent creature displays are not implemented yet')
             identity=display_id
-        key=(identity,size,yaw,view)
+        pose_key=json.dumps(pose,sort_keys=True)
+        key=(identity,size,yaw,view,pose_key)
         if key in self.selected:return self.selected[key]
         if len(self.selected)>=400:raise ValueError('At most 400 creature views per batch')
         with self.session():
@@ -139,15 +142,17 @@ class TokenAssets:
             if assembled:
                 # Retain only the current outfit, only within this resource session.
                 # The top-down token and portrait share atlas, geometry and provenance.
-                if self._prepared is None or self._prepared[0]!=identity:
-                    prepared=self.character_db.prepare(assets,character,equipment)
-                    self._prepared=(identity,prepared)
+                prepared_key=(identity,pose_key)
+                if self._prepared is None or self._prepared[0]!=prepared_key:
+                    prepared=self.character_db.prepare(assets,character,equipment,options.get('pose'))
+                    self._prepared=(prepared_key,prepared)
                 image,render,appearance,sources=self.character_db.render_prepared(self._prepared[1],size,yaw,view)
             else:
                 info=inspect_model(assets,appearance['model'])
                 replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
-                image,render=preview(assets,appearance['model'],size,replacements,yaw,view)
+                image,render=preview(assets,appearance['model'],size,replacements,yaw,view,pose=options.get('pose'))
                 deps={appearance['model'],info['skins'][0],*render['used_textures']}
+                deps.update(render.get('pose',{}).get('external_sources',[]))
                 sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]
         buffer=io.BytesIO();image.save(buffer,format='WEBP',lossless=True,exact=True)
         data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest()
@@ -164,6 +169,16 @@ class TokenAssets:
             token=self.select(options)
             portrait=self.select(options,'front') if options.get('actor_image',True) else None
         return dict(token=token,portrait=portrait)
+
+    def variants(self,options):
+        """Render a declared pair of switchable snapshots using the same outfit."""
+        options=dict(options)
+        variants=options.pop('pose_variants',{'normal':'idle','combat':'combat'})
+        if not isinstance(variants,dict) or set(variants)!={'normal','combat'}:
+            raise ValueError('pose_variants requires normal and combat selections')
+        if 'pose' in options:raise ValueError('Choose pose or pose_variants')
+        with self.session():
+            return {name:self.pair(dict(options,pose=pose)) for name,pose in variants.items()}
 
     def write(self, root):
         for path,data in self.images.items():

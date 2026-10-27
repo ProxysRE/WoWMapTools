@@ -89,7 +89,12 @@ def _build_batch(request_path,output,icon_assets,dbc_assets,model_assets,resourc
             conflicts={'/prototypeToken/texture/src'}
             if options.get('actor_image',True):conflicts.add('/img')
             if conflicts & set(entry.get('icons',{})):raise ValueError('Icon and appearance target the same image')
-            images=tokens.pair(options)
+            if 'pose_variants' in options:
+                variants=tokens.variants(options)
+                outcome.document.setdefault('flags',{}).setdefault('wowmap',{})['poseVariants']=variants
+                outcome.document.setdefault('prototypeToken',{}).setdefault('flags',{}).setdefault('wowmap',{})['pose']='normal'
+                images=variants['normal']
+            else:images=tokens.pair(options)
             outcome.document.setdefault('prototypeToken',{}).setdefault('texture',{})['src']=images['token']
             if images['portrait']:outcome.document['img']=images['portrait']
         prepared.append((key,outcome))

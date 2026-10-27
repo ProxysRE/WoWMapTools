@@ -19,6 +19,7 @@ Builder — прежний снимок, а не обязательный про
 | Пакетные листы и население | [BUILDER_GITHUB](BUILDER_GITHUB.md) |
 | Привязки изображений | [BUILDER_ICONS](BUILDER_ICONS.md), [TOKENS](TOKENS.md) |
 | Расы, одежда и крепления экипировки | [CHARACTERS](CHARACTERS.md) |
+| Скелетные кадры и модуль переключения обликов | [POSES](POSES.md) |
 | Границы M2 | [MODEL_PREVIEWS](MODEL_PREVIEWS.md) |
 | Игровой контент | [Точка входа Builder](foundry_builder/AI_FOUNDRY_BUILDER_GUIDE.md) |
 
