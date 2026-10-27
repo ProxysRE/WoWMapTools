@@ -4,10 +4,11 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const code = fs.readFileSync(require('node:path').join(__dirname,'../wowmap/import_foundry.js'),'utf8');
 async function test({collision=false, missing=false, invalid=false, generation=13,
-                     populated=false, actorCollision=false, invalidActor=false, missingNested=false, systemVersion='5.3.3'}={}) {
+                     populated=false, actorCollision=false, invalidActor=false, missingNested=false, systemVersion='5.3.3', delta}={}) {
   const errors=[];const calls=[];const existingActors=new Set();
   const doc={_id:'sceneId',name:'Inn',background:{src:'wowmap/inn/ground/background.webp'},tiles:[],regions:[],
     tokens:populated?[{name:'Innkeeper',actorId:'actorId',texture:{src:'icons/svg/mystery-man.svg'}}]:[]};
+  if (populated && delta !== undefined) doc.tokens[0].delta = structuredClone(delta);
   const actors=populated?[{_id:'actorId',name:'Innkeeper',type:'npc',img:'icons/svg/mystery-man.svg',
     items:[{name:'Key',img:'wowmap/content/icons/test.webp'}]}]:[];
   class Actor {
@@ -16,7 +17,14 @@ async function test({collision=false, missing=false, invalid=false, generation=1
     static async createDocuments(data,options){calls.push({kind:'actors',data,options});for(const a of data)existingActors.add(a._id);return data;}
   }
   class Scene {
-    constructor(){this.regions=[];if(invalid)throw Error('invalid scene schema');}
+    constructor(data){
+      this.regions=[];if(invalid)throw Error('invalid scene schema');
+      for(const t of data.tokens || []) {
+        const d=t.delta;
+        if(!d || typeof d.system!=='object' || !Array.isArray(d.items) || !Array.isArray(d.effects) || typeof d.flags!=='object')
+          throw Error('delta: system/items/effects/flags may not be undefined');
+      }
+    }
     validate(){return true;}
     static async createDocuments(data,options){
       for(const s of data)for(const t of s.tokens||[])assert.equal(existingActors.has(t.actorId),true,'Actors must precede linked tokens');
@@ -44,6 +52,13 @@ async function test({collision=false, missing=false, invalid=false, generation=1
   assert.equal(populated.calls.length,2);assert.equal(populated.calls[0].kind,'actors');assert.equal(populated.calls[1].kind,'scenes');
   assert.equal(populated.calls[1].data[0].tokens[0].actorId,populated.calls[0].data[0]._id);
   assert.equal(populated.calls[0].options.keepId,true);assert.equal(populated.calls[0].options.keepEmbeddedIds,true);
+  for (const delta of [{}, {system:{attributes:{hp:{value:7}}},items:[{_id:'item'}],effects:[],flags:{world:{test:true}}}]) {
+    const result=await test({populated:true,delta});assert.equal(result.errors.length,0);
+    const actual=result.calls[1].data[0].tokens[0].delta;
+    assert.deepEqual(JSON.parse(JSON.stringify(actual)),{system:{},items:[],effects:[],flags:{},...delta});
+  }
+  const badDelta=await test({populated:true,delta:{items:'broken'}});
+  assert.equal(badDelta.calls.length,0);assert.equal(badDelta.errors.length,1);
   for(const options of [{actorCollision:true},{invalidActor:true},{missing:true},{missingNested:true},{systemVersion:'4.0.0'}]) {
     const result=await test({populated:true,...options});assert.equal(result.calls.length,0);assert.equal(result.errors.length,1);
   }

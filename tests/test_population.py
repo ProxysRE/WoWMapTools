@@ -23,13 +23,24 @@ class PopulationTests(unittest.TestCase):
         original=bundle();pop=population();out=populate(original,pop)
         self.assertEqual(out,populate(original,pop));self.assertNotIn('actors',original)
         actor=out['actors'][0];token=out['scenes'][0]['tokens'][0]
+        self.assertEqual(token['delta'],dict(system={},items=[],effects=[],flags={}))
         self.assertEqual(actor['_id'],uid('inn','actor','innkeeper'))
         self.assertEqual(token['actorId'],actor['_id']);self.assertTrue(token['actorLink'])
         self.assertEqual((token['x'],token['y']),(350,250));self.assertEqual(token['disposition'],0)
 
+    def test_existing_actor_delta_is_preserved_without_mutating_prototype(self):
+        p=population()
+        delta=dict(system={'attributes':{'hp':{'value':7}}},items=[{'_id':'item'}])
+        p['actors'][0]['document']['prototypeToken']['delta']=copy.deepcopy(delta)
+        token=populate(bundle(),p)['scenes'][0]['tokens'][0]
+        self.assertEqual(token['delta'],dict(**delta,effects=[],flags={}))
+        self.assertEqual(p['actors'][0]['document']['prototypeToken']['delta'],delta)
+
     def test_multiple_unlinked_tokens_share_base_actor_but_have_unique_ids(self):
         p=population();second=copy.deepcopy(p['placements'][0]);second.update(id='guest',actor_link=False,position=[6,3]);p['placements'].append(second)
         result=populate(bundle(),p);a,b=result['scenes'][0]['tokens']
+        self.assertEqual(a['delta'],dict(system={},items=[],effects=[],flags={}))
+        self.assertEqual(b['delta'],a['delta']);self.assertIsNot(a['delta'],b['delta'])
         self.assertEqual(a['actorId'],b['actorId']);self.assertNotEqual(a['_id'],b['_id']);self.assertFalse(b['actorLink'])
 
     def test_placement_inherits_prototype_and_explicit_overrides_win(self):

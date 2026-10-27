@@ -58,6 +58,14 @@
       for (const tile of scene.tiles || []) {tile.texture.src = remap(tile.texture.src); files.add(tile.texture.src);}
       for (const token of scene.tokens || []) {
         if (!actorIds.has(token.actorId) && !game.actors.has(token.actorId)) throw new Error(`Unknown actor for token: ${token.name}`);
+        // Older exports omitted ActorDelta defaults. Strict v13 scene validation
+        // requires these fields before any actor or scene is persisted.
+        if (token.delta === undefined) token.delta = {};
+        if (token.delta && typeof token.delta === 'object' && !Array.isArray(token.delta)) {
+          for (const [key, empty] of Object.entries({system: {}, items: [], effects: [], flags: {}})) {
+            if (token.delta[key] === undefined) token.delta[key] = empty;
+          }
+        }
         if (token.texture?.src) {token.texture.src = remap(token.texture.src); files.add(token.texture.src);}
       }
       // Validate against the actual installed v13 core, including nested documents.

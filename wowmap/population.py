@@ -69,6 +69,10 @@ def populate(bundle,population):
         prototype=copy.deepcopy(actor.get('prototypeToken',{}))
         # Native prototype fields remain intact; only placement and identity are assigned here.
         prototype.pop('_id',None);prototype.pop('actorId',None)
+        # Scene tokens need a complete empty ActorDelta even when actorLink is true.
+        delta=prototype.setdefault('delta',{})
+        for key,empty in [('system',{}),('items',[]),('effects',[]),('flags',{})]:
+            delta.setdefault(key,empty)
         width=number(p.get('width',prototype.get('width',1)),'width',.25,20)
         height=number(p.get('height',prototype.get('height',1)),'height',.25,20)
         cx,cy=p['position'];x=(cx-width/2)*ppc;y=(cy-height/2)*ppc
