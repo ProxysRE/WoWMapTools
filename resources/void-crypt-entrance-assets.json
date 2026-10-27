@@ -1,0 +1,46 @@
+{
+  "format": "wowmap.resource-manifest/1",
+  "scene": "crypt-entrance",
+  "source_plan": "examples/void-crypt-entrance.json",
+  "source": "WoW WotLK 3.3.5a catalog.jsonl.gz and validated private ZIP files",
+  "status": "Catalog paths and selected model dependencies verified; full map rendering pending",
+  "packages": [
+    {
+      "path": "packages/dungeons-textures-c1558cc2-001.zip",
+      "bytes": 133658414,
+      "sha256": "41f821a76aa9ef3a5e757ed47c0e3ee4aa4fb84371b29e94d9b37da7f5e91e43"
+    },
+    {
+      "path": "packages/tileset-ashenvale-fabe58ef-001.zip",
+      "bytes": 1738934,
+      "sha256": "bac35d10c2323e0c80b1c0d1ec5eb1ccd6c1d23e7f187a73fb2fc8dd3255ab55"
+    },
+    {
+      "path": "packages/world-azeroth-duskwood-fa40c120-001.zip",
+      "bytes": 5266910,
+      "sha256": "91e050dd8cb2f61c10ffa220294fe5567aba8777dd673d86a53604cb42323d29"
+    }
+  ],
+  "textures": [
+    "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+    "dungeons/textures/brick/jacryptbrick01.blp",
+    "dungeons/textures/floor/jacryptfloor01.blp",
+    "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+    "tileset/ashenvale/ashenvaledirt.blp",
+    "tileset/ashenvale/ashenvalemossbase.blp"
+  ],
+  "models": [
+    "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
+    "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
+    "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+    "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.m2",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2"
+  ],
+  "qa": {
+    "confirmed": "All explicitly referenced base/overlay/floor/wall BLP paths occur in original catalog and ZIP files; selected M2 models are MD20 v264 with SKIN and source texture dependencies present in the Duskwood package",
+    "not_yet_confirmed": "Full-resolution render, visual inspection of model rotation/scale, interactive Foundry gameplay"
+  }
+}
