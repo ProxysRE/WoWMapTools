@@ -89,10 +89,12 @@ def digest_file(path):
 
 def normalize(name):
     name = name.replace('\\', '/').lower()
-    path = PurePosixPath(name)
-    if path.is_absolute() or '..' in path.parts or any(':' in p for p in path.parts):
+    # Equivalent to PurePosixPath for virtual resources, without constructing
+    # thousands of pathlib objects while indexing a client package.
+    parts = name.split('/')
+    if name.startswith('/') or '..' in parts or ':' in name:
         raise ValueError('Unsafe resource path')
-    return str(path)
+    return '/'.join(part for part in parts if part and part != '.') or '.'
 
 
 def group_for(path):

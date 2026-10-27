@@ -1,0 +1,156 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "human-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/capes/human-male.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 1190
+        },
+        "size": 384,
+        "portrait_size": 640,
+        "portrait_yaw": 145
+      }
+    },
+    {
+      "id": "human-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/capes/human-female.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 1270
+        },
+        "size": 384,
+        "portrait_size": 640,
+        "portrait_yaw": 145
+      }
+    },
+    {
+      "id": "orc-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/capes/orc-female.json",
+      "appearance": {
+        "character": {
+          "race": "orc",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 1355
+        },
+        "size": 384,
+        "portrait_size": 640,
+        "portrait_yaw": 145
+      }
+    },
+    {
+      "id": "tauren-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/capes/tauren-male.json",
+      "appearance": {
+        "character": {
+          "race": "tauren",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 3980
+        },
+        "size": 384,
+        "portrait_size": 640,
+        "portrait_yaw": 145
+      }
+    },
+    {
+      "id": "bloodelf-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/capes/bloodelf-female.json",
+      "appearance": {
+        "character": {
+          "race": "bloodelf",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 2805
+        },
+        "size": 384,
+        "portrait_size": 640,
+        "portrait_yaw": 145
+      }
+    },
+    {
+      "id": "gnome-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/capes/gnome-female.json",
+      "appearance": {
+        "character": {
+          "race": "gnome",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143,
+          "cape": 1190
+        },
+        "size": 384,
+        "portrait_size": 640,
+        "portrait_yaw": 145
+      }
+    }
+  ],
+  "placements": []
+}

@@ -42,6 +42,7 @@ def character_fixture(root):
         if did==14:row[2]=string('test.mdx');row[4]=string('test_skin')
         if did==13:row[13:15]=[1,1]
         displays.append(struct.pack('<25I',*row))
+    row=[0]*25;row[0]=17;row[3]=string('cape_test');row[7]=2;displays.append(struct.pack('<25I',*row))
     display_bytes=table(25,displays,bytes(strings))
     with ZipFile(dbc/'tables.zip','a') as z:
         race_strings=b'\0Hu\0Or\0'
@@ -54,13 +55,15 @@ def character_fixture(root):
         z.writestr('dbfilesclient/charhairgeosets.dbc',table(6,[struct.pack('<6I',i+1,1,i,1,0,1) for i in [0,1]]+[struct.pack('<6I',10+i,2,i,1,0,1) for i in [0,1]],b'\0'))
         z.writestr('dbfilesclient/characterfacialhairstyles.dbc',table(8,[struct.pack('<8I',1,sex,0,0,0,0,0,0) for sex in [0,1]],b'\0'))
         z.writestr('dbfilesclient/itemdisplayinfo.dbc',display_bytes)
-        z.writestr('dbfilesclient/item.dbc',table(8,[struct.pack('<8I',100,4,0,0,0,10,4,0),struct.pack('<8I',101,4,0,0,0,11,20,0),struct.pack('<8I',102,4,0,0,0,12,10,0)]+[struct.pack('<8I',103+i,4,0,0,0,13+i,inv,0) for i,inv in enumerate([1,3,21,14])]+[struct.pack('<8I',107,2,0,0,0,15,17,0)],b'\0'))
+        z.writestr('dbfilesclient/item.dbc',table(8,[struct.pack('<8I',100,4,0,0,0,10,4,0),struct.pack('<8I',101,4,0,0,0,11,20,0),struct.pack('<8I',102,4,0,0,0,12,10,0)]+[struct.pack('<8I',103+i,4,0,0,0,13+i,inv,0) for i,inv in enumerate([1,3,21,14])]+[struct.pack('<8I',107,2,0,0,0,15,17,0),struct.pack('<8I',108,4,0,0,0,17,16,0)],b'\0'))
     model,skin,_=fixture();model=bytearray(model);_,offset=struct.unpack_from('<II',model,80);struct.pack_into('<IIII',model,offset,1,0,0,0)
     _,offset=struct.unpack_from('<II',model,60);struct.pack_into('<f',model,offset+48+8,1)
+    struct.pack_into('<II',model,80,2,len(model));model.extend(struct.pack('<8I',1,0,0,0,2,0,0,0))
+    struct.pack_into('<II',model,128,2,len(model));model.extend(struct.pack('<2H',0,1))
     sections=[];batches=[]
-    for i,geoset in enumerate([0,802,1302,402,702]):
+    for i,geoset in enumerate([0,802,1302,402,702,1503]):
         sections.append(struct.pack('<10H',geoset,0,0,3,0,3,1,0,1,0)+b'\0'*28)
-        batches.append(struct.pack('<BB11H',0,0,0,i,0,65535,0,0,1,0,0,0,0))
+        batches.append(struct.pack('<BB11H',0,0,0,i,0,65535,0,0,1,1 if geoset==1503 else 0,0,0,0))
     skin=bytearray(skin)
     for header,data,count in [(28,b''.join(sections),len(sections)),(36,b''.join(batches),len(batches))]:
         struct.pack_into('<II',skin,header,count,len(skin));skin.extend(data)
@@ -88,6 +91,7 @@ def character_fixture(root):
                 prefix='item/objectcomponents/'+folder+'/'+stem
                 z.writestr(prefix+'.m2',part);z.writestr(prefix+'00.skin',part_skin)
         z.writestr('tileset/test/red.png',texture)
+        z.writestr('item/objectcomponents/cape/cape_test.blp',png((0,30,200,255)))
         z.writestr('base.png',png((100,100,100,255)));z.writestr('face.png',png((100,100,100,0)))
         for folder,name in zip(FOLDERS,['sleeve_au','sleeve_al','glove_ha','chest_tu','chest_tl','pant_lu','pant_ll','boot_fo']):
             # Same texture requested by both sexes; explicit unisex fallback.
@@ -188,6 +192,49 @@ class CharacterTests(unittest.TestCase):
             read=a.read;a.read=lambda name:bytes(data) if name==m else read(name)
             with self.assertRaisesRegex(ValueError,'Missing attachment point'):
                 db.attachments(a,m,meta['character'],meta['equipment'])
+
+    def test_cape_geometry_texture_and_missing_parts(self):
+        db=CharacterDB(self.dbc)
+        with RawAssets(self.models) as raw:
+            with self.assertRaisesRegex(ValueError,'head covering'):db.assemble(raw,dict(race='tuskarr'),dict(cape=108))
+            a,m,re,geosets,meta=db.assemble(raw,{},dict(cape=108))
+            self.assertIn(1503,geosets)
+            self.assertEqual(re[2],'item/objectcomponents/cape/cape_test.blp')
+            _,_,_,bare,_=db.assemble(raw,{},{});self.assertNotIn(1503,bare)
+            _,report,_,sources=db.render(raw,{},dict(cape=108),128,180,'front')
+            self.assertIn(re[2],report['used_textures'])
+            self.assertIn(re[2],[row['path'] for row in sources])
+            raw.files.pop(re[2])
+            with self.assertRaisesRegex(ValueError,'Missing cape texture'):db.assemble(raw,{},dict(cape=108))
+        # A valid cape with a length absent from this body is never dropped silently.
+        with RawAssets(self.models) as raw:
+            original=db.equipment
+            def absent(slot,item):
+                gear=original(slot,item);gear['geosets']=[5,0,0];return gear
+            db.equipment=absent
+            with self.assertRaisesRegex(ValueError,'no requested cape geoset'):db.assemble(raw,{},dict(cape=108))
+
+    def test_token_views_share_one_assembly_without_camera_or_metadata_mutation(self):
+        from unittest.mock import patch
+        tokens=TokenAssets(self.dbc,self.models)
+        options=dict(character={},equipment=dict(cape=108,shoulders=104),size=128,portrait_size=128)
+        original=CharacterDB.prepare;calls=[]
+        def prepare(db,*args):calls.append(1);return original(db,*args)
+        with patch.object(CharacterDB,'prepare',prepare),tokens.session():
+            tokens.pair(options)
+            self.assertEqual(len(calls),1)
+            prepared=tokens._prepared[1];vertices=prepared['mesh'][0].copy()
+            first=tokens.character_db.render_prepared(prepared,128,180,'front')
+            second=tokens.character_db.render_prepared(prepared,128,-90,'top')
+            first[2]['character']['skin']=999;first[3].clear()
+            again=tokens.character_db.render_prepared(prepared,128,180,'front')
+            self.assertTrue(np.array_equal(vertices,prepared['mesh'][0]))
+            self.assertTrue(np.array_equal(np.asarray(first[0]),np.asarray(again[0])))
+            self.assertEqual(again[2]['character']['skin'],0);self.assertTrue(again[3])
+            other=dict(options,equipment=dict(cape=108))
+            tokens.pair(other);self.assertEqual(len(calls),2)
+            self.assertIsNot(tokens._prepared[1],prepared)
+        self.assertIsNone(tokens._prepared)
 
     def test_selected_geosets_must_have_visible_triangles(self):
         db=CharacterDB(self.dbc)

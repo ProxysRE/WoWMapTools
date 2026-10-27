@@ -227,13 +227,9 @@ def additive_composite(destination, source):
     return np.concatenate((np.clip(rgb,0,1),np.clip(alpha,0,1)),axis=-1)
 
 
-def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', geosets=None, attachments=None):
-    if not 64<=size<=2048: raise ValueError('Preview size must be 64..2048')
-    if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not np.isfinite(yaw) or not -360<=yaw<=360:
-        raise ValueError('Preview yaw must be finite degrees between -360 and 360')
-    if view not in ('top','front'):raise ValueError('Preview view must be top or front')
+def composed_mesh(assets,name,texture_overrides=None,geosets=None,attachments=None):
+    """Prepare bind-space geometry once for multiple camera views."""
     vertices,draws,info=mesh_data(assets,name,texture_overrides,geosets)
-    part_metadata=[]
     for part in attachments or []:
         extra,batches,part_info=mesh_data(assets,part['model'],part.get('textures'))
         translation=np.asarray(part['position'],dtype=np.float32)
@@ -243,7 +239,18 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
         for batch in batches:batch['triangles']=batch['triangles'].astype(np.uint32)+offset
         vertices=np.concatenate((vertices,extra));draws+=batches
         info['unused_missing']+=part_info['unused_missing']
-        part_metadata.append(part)
+    return vertices,draws,info
+
+
+def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', geosets=None, attachments=None, prepared_mesh=None):
+    if not 64<=size<=2048: raise ValueError('Preview size must be 64..2048')
+    if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not np.isfinite(yaw) or not -360<=yaw<=360:
+        raise ValueError('Preview yaw must be finite degrees between -360 and 360')
+    if view not in ('top','front'):raise ValueError('Preview view must be top or front')
+    vertices,draws,info=prepared_mesh if prepared_mesh is not None else composed_mesh(assets,name,texture_overrides,geosets,attachments)
+    # Camera transforms must never mutate reusable bind-space vertices.
+    vertices=vertices.copy()
+    part_metadata=attachments or []
     if yaw:
         angle=np.deg2rad(yaw);c,s=np.cos(angle),np.sin(angle)
         rotation=np.array([[c,-s],[s,c]])

@@ -5,6 +5,7 @@ ordering follow the legacy client layout documented in WoW Model Viewer.
 Attachments use original M2 attachment lookup positions in the unanimated bind pose.
 """
 import argparse
+import copy
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -13,7 +14,7 @@ import numpy as np
 from PIL import Image
 
 from .dbc import DBC
-from .models import RawAssets, array_at, model_info, preview, mesh_data
+from .models import RawAssets, array_at, model_info, preview, mesh_data, composed_mesh
 from .pack import normalize
 
 SCHEMA='3.3.5.12340'
@@ -30,7 +31,7 @@ FOLDERS=['ArmUpperTexture','ArmLowerTexture','HandTexture','TorsoUpperTexture',
          'TorsoLowerTexture','LegUpperTexture','LegLowerTexture','FootTexture']
 RACES={1:'human',2:'orc',3:'dwarf',4:'nightelf',5:'scourge',6:'tauren',7:'gnome',8:'troll',9:'goblin',10:'bloodelf',11:'draenei',12:'felorc',13:'naga_',14:'broken',15:'skeleton',16:'vrykul',17:'tuskarr',18:'foresttroll',19:'taunka',20:'northrendskeleton',21:'icetroll'}
 ATTACHMENT_SLOTS={'head':{1},'shoulders':{3},'main_hand':{13,17,21,15,25,26},'off_hand':{13,14,22,23}}
-SLOTS={'shirt':{4},'chest':{5,20},'legs':{7},'boots':{8},'gloves':{10},'belt':{6},'bracers':{9}}
+SLOTS={'shirt':{4},'chest':{5,20},'legs':{7},'boots':{8},'gloves':{10},'belt':{6},'bracers':{9},'cape':{16}}
 SLOTS.update(ATTACHMENT_SLOTS)
 TABLES={'charsections':10,'charhairgeosets':6,'characterfacialhairstyles':8,'itemdisplayinfo':25,'item':8,'chrraces':69,'helmetgeosetvisdata':8}
 
@@ -153,6 +154,9 @@ class CharacterDB:
                     mesh_data(assets,model,{k:v for k,v in replacements.items() if k in info['used_replaceable_texture_types']},geosets)
                     row.update(available=True,model=model,clothing_atlas=1 in info['used_replaceable_texture_types'],omitted_optional_overlays=meta['omitted_optional_overlays'])
                     data=assets.read(model);count,start=array_at(data,248,2)
+                    skin=assets.read(info['skins'][0]);n,o=array_at(skin,28,48)
+                    row['cape_geosets']=sorted({struct.unpack_from('<H',skin,o+i*48)[0] for i in range(n) if 1500<=struct.unpack_from('<H',skin,o+i*48)[0]<1600})
+                    if race==17:row['cape_geosets']=[];row['cape_limitation']='Native group 15 is a head covering, not a cloak'
                     row['attachment_points']=[i for i in range(count) if struct.unpack_from('<h',data,start+i*2)[0]>=0]
                 except ValueError as error:row.update(available=False,reason=str(error))
                 result.append(row)
@@ -190,6 +194,7 @@ class CharacterDB:
         assets=AssemblyAssets(raw);skin=character['skin'];hair_color=character['hair_color'];hair_style=character['hair_style']
         race=next(k for k,v in RACES.items() if v==character['race'])
         def section(kind,variation,color,required=True):return self.section(gender,kind,variation,color,required,race)
+        if race==17 and 'cape' in equipment:raise ValueError('Tuskarr cape geoset is a head covering, not a wearable cloak')
         base=section(0,0,skin)
         atlas=Image.fromarray(assets.image(base[0])).convert('RGBA')
         if atlas.size not in ((256,256),(512,512)):raise ValueError('Unsupported body atlas dimensions')
@@ -258,12 +263,14 @@ class CharacterDB:
             for i in indices:
                 path=self.texture(raw,i,g['textures'][i],gender)
                 if path:add(path,COMPONENTS[i])
+        if 'cape' in gear:groups[15]=1+gear['cape']['geosets'][0]
         if robe:groups[13]=2;groups[5]=0;groups[12]=0
         if groups[4]>1:groups[8]=0
         model='character/'+character['race']+'/'+character['gender']+'/'+character['race']+character['gender']+'.m2'
         info=model_info(assets.read(model),model);skin_path=info['skins'][0]
         skin_bytes=assets.read(skin_path);count,offset=array_at(skin_bytes,28,48)
         available={struct.unpack_from('<H',skin_bytes,offset+i*48)[0] for i in range(count)}
+        if 'cape' in gear and 1500+groups[15] not in available:raise ValueError('This body has no requested cape geoset')
         for group,value in groups.items():
             if group not in {1,2,3,7} and value>1 and group*100+value not in available:
                 if group==5 and race in {6,19}:
@@ -280,6 +287,12 @@ class CharacterDB:
         selected|={group*100+value for group,value in groups.items() if value and group*100+value in available}
         selected&=available
         replacements={1:ATLAS}
+        if 'cape' in gear:
+            texture=gear['cape']['model_textures'][0]
+            if not texture or '/' in texture or '\\' in texture or '.' in texture:raise ValueError('Invalid cape texture basename')
+            path='item/objectcomponents/cape/'+texture.lower()+'.blp'
+            if not assets.has(path):raise ValueError('Missing cape texture: '+path)
+            replacements[2]=path
         if hair[0]:replacements[6]=hair[0]
         if len(base)>1 and base[1]:replacements[8]=base[1]
         if race==13 and set(gear)&{'legs','boots'}:raise ValueError('Naga bodies have no wearable legs or boots')
@@ -335,20 +348,31 @@ class CharacterDB:
             raise ValueError('Two-handed equipment cannot be combined with an off-hand item')
         return parts
 
-    def render(self,raw,character,equipment,size,yaw,view):
+    def prepare(self,raw,character,equipment):
         assets,model,replacements,geosets,metadata=self.assemble(raw,character,equipment)
         # Only selected parts request replacements; an unused hair type need not be bound.
         from .models import inspect_model
         info=inspect_model(assets,model,geosets)
-        if 1 not in info['used_replaceable_texture_types'] and set(equipment)-set(ATTACHMENT_SLOTS):
+        if 1 not in info['used_replaceable_texture_types'] and set(equipment)-set(ATTACHMENT_SLOTS)-{'cape'}:
             raise ValueError('This body has no clothing atlas material; texture clothing would be invisible')
+        if 'cape' in equipment and 2 not in info['used_replaceable_texture_types']:raise ValueError('Selected cape has no cape material')
         overrides={k:v for k,v in replacements.items() if k in info['used_replaceable_texture_types']}
         attachments=self.attachments(assets,model,metadata['character'],metadata['equipment'])
-        image,render=preview(assets,model,size,overrides,yaw,view,geosets=geosets,attachments=attachments)
-        sources=[dict(path=p,sha256=hashlib.sha256(raw.read(p)).hexdigest()) for p in sorted(assets.used)]
+        mesh=composed_mesh(assets,model,overrides,geosets,attachments)
         metadata['model']=model
+        return dict(assets=assets,model=model,overrides=overrides,geosets=geosets,metadata=metadata,attachments=attachments,mesh=mesh,sources=None)
+
+    def render_prepared(self,prepared,size,yaw,view):
+        assets=prepared['assets']
+        image,render=preview(assets,prepared['model'],size,prepared['overrides'],yaw,view,
+                             geosets=prepared['geosets'],attachments=prepared['attachments'],prepared_mesh=prepared['mesh'])
+        if prepared['sources'] is None:
+            prepared['sources']=[dict(path=p,sha256=hashlib.sha256(assets.raw.read(p)).hexdigest()) for p in sorted(assets.used)]
         render['limitations']+=['bind-pose attachments; hands remain in base pose','no item visual/enchantment particle effects','underwear layer retained where available']
-        return image,render,metadata,sources
+        return image,render,copy.deepcopy(prepared['metadata']),copy.deepcopy(prepared['sources'])
+
+    def render(self,raw,character,equipment,size,yaw,view):
+        return self.render_prepared(self.prepare(raw,character,equipment),size,yaw,view)
 
 
 def main():

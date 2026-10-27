@@ -48,6 +48,12 @@ class PackerTests(unittest.TestCase):
         for name in self.archives: (self.data/name).write_bytes(b'placeholder')
         self.storm=FakeStorm(self.archives)
 
+    def test_virtual_path_normalization_keeps_aliases_and_rejects_unsafe_paths(self):
+        cases={'A\\B//./C.blp':'a/b/c.blp','./':'.','':'.','foo/.../bar':'foo/.../bar','ТЕСТ/ФАЙЛ.blp':'тест/файл.blp','a/./b/':'a/b'}
+        for source,expected in cases.items():self.assertEqual(normalize(source),expected)
+        for source in ['/a','//server/a','C:/a','a:b','a/../b','..','a\\..\\b','\\root','a/./../b']:
+            with self.assertRaises(ValueError,msg=source):normalize(source)
+
     def test_selection_patches_catalog_and_resume(self):
         out=self.root/'bundle'
         report=build(self.data,out,storm=self.storm,progress=silent)

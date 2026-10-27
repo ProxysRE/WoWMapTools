@@ -89,7 +89,7 @@ class TokenAssets:
         self.db=AppearanceDB(dbc_folder);self.model_folder=model_folder
         self.images={};self.media={};self.selected={}
         self._stack=None;self._assets=None
-        self.character_db=None;self.dbc_folder=dbc_folder
+        self.character_db=None;self.dbc_folder=dbc_folder;self._prepared=None
 
     @contextmanager
     def session(self):
@@ -102,7 +102,7 @@ class TokenAssets:
             try:
                 yield self
             finally:
-                self._stack=None;self._assets=None
+                self._stack=None;self._assets=None;self._prepared=None
 
     def select(self, options, view='top'):
         if view not in ('top','front'):raise ValueError('Token view must be top or front')
@@ -137,7 +137,12 @@ class TokenAssets:
             if self._assets is None:self._assets=self._stack.enter_context(RawAssets(self.model_folder))
             assets=self._assets
             if assembled:
-                image,render,appearance,sources=self.character_db.render(assets,character,equipment,size,yaw,view)
+                # Retain only the current outfit, only within this resource session.
+                # The top-down token and portrait share atlas, geometry and provenance.
+                if self._prepared is None or self._prepared[0]!=identity:
+                    prepared=self.character_db.prepare(assets,character,equipment)
+                    self._prepared=(identity,prepared)
+                image,render,appearance,sources=self.character_db.render_prepared(self._prepared[1],size,yaw,view)
             else:
                 info=inspect_model(assets,appearance['model'])
                 replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
