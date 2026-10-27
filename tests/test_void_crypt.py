@@ -25,11 +25,12 @@ class VoidCryptEntranceTests(unittest.TestCase):
         self.assertEqual(plan["foundry"]["key"], "crypt-entrance")
         self.assertEqual(plan["export_format"], "webp")
         self.assertFalse(plan["foundry"]["global_light"])
-        self.assertGreaterEqual(len(plan["objects"]), 24)
+        self.assertGreaterEqual(len(plan["objects"]), 20)
         self.assertGreaterEqual(len(plan["walls"]), 20)
         self.assertGreaterEqual(len(plan["details"]), 40)
         self.assertTrue(all(path.endswith(".blp") for path in resource_names(plan)))
         self.assertTrue(all(o["model"].endswith(".m2") for o in plan["objects"]))
+        self.assertFalse(any("duskwoodvine" in o["model"] for o in plan["objects"]))
 
     def test_entrances_and_side_rooms_remain_open(self):
         plan = self.load()
