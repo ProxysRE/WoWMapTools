@@ -1,0 +1,69 @@
+# Крипта Бездны: сборка единого экспорта
+
+Это нагрузочный тест WoWMapTools для Foundry VTT 13.351. Канонические планы в ветке foundry-builder:
+
+- examples/void-crypt-entrance.json: вход, 40×30 клеток
+- examples/void-crypt-passages.json: галереи, 72×40 клеток
+- examples/void-crypt-sanctum.json: финальный круглый зал, 36×36 клеток
+
+Все планы используют 80 px на клетку, 5 ft на клетку, native Foundry стены/двери/свет/Regions и один общий пакет с идентификатором void-crypt.
+
+## Необходимые ресурсы
+
+В каталоге пакетов (не распаковывая) должны находиться три оригинальных архива из личного Google Drive WoW:
+
+- dungeons-textures-c1558cc2-001.zip: полы и каменные стены;
+- tileset-ashenvale-fabe58ef-001.zip: грунт и мох у входа;
+- world-azeroth-duskwood-fa40c120-001.zip: настоящие M2 надгробий, гробов, лоз, завалов и деревьев.
+
+Не загружайте эти ZIP в публичный GitHub. Рендерер использует их локально и хранит созданные WebP отдельно.
+
+## Команды Windows
+
+Откройте PowerShell в корне WoWMapTools (именно ветка foundry-builder). Пример путей, замените на фактические:
+
+    py -3 -m pip install -r requirements.txt
+    py -3 tools/build_void_crypt.py --packages "D:\WoWMap\Packages" --out "D:\WoWMap\Output\VoidCrypt" --preflight-only
+
+Первый прогон проверяет реальные ресурсы M2/BLP, зависимости моделей, схемы сцен и корректность четырёх переходов без рендера.
+
+Полная сборка:
+
+    py -3 tools/build_void_crypt.py --packages "D:\WoWMap\Packages" --out "D:\WoWMap\Output\VoidCrypt" --id void-crypt
+
+Она выполняет три полноразмерных рендера последовательно, затем вызывает штатный wowmap.foundry.export_bundle и создаёт **один архив** foundry-void-crypt.zip, а также отчёт void-crypt-void-crypt-build-report.json. Внутри архива:
+
+    foundry-void-crypt/
+      import-foundry.js
+      README.txt
+      wowmap/void-crypt/
+        bundle.json
+        crypt-entrance/{scene.json,background.webp,...}
+        crypt-passages/{scene.json,background.webp,...}
+        crypt-sanctum/{scene.json,background.webp,...}
+
+В папке Output/VoidCrypt/rendered также остаются сцены и общий кеш моделей. ZIP-архив содержит только полученные карты и JSON, без исходных ресурсов WotLK.
+
+## Импорт в Foundry
+
+1. Распаковать foundry-void-crypt.zip.
+2. Скопировать папку wowmap из foundry-void-crypt в пользовательскую Data папку сервера Foundry, сохранив вложенность.
+3. Создать Script-макрос в Foundry, вставить import-foundry.js и запустить от мастера.
+4. Путь импорта: wowmap/void-crypt/bundle.json. Импортировать **все три сцены вместе**.
+5. Проверить в Foundry движение по галереям, два обхода центрального завала, колонны арены, двери и двустороннюю телепортацию.
+
+Повторный импорт с тем же package ID не изменит существующие сцены. Для новой независимой копии использовать другой --id и другую папку --out.
+
+## Тесты и ограничения
+
+    py -3 -m unittest discover -s tests -p "test_void_crypt*.py" -v
+
+Автоматические проверки покрывают разметку и предел 20 млн пикселей, native Regions, 4 связи, оба обхода завала и доступность арены с учётом стен. Для проверки композитора выполняется облегчённый синтетический рендер без приватных игровых материалов.
+
+**Успешный CI с синтетической графикой НЕ равен полноразмерному рендеру с ZIP WotLK и НЕ равен тесту в самом Foundry.** Полная сцена 2 имеет 18.432 млн пикселей, поэтому пиковый расход ОЗУ при рендере может быть высоким.
+
+GitHub-hosted runner не имеет автоматического доступа к личным архивам Google Drive; существующий render-local.yml рассчитан на иной процесс и не считается готовой сборкой этой крипты. Готовые изображения должны быть сгенерированы в среде с доступом к ZIP.
+
+## Население
+
+Проектирование NPC, главного босса, Actor, токенов и population.json выполняется **после** подтверждения карт. После этого штатный Builder и wowmap.population подготовят обновлённый единый пакет с новыми идентификаторами для безопасного импорта.
