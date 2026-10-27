@@ -3,7 +3,7 @@
   "scene": "crypt-entrance",
   "source_plan": "examples/void-crypt-entrance.json",
   "source": "WoW WotLK 3.3.5a catalog.jsonl.gz and validated private ZIP files",
-  "status": "Catalog paths and selected model dependencies verified; full map rendering pending",
+  "status": "All used BLP/M2 dependencies verified; full-resolution render of three-scene bundle succeeded on 2026-10-27.",
   "packages": [
     {
       "path": "packages/dungeons-textures-c1558cc2-001.zip",
@@ -30,8 +30,6 @@
     "tileset/ashenvale/ashenvalemossbase.blp"
   ],
   "models": [
-    "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
-    "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
     "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
     "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
     "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.m2",
@@ -40,7 +38,7 @@
     "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2"
   ],
   "qa": {
-    "confirmed": "All explicitly referenced base/overlay/floor/wall BLP paths occur in original catalog and ZIP files; selected M2 models are MD20 v264 with SKIN and source texture dependencies present in the Duskwood package",
-    "not_yet_confirmed": "Full-resolution render, visual inspection of model rotation/scale, interactive Foundry gameplay"
+    "confirmed": "All explicitly referenced base/overlay/floor/wall BLP paths occur in original catalog and ZIP files; selected M2 models are MD20 v264 with SKIN and source texture dependencies present in the Duskwood package; visible top-down sprites rendered and export verified",
+    "not_yet_confirmed": "Interactive gameplay inside installed Foundry and visual polish after game-master feedback"
   }
 }
