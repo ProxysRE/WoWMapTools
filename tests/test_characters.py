@@ -29,19 +29,32 @@ def character_fixture(root):
         for kind,variation,textures in [(0,0,['base.png']),(1,0,['face.png','face.png']),(4,0,['base.png']),(3,1,[])]:
             row=[len(sections)+1,1,sex,kind,*[string(t) for t in textures],*[0]*(3-len(textures)),1,variation,0]
             sections.append(struct.pack('<10I',*row))
+    for data in list(sections):
+        values=list(struct.unpack('<10I',data));values[0]+=100;values[1]=2;sections.append(struct.pack('<10I',*values))
     section_bytes=table(10,sections,bytes(strings));strings=bytearray(b'\0')
     displays=[]
     for did,flags in [(10,(0,0,0)),(11,(1,0,1)),(12,(1,0,0))]:
         row=[0]*25;row[0]=did;row[7:10]=flags
         for col,name in [(15,'sleeve_au'),(16,'sleeve_al'),(17,'glove_ha'),(18,'chest_tu'),(19,'chest_tl'),(20,'pant_lu'),(21,'pant_ll'),(22,'boot_fo')]:row[col]=string(name)
         displays.append(struct.pack('<25I',*row))
+    for did in range(13,17):
+        row=[0]*25;row[0]=did;row[1]=string('test.mdx');row[3]=string('test_skin')
+        if did==14:row[2]=string('test.mdx');row[4]=string('test_skin')
+        if did==13:row[13:15]=[1,1]
+        displays.append(struct.pack('<25I',*row))
     display_bytes=table(25,displays,bytes(strings))
     with ZipFile(dbc/'tables.zip','a') as z:
+        race_strings=b'\0Hu\0Or\0'
+        races=[]
+        for race,prefix in [(1,1),(2,4)]:
+            row=[0]*69;row[0]=race;row[6]=prefix;races.append(struct.pack('<69I',*row))
+        z.writestr('dbfilesclient/chrraces.dbc',table(69,races,race_strings))
+        z.writestr('dbfilesclient/helmetgeosetvisdata.dbc',table(8,[struct.pack('<8I',1,2,2,2,2,2,0,0)],b'\0'))
         z.writestr('dbfilesclient/charsections.dbc',section_bytes)
-        z.writestr('dbfilesclient/charhairgeosets.dbc',table(6,[struct.pack('<6I',i+1,1,i,1,0,1) for i in [0,1]],b'\0'))
+        z.writestr('dbfilesclient/charhairgeosets.dbc',table(6,[struct.pack('<6I',i+1,1,i,1,0,1) for i in [0,1]]+[struct.pack('<6I',10+i,2,i,1,0,1) for i in [0,1]],b'\0'))
         z.writestr('dbfilesclient/characterfacialhairstyles.dbc',table(8,[struct.pack('<8I',1,sex,0,0,0,0,0,0) for sex in [0,1]],b'\0'))
         z.writestr('dbfilesclient/itemdisplayinfo.dbc',display_bytes)
-        z.writestr('dbfilesclient/item.dbc',table(8,[struct.pack('<8I',100,4,0,0,0,10,4,0),struct.pack('<8I',101,4,0,0,0,11,20,0),struct.pack('<8I',102,4,0,0,0,12,10,0)],b'\0'))
+        z.writestr('dbfilesclient/item.dbc',table(8,[struct.pack('<8I',100,4,0,0,0,10,4,0),struct.pack('<8I',101,4,0,0,0,11,20,0),struct.pack('<8I',102,4,0,0,0,12,10,0)]+[struct.pack('<8I',103+i,4,0,0,0,13+i,inv,0) for i,inv in enumerate([1,3,21,14])]+[struct.pack('<8I',107,2,0,0,0,15,17,0)],b'\0'))
     model,skin,_=fixture();model=bytearray(model);_,offset=struct.unpack_from('<II',model,80);struct.pack_into('<IIII',model,offset,1,0,0,0)
     _,offset=struct.unpack_from('<II',model,60);struct.pack_into('<f',model,offset+48+8,1)
     sections=[];batches=[]
@@ -51,11 +64,30 @@ def character_fixture(root):
     skin=bytearray(skin)
     for header,data,count in [(28,b''.join(sections),len(sections)),(36,b''.join(batches),len(batches))]:
         struct.pack_into('<II',skin,header,count,len(skin));skin.extend(data)
+    # Real-size header with attachment and bone arrays; move the triangle payload.
+    original=model;model=bytearray(original[:160]+b'\0'*144+original[160:])
+    for header in [60,80,112,128]:
+        count,offset=struct.unpack_from('<II',model,header);struct.pack_into('<II',model,header,count,offset+144)
+    struct.pack_into('<II',model,44,1,len(model));model.extend(b'\0'*88)
+    points=[0,1,2,5,6,11]
+    struct.pack_into('<II',model,240,len(points),len(model))
+    for point in points:model.extend(struct.pack('<II3f',point,0,point*.1,0,1)+b'\0'*20)
+    struct.pack_into('<II',model,248,12,len(model))
+    model.extend(struct.pack('<12h',*[points.index(i) if i in points else -1 for i in range(12)]))
     from wowmap.characters import FOLDERS
     with ZipFile(models/'human.zip','w') as z:
-        for sex in ['male','female']:
-            prefix='character/human/'+sex+'/human'+sex
-            z.writestr(prefix+'.m2',model);z.writestr(prefix+'00.skin',skin)
+        for race in ['human','orc']:
+            for sex in ['male','female']:
+                prefix='character/'+race+'/'+sex+'/'+race+sex
+                z.writestr(prefix+'.m2',model);z.writestr(prefix+'00.skin',skin)
+        part,part_skin,texture=fixture();part=bytearray(part)
+        _,texture_offset=struct.unpack_from('<II',part,80);struct.pack_into('<IIII',part,texture_offset,2,0,0,0)
+        for folder in ['head','shoulder','weapon','shield']:
+            z.writestr('item/objectcomponents/'+folder+'/test_skin.blp',texture)
+            for stem in (['test_hum','test_huf','test_orm','test_orf'] if folder=='head' else ['test']):
+                prefix='item/objectcomponents/'+folder+'/'+stem
+                z.writestr(prefix+'.m2',part);z.writestr(prefix+'00.skin',part_skin)
+        z.writestr('tileset/test/red.png',texture)
         z.writestr('base.png',png((100,100,100,255)));z.writestr('face.png',png((100,100,100,0)))
         for folder,name in zip(FOLDERS,['sleeve_au','sleeve_al','glove_ha','chest_tu','chest_tl','pant_lu','pant_ll','boot_fo']):
             # Same texture requested by both sexes; explicit unisex fallback.
@@ -89,7 +121,7 @@ class CharacterTests(unittest.TestCase):
 
     def test_invalid_slots_ids_races_styles_and_missing_textures_fail_explicitly(self):
         db=CharacterDB(self.dbc)
-        for character,equipment in [({'race':'orc'},{}),({},dict(head=100)),({},dict(shirt=True)),({},dict(shirt=999)),({},dict(chest=100)),({'face':999},{'shirt':100})]:
+        for character,equipment in [({'race':'worgen'},{}),({},dict(head=100)),({},dict(shirt=True)),({},dict(shirt=999)),({},dict(chest=100)),({'face':999},{'shirt':100})]:
             with RawAssets(self.models) as raw,self.assertRaises(ValueError):db.assemble(raw,character,equipment)
         with RawAssets(self.models) as raw:
             path=next(p for p in raw.files if 'chest_tu' in p);raw.files.pop(path)
@@ -101,7 +133,7 @@ class CharacterTests(unittest.TestCase):
         pair=tokens.pair(options)
         self.assertNotEqual(pair['token'],pair['portrait']);self.assertEqual(pair,tokens.pair(copy.deepcopy(options)))
         for media in tokens.media.values():
-            variant=media['appearances'][0];self.assertEqual(variant['assembly'],'human-clothing/1')
+            variant=media['appearances'][0];self.assertEqual(variant['assembly'],'character-equipment/2')
             self.assertIn('charsections',variant['dbc_sha256'])
             self.assertNotIn(ATLAS,[s['path'] for s in variant['sources']])
         spec=importlib.util.spec_from_file_location('human_batch',ROOT/'tools/build_foundry_batch.py')
@@ -116,6 +148,46 @@ class CharacterTests(unittest.TestCase):
         request['documents'][0]['appearance']['equipment']['shirt']=999
         with self.assertRaises(ValueError):adapter.build_batch('requests/builder/active.json',self.root/'bad',None,self.dbc,self.models)
         self.assertFalse((self.root/'bad').exists())
+
+    def test_attachment_lookup_race_helmet_variants_and_shared_depth_render(self):
+        db=CharacterDB(self.dbc)
+        gear=dict(head=103,shoulders=104,main_hand=105,off_hand=106)
+        with RawAssets(self.models) as raw:
+            assets,model,_,geo,meta=db.assemble(raw,{},gear)
+            self.assertNotIn(702,geo)  # Helmet's race mask hides ears.
+            parts=db.attachments(assets,model,meta['character'],meta['equipment'])
+            self.assertEqual([p['attachment_id'] for p in parts],[11,6,5,1,0])
+            self.assertAlmostEqual(parts[0]['position'][0],1.1)
+            self.assertTrue(parts[0]['model'].endswith('test_hum.m2'))
+            image,render,_,sources=db.render(raw,{},gear,128,0,'front')
+            self.assertEqual(len(render['attachments']),5)
+            self.assertTrue(any('/shield/' in p['path'] for p in sources))
+            self.assertEqual(image.getpixel((0,0))[3],0)
+            a,m,_,_,meta=db.assemble(raw,dict(race='orc',gender='female'),dict(head=103))
+            part=db.attachments(a,m,meta['character'],meta['equipment'])[0]
+            self.assertTrue(part['model'].endswith('test_orf.m2'))
+
+    def test_two_handed_conflict_and_missing_replacement_texture_are_rejected(self):
+        db=CharacterDB(self.dbc)
+        with RawAssets(self.models) as raw:
+            with self.assertRaisesRegex(ValueError,'Two-handed'):
+                db.render(raw,{},dict(main_hand=107,off_hand=106),128,0,'front')
+            raw.files.pop('item/objectcomponents/weapon/test_skin.blp')
+            with self.assertRaisesRegex(ValueError,'Missing attachment texture'):
+                db.render(raw,{},dict(main_hand=105),128,0,'front')
+
+    def test_missing_attachment_and_race_helmet_fail_without_substitution(self):
+        db=CharacterDB(self.dbc)
+        with RawAssets(self.models) as raw:
+            raw.files.pop('item/objectcomponents/head/test_huf.m2')
+            with self.assertRaisesRegex(ValueError,'Missing race/sex equipment model'):
+                db.render(raw,dict(gender='female'),dict(head=103),128,0,'front')
+            a,m,_,_,meta=db.assemble(raw,{},dict(main_hand=105))
+            data=bytearray(a.read(m));_,offset=struct.unpack_from('<II',data,248)
+            struct.pack_into('<h',data,offset+2,-1)
+            read=a.read;a.read=lambda name:bytes(data) if name==m else read(name)
+            with self.assertRaisesRegex(ValueError,'Missing attachment point'):
+                db.attachments(a,m,meta['character'],meta['equipment'])
 
     def test_selected_geosets_must_have_visible_triangles(self):
         db=CharacterDB(self.dbc)

@@ -3,7 +3,7 @@
 Schemas: wowdev/WoWDBDefs CreatureDisplayInfo (16 fields), CreatureModelData
 (28 fields), build 3.3.5.12340. Replacement texture types 11..13 correspond to
 GAMEOBJECT1..3 in wowmodelviewer/src/games/wow/wow_enums.h.
-Explicit human clothing assembly is handled separately from creature display IDs.
+Explicit character equipment assembly is handled separately from creature display IDs.
 Animation sampling and creature geoset overrides remain unsupported.
 """
 import argparse
@@ -108,9 +108,9 @@ class TokenAssets:
         if view not in ('top','front'):raise ValueError('Token view must be top or front')
         if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw'}:
             raise ValueError('Appearance contains unsupported options')
-        human='character' in options
-        if human and 'display_id' in options:raise ValueError('Choose character or display_id, not both')
-        if 'equipment' in options and not human:raise ValueError('Equipment requires an explicit character appearance')
+        assembled='character' in options
+        if assembled and 'display_id' in options:raise ValueError('Choose character or display_id, not both')
+        if 'equipment' in options and not assembled:raise ValueError('Equipment requires an explicit character appearance')
         display_id=options.get('display_id')
         size=options.get('size',512) if view=='top' else options.get('portrait_size',768)
         yaw=options.get('yaw',-90) if view=='top' else options.get('portrait_yaw',0)
@@ -118,7 +118,7 @@ class TokenAssets:
         if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not math.isfinite(yaw) or not -360<=yaw<=360:
             raise ValueError('Token yaw must be finite degrees between -360 and 360')
         if type(options.get('actor_image',True)) is not bool:raise ValueError('actor_image must be boolean')
-        if human:
+        if assembled:
             from .characters import CharacterDB,character_options
             character,equipment=character_options(options['character'],options.get('equipment',{}))
             if self.character_db is None:self.character_db=CharacterDB(self.dbc_folder)
@@ -136,7 +136,7 @@ class TokenAssets:
         with self.session():
             if self._assets is None:self._assets=self._stack.enter_context(RawAssets(self.model_folder))
             assets=self._assets
-            if human:
+            if assembled:
                 image,render,appearance,sources=self.character_db.render(assets,character,equipment,size,yaw,view)
             else:
                 info=inspect_model(assets,appearance['model'])
@@ -148,7 +148,7 @@ class TokenAssets:
         data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest()
         path=(PREFIX if view=='top' else PORTRAIT_PREFIX)+digest+'.webp'
         self.images[path]=data
-        variant=dict(**appearance,view=view,dbc_sha256=self.character_db.hashes if human else self.db.hashes,render=render,sources=sources)
+        variant=dict(**appearance,view=view,dbc_sha256=self.character_db.hashes if assembled else self.db.hashes,render=render,sources=sources)
         variant['schema']=SCHEMA
         self.media.setdefault(path,dict(file=path,sha256=digest,bytes=len(data),appearances=[]))['appearances'].append(variant)
         self.selected[key]=path

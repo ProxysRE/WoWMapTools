@@ -1,0 +1,745 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "human-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/human-male.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "human-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/human-female.json",
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "orc-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/orc-male.json",
+      "appearance": {
+        "character": {
+          "race": "orc",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "orc-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/orc-female.json",
+      "appearance": {
+        "character": {
+          "race": "orc",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "dwarf-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/dwarf-male.json",
+      "appearance": {
+        "character": {
+          "race": "dwarf",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "dwarf-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/dwarf-female.json",
+      "appearance": {
+        "character": {
+          "race": "dwarf",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "nightelf-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/nightelf-male.json",
+      "appearance": {
+        "character": {
+          "race": "nightelf",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "nightelf-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/nightelf-female.json",
+      "appearance": {
+        "character": {
+          "race": "nightelf",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "scourge-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/scourge-male.json",
+      "appearance": {
+        "character": {
+          "race": "scourge",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "scourge-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/scourge-female.json",
+      "appearance": {
+        "character": {
+          "race": "scourge",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "tauren-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/tauren-male.json",
+      "appearance": {
+        "character": {
+          "race": "tauren",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "tauren-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/tauren-female.json",
+      "appearance": {
+        "character": {
+          "race": "tauren",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "gnome-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/gnome-male.json",
+      "appearance": {
+        "character": {
+          "race": "gnome",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "gnome-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/gnome-female.json",
+      "appearance": {
+        "character": {
+          "race": "gnome",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "troll-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/troll-male.json",
+      "appearance": {
+        "character": {
+          "race": "troll",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "troll-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/troll-female.json",
+      "appearance": {
+        "character": {
+          "race": "troll",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "goblin-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/goblin-male.json",
+      "appearance": {
+        "character": {
+          "race": "goblin",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "goblin-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/goblin-female.json",
+      "appearance": {
+        "character": {
+          "race": "goblin",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "bloodelf-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/bloodelf-male.json",
+      "appearance": {
+        "character": {
+          "race": "bloodelf",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "bloodelf-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/bloodelf-female.json",
+      "appearance": {
+        "character": {
+          "race": "bloodelf",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "draenei-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/draenei-male.json",
+      "appearance": {
+        "character": {
+          "race": "draenei",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "draenei-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/draenei-female.json",
+      "appearance": {
+        "character": {
+          "race": "draenei",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "head": 3836,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "felorc-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/felorc-male.json",
+      "appearance": {
+        "character": {
+          "race": "felorc",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "naga-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/naga-male.json",
+      "appearance": {
+        "character": {
+          "race": "naga_",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "naga-female",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/naga-female.json",
+      "appearance": {
+        "character": {
+          "race": "naga_",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 285,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "broken-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/broken-male.json",
+      "appearance": {
+        "character": {
+          "race": "broken",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "skeleton-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/skeleton-male.json",
+      "appearance": {
+        "character": {
+          "race": "skeleton",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "vrykul-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/vrykul-male.json",
+      "appearance": {
+        "character": {
+          "race": "vrykul",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "tuskarr-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/tuskarr-male.json",
+      "appearance": {
+        "character": {
+          "race": "tuskarr",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "foresttroll-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/foresttroll-male.json",
+      "appearance": {
+        "character": {
+          "race": "foresttroll",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "taunka-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/taunka-male.json",
+      "appearance": {
+        "character": {
+          "race": "taunka",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "northrendskeleton-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/northrendskeleton-male.json",
+      "appearance": {
+        "character": {
+          "race": "northrendskeleton",
+          "gender": "male"
+        },
+        "equipment": {
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    },
+    {
+      "id": "icetroll-male",
+      "mode": "npc",
+      "source": "requests/builder/sources/all-races/icetroll-male.json",
+      "appearance": {
+        "character": {
+          "race": "icetroll",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718,
+          "shoulders": 4725,
+          "main_hand": 25,
+          "off_hand": 143
+        },
+        "size": 256,
+        "portrait_size": 384
+      }
+    }
+  ],
+  "placements": []
+}
