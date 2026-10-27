@@ -14,6 +14,7 @@ import re
 import textwrap
 from zipfile import ZipFile
 from PIL import Image, ImageDraw, ImageFont
+from .images import decode_image
 
 PREFIX = 'wowmap/content/icons/'
 MAX_ICON_BYTES = 4 * 1024 * 1024
@@ -104,10 +105,7 @@ class IconAssets:
             raw = archive.read(info)
         if len(raw) != record['size'] or 'raw:' + hashlib.sha256(raw).hexdigest() != record['id']:
             raise ValueError(f'Icon checksum mismatch: {key}')
-        with Image.open(io.BytesIO(raw)) as source:
-            if source.width * source.height > 1024 * 1024:
-                raise ValueError('Icon exceeds one megapixel')
-            source.load()
+        with decode_image(raw,max_pixels=1024*1024,max_dimension=None) as source:
             buffer = io.BytesIO()
             source.convert('RGBA').save(buffer, format='WEBP', lossless=True, exact=True)
         data = buffer.getvalue()

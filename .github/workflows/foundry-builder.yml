@@ -10,6 +10,8 @@ on:
       - 'wowmap/icons.py'
       - 'wowmap/tokens.py'
       - 'wowmap/models.py'
+      - 'wowmap/characters.py'
+      - 'wowmap/images.py'
       - 'wowmap/dbc.py'
       - '.github/workflows/foundry-builder.yml'
   workflow_dispatch:

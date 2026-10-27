@@ -1,0 +1,77 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "worker",
+      "mode": "npc",
+      "source": "requests/builder/sources/human-outfits/worker.json",
+      "appearance": {
+        "character": {
+          "gender": "male",
+          "hair_style": 1
+        },
+        "equipment": {
+          "shirt": 2576,
+          "legs": 10035,
+          "boots": 43
+        },
+        "size": 512,
+        "portrait_size": 768
+      }
+    },
+    {
+      "id": "mail",
+      "mode": "npc",
+      "source": "requests/builder/sources/human-outfits/mail.json",
+      "appearance": {
+        "character": {
+          "gender": "male",
+          "hair_style": 1
+        },
+        "equipment": {
+          "chest": 285,
+          "legs": 286,
+          "boots": 287,
+          "gloves": 718
+        },
+        "size": 512,
+        "portrait_size": 768
+      }
+    },
+    {
+      "id": "robe",
+      "mode": "npc",
+      "source": "requests/builder/sources/human-outfits/robe.json",
+      "appearance": {
+        "character": {
+          "gender": "male",
+          "hair_style": 1
+        },
+        "equipment": {
+          "chest": 57,
+          "boots": 43
+        },
+        "size": 512,
+        "portrait_size": 768
+      }
+    },
+    {
+      "id": "female-robe",
+      "mode": "npc",
+      "source": "requests/builder/sources/human-outfits/female-robe.json",
+      "appearance": {
+        "character": {
+          "gender": "female",
+          "hair_style": 1
+        },
+        "equipment": {
+          "chest": 56,
+          "boots": 43
+        },
+        "size": 512,
+        "portrait_size": 768
+      }
+    }
+  ],
+  "placements": []
+}

@@ -18,6 +18,7 @@ Builder — прежний снимок, а не обязательный про
 | Сцены и импорт | [FOUNDRY_EXPORT](FOUNDRY_EXPORT.md) |
 | Пакетные листы и население | [BUILDER_GITHUB](BUILDER_GITHUB.md) |
 | Привязки изображений | [BUILDER_ICONS](BUILDER_ICONS.md), [TOKENS](TOKENS.md) |
+| Тело и одежда людей | [CHARACTERS](CHARACTERS.md) |
 | Границы M2 | [MODEL_PREVIEWS](MODEL_PREVIEWS.md) |
 | Игровой контент | [Точка входа Builder](foundry_builder/AI_FOUNDRY_BUILDER_GUIDE.md) |
 

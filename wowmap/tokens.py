@@ -3,7 +3,8 @@
 Schemas: wowdev/WoWDBDefs CreatureDisplayInfo (16 fields), CreatureModelData
 (28 fields), build 3.3.5.12340. Replacement texture types 11..13 correspond to
 GAMEOBJECT1..3 in wowmodelviewer/src/games/wow/wow_enums.h.
-Humanoid assembly, animation sampling and special geosets are deliberately rejected.
+Explicit human clothing assembly is handled separately from creature display IDs.
+Animation sampling and creature geoset overrides remain unsupported.
 """
 import argparse
 from contextlib import contextmanager, ExitStack
@@ -88,6 +89,7 @@ class TokenAssets:
         self.db=AppearanceDB(dbc_folder);self.model_folder=model_folder
         self.images={};self.media={};self.selected={}
         self._stack=None;self._assets=None
+        self.character_db=None;self.dbc_folder=dbc_folder
 
     @contextmanager
     def session(self):
@@ -104,8 +106,11 @@ class TokenAssets:
 
     def select(self, options, view='top'):
         if view not in ('top','front'):raise ValueError('Token view must be top or front')
-        if not isinstance(options,dict) or set(options)-{'display_id','size','yaw','actor_image','portrait_size','portrait_yaw'}:
-            raise ValueError('Appearance supports display_id, size, yaw, actor_image, portrait_size and portrait_yaw only')
+        if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw'}:
+            raise ValueError('Appearance contains unsupported options')
+        human='character' in options
+        if human and 'display_id' in options:raise ValueError('Choose character or display_id, not both')
+        if 'equipment' in options and not human:raise ValueError('Equipment requires an explicit character appearance')
         display_id=options.get('display_id')
         size=options.get('size',512) if view=='top' else options.get('portrait_size',768)
         yaw=options.get('yaw',-90) if view=='top' else options.get('portrait_yaw',0)
@@ -113,27 +118,38 @@ class TokenAssets:
         if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not math.isfinite(yaw) or not -360<=yaw<=360:
             raise ValueError('Token yaw must be finite degrees between -360 and 360')
         if type(options.get('actor_image',True)) is not bool:raise ValueError('actor_image must be boolean')
-        appearance=self.db.appearance(display_id)
-        if appearance['extended_display_id'] or appearance['model'].startswith('character/'):
-            raise ValueError('Humanoid appearance assembly is not implemented yet')
-        if appearance['geoset_data']:raise ValueError('Creature geoset selection is not implemented yet')
-        if appearance['alpha']!=255:raise ValueError('Translucent creature displays are not implemented yet')
-        key=(display_id,size,yaw,view)
+        if human:
+            from .characters import CharacterDB,character_options
+            character,equipment=character_options(options['character'],options.get('equipment',{}))
+            if self.character_db is None:self.character_db=CharacterDB(self.dbc_folder)
+            identity=json.dumps(dict(character=character,equipment=equipment),sort_keys=True)
+        else:
+            appearance=self.db.appearance(display_id)
+            if appearance['extended_display_id'] or appearance['model'].startswith('character/'):
+                raise ValueError('Humanoid display IDs require explicit character assembly options')
+            if appearance['geoset_data']:raise ValueError('Creature geoset selection is not implemented yet')
+            if appearance['alpha']!=255:raise ValueError('Translucent creature displays are not implemented yet')
+            identity=display_id
+        key=(identity,size,yaw,view)
         if key in self.selected:return self.selected[key]
         if len(self.selected)>=400:raise ValueError('At most 400 creature views per batch')
         with self.session():
             if self._assets is None:self._assets=self._stack.enter_context(RawAssets(self.model_folder))
             assets=self._assets
-            info=inspect_model(assets,appearance['model'])
-            replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
-            image,render=preview(assets,appearance['model'],size,replacements,yaw,view)
-            deps={appearance['model'],info['skins'][0],*render['used_textures']}
-            sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]
+            if human:
+                image,render,appearance,sources=self.character_db.render(assets,character,equipment,size,yaw,view)
+            else:
+                info=inspect_model(assets,appearance['model'])
+                replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
+                image,render=preview(assets,appearance['model'],size,replacements,yaw,view)
+                deps={appearance['model'],info['skins'][0],*render['used_textures']}
+                sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]
         buffer=io.BytesIO();image.save(buffer,format='WEBP',lossless=True,exact=True)
         data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest()
         path=(PREFIX if view=='top' else PORTRAIT_PREFIX)+digest+'.webp'
         self.images[path]=data
-        variant=dict(**appearance,view=view,schema=SCHEMA,dbc_sha256=self.db.hashes,render=render,sources=sources)
+        variant=dict(**appearance,view=view,dbc_sha256=self.character_db.hashes if human else self.db.hashes,render=render,sources=sources)
+        variant['schema']=SCHEMA
         self.media.setdefault(path,dict(file=path,sha256=digest,bytes=len(data),appearances=[]))['appearances'].append(variant)
         self.selected[key]=path
         return path

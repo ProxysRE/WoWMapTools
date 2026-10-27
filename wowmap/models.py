@@ -14,6 +14,7 @@ from zipfile import ZipFile
 import numpy as np
 from PIL import Image
 from .pack import normalize
+from .images import decode_image
 
 RAW_CACHE_BYTES = 16 * 1024 * 1024
 IMAGE_CACHE_BYTES = 32 * 1024 * 1024
@@ -78,11 +79,8 @@ class RawAssets:
     def image(self, name):
         name = normalize(name)
         if name not in self.cache:
-            with Image.open(io.BytesIO(self.read(name))) as image:
-                if max(image.size) > 4096:
-                    raise ValueError(f'Texture too large for preview: {name}')
-                image.load()
-                pixels = np.asarray(image.convert('RGBA')).copy()
+            with decode_image(self.read(name)) as image:
+                pixels = np.asarray(image).copy()
             if pixels.nbytes > IMAGE_CACHE_BYTES:
                 return pixels
             self.cache[name] = pixels
@@ -116,13 +114,13 @@ def model_info(data, name):
                 skins=[normalize(name[:-3]+f'{index:02d}.skin') for index in range(views)])
 
 
-def inspect_model(assets, name):
+def inspect_model(assets, name, geosets=None):
     data=assets.read(name);info = model_info(data,name)
     declared={t['path'] for t in info['textures'] if t['path']} | set(info['skins'])
     info['declared_missing']=sorted(p for p in declared if not assets.has(p))
     info['replaceable_texture_types'] = sorted({t['kind'] for t in info['textures'] if t['kind'] != 0})
     if assets.has(info['skins'][0]):
-        draws=material_draws(assets,data,info)
+        draws=material_draws(assets,data,info,geosets)
         used={d['texture'] for d in draws if d['texture']}
         info['required_textures']=sorted(used)
         info['used_replaceable_texture_types']=sorted({d['texture_kind'] for d in draws if d['texture_kind']})
@@ -137,7 +135,7 @@ def inspect_model(assets, name):
     return info
 
 
-def material_draws(assets, data, info):
+def material_draws(assets, data, info, geosets=None):
     """Resolve batches of the selected first SKIN, rather than every declaration."""
     skin=assets.read(info['skins'][0])
     if skin[:4]!=b'SKIN': raise ValueError('Invalid SKIN header')
@@ -155,6 +153,8 @@ def material_draws(assets, data, info):
     draws=[]
     for batch in batches:
         section_index,material_index,texture_count,combo=batch[3],batch[6],batch[8],batch[9]
+        if section_index>=len(sections):raise ValueError('Invalid material section')
+        if geosets is not None and sections[section_index][0] not in geosets:continue
         if section_index>=len(sections) or material_index>=len(materials) or combo>=len(texture_lookup):
             raise ValueError('Invalid material batch')
         if texture_count!=1: raise ValueError('Preview supports single-texture batches only')
@@ -176,8 +176,8 @@ def material_draws(assets, data, info):
     return draws
 
 
-def mesh_data(assets, name, texture_overrides=None):
-    data=assets.read(name);info=inspect_model(assets,name)
+def mesh_data(assets, name, texture_overrides=None, geosets=None):
+    data=assets.read(name);info=inspect_model(assets,name,geosets)
     if info['missing']:raise ValueError('Missing dependencies: '+', '.join(info['missing']))
     overrides=texture_overrides or {}
     if not isinstance(overrides,dict) or any(type(k) is not int or k<=0 for k in overrides):
@@ -193,7 +193,7 @@ def mesh_data(assets, name, texture_overrides=None):
     vertices=np.frombuffer(data,dtype=vertex_dtype,count=count,offset=offset).copy()
     if not all(np.isfinite(vertices[key]).all() for key in ('position','normal','uv','uv2')):
         raise ValueError('Non-finite model geometry')
-    draws=material_draws(assets,data,info)
+    draws=material_draws(assets,data,info,geosets)
     for draw in draws:
         if draw['blend'] not in (0,1,2,4):raise ValueError(f"Unsupported preview blend mode: {draw['blend']}")
         if draw['coordinate'] not in (-1,0,1):raise ValueError('Unsupported texture coordinate type')
@@ -227,12 +227,12 @@ def additive_composite(destination, source):
     return np.concatenate((np.clip(rgb,0,1),np.clip(alpha,0,1)),axis=-1)
 
 
-def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
+def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', geosets=None):
     if not 64<=size<=2048: raise ValueError('Preview size must be 64..2048')
     if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not np.isfinite(yaw) or not -360<=yaw<=360:
         raise ValueError('Preview yaw must be finite degrees between -360 and 360')
     if view not in ('top','front'):raise ValueError('Preview view must be top or front')
-    vertices,draws,info=mesh_data(assets,name,texture_overrides)
+    vertices,draws,info=mesh_data(assets,name,texture_overrides,geosets)
     if yaw:
         angle=np.deg2rad(yaw);c,s=np.cos(angle),np.sin(angle)
         rotation=np.array([[c,-s],[s,c]])
@@ -241,7 +241,13 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
         # Camera at +X looks toward -X; screen-right = +Y, up = +Z.
         # Apply the same proper rotation to normals; this is not a mirrored image.
         for key in ('position','normal'):vertices[key][:]=vertices[key][:,[1,2,0]]
-    xyz=vertices['position']; low=xyz[:,:2].min(axis=0); high=xyz[:,:2].max(axis=0)
+    xyz=vertices['position']
+    if geosets is not None:
+        triangles=[d['triangles'].reshape(-1) for d in draws if d['triangles'].size]
+        if not triangles:raise ValueError('Selected geosets contain no triangles')
+        bounds_xyz=xyz[np.unique(np.concatenate(triangles))]
+    else:bounds_xyz=xyz
+    low=bounds_xyz[:,:2].min(axis=0); high=bounds_xyz[:,:2].max(axis=0)
     span=max(high-low)
     if span<1e-6: raise ValueError('Degenerate projected bounds')
     padding=max(8,round(size*.05)) if view=='front' else 8
@@ -305,6 +311,7 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top'):
     metadata['blend_modes']=sorted({d['blend'] for d in draws})
     metadata['used_textures']=sorted({d['texture'] for d in draws})
     metadata['unused_missing_resources']=info['unused_missing']
+    if geosets is not None:metadata['selected_geosets']=sorted(geosets)
     if 4 in metadata['blend_modes']:metadata['limitations'].append('additive light flattened to RGBA coverage')
     if any(d['coordinate']==-1 for d in draws):metadata['environment_mapping']='orthographic sphere map'
     if texture_overrides:metadata['selected_textures']={str(k):normalize(v) for k,v in texture_overrides.items()}

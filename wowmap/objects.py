@@ -9,7 +9,7 @@ from PIL import Image, ImageFilter
 from .models import inspect_model, preview
 
 LAYERS = ('ground', 'props', 'overhead')
-CACHE_VERSION = 'm2-topdown-3'
+CACHE_VERSION = 'm2-topdown-4'
 
 
 def finite(value, label):
