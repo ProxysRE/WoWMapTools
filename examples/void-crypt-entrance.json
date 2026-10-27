@@ -1,0 +1,2487 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Крипта Бездны — Заросший вход",
+  "seed": 271001,
+  "size_cells": [
+    40,
+    30
+  ],
+  "pixels_per_cell": 80,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "export_format": "webp",
+  "surface_variation": 0.045,
+  "base": {
+    "id": "base",
+    "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+    "tile_cells": 3.2,
+    "texture_variation": 0.14,
+    "tint": "#b4b6a6"
+  },
+  "layers": [
+    {
+      "id": "old-path",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 2.7,
+      "texture_variation": 0.11,
+      "tint": "#b4ada0",
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            20,
+            -2
+          ],
+          [
+            20,
+            4
+          ],
+          [
+            19.8,
+            9.3
+          ],
+          [
+            20,
+            11.7
+          ]
+        ],
+        "width": 4.4,
+        "smooth": true,
+        "feather": 0.55,
+        "roughness": 0.14
+      }
+    },
+    {
+      "id": "forecourt-wear",
+      "asset": "tileset/ashenvale/ashenvaledirt.blp",
+      "tile_cells": 3.2,
+      "texture_variation": 0.11,
+      "tint": "#b4ada0",
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          11,
+          7.7,
+          29,
+          13
+        ],
+        "feather": 0.85,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "western-wet-moss",
+      "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+      "tile_cells": 4.2,
+      "texture_variation": 0.11,
+      "tint": "#859a7b",
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          0,
+          13,
+          12,
+          29
+        ],
+        "feather": 1,
+        "roughness": 0.18
+      }
+    },
+    {
+      "id": "eastern-wet-moss",
+      "asset": "tileset/ashenvale/ashenvalemossbase.blp",
+      "tile_cells": 4.1,
+      "texture_variation": 0.11,
+      "tint": "#899783",
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          28,
+          13,
+          40,
+          28
+        ],
+        "feather": 0.9,
+        "roughness": 0.2
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "vestibule-foundation",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.6,
+      "texture_variation": 0.08,
+      "tint": "#909089",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          13.3,
+          11.4,
+          26.7,
+          17.4
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "vestibule-paving",
+      "asset": "dungeons/textures/floor/jacryptfloor01.blp",
+      "tile_cells": 1.1,
+      "texture_variation": 0.08,
+      "tint": "#c4bfb8",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          14,
+          12,
+          26,
+          17
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "hall-foundation",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.4,
+      "texture_variation": 0.08,
+      "tint": "#8c8b83",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          9.4,
+          16.4,
+          30.6,
+          25.6
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "hall-paving",
+      "asset": "dungeons/textures/floor/jacryptfloor01.blp",
+      "tile_cells": 1.2,
+      "texture_variation": 0.08,
+      "tint": "#b3afa8",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          10,
+          17,
+          30,
+          25
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "west-niche-floor",
+      "asset": "dungeons/textures/floor/jacryptfloor01.blp",
+      "tile_cells": 0.9,
+      "texture_variation": 0.08,
+      "tint": "#b5b3a9",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          4,
+          17.5,
+          10,
+          24.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "east-niche-floor",
+      "asset": "dungeons/textures/floor/jacryptfloor01.blp",
+      "tile_cells": 0.9,
+      "texture_variation": 0.08,
+      "tint": "#a4a0a4",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          30,
+          17.5,
+          36,
+          24.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stair-paving",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 0.85,
+      "texture_variation": 0.08,
+      "tint": "#98938f",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          17,
+          25,
+          23,
+          29.9
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "dais",
+      "asset": "dungeons/textures/floor/jacryptfloor01.blp",
+      "tile_cells": 0.65,
+      "texture_variation": 0.08,
+      "tint": "#c0b5a9",
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          17.2,
+          19.5,
+          22.8,
+          22.9
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "void-stain-east",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.8,
+      "tint": "#735b93",
+      "opacity": 0.31,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          32,
+          18,
+          35.8,
+          23.1
+        ],
+        "feather": 0.65,
+        "roughness": 0.16
+      }
+    },
+    {
+      "id": "void-seepage",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.8,
+      "tint": "#665880",
+      "opacity": 0.22,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          27.9,
+          20.8,
+          31.9,
+          24.2
+        ],
+        "feather": 0.75,
+        "roughness": 0.1
+      }
+    }
+  ],
+  "walls": [
+    {
+      "id": "facade-north",
+      "points": [
+        [
+          13.5,
+          12
+        ],
+        [
+          26.5,
+          12
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.6,
+      "tile_cells": 1.4,
+      "openings": [
+        {
+          "id": "front-arch",
+          "type": "passage",
+          "at": 6.5,
+          "width": 4
+        }
+      ]
+    },
+    {
+      "id": "vestibule-west",
+      "points": [
+        [
+          14,
+          12
+        ],
+        [
+          14,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.45,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "vestibule-east",
+      "points": [
+        [
+          26,
+          12
+        ],
+        [
+          26,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.45,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "hall-north-west",
+      "points": [
+        [
+          10,
+          17
+        ],
+        [
+          14,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.42,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "hall-north-center",
+      "points": [
+        [
+          14,
+          17
+        ],
+        [
+          26,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.44,
+      "tile_cells": 1.4,
+      "openings": [
+        {
+          "id": "vestibule-into-hall",
+          "type": "passage",
+          "at": 6,
+          "width": 4.3
+        }
+      ]
+    },
+    {
+      "id": "hall-north-east",
+      "points": [
+        [
+          26,
+          17
+        ],
+        [
+          30,
+          17
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.42,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "hall-west",
+      "points": [
+        [
+          10,
+          17
+        ],
+        [
+          10,
+          25
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": [
+        {
+          "id": "west-memorial-entry",
+          "type": "passage",
+          "at": 4.1,
+          "width": 2.7
+        }
+      ]
+    },
+    {
+      "id": "hall-east",
+      "points": [
+        [
+          30,
+          17
+        ],
+        [
+          30,
+          25
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": [
+        {
+          "id": "east-crypt-entry",
+          "type": "passage",
+          "at": 4.1,
+          "width": 2.8
+        }
+      ]
+    },
+    {
+      "id": "hall-south",
+      "points": [
+        [
+          10,
+          25
+        ],
+        [
+          30,
+          25
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.44,
+      "tile_cells": 1.4,
+      "openings": [
+        {
+          "id": "descent-entrance",
+          "type": "passage",
+          "at": 10,
+          "width": 5.2
+        }
+      ]
+    },
+    {
+      "id": "west-niche-north",
+      "points": [
+        [
+          4,
+          17.5
+        ],
+        [
+          10,
+          17.5
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.36,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "west-niche-west",
+      "points": [
+        [
+          4,
+          17.5
+        ],
+        [
+          4,
+          24.5
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "west-niche-south",
+      "points": [
+        [
+          4,
+          24.5
+        ],
+        [
+          10,
+          24.5
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.36,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "east-niche-north",
+      "points": [
+        [
+          30,
+          17.5
+        ],
+        [
+          36,
+          17.5
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "east-niche-east",
+      "points": [
+        [
+          36,
+          17.5
+        ],
+        [
+          36,
+          24.5
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "east-niche-south",
+      "points": [
+        [
+          30,
+          24.5
+        ],
+        [
+          36,
+          24.5
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "stair-west",
+      "points": [
+        [
+          17,
+          25
+        ],
+        [
+          17,
+          30
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.35,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "stair-east",
+      "points": [
+        [
+          23,
+          25
+        ],
+        [
+          23,
+          30
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.35,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "stair-end",
+      "points": [
+        [
+          17,
+          29.85
+        ],
+        [
+          23,
+          29.85
+        ]
+      ],
+      "asset": "dungeons/textures/brick/jacryptbrick01.blp",
+      "thickness": 0.32,
+      "tile_cells": 1.4,
+      "openings": [
+        {
+          "id": "stairs-descend",
+          "type": "passage",
+          "at": 3,
+          "width": 3.1
+        }
+      ]
+    },
+    {
+      "id": "collapsed-wing-west",
+      "points": [
+        [
+          6.1,
+          11.1
+        ],
+        [
+          12.4,
+          11.1
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.39,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "collapsed-wing-east",
+      "points": [
+        [
+          27.6,
+          11.2
+        ],
+        [
+          33.8,
+          11.2
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.39,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "collapsed-curb-left",
+      "points": [
+        [
+          12.4,
+          11.1
+        ],
+        [
+          13.5,
+          12
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": []
+    },
+    {
+      "id": "collapsed-curb-right",
+      "points": [
+        [
+          26.5,
+          12
+        ],
+        [
+          27.6,
+          11.2
+        ]
+      ],
+      "asset": "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+      "thickness": 0.4,
+      "tile_cells": 1.4,
+      "openings": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "courtyard-tree-0",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        5,
+        2.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.1,
+      "rotation": 0,
+      "layer": "overhead",
+      "order": 80,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "courtyard-tree-1",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        34.5,
+        3.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.35,
+      "rotation": 47,
+      "layer": "overhead",
+      "order": 80,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "courtyard-tree-2",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        1.8,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.6,
+      "rotation": 94,
+      "layer": "overhead",
+      "order": 80,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "courtyard-tree-3",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        38.2,
+        13
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.85,
+      "rotation": 141,
+      "layer": "overhead",
+      "order": 80,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-0",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.m2",
+      "position": [
+        6.4,
+        6.9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 0,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-1",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+      "position": [
+        9,
+        8.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.12,
+      "rotation": 34,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+      "position": [
+        30.6,
+        7.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.34,
+      "rotation": 68,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-3",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2",
+      "position": [
+        35,
+        8.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 102,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-4",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.m2",
+      "position": [
+        3.3,
+        14
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.12,
+      "rotation": 136,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-5",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+      "position": [
+        37.4,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.34,
+      "rotation": 170,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-6",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+      "position": [
+        7,
+        28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 204,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "grave-marker-7",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2",
+      "position": [
+        34,
+        27
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.12,
+      "rotation": 238,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "collapsed-stone-0",
+      "model": "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+      "position": [
+        7.7,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.5,
+      "rotation": 0,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "collapsed-stone-1",
+      "model": "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+      "position": [
+        30.2,
+        12.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2,
+      "rotation": 46,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "collapsed-stone-2",
+      "model": "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+      "position": [
+        35,
+        22.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.5,
+      "rotation": 92,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "collapsed-stone-3",
+      "model": "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+      "position": [
+        34.5,
+        24
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.5,
+      "rotation": 138,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "collapsed-stone-4",
+      "model": "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+      "position": [
+        5,
+        25.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2,
+      "rotation": 184,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "wall-root-0",
+      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
+      "position": [
+        13.8,
+        13.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 0,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "wall-root-1",
+      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
+      "position": [
+        25.9,
+        14.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.55,
+      "rotation": 47,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "wall-root-2",
+      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
+      "position": [
+        9.8,
+        18.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.85,
+      "rotation": 94,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "wall-root-3",
+      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
+      "position": [
+        30.1,
+        19.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 141,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "wall-root-4",
+      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
+      "position": [
+        4.3,
+        20.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.55,
+      "rotation": 188,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "wall-root-5",
+      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
+      "position": [
+        35.4,
+        23.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.85,
+      "rotation": 235,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "fallen-tombstone-0",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+      "position": [
+        3.5,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "fallen-tombstone-1",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+      "position": [
+        5.5,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7000000000000001,
+      "rotation": 71,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "fallen-tombstone-2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+      "position": [
+        7.5,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 142,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "fallen-tombstone-3",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+      "position": [
+        9.5,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 213,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "fallen-tombstone-4",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+      "position": [
+        11.5,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8500000000000001,
+      "rotation": 284,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    },
+    {
+      "id": "fallen-tombstone-5",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+      "position": [
+        13.5,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 355,
+      "layer": "props",
+      "order": 10,
+      "shadow": {
+        "opacity": 0.19,
+        "blur_cells": 0.06,
+        "offset_cells": [
+          0.09,
+          0.08
+        ]
+      }
+    }
+  ],
+  "details": [
+    {
+      "id": "memorial-dais-outline",
+      "type": "rectangle",
+      "bounds": [
+        17.35,
+        19.7,
+        22.65,
+        22.7
+      ],
+      "stroke": "#5a5555",
+      "width_cells": 0.18,
+      "opacity": 0.85
+    },
+    {
+      "id": "memorial-plaque",
+      "type": "rectangle",
+      "bounds": [
+        18.3,
+        20.1,
+        21.7,
+        20.85
+      ],
+      "fill": "#7a7373",
+      "opacity": 0.85
+    },
+    {
+      "id": "west-sarc-0",
+      "type": "rectangle",
+      "bounds": [
+        5.1,
+        18.1,
+        7.8,
+        19.150000000000002
+      ],
+      "fill": "#6f6e68",
+      "stroke": "#444548",
+      "width_cells": 0.1
+    },
+    {
+      "id": "west-sarc-lid-0",
+      "type": "line",
+      "points": [
+        [
+          5.55,
+          18.3
+        ],
+        [
+          7.35,
+          18.3
+        ]
+      ],
+      "stroke": "#a49b8d",
+      "width_cells": 0.07,
+      "opacity": 1
+    },
+    {
+      "id": "west-sarc-1",
+      "type": "rectangle",
+      "bounds": [
+        5.1,
+        20.1,
+        7.8,
+        21.150000000000002
+      ],
+      "fill": "#6f6e68",
+      "stroke": "#444548",
+      "width_cells": 0.1
+    },
+    {
+      "id": "west-sarc-lid-1",
+      "type": "line",
+      "points": [
+        [
+          5.55,
+          20.3
+        ],
+        [
+          7.35,
+          20.3
+        ]
+      ],
+      "stroke": "#a49b8d",
+      "width_cells": 0.07,
+      "opacity": 1
+    },
+    {
+      "id": "west-sarc-2",
+      "type": "rectangle",
+      "bounds": [
+        5.1,
+        22.1,
+        7.8,
+        23.150000000000002
+      ],
+      "fill": "#6f6e68",
+      "stroke": "#444548",
+      "width_cells": 0.1
+    },
+    {
+      "id": "west-sarc-lid-2",
+      "type": "line",
+      "points": [
+        [
+          5.55,
+          22.3
+        ],
+        [
+          7.35,
+          22.3
+        ]
+      ],
+      "stroke": "#a49b8d",
+      "width_cells": 0.07,
+      "opacity": 1
+    },
+    {
+      "id": "east-bier-0",
+      "type": "rectangle",
+      "bounds": [
+        32,
+        18.3,
+        34.8,
+        19.75
+      ],
+      "fill": "#5b5b63",
+      "stroke": "#34323d",
+      "width_cells": 0.12
+    },
+    {
+      "id": "east-bier-crack-0",
+      "type": "line",
+      "points": [
+        [
+          32.3,
+          19
+        ],
+        [
+          33.2,
+          18.900000000000002
+        ],
+        [
+          33.8,
+          19.5
+        ]
+      ],
+      "stroke": "#2b2b39",
+      "width_cells": 0.08,
+      "opacity": 1
+    },
+    {
+      "id": "east-bier-1",
+      "type": "rectangle",
+      "bounds": [
+        32,
+        21.3,
+        34.8,
+        22.75
+      ],
+      "fill": "#5b5b63",
+      "stroke": "#34323d",
+      "width_cells": 0.12
+    },
+    {
+      "id": "east-bier-crack-1",
+      "type": "line",
+      "points": [
+        [
+          32.3,
+          22
+        ],
+        [
+          33.2,
+          21.900000000000002
+        ],
+        [
+          33.8,
+          22.5
+        ]
+      ],
+      "stroke": "#2b2b39",
+      "width_cells": 0.08,
+      "opacity": 1
+    },
+    {
+      "id": "stair-tread-0",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          25.5
+        ],
+        [
+          22.65,
+          25.5
+        ]
+      ],
+      "stroke": "#a6a19a",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "stair-tread-1",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          26.05
+        ],
+        [
+          22.65,
+          26.05
+        ]
+      ],
+      "stroke": "#605b58",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "stair-tread-2",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          26.6
+        ],
+        [
+          22.65,
+          26.6
+        ]
+      ],
+      "stroke": "#a6a19a",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "stair-tread-3",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          27.15
+        ],
+        [
+          22.65,
+          27.15
+        ]
+      ],
+      "stroke": "#605b58",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "stair-tread-4",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          27.7
+        ],
+        [
+          22.65,
+          27.7
+        ]
+      ],
+      "stroke": "#a6a19a",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "stair-tread-5",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          28.25
+        ],
+        [
+          22.65,
+          28.25
+        ]
+      ],
+      "stroke": "#605b58",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "stair-tread-6",
+      "type": "line",
+      "points": [
+        [
+          17.35,
+          28.8
+        ],
+        [
+          22.65,
+          28.8
+        ]
+      ],
+      "stroke": "#a6a19a",
+      "width_cells": 0.12,
+      "opacity": 0.8
+    },
+    {
+      "id": "courtyard-crack-0",
+      "type": "line",
+      "points": [
+        [
+          4,
+          8
+        ],
+        [
+          4.55,
+          8.24
+        ],
+        [
+          4.71,
+          8.7
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-1",
+      "type": "line",
+      "points": [
+        [
+          7.4,
+          8.27
+        ],
+        [
+          7.95,
+          8.51
+        ],
+        [
+          8.11,
+          8.969999999999999
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-2",
+      "type": "line",
+      "points": [
+        [
+          10.8,
+          8.54
+        ],
+        [
+          11.350000000000001,
+          8.78
+        ],
+        [
+          11.510000000000002,
+          9.239999999999998
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-3",
+      "type": "line",
+      "points": [
+        [
+          14.2,
+          8
+        ],
+        [
+          14.75,
+          8.24
+        ],
+        [
+          14.91,
+          8.7
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-4",
+      "type": "line",
+      "points": [
+        [
+          17.6,
+          8.27
+        ],
+        [
+          18.150000000000002,
+          8.51
+        ],
+        [
+          18.310000000000002,
+          8.969999999999999
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-5",
+      "type": "line",
+      "points": [
+        [
+          21,
+          8.54
+        ],
+        [
+          21.55,
+          8.78
+        ],
+        [
+          21.71,
+          9.239999999999998
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-6",
+      "type": "line",
+      "points": [
+        [
+          24.4,
+          8
+        ],
+        [
+          24.95,
+          8.24
+        ],
+        [
+          25.11,
+          8.7
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-7",
+      "type": "line",
+      "points": [
+        [
+          27.8,
+          8.27
+        ],
+        [
+          28.35,
+          8.51
+        ],
+        [
+          28.51,
+          8.969999999999999
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-8",
+      "type": "line",
+      "points": [
+        [
+          31.2,
+          8.54
+        ],
+        [
+          31.75,
+          8.78
+        ],
+        [
+          31.91,
+          9.239999999999998
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "courtyard-crack-9",
+      "type": "line",
+      "points": [
+        [
+          34.599999999999994,
+          8
+        ],
+        [
+          35.14999999999999,
+          8.24
+        ],
+        [
+          35.309999999999995,
+          8.7
+        ]
+      ],
+      "stroke": "#544d4c",
+      "width_cells": 0.08,
+      "opacity": 0.6
+    },
+    {
+      "id": "vestibule-crack-0",
+      "type": "line",
+      "points": [
+        [
+          13,
+          13.1
+        ],
+        [
+          13.32,
+          13.55
+        ],
+        [
+          13.08,
+          14.07
+        ]
+      ],
+      "stroke": "#49454b",
+      "width_cells": 0.045,
+      "opacity": 0.5
+    },
+    {
+      "id": "vestibule-crack-1",
+      "type": "line",
+      "points": [
+        [
+          15.3,
+          13.1
+        ],
+        [
+          15.620000000000001,
+          13.55
+        ],
+        [
+          15.38,
+          14.07
+        ]
+      ],
+      "stroke": "#49454b",
+      "width_cells": 0.045,
+      "opacity": 0.5
+    },
+    {
+      "id": "vestibule-crack-2",
+      "type": "line",
+      "points": [
+        [
+          17.6,
+          13.1
+        ],
+        [
+          17.92,
+          13.55
+        ],
+        [
+          17.68,
+          14.07
+        ]
+      ],
+      "stroke": "#49454b",
+      "width_cells": 0.045,
+      "opacity": 0.5
+    },
+    {
+      "id": "vestibule-crack-3",
+      "type": "line",
+      "points": [
+        [
+          19.9,
+          13.1
+        ],
+        [
+          20.22,
+          13.55
+        ],
+        [
+          19.979999999999997,
+          14.07
+        ]
+      ],
+      "stroke": "#49454b",
+      "width_cells": 0.045,
+      "opacity": 0.5
+    },
+    {
+      "id": "vestibule-crack-4",
+      "type": "line",
+      "points": [
+        [
+          22.2,
+          13.1
+        ],
+        [
+          22.52,
+          13.55
+        ],
+        [
+          22.279999999999998,
+          14.07
+        ]
+      ],
+      "stroke": "#49454b",
+      "width_cells": 0.045,
+      "opacity": 0.5
+    },
+    {
+      "id": "vestibule-crack-5",
+      "type": "line",
+      "points": [
+        [
+          24.5,
+          13.1
+        ],
+        [
+          24.82,
+          13.55
+        ],
+        [
+          24.58,
+          14.07
+        ]
+      ],
+      "stroke": "#49454b",
+      "width_cells": 0.045,
+      "opacity": 0.5
+    },
+    {
+      "id": "hall-crack-0",
+      "type": "line",
+      "points": [
+        [
+          11,
+          23.8
+        ],
+        [
+          11.23,
+          23.310000000000002
+        ],
+        [
+          11.8,
+          23.080000000000002
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-1",
+      "type": "line",
+      "points": [
+        [
+          13.45,
+          23.400000000000002
+        ],
+        [
+          13.68,
+          22.910000000000004
+        ],
+        [
+          14.25,
+          22.680000000000003
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-2",
+      "type": "line",
+      "points": [
+        [
+          15.9,
+          23
+        ],
+        [
+          16.13,
+          22.51
+        ],
+        [
+          16.7,
+          22.28
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-3",
+      "type": "line",
+      "points": [
+        [
+          18.35,
+          23.8
+        ],
+        [
+          18.580000000000002,
+          23.310000000000002
+        ],
+        [
+          19.150000000000002,
+          23.080000000000002
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-4",
+      "type": "line",
+      "points": [
+        [
+          20.8,
+          23.400000000000002
+        ],
+        [
+          21.03,
+          22.910000000000004
+        ],
+        [
+          21.6,
+          22.680000000000003
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-5",
+      "type": "line",
+      "points": [
+        [
+          23.25,
+          23
+        ],
+        [
+          23.48,
+          22.51
+        ],
+        [
+          24.05,
+          22.28
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-6",
+      "type": "line",
+      "points": [
+        [
+          25.700000000000003,
+          23.8
+        ],
+        [
+          25.930000000000003,
+          23.310000000000002
+        ],
+        [
+          26.500000000000004,
+          23.080000000000002
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "hall-crack-7",
+      "type": "line",
+      "points": [
+        [
+          28.150000000000002,
+          23.400000000000002
+        ],
+        [
+          28.380000000000003,
+          22.910000000000004
+        ],
+        [
+          28.950000000000003,
+          22.680000000000003
+        ]
+      ],
+      "stroke": "#5e5861",
+      "width_cells": 0.05,
+      "opacity": 0.46
+    },
+    {
+      "id": "loose-stone-0",
+      "type": "ellipse",
+      "bounds": [
+        4.5,
+        11.3,
+        4.85,
+        11.450000000000001
+      ],
+      "fill": "#8a8480",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-1",
+      "type": "ellipse",
+      "bounds": [
+        6.2,
+        13.200000000000001,
+        6.6499999999999995,
+        13.480000000000002
+      ],
+      "fill": "#625b58",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-2",
+      "type": "ellipse",
+      "bounds": [
+        9,
+        15.100000000000001,
+        9.549999999999999,
+        15.250000000000002
+      ],
+      "fill": "#625b58",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-3",
+      "type": "ellipse",
+      "bounds": [
+        31,
+        17,
+        31.35,
+        17.279999999999998
+      ],
+      "fill": "#8a8480",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-4",
+      "type": "ellipse",
+      "bounds": [
+        34,
+        18.9,
+        34.45,
+        19.049999999999997
+      ],
+      "fill": "#625b58",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-5",
+      "type": "ellipse",
+      "bounds": [
+        35.7,
+        20.8,
+        36.25000000000001,
+        21.08
+      ],
+      "fill": "#625b58",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-6",
+      "type": "ellipse",
+      "bounds": [
+        4.5,
+        22.7,
+        4.85,
+        22.849999999999998
+      ],
+      "fill": "#8a8480",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-7",
+      "type": "ellipse",
+      "bounds": [
+        6.2,
+        24.6,
+        6.6499999999999995,
+        24.88
+      ],
+      "fill": "#625b58",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-8",
+      "type": "ellipse",
+      "bounds": [
+        9,
+        12.5,
+        9.549999999999999,
+        12.65
+      ],
+      "fill": "#625b58",
+      "opacity": 0.76
+    },
+    {
+      "id": "loose-stone-9",
+      "type": "ellipse",
+      "bounds": [
+        31,
+        14.399999999999999,
+        31.35,
+        14.68
+      ],
+      "fill": "#8a8480",
+      "opacity": 0.76
+    },
+    {
+      "id": "fallen-masonry-0",
+      "type": "polygon",
+      "points": [
+        [
+          30.9,
+          23.7
+        ],
+        [
+          31.4,
+          23.33
+        ],
+        [
+          31.9,
+          23.8
+        ],
+        [
+          31.299999999999997,
+          24.05
+        ]
+      ],
+      "fill": "#787475",
+      "opacity": 0.86
+    },
+    {
+      "id": "fallen-masonry-1",
+      "type": "polygon",
+      "points": [
+        [
+          32.199999999999996,
+          23.55
+        ],
+        [
+          32.699999999999996,
+          23.18
+        ],
+        [
+          33.199999999999996,
+          23.650000000000002
+        ],
+        [
+          32.599999999999994,
+          23.900000000000002
+        ]
+      ],
+      "fill": "#62636b",
+      "opacity": 0.86
+    },
+    {
+      "id": "fallen-masonry-2",
+      "type": "polygon",
+      "points": [
+        [
+          33.5,
+          23.4
+        ],
+        [
+          34,
+          23.029999999999998
+        ],
+        [
+          34.5,
+          23.5
+        ],
+        [
+          33.9,
+          23.75
+        ]
+      ],
+      "fill": "#787475",
+      "opacity": 0.86
+    },
+    {
+      "id": "fallen-masonry-3",
+      "type": "polygon",
+      "points": [
+        [
+          34.8,
+          23.25
+        ],
+        [
+          35.3,
+          22.88
+        ],
+        [
+          35.8,
+          23.35
+        ],
+        [
+          35.199999999999996,
+          23.6
+        ]
+      ],
+      "fill": "#62636b",
+      "opacity": 0.86
+    }
+  ],
+  "locations": [
+    {
+      "name": "Заросший двор",
+      "position": [
+        20,
+        7
+      ]
+    },
+    {
+      "name": "Порог крипты",
+      "position": [
+        20,
+        12.3
+      ]
+    },
+    {
+      "name": "Зал памяти",
+      "position": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "Заваленная восточная усыпальница",
+      "position": [
+        33,
+        21
+      ]
+    },
+    {
+      "name": "Спуск в крипту",
+      "position": [
+        20,
+        28.5
+      ]
+    }
+  ],
+  "architecture": {
+    "outline_cells": 0.04,
+    "shadow_cells": 0.16,
+    "shadow_opacity": 0.31
+  },
+  "foundry": {
+    "key": "crypt-entrance",
+    "global_light": false,
+    "darkness": 0.42,
+    "grid_alpha": 0.13,
+    "lights": [
+      {
+        "id": "facade-strange-dim",
+        "position": [
+          20,
+          11.4
+        ],
+        "bright": 2.2,
+        "dim": 5.8,
+        "color": "#b6c0bd",
+        "alpha": 0.22
+      },
+      {
+        "id": "memorial-reflection",
+        "position": [
+          19.8,
+          20.2
+        ],
+        "bright": 2.4,
+        "dim": 5.5,
+        "color": "#b9b4aa",
+        "alpha": 0.26
+      },
+      {
+        "id": "western-cold-gap",
+        "position": [
+          7,
+          20.9
+        ],
+        "bright": 0.8,
+        "dim": 3.8,
+        "color": "#b7bacc",
+        "alpha": 0.18
+      },
+      {
+        "id": "eastern-void-seep",
+        "position": [
+          33.1,
+          21
+        ],
+        "bright": 1.2,
+        "dim": 4.2,
+        "color": "#8d63ce",
+        "alpha": 0.37
+      },
+      {
+        "id": "descent-echo",
+        "position": [
+          20,
+          27.5
+        ],
+        "bright": 0.6,
+        "dim": 3,
+        "color": "#7774b5",
+        "alpha": 0.2
+      }
+    ],
+    "regions": [
+      {
+        "id": "to-passages",
+        "name": "to-passages",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              18.5,
+              28.2,
+              21.5,
+              29.6
+            ],
+            "feather": 0
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "crypt-passages",
+              "region": "arrival-from-entrance"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrival-from-passages",
+        "name": "arrival-from-passages",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              19,
+              25.6,
+              21,
+              27.1
+            ],
+            "feather": 0
+          }
+        ],
+        "behaviors": []
+      }
+    ],
+    "barriers": []
+  }
+}
