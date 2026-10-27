@@ -1,0 +1,2789 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Ольховый Брод — северные ворота",
+  "seed": 7301,
+  "size_cells": [
+    48,
+    36
+  ],
+  "pixels_per_cell": 80,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "export_format": "webp",
+  "surface_variation": 0.035,
+  "base": {
+    "id": "base",
+    "asset": "tileset/elwynn/elwynngrassbase.blp",
+    "tile_cells": 4.8,
+    "tint": "#a2b2a0"
+  },
+  "layers": [
+    {
+      "id": "main-road",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            24,
+            -2
+          ],
+          [
+            24,
+            18
+          ],
+          [
+            24,
+            38
+          ]
+        ],
+        "width": 6.4,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "gate-post-0-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          17.2,
+          14.45,
+          20.2,
+          16.75
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "gate-post-1-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          27.8,
+          14.45,
+          30.8,
+          16.75
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "barracks-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          14.1,
+          20.85,
+          17.1,
+          23.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "barracks-access",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            15,
+            22
+          ],
+          [
+            20,
+            22
+          ],
+          [
+            24,
+            21
+          ]
+        ],
+        "width": 2.2,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "stable-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          30.9,
+          22.650000000000002,
+          33.9,
+          24.95
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "stable-access",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            24,
+            24
+          ],
+          [
+            29,
+            24
+          ],
+          [
+            33,
+            24
+          ]
+        ],
+        "width": 2.5,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "inspection-yard",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            28,
+            15
+          ],
+          [
+            31,
+            17
+          ],
+          [
+            30,
+            31
+          ]
+        ],
+        "width": 3.8,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "gate-post-0-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          16.65,
+          9.95,
+          20.75,
+          15.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "gate-post-0-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          16.9,
+          10.2,
+          20.5,
+          15
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "gate-post-1-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          27.25,
+          9.95,
+          31.35,
+          15.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "gate-post-1-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          27.5,
+          10.2,
+          31.1,
+          15
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "barracks-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          3.75,
+          17.75,
+          15.25,
+          30.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "barracks-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          4,
+          18,
+          15,
+          30
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stable-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          32.75,
+          18.75,
+          44.25,
+          29.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "stable-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          33,
+          19,
+          44,
+          29
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "gate-herbs-soil",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2.3,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          5,
+          32,
+          13,
+          35
+        ],
+        "feather": 0
+      },
+      "tint": "#a49c7a"
+    },
+    {
+      "id": "guard-rug",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 0.9,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          9.7,
+          23,
+          13.8,
+          26
+        ],
+        "feather": 0
+      },
+      "tint": "#c38d67"
+    },
+    {
+      "id": "practice-yard",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2.5,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          16.5,
+          21,
+          20,
+          27.5
+        ],
+        "feather": 0
+      },
+      "tint": "#ac9b7e"
+    }
+  ],
+  "walls": [
+    {
+      "id": "palisade-north",
+      "points": [
+        [
+          0,
+          10
+        ],
+        [
+          48,
+          10
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.07,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "north-gate",
+          "at": 24,
+          "width": 6.4,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-0-n",
+      "points": [
+        [
+          16.9,
+          10.2
+        ],
+        [
+          20.5,
+          10.2
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-0-n-window",
+          "at": 1.8000000000000007,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-0-s",
+      "points": [
+        [
+          16.9,
+          15
+        ],
+        [
+          20.5,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-0-entry",
+          "at": 1.8000000000000007,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-0-w",
+      "points": [
+        [
+          16.9,
+          10.2
+        ],
+        [
+          16.9,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-0-w-window",
+          "at": 2.4000000000000004,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-0-e",
+      "points": [
+        [
+          20.5,
+          10.2
+        ],
+        [
+          20.5,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-0-e-window",
+          "at": 2.4000000000000004,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-1-n",
+      "points": [
+        [
+          27.5,
+          10.2
+        ],
+        [
+          31.1,
+          10.2
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-1-n-window",
+          "at": 1.8000000000000007,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-1-s",
+      "points": [
+        [
+          27.5,
+          15
+        ],
+        [
+          31.1,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-1-entry",
+          "at": 1.8000000000000007,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-1-w",
+      "points": [
+        [
+          27.5,
+          10.2
+        ],
+        [
+          27.5,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-1-w-window",
+          "at": 2.4000000000000004,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "gate-post-1-e",
+      "points": [
+        [
+          31.1,
+          10.2
+        ],
+        [
+          31.1,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "gate-post-1-e-window",
+          "at": 2.4000000000000004,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "barracks-n",
+      "points": [
+        [
+          4,
+          18
+        ],
+        [
+          15,
+          18
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "barracks-n-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "barracks-s",
+      "points": [
+        [
+          4,
+          30
+        ],
+        [
+          15,
+          30
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "barracks-s-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "barracks-w",
+      "points": [
+        [
+          4,
+          18
+        ],
+        [
+          4,
+          30
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "barracks-w-window",
+          "at": 6.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "barracks-e",
+      "points": [
+        [
+          15,
+          18
+        ],
+        [
+          15,
+          30
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "barracks-entry",
+          "at": 4,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "stable-n",
+      "points": [
+        [
+          33,
+          19
+        ],
+        [
+          44,
+          19
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "stable-n-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "stable-s",
+      "points": [
+        [
+          33,
+          29
+        ],
+        [
+          44,
+          29
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "stable-s-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "stable-w",
+      "points": [
+        [
+          33,
+          19
+        ],
+        [
+          33,
+          29
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "stable-entry",
+          "at": 4.8,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "stable-e",
+      "points": [
+        [
+          44,
+          19
+        ],
+        [
+          44,
+          29
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "stable-e-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "edge-tree-0",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        0.8,
+        4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-1",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        46.7,
+        5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.7,
+      "rotation": 73,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-2",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        0.30000000000000004,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 146,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-3",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        47.5,
+        33
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.7,
+      "rotation": 219,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-0",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        1.4857142857142858,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-1",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        4.457142857142857,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-2",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        7.428571428571429,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-3",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        10.4,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-4",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        13.371428571428572,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-5",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        16.342857142857145,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-0-6",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        19.314285714285717,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-0",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        28.685714285714283,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-1",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        31.65714285714286,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-2",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        34.628571428571426,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-3",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        37.6,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-4",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        40.57142857142857,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-5",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        43.542857142857144,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "palisade-27.2-6",
+      "model": "world/generic/human/passive doodads/outposts/generaloutpost01.m2",
+      "position": [
+        46.51428571428572,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.0914285714285716,
+      "rotation": 90,
+      "order": 50,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-desk-0",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        18.7,
+        11.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.35,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-desk-0-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        18.7,
+        10.850000000000001
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-desk-0-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        18.7,
+        12.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-ledger-0",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        18.7,
+        11.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "post-desk-1",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        29.3,
+        11.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.35,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-desk-1-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        29.3,
+        10.850000000000001
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-desk-1-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        29.3,
+        12.75
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "post-ledger-1",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        29.3,
+        11.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "guard-bed-0",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        6,
+        20
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.2,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "guard-bed-1",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        6,
+        23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.2,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "guard-bed-2",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        6,
+        26
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.2,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "guard-bed-3",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        10,
+        28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.2,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "barracks-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        11.5,
+        21
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "barracks-table-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        11.5,
+        20.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "barracks-table-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        11.5,
+        21.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "barracks-table-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        11.15,
+        21
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "barracks-table-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        11.8,
+        21
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "barracks-table-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        12.2,
+        21
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.2,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "guard-shelf",
+      "model": "world/generic/human/passive doodads/bookshelves/duskwoodbookshelf01.m2",
+      "position": [
+        13.8,
+        28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "barracks-stove",
+      "model": "world/generic/human/passive doodads/stoves/potbellystove.m2",
+      "position": [
+        12.5,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-hay-0",
+      "model": "world/azeroth/elwynn/passivedoodads/haystacks/haystack01.m2",
+      "position": [
+        41.9,
+        21
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-bucket-0",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        40.6,
+        21.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-hay-1",
+      "model": "world/azeroth/elwynn/passivedoodads/haystacks/haystack01.m2",
+      "position": [
+        41.9,
+        24
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 25,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-bucket-1",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        40.6,
+        24.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-hay-2",
+      "model": "world/azeroth/elwynn/passivedoodads/haystacks/haystack01.m2",
+      "position": [
+        41.9,
+        27
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.6,
+      "rotation": 50,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-bucket-2",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        40.6,
+        27.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-crate",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        35.5,
+        20.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stable-barrel",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        35.5,
+        27
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "waiting-wagon",
+      "model": "world/azeroth/duskwood/passivedoodads/duskwoodhaywagon/duskwoodhaywagon.m2",
+      "position": [
+        28.5,
+        5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.8,
+      "rotation": 25,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inspection-crate-a",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        29.8,
+        19
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.1,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inspection-crate-b",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        31,
+        20.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inspection-barrel",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        29.7,
+        21
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "wood-reserve",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        16.8,
+        29
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.2,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "water-cart",
+      "model": "world/generic/passivedoodads/misc/wheelbarrow/caveminewheelbarrow01.m2",
+      "position": [
+        17.5,
+        18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.5,
+      "rotation": 40,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "gate-extra-stock-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        7.5,
+        29
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "gate-extra-stock-1",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        13.5,
+        19.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 23,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "gate-extra-stock-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        34.5,
+        28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 46,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "gate-extra-stock-3",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        42,
+        19.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 69,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "gate-lamp-0",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        21,
+        13
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "gate-lamp-1",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        27,
+        13
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "gate-lamp-2",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        19,
+        28
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "gate-lamp-3",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        29,
+        31
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    }
+  ],
+  "details": [
+    {
+      "id": "gate-post-0-post-0",
+      "type": "rectangle",
+      "bounds": [
+        16.72,
+        10.02,
+        17.08,
+        10.379999999999999
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-0-post-1",
+      "type": "rectangle",
+      "bounds": [
+        20.32,
+        10.02,
+        20.68,
+        10.379999999999999
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-0-post-2",
+      "type": "rectangle",
+      "bounds": [
+        16.72,
+        14.82,
+        17.08,
+        15.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-0-post-3",
+      "type": "rectangle",
+      "bounds": [
+        20.32,
+        14.82,
+        20.68,
+        15.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-1-post-0",
+      "type": "rectangle",
+      "bounds": [
+        27.32,
+        10.02,
+        27.68,
+        10.379999999999999
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-1-post-1",
+      "type": "rectangle",
+      "bounds": [
+        30.92,
+        10.02,
+        31.28,
+        10.379999999999999
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-1-post-2",
+      "type": "rectangle",
+      "bounds": [
+        27.32,
+        14.82,
+        27.68,
+        15.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "gate-post-1-post-3",
+      "type": "rectangle",
+      "bounds": [
+        30.92,
+        14.82,
+        31.28,
+        15.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "barracks-post-0",
+      "type": "rectangle",
+      "bounds": [
+        3.82,
+        17.82,
+        4.18,
+        18.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "barracks-post-1",
+      "type": "rectangle",
+      "bounds": [
+        14.82,
+        17.82,
+        15.18,
+        18.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "barracks-post-2",
+      "type": "rectangle",
+      "bounds": [
+        3.82,
+        29.82,
+        4.18,
+        30.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "barracks-post-3",
+      "type": "rectangle",
+      "bounds": [
+        14.82,
+        29.82,
+        15.18,
+        30.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "stable-post-0",
+      "type": "rectangle",
+      "bounds": [
+        32.82,
+        18.82,
+        33.18,
+        19.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "stable-post-1",
+      "type": "rectangle",
+      "bounds": [
+        43.82,
+        18.82,
+        44.18,
+        19.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "stable-post-2",
+      "type": "rectangle",
+      "bounds": [
+        32.82,
+        28.82,
+        33.18,
+        29.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "stable-post-3",
+      "type": "rectangle",
+      "bounds": [
+        43.82,
+        28.82,
+        44.18,
+        29.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "stable-stall-0",
+      "type": "line",
+      "points": [
+        [
+          39.8,
+          22.15
+        ],
+        [
+          43.7,
+          22.15
+        ]
+      ],
+      "stroke": "#624a2e",
+      "width_cells": 0.1
+    },
+    {
+      "id": "stable-stall-1",
+      "type": "line",
+      "points": [
+        [
+          39.8,
+          25.15
+        ],
+        [
+          43.7,
+          25.15
+        ]
+      ],
+      "stroke": "#624a2e",
+      "width_cells": 0.1
+    },
+    {
+      "id": "stable-stall-2",
+      "type": "line",
+      "points": [
+        [
+          39.8,
+          28.15
+        ],
+        [
+          43.7,
+          28.15
+        ]
+      ],
+      "stroke": "#624a2e",
+      "width_cells": 0.1
+    },
+    {
+      "id": "gate-herbs-row-0",
+      "type": "line",
+      "points": [
+        [
+          5.3,
+          32.5
+        ],
+        [
+          12.7,
+          32.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "gate-herbs-plant-0-0",
+      "type": "ellipse",
+      "bounds": [
+        5.47,
+        32.36,
+        5.7299999999999995,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-0-1",
+      "type": "ellipse",
+      "bounds": [
+        6.603333333333333,
+        32.36,
+        6.863333333333332,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-0-2",
+      "type": "ellipse",
+      "bounds": [
+        7.736666666666666,
+        32.36,
+        7.996666666666666,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-0-3",
+      "type": "ellipse",
+      "bounds": [
+        8.87,
+        32.36,
+        9.13,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-0-4",
+      "type": "ellipse",
+      "bounds": [
+        10.003333333333332,
+        32.36,
+        10.263333333333334,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-0-5",
+      "type": "ellipse",
+      "bounds": [
+        11.136666666666665,
+        32.36,
+        11.396666666666667,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-0-6",
+      "type": "ellipse",
+      "bounds": [
+        12.269999999999998,
+        32.36,
+        12.53,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-row-1",
+      "type": "line",
+      "points": [
+        [
+          5.3,
+          33.166666666666664
+        ],
+        [
+          12.7,
+          33.166666666666664
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "gate-herbs-plant-1-0",
+      "type": "ellipse",
+      "bounds": [
+        5.47,
+        33.026666666666664,
+        5.7299999999999995,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-1-1",
+      "type": "ellipse",
+      "bounds": [
+        6.603333333333333,
+        33.026666666666664,
+        6.863333333333332,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-1-2",
+      "type": "ellipse",
+      "bounds": [
+        7.736666666666666,
+        33.026666666666664,
+        7.996666666666666,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-1-3",
+      "type": "ellipse",
+      "bounds": [
+        8.87,
+        33.026666666666664,
+        9.13,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-1-4",
+      "type": "ellipse",
+      "bounds": [
+        10.003333333333332,
+        33.026666666666664,
+        10.263333333333334,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-1-5",
+      "type": "ellipse",
+      "bounds": [
+        11.136666666666665,
+        33.026666666666664,
+        11.396666666666667,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-1-6",
+      "type": "ellipse",
+      "bounds": [
+        12.269999999999998,
+        33.026666666666664,
+        12.53,
+        33.306666666666665
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-row-2",
+      "type": "line",
+      "points": [
+        [
+          5.3,
+          33.833333333333336
+        ],
+        [
+          12.7,
+          33.833333333333336
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "gate-herbs-plant-2-0",
+      "type": "ellipse",
+      "bounds": [
+        5.47,
+        33.693333333333335,
+        5.7299999999999995,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-2-1",
+      "type": "ellipse",
+      "bounds": [
+        6.603333333333333,
+        33.693333333333335,
+        6.863333333333332,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-2-2",
+      "type": "ellipse",
+      "bounds": [
+        7.736666666666666,
+        33.693333333333335,
+        7.996666666666666,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-2-3",
+      "type": "ellipse",
+      "bounds": [
+        8.87,
+        33.693333333333335,
+        9.13,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-2-4",
+      "type": "ellipse",
+      "bounds": [
+        10.003333333333332,
+        33.693333333333335,
+        10.263333333333334,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-2-5",
+      "type": "ellipse",
+      "bounds": [
+        11.136666666666665,
+        33.693333333333335,
+        11.396666666666667,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-2-6",
+      "type": "ellipse",
+      "bounds": [
+        12.269999999999998,
+        33.693333333333335,
+        12.53,
+        33.973333333333336
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-row-3",
+      "type": "line",
+      "points": [
+        [
+          5.3,
+          34.5
+        ],
+        [
+          12.7,
+          34.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "gate-herbs-plant-3-0",
+      "type": "ellipse",
+      "bounds": [
+        5.47,
+        34.36,
+        5.7299999999999995,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-3-1",
+      "type": "ellipse",
+      "bounds": [
+        6.603333333333333,
+        34.36,
+        6.863333333333332,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-3-2",
+      "type": "ellipse",
+      "bounds": [
+        7.736666666666666,
+        34.36,
+        7.996666666666666,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-3-3",
+      "type": "ellipse",
+      "bounds": [
+        8.87,
+        34.36,
+        9.13,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-3-4",
+      "type": "ellipse",
+      "bounds": [
+        10.003333333333332,
+        34.36,
+        10.263333333333334,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-3-5",
+      "type": "ellipse",
+      "bounds": [
+        11.136666666666665,
+        34.36,
+        11.396666666666667,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "gate-herbs-plant-3-6",
+      "type": "ellipse",
+      "bounds": [
+        12.269999999999998,
+        34.36,
+        12.53,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "practice-rack-0",
+      "type": "line",
+      "points": [
+        [
+          17.5,
+          23
+        ],
+        [
+          17.5,
+          25
+        ]
+      ],
+      "stroke": "#6e5738",
+      "width_cells": 0.06
+    },
+    {
+      "id": "practice-rack-1",
+      "type": "line",
+      "points": [
+        [
+          17.9,
+          23
+        ],
+        [
+          17.9,
+          25
+        ]
+      ],
+      "stroke": "#6e5738",
+      "width_cells": 0.06
+    },
+    {
+      "id": "practice-rack-2",
+      "type": "line",
+      "points": [
+        [
+          18.3,
+          23
+        ],
+        [
+          18.3,
+          25
+        ]
+      ],
+      "stroke": "#6e5738",
+      "width_cells": 0.06
+    }
+  ],
+  "locations": [
+    {
+      "name": "Пост стражи",
+      "position": [
+        18.7,
+        12.6
+      ]
+    },
+    {
+      "name": "Пост стражи",
+      "position": [
+        29.3,
+        12.6
+      ]
+    },
+    {
+      "name": "Караульный дом",
+      "position": [
+        9.5,
+        24.0
+      ]
+    },
+    {
+      "name": "Конюшня и фураж",
+      "position": [
+        38.5,
+        24.0
+      ]
+    },
+    {
+      "name": "Осмотр повозок",
+      "position": [
+        29,
+        17
+      ]
+    },
+    {
+      "name": "Северная дорога",
+      "position": [
+        24,
+        4
+      ]
+    }
+  ],
+  "architecture": {
+    "outline_cells": 0.025,
+    "shadow_cells": 0.12,
+    "shadow_opacity": 0.28
+  },
+  "foundry": {
+    "key": "gate",
+    "global_light": true,
+    "darkness": 0.12,
+    "grid_alpha": 0.12,
+    "lights": [
+      {
+        "id": "gate-lamp-0",
+        "position": [
+          21,
+          13
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "gate-lamp-1",
+        "position": [
+          27,
+          13
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "gate-lamp-2",
+        "position": [
+          19,
+          28
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "gate-lamp-3",
+        "position": [
+          29,
+          31
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      }
+    ],
+    "regions": [
+      {
+        "id": "exit-south",
+        "name": "К рынку",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              21,
+              34.8,
+              27,
+              36
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "market",
+              "region": "arrival-north"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrival-south",
+        "name": "Место прибытия",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              22,
+              32.2,
+              26,
+              33.5
+            ]
+          }
+        ],
+        "behaviors": []
+      }
+    ],
+    "barriers": []
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "format": "foundry-builder.batch/1",
+  "documents": [
+    {
+      "id": "guard",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/guard.json",
+      "appearance": {
+        "display_id": 164,
+        "size": 384,
+        "portrait_size": 640
+      },
+      "item_icons": {
+        "village-spear": "inv_spear_04"
+      }
+    },
+    {
+      "id": "captain",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/captain.json",
+      "appearance": {
+        "display_id": 164,
+        "size": 384,
+        "portrait_size": 640
+      },
+      "item_icons": {
+        "captain-sword": "inv_sword_04"
+      }
+    },
+    {
+      "id": "farmer",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/farmer.json",
+      "appearance": {
+        "display_id": 102,
+        "size": 384,
+        "portrait_size": 640
+      }
+    },
+    {
+      "id": "baker",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/baker.json",
+      "appearance": {
+        "display_id": 95,
+        "size": 384,
+        "portrait_size": 640
+      }
+    },
+    {
+      "id": "trader",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/trader.json",
+      "appearance": {
+        "display_id": 96,
+        "size": 384,
+        "portrait_size": 640
+      }
+    },
+    {
+      "id": "smith",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/smith.json",
+      "appearance": {
+        "display_id": 242,
+        "size": 384,
+        "portrait_size": 640
+      }
+    },
+    {
+      "id": "mayor",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/mayor.json",
+      "appearance": {
+        "display_id": 103,
+        "size": 384,
+        "portrait_size": 640
+      }
+    },
+    {
+      "id": "innkeeper",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/innkeeper.json",
+      "appearance": {
+        "display_id": 95,
+        "size": 384,
+        "portrait_size": 640
+      }
+    },
+    {
+      "id": "scribe",
+      "mode": "npc",
+      "source": "requests/builder/sources/alderford/scribe.json",
+      "appearance": {
+        "display_id": 211,
+        "size": 384,
+        "portrait_size": 640
+      }
+    }
+  ],
+  "placements": [
+    {
+      "id": "gate-west",
+      "actor": "guard",
+      "scene": "gate",
+      "position": [
+        22,
+        13
+      ],
+      "actor_link": false
+    },
+    {
+      "id": "gate-east",
+      "actor": "guard",
+      "scene": "gate",
+      "position": [
+        26,
+        13
+      ],
+      "actor_link": false
+    },
+    {
+      "id": "gate-yard",
+      "actor": "guard",
+      "scene": "gate",
+      "position": [
+        28.3,
+        17
+      ],
+      "actor_link": false
+    },
+    {
+      "id": "market-patrol",
+      "actor": "guard",
+      "scene": "market",
+      "position": [
+        25.5,
+        16.5
+      ],
+      "actor_link": false
+    },
+    {
+      "id": "hall-watch",
+      "actor": "guard",
+      "scene": "civic",
+      "position": [
+        27.5,
+        17
+      ],
+      "actor_link": false
+    },
+    {
+      "id": "captain",
+      "actor": "captain",
+      "scene": "gate",
+      "position": [
+        11.5,
+        24
+      ]
+    },
+    {
+      "id": "farmer",
+      "actor": "farmer",
+      "scene": "gate",
+      "position": [
+        28.5,
+        7.5
+      ]
+    },
+    {
+      "id": "baker",
+      "actor": "baker",
+      "scene": "market",
+      "position": [
+        17,
+        9
+      ]
+    },
+    {
+      "id": "trader",
+      "actor": "trader",
+      "scene": "market",
+      "position": [
+        31,
+        9
+      ]
+    },
+    {
+      "id": "smith",
+      "actor": "smith",
+      "scene": "market",
+      "position": [
+        40,
+        9
+      ]
+    },
+    {
+      "id": "mayor",
+      "actor": "mayor",
+      "scene": "civic",
+      "position": [
+        19.5,
+        32.5
+      ]
+    },
+    {
+      "id": "innkeeper",
+      "actor": "innkeeper",
+      "scene": "civic",
+      "position": [
+        3.5,
+        17
+      ]
+    },
+    {
+      "id": "scribe",
+      "actor": "scribe",
+      "scene": "civic",
+      "position": [
+        28.5,
+        31
+      ]
+    },
+    {
+      "id": "shopper-0",
+      "actor": "farmer",
+      "scene": "market",
+      "position": [
+        21,
+        14
+      ],
+      "actor_link": false,
+      "name": "Житель деревни"
+    },
+    {
+      "id": "shopper-1",
+      "actor": "farmer",
+      "scene": "market",
+      "position": [
+        26,
+        24
+      ],
+      "actor_link": false,
+      "name": "Житель деревни"
+    },
+    {
+      "id": "shopper-2",
+      "actor": "farmer",
+      "scene": "market",
+      "position": [
+        28,
+        28
+      ],
+      "actor_link": false,
+      "name": "Житель деревни"
+    }
+  ]
+}

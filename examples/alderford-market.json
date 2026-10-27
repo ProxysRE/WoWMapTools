@@ -1,0 +1,3330 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Ольховый Брод — торговая площадь",
+  "seed": 7302,
+  "size_cells": [
+    48,
+    36
+  ],
+  "pixels_per_cell": 80,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "export_format": "webp",
+  "surface_variation": 0.035,
+  "base": {
+    "id": "base",
+    "asset": "tileset/elwynn/elwynngrassbase.blp",
+    "tile_cells": 4.8,
+    "tint": "#a2b2a0"
+  },
+  "layers": [
+    {
+      "id": "main-road",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            24,
+            -2
+          ],
+          [
+            24,
+            18
+          ],
+          [
+            24,
+            38
+          ]
+        ],
+        "width": 6.4,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "market-crossroad",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            -2,
+            18
+          ],
+          [
+            24,
+            18
+          ],
+          [
+            50,
+            18
+          ]
+        ],
+        "width": 3.8,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "bakery-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          10.1,
+          8.85,
+          13.1,
+          11.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "smith-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          34.9,
+          8.85,
+          37.9,
+          11.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "warehouse-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          34.9,
+          26.85,
+          37.9,
+          29.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "weaver-home-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          10.1,
+          26.85,
+          13.1,
+          29.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "baker-approach",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            11,
+            10
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            15
+          ]
+        ],
+        "width": 1.6,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "warehouse-approach",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            35,
+            28
+          ],
+          [
+            37,
+            28
+          ]
+        ],
+        "width": 2,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "market-cobbles",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 2.2,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          12.6,
+          6.6,
+          35.4,
+          30.4
+        ],
+        "feather": 0.38,
+        "roughness": 0.06
+      },
+      "tint": "#c4bba6"
+    },
+    {
+      "id": "bakery-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          0.75,
+          3.75,
+          11.25,
+          14.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "bakery-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          1,
+          4,
+          11,
+          14
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "smith-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          36.75,
+          3.75,
+          47.25,
+          15.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "smith-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          37,
+          4,
+          47,
+          15
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "smith-hearth",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          43,
+          5,
+          46,
+          8
+        ],
+        "feather": 0
+      },
+      "tint": "#777575"
+    },
+    {
+      "id": "stall-0-deck",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          15,
+          9.4,
+          19,
+          12.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stall-1-deck",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          29,
+          9.4,
+          33,
+          12.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stall-2-deck",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          15,
+          20.4,
+          19,
+          23.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "stall-3-deck",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          29,
+          20.4,
+          33,
+          23.5
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "warehouse-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          36.75,
+          22.75,
+          47.25,
+          35.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "warehouse-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          37,
+          23,
+          47,
+          35
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "weaver-home-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          0.75,
+          22.75,
+          11.25,
+          35.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "weaver-home-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          1,
+          23,
+          11,
+          35
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "market-herbs-soil",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2.3,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          13,
+          31,
+          20,
+          35
+        ],
+        "feather": 0
+      },
+      "tint": "#a49c7a"
+    }
+  ],
+  "walls": [
+    {
+      "id": "bakery-n",
+      "points": [
+        [
+          1,
+          4
+        ],
+        [
+          11,
+          4
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "bakery-n-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "bakery-s",
+      "points": [
+        [
+          1,
+          14
+        ],
+        [
+          11,
+          14
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "bakery-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "bakery-w",
+      "points": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          14
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "bakery-w-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "bakery-e",
+      "points": [
+        [
+          11,
+          4
+        ],
+        [
+          11,
+          14
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "bakery-entry",
+          "at": 6,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "smith-n",
+      "points": [
+        [
+          37,
+          4
+        ],
+        [
+          47,
+          4
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "smith-n-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "smith-s",
+      "points": [
+        [
+          37,
+          15
+        ],
+        [
+          47,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "smith-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "smith-w",
+      "points": [
+        [
+          37,
+          4
+        ],
+        [
+          37,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "smith-entry",
+          "at": 6,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "smith-e",
+      "points": [
+        [
+          47,
+          4
+        ],
+        [
+          47,
+          15
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "smith-e-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "warehouse-n",
+      "points": [
+        [
+          37,
+          23
+        ],
+        [
+          47,
+          23
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "warehouse-n-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "warehouse-s",
+      "points": [
+        [
+          37,
+          35
+        ],
+        [
+          47,
+          35
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "warehouse-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "warehouse-w",
+      "points": [
+        [
+          37,
+          23
+        ],
+        [
+          37,
+          35
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "warehouse-entry",
+          "at": 5,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "warehouse-e",
+      "points": [
+        [
+          47,
+          23
+        ],
+        [
+          47,
+          35
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "warehouse-e-window",
+          "at": 6.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "weaver-home-n",
+      "points": [
+        [
+          1,
+          23
+        ],
+        [
+          11,
+          23
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "weaver-home-n-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "weaver-home-s",
+      "points": [
+        [
+          1,
+          35
+        ],
+        [
+          11,
+          35
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "weaver-home-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "weaver-home-w",
+      "points": [
+        [
+          1,
+          23
+        ],
+        [
+          1,
+          35
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "weaver-home-w-window",
+          "at": 6.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "weaver-home-e",
+      "points": [
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          35
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "weaver-home-entry",
+          "at": 5,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "edge-tree-0",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        0.8,
+        4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-1",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        46.7,
+        5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.7,
+      "rotation": 73,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-2",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        0.30000000000000004,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 146,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-3",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        47.5,
+        33
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.7,
+      "rotation": 219,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "bakery-stove",
+      "model": "world/generic/human/passive doodads/stoves/potbellystove.m2",
+      "position": [
+        3,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.45,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "bakery-prep",
+      "model": "world/generic/human/passive doodads/shopcounter/duskwoodshopcounter.m2",
+      "position": [
+        6,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "loaf-0",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        5.2,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "loaf-1",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        5.7,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "loaf-2",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        6.2,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "loaf-3",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        6.7,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.4,
+      "rotation": 0,
+      "order": 25,
+      "layer": "props"
+    },
+    {
+      "id": "bakery-flour",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        3,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "bakery-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        7.5,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.8,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "bakery-table-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        7.5,
+        10.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "bakery-table-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        7.5,
+        11.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-stove",
+      "model": "world/generic/human/passive doodads/stoves/potbellystove.m2",
+      "position": [
+        44.5,
+        6
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.8,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-anvil",
+      "model": "world/azeroth/elwynn/passivedoodads/anvil/anvil.m2",
+      "position": [
+        40,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-water",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        41.5,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-workbench",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        44,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-logs",
+      "model": "world/generic/human/passive doodads/firewood/firewoodpile03.m2",
+      "position": [
+        46,
+        13.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-crates",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        39,
+        13
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-0-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        17,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-0-goods-0",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        16.2,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-0-goods-1",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        16.73,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-0-goods-2",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        17.259999999999998,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-0-goods-3",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        17.79,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-0-stock",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        18.45,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-1-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        31,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-1-goods-0",
+      "model": "world/generic/human/passive doodads/food/fishplatter01.m2",
+      "position": [
+        30.2,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-1-goods-1",
+      "model": "world/generic/human/passive doodads/food/fishplatter01.m2",
+      "position": [
+        30.73,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-1-goods-2",
+      "model": "world/generic/human/passive doodads/food/fishplatter01.m2",
+      "position": [
+        31.259999999999998,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-1-goods-3",
+      "model": "world/generic/human/passive doodads/food/fishplatter01.m2",
+      "position": [
+        31.79,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-1-stock",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        32.45,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-2-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        17,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-2-goods-0",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        16.2,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-2-goods-1",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        16.73,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-2-goods-2",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        17.259999999999998,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-2-goods-3",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        17.79,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-2-stock",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        18.45,
+        23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-3-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        31,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 90,
+      "order": 15,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "stall-3-goods-0",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        30.2,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-3-goods-1",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        30.73,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-3-goods-2",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        31.259999999999998,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-3-goods-3",
+      "model": "world/generic/human/passive doodads/plates/generaldirtyplate01.m2",
+      "position": [
+        31.79,
+        22
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.34,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "stall-3-stock",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        32.45,
+        23
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "warehouse-box-0",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        44.5,
+        25
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.2,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "warehouse-box-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        44.5,
+        27
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.2,
+      "rotation": 10,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "warehouse-box-2",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        44.5,
+        29
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.2,
+      "rotation": 20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "warehouse-box-3",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        44.5,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.2,
+      "rotation": 30,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "warehouse-box-4",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        40,
+        33
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.2,
+      "rotation": 40,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "warehouse-wagon",
+      "model": "world/azeroth/duskwood/passivedoodads/duskwoodhaywagon/duskwoodhaywagon.m2",
+      "position": [
+        39,
+        19.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.5,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "weaver-bed",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        3,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.3,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "weaver-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        7.5,
+        26
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.8,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "weaver-table-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        7.5,
+        25.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "weaver-table-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        7.5,
+        26.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "weaver-storage",
+      "model": "world/generic/human/passive doodads/bookshelves/duskwoodbookshelf01.m2",
+      "position": [
+        3,
+        31.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.5,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-stock-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        14.3,
+        14.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-stock-1",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        19.3,
+        14.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 19,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-stock-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        29,
+        14.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 38,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-stock-3",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        33.5,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 57,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-stock-4",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        35,
+        20.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.75,
+      "rotation": 76,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-planter-0",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        12,
+        3.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-planter-1",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        36,
+        3.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-planter-2",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        12,
+        26
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-planter-3",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        36,
+        26
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "smith-reserve-water",
+      "model": "world/generic/passivedoodads/barrel/barrel01.m2",
+      "position": [
+        46,
+        9.2
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.8,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "bakery-deliveries",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        1.9,
+        13
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "market-lamp-0",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        12,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "market-lamp-1",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        36,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "market-lamp-2",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        12,
+        29
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "market-lamp-3",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        36,
+        29
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "market-bench",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        17,
+        28.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    }
+  ],
+  "details": [
+    {
+      "id": "bakery-post-0",
+      "type": "rectangle",
+      "bounds": [
+        0.8200000000000001,
+        3.82,
+        1.18,
+        4.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "bakery-post-1",
+      "type": "rectangle",
+      "bounds": [
+        10.82,
+        3.82,
+        11.18,
+        4.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "bakery-post-2",
+      "type": "rectangle",
+      "bounds": [
+        0.8200000000000001,
+        13.82,
+        1.18,
+        14.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "bakery-post-3",
+      "type": "rectangle",
+      "bounds": [
+        10.82,
+        13.82,
+        11.18,
+        14.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "smith-post-0",
+      "type": "rectangle",
+      "bounds": [
+        36.82,
+        3.82,
+        37.18,
+        4.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "smith-post-1",
+      "type": "rectangle",
+      "bounds": [
+        46.82,
+        3.82,
+        47.18,
+        4.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "smith-post-2",
+      "type": "rectangle",
+      "bounds": [
+        36.82,
+        14.82,
+        37.18,
+        15.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "smith-post-3",
+      "type": "rectangle",
+      "bounds": [
+        46.82,
+        14.82,
+        47.18,
+        15.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "stall-0-cloth-0",
+      "type": "rectangle",
+      "bounds": [
+        15.0,
+        9.4,
+        15.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-0-cloth-1",
+      "type": "rectangle",
+      "bounds": [
+        15.5,
+        9.4,
+        16.0,
+        10.2
+      ],
+      "fill": "#a74a38"
+    },
+    {
+      "id": "stall-0-cloth-2",
+      "type": "rectangle",
+      "bounds": [
+        16.0,
+        9.4,
+        16.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-0-cloth-3",
+      "type": "rectangle",
+      "bounds": [
+        16.5,
+        9.4,
+        17.0,
+        10.2
+      ],
+      "fill": "#a74a38"
+    },
+    {
+      "id": "stall-0-cloth-4",
+      "type": "rectangle",
+      "bounds": [
+        17.0,
+        9.4,
+        17.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-0-cloth-5",
+      "type": "rectangle",
+      "bounds": [
+        17.5,
+        9.4,
+        18.0,
+        10.2
+      ],
+      "fill": "#a74a38"
+    },
+    {
+      "id": "stall-0-cloth-6",
+      "type": "rectangle",
+      "bounds": [
+        18.0,
+        9.4,
+        18.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-0-cloth-7",
+      "type": "rectangle",
+      "bounds": [
+        18.5,
+        9.4,
+        19.0,
+        10.2
+      ],
+      "fill": "#a74a38"
+    },
+    {
+      "id": "stall-0-post-0",
+      "type": "ellipse",
+      "bounds": [
+        15.200000000000001,
+        9.45,
+        15.4,
+        9.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-0-post-1",
+      "type": "ellipse",
+      "bounds": [
+        18.599999999999998,
+        9.45,
+        18.8,
+        9.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-1-cloth-0",
+      "type": "rectangle",
+      "bounds": [
+        29.0,
+        9.4,
+        29.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-1-cloth-1",
+      "type": "rectangle",
+      "bounds": [
+        29.5,
+        9.4,
+        30.0,
+        10.2
+      ],
+      "fill": "#4c7186"
+    },
+    {
+      "id": "stall-1-cloth-2",
+      "type": "rectangle",
+      "bounds": [
+        30.0,
+        9.4,
+        30.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-1-cloth-3",
+      "type": "rectangle",
+      "bounds": [
+        30.5,
+        9.4,
+        31.0,
+        10.2
+      ],
+      "fill": "#4c7186"
+    },
+    {
+      "id": "stall-1-cloth-4",
+      "type": "rectangle",
+      "bounds": [
+        31.0,
+        9.4,
+        31.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-1-cloth-5",
+      "type": "rectangle",
+      "bounds": [
+        31.5,
+        9.4,
+        32.0,
+        10.2
+      ],
+      "fill": "#4c7186"
+    },
+    {
+      "id": "stall-1-cloth-6",
+      "type": "rectangle",
+      "bounds": [
+        32.0,
+        9.4,
+        32.5,
+        10.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-1-cloth-7",
+      "type": "rectangle",
+      "bounds": [
+        32.5,
+        9.4,
+        33.0,
+        10.2
+      ],
+      "fill": "#4c7186"
+    },
+    {
+      "id": "stall-1-post-0",
+      "type": "ellipse",
+      "bounds": [
+        29.2,
+        9.45,
+        29.400000000000002,
+        9.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-1-post-1",
+      "type": "ellipse",
+      "bounds": [
+        32.6,
+        9.45,
+        32.800000000000004,
+        9.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-2-cloth-0",
+      "type": "rectangle",
+      "bounds": [
+        15.0,
+        20.4,
+        15.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-2-cloth-1",
+      "type": "rectangle",
+      "bounds": [
+        15.5,
+        20.4,
+        16.0,
+        21.2
+      ],
+      "fill": "#707b42"
+    },
+    {
+      "id": "stall-2-cloth-2",
+      "type": "rectangle",
+      "bounds": [
+        16.0,
+        20.4,
+        16.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-2-cloth-3",
+      "type": "rectangle",
+      "bounds": [
+        16.5,
+        20.4,
+        17.0,
+        21.2
+      ],
+      "fill": "#707b42"
+    },
+    {
+      "id": "stall-2-cloth-4",
+      "type": "rectangle",
+      "bounds": [
+        17.0,
+        20.4,
+        17.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-2-cloth-5",
+      "type": "rectangle",
+      "bounds": [
+        17.5,
+        20.4,
+        18.0,
+        21.2
+      ],
+      "fill": "#707b42"
+    },
+    {
+      "id": "stall-2-cloth-6",
+      "type": "rectangle",
+      "bounds": [
+        18.0,
+        20.4,
+        18.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-2-cloth-7",
+      "type": "rectangle",
+      "bounds": [
+        18.5,
+        20.4,
+        19.0,
+        21.2
+      ],
+      "fill": "#707b42"
+    },
+    {
+      "id": "stall-2-post-0",
+      "type": "ellipse",
+      "bounds": [
+        15.200000000000001,
+        20.45,
+        15.4,
+        20.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-2-post-1",
+      "type": "ellipse",
+      "bounds": [
+        18.599999999999998,
+        20.45,
+        18.8,
+        20.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-3-cloth-0",
+      "type": "rectangle",
+      "bounds": [
+        29.0,
+        20.4,
+        29.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-3-cloth-1",
+      "type": "rectangle",
+      "bounds": [
+        29.5,
+        20.4,
+        30.0,
+        21.2
+      ],
+      "fill": "#8a5b79"
+    },
+    {
+      "id": "stall-3-cloth-2",
+      "type": "rectangle",
+      "bounds": [
+        30.0,
+        20.4,
+        30.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-3-cloth-3",
+      "type": "rectangle",
+      "bounds": [
+        30.5,
+        20.4,
+        31.0,
+        21.2
+      ],
+      "fill": "#8a5b79"
+    },
+    {
+      "id": "stall-3-cloth-4",
+      "type": "rectangle",
+      "bounds": [
+        31.0,
+        20.4,
+        31.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-3-cloth-5",
+      "type": "rectangle",
+      "bounds": [
+        31.5,
+        20.4,
+        32.0,
+        21.2
+      ],
+      "fill": "#8a5b79"
+    },
+    {
+      "id": "stall-3-cloth-6",
+      "type": "rectangle",
+      "bounds": [
+        32.0,
+        20.4,
+        32.5,
+        21.2
+      ],
+      "fill": "#d6c4a0"
+    },
+    {
+      "id": "stall-3-cloth-7",
+      "type": "rectangle",
+      "bounds": [
+        32.5,
+        20.4,
+        33.0,
+        21.2
+      ],
+      "fill": "#8a5b79"
+    },
+    {
+      "id": "stall-3-post-0",
+      "type": "ellipse",
+      "bounds": [
+        29.2,
+        20.45,
+        29.400000000000002,
+        20.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "stall-3-post-1",
+      "type": "ellipse",
+      "bounds": [
+        32.6,
+        20.45,
+        32.800000000000004,
+        20.65
+      ],
+      "fill": "#42301f"
+    },
+    {
+      "id": "warehouse-post-0",
+      "type": "rectangle",
+      "bounds": [
+        36.82,
+        22.82,
+        37.18,
+        23.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "warehouse-post-1",
+      "type": "rectangle",
+      "bounds": [
+        46.82,
+        22.82,
+        47.18,
+        23.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "warehouse-post-2",
+      "type": "rectangle",
+      "bounds": [
+        36.82,
+        34.82,
+        37.18,
+        35.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "warehouse-post-3",
+      "type": "rectangle",
+      "bounds": [
+        46.82,
+        34.82,
+        47.18,
+        35.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "weaver-home-post-0",
+      "type": "rectangle",
+      "bounds": [
+        0.8200000000000001,
+        22.82,
+        1.18,
+        23.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "weaver-home-post-1",
+      "type": "rectangle",
+      "bounds": [
+        10.82,
+        22.82,
+        11.18,
+        23.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "weaver-home-post-2",
+      "type": "rectangle",
+      "bounds": [
+        0.8200000000000001,
+        34.82,
+        1.18,
+        35.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "weaver-home-post-3",
+      "type": "rectangle",
+      "bounds": [
+        10.82,
+        34.82,
+        11.18,
+        35.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "market-herbs-row-0",
+      "type": "line",
+      "points": [
+        [
+          13.3,
+          31.5
+        ],
+        [
+          19.7,
+          31.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "market-herbs-plant-0-0",
+      "type": "ellipse",
+      "bounds": [
+        13.469999999999999,
+        31.36,
+        13.73,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-0-1",
+      "type": "ellipse",
+      "bounds": [
+        14.436666666666666,
+        31.36,
+        14.696666666666667,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-0-2",
+      "type": "ellipse",
+      "bounds": [
+        15.403333333333332,
+        31.36,
+        15.663333333333334,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-0-3",
+      "type": "ellipse",
+      "bounds": [
+        16.37,
+        31.36,
+        16.63,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-0-4",
+      "type": "ellipse",
+      "bounds": [
+        17.336666666666666,
+        31.36,
+        17.596666666666664,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-0-5",
+      "type": "ellipse",
+      "bounds": [
+        18.303333333333335,
+        31.36,
+        18.563333333333333,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-0-6",
+      "type": "ellipse",
+      "bounds": [
+        19.27,
+        31.36,
+        19.529999999999998,
+        31.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-row-1",
+      "type": "line",
+      "points": [
+        [
+          13.3,
+          32.5
+        ],
+        [
+          19.7,
+          32.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "market-herbs-plant-1-0",
+      "type": "ellipse",
+      "bounds": [
+        13.469999999999999,
+        32.36,
+        13.73,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-1-1",
+      "type": "ellipse",
+      "bounds": [
+        14.436666666666666,
+        32.36,
+        14.696666666666667,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-1-2",
+      "type": "ellipse",
+      "bounds": [
+        15.403333333333332,
+        32.36,
+        15.663333333333334,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-1-3",
+      "type": "ellipse",
+      "bounds": [
+        16.37,
+        32.36,
+        16.63,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-1-4",
+      "type": "ellipse",
+      "bounds": [
+        17.336666666666666,
+        32.36,
+        17.596666666666664,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-1-5",
+      "type": "ellipse",
+      "bounds": [
+        18.303333333333335,
+        32.36,
+        18.563333333333333,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-1-6",
+      "type": "ellipse",
+      "bounds": [
+        19.27,
+        32.36,
+        19.529999999999998,
+        32.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-row-2",
+      "type": "line",
+      "points": [
+        [
+          13.3,
+          33.5
+        ],
+        [
+          19.7,
+          33.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "market-herbs-plant-2-0",
+      "type": "ellipse",
+      "bounds": [
+        13.469999999999999,
+        33.36,
+        13.73,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-2-1",
+      "type": "ellipse",
+      "bounds": [
+        14.436666666666666,
+        33.36,
+        14.696666666666667,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-2-2",
+      "type": "ellipse",
+      "bounds": [
+        15.403333333333332,
+        33.36,
+        15.663333333333334,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-2-3",
+      "type": "ellipse",
+      "bounds": [
+        16.37,
+        33.36,
+        16.63,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-2-4",
+      "type": "ellipse",
+      "bounds": [
+        17.336666666666666,
+        33.36,
+        17.596666666666664,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-2-5",
+      "type": "ellipse",
+      "bounds": [
+        18.303333333333335,
+        33.36,
+        18.563333333333333,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-2-6",
+      "type": "ellipse",
+      "bounds": [
+        19.27,
+        33.36,
+        19.529999999999998,
+        33.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-row-3",
+      "type": "line",
+      "points": [
+        [
+          13.3,
+          34.5
+        ],
+        [
+          19.7,
+          34.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "market-herbs-plant-3-0",
+      "type": "ellipse",
+      "bounds": [
+        13.469999999999999,
+        34.36,
+        13.73,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-3-1",
+      "type": "ellipse",
+      "bounds": [
+        14.436666666666666,
+        34.36,
+        14.696666666666667,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-3-2",
+      "type": "ellipse",
+      "bounds": [
+        15.403333333333332,
+        34.36,
+        15.663333333333334,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-3-3",
+      "type": "ellipse",
+      "bounds": [
+        16.37,
+        34.36,
+        16.63,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-3-4",
+      "type": "ellipse",
+      "bounds": [
+        17.336666666666666,
+        34.36,
+        17.596666666666664,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-3-5",
+      "type": "ellipse",
+      "bounds": [
+        18.303333333333335,
+        34.36,
+        18.563333333333333,
+        34.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "market-herbs-plant-3-6",
+      "type": "ellipse",
+      "bounds": [
+        19.27,
+        34.36,
+        19.529999999999998,
+        34.64
+      ],
+      "fill": "#47713a"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Пекарня",
+      "position": [
+        6.0,
+        9.0
+      ]
+    },
+    {
+      "name": "Кузница",
+      "position": [
+        42.0,
+        9.5
+      ]
+    },
+    {
+      "name": "Хлебный ряд",
+      "position": [
+        17,
+        12.5
+      ]
+    },
+    {
+      "name": "Рыбный ряд",
+      "position": [
+        31,
+        12.5
+      ]
+    },
+    {
+      "name": "Сыр и молочные продукты",
+      "position": [
+        17,
+        23.5
+      ]
+    },
+    {
+      "name": "Посуда и мелочи",
+      "position": [
+        31,
+        23.5
+      ]
+    },
+    {
+      "name": "Склад артели",
+      "position": [
+        42.0,
+        29.0
+      ]
+    },
+    {
+      "name": "Дом ткачихи",
+      "position": [
+        6.0,
+        29.0
+      ]
+    }
+  ],
+  "architecture": {
+    "outline_cells": 0.025,
+    "shadow_cells": 0.12,
+    "shadow_opacity": 0.28
+  },
+  "foundry": {
+    "key": "market",
+    "global_light": true,
+    "darkness": 0.12,
+    "grid_alpha": 0.12,
+    "lights": [
+      {
+        "id": "market-lamp-0",
+        "position": [
+          12,
+          7
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "market-lamp-1",
+        "position": [
+          36,
+          7
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "market-lamp-2",
+        "position": [
+          12,
+          29
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "market-lamp-3",
+        "position": [
+          36,
+          29
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      }
+    ],
+    "regions": [
+      {
+        "id": "exit-north",
+        "name": "К воротам",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              21,
+              0,
+              27,
+              1.2
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "gate",
+              "region": "arrival-south"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrival-north",
+        "name": "Место прибытия",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              22,
+              2.5,
+              26,
+              3.8
+            ]
+          }
+        ],
+        "behaviors": []
+      },
+      {
+        "id": "exit-south",
+        "name": "К ратуше",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              21,
+              34.8,
+              27,
+              36
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "civic",
+              "region": "arrival-north"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrival-south",
+        "name": "Место прибытия",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              22,
+              32.2,
+              26,
+              33.5
+            ]
+          }
+        ],
+        "behaviors": []
+      }
+    ],
+    "barriers": []
+  }
+}

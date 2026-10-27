@@ -1,0 +1,3101 @@
+{
+  "format": "wowmap.scene/1",
+  "name": "Ольховый Брод — площадь ратуши",
+  "seed": 7303,
+  "size_cells": [
+    48,
+    36
+  ],
+  "pixels_per_cell": 80,
+  "distance_per_cell": 5,
+  "units": "ft",
+  "export_format": "webp",
+  "surface_variation": 0.035,
+  "base": {
+    "id": "base",
+    "asset": "tileset/elwynn/elwynngrassbase.blp",
+    "tile_cells": 4.8,
+    "tint": "#a2b2a0"
+  },
+  "layers": [
+    {
+      "id": "main-road",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            24,
+            -2
+          ],
+          [
+            24,
+            8
+          ],
+          [
+            24,
+            17.5
+          ]
+        ],
+        "width": 6.4,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "hall-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          22.5,
+          17.25,
+          25.5,
+          19.549999999999997
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "inn-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          10.1,
+          12.85,
+          13.1,
+          15.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "shrine-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          35.9,
+          10.85,
+          38.9,
+          13.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "home-a-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          9.1,
+          29.85,
+          12.1,
+          32.15
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "home-b-threshold-wear",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "ellipse",
+        "bounds": [
+          41.5,
+          29.25,
+          44.5,
+          31.549999999999997
+        ],
+        "feather": 0.4,
+        "roughness": 0.12
+      }
+    },
+    {
+      "id": "inn-approach",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            11,
+            14
+          ],
+          [
+            13,
+            14
+          ]
+        ],
+        "width": 2,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "shrine-approach",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            35,
+            12
+          ],
+          [
+            38,
+            12
+          ]
+        ],
+        "width": 2,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    },
+    {
+      "id": "garden-walk",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 3.2,
+      "shape": {
+        "type": "path",
+        "points": [
+          [
+            35,
+            22
+          ],
+          [
+            35,
+            30
+          ],
+          [
+            43,
+            30
+          ],
+          [
+            43,
+            31
+          ]
+        ],
+        "width": 1.2,
+        "smooth": true,
+        "feather": 0.35,
+        "roughness": 0.1
+      }
+    }
+  ],
+  "floors": [
+    {
+      "id": "civic-cobbles",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 2,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          12.7,
+          3.7,
+          35.3,
+          19.3
+        ],
+        "feather": 0.35,
+        "roughness": 0.05
+      },
+      "tint": "#c5c0ad"
+    },
+    {
+      "id": "hall-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          14.75,
+          18.75,
+          33.25,
+          34.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "hall-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          15,
+          19,
+          33,
+          34
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "inn-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          -0.25,
+          5.75,
+          11.25,
+          21.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "inn-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          0,
+          6,
+          11,
+          21
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "shrine-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          37.75,
+          4.75,
+          48.25,
+          16.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "shrine-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          38,
+          5,
+          48,
+          16
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "shrine-stone",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.3,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          38,
+          5,
+          48,
+          16
+        ],
+        "feather": 0
+      },
+      "tint": "#c6c3b7"
+    },
+    {
+      "id": "home-a-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          -0.25,
+          26.75,
+          10.25,
+          36.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "home-a-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          0,
+          27,
+          10,
+          36
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "civic-garden-soil",
+      "asset": "tileset/elwynn/elwynndirtmud02.blp",
+      "tile_cells": 2.3,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          37,
+          23,
+          46,
+          29
+        ],
+        "feather": 0
+      },
+      "tint": "#a49c7a"
+    },
+    {
+      "id": "home-b-foundation",
+      "asset": "tileset/elwynn/elwynncobblestonebase.blp",
+      "tile_cells": 1.1,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          37.75,
+          30.75,
+          48.25,
+          39.25
+        ],
+        "feather": 0
+      },
+      "tint": "#b9b1a1"
+    },
+    {
+      "id": "home-b-floor",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 1.4,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          38,
+          31,
+          48,
+          39
+        ],
+        "feather": 0
+      }
+    },
+    {
+      "id": "notice-board",
+      "asset": "dungeons/textures/floor/mm_inn_wood floor_01.blp",
+      "tile_cells": 0.6,
+      "shape": {
+        "type": "rectangle",
+        "bounds": [
+          13,
+          13,
+          13.7,
+          15
+        ],
+        "feather": 0
+      }
+    }
+  ],
+  "walls": [
+    {
+      "id": "hall-n",
+      "points": [
+        [
+          15,
+          19
+        ],
+        [
+          33,
+          19
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "hall-entry",
+          "at": 9.0,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "hall-s",
+      "points": [
+        [
+          15,
+          34
+        ],
+        [
+          33,
+          34
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "hall-s-window",
+          "at": 9.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "hall-w",
+      "points": [
+        [
+          15,
+          19
+        ],
+        [
+          15,
+          34
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "hall-w-window",
+          "at": 7.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "hall-e",
+      "points": [
+        [
+          33,
+          19
+        ],
+        [
+          33,
+          34
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "hall-e-window",
+          "at": 7.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "hall-rear-divider",
+      "points": [
+        [
+          15,
+          28
+        ],
+        [
+          33,
+          28
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "hall-office-door",
+          "at": 4,
+          "width": 1.6,
+          "type": "door",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        },
+        {
+          "id": "hall-archive-door",
+          "at": 13,
+          "width": 1.6,
+          "type": "door",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "hall-office-partition",
+      "points": [
+        [
+          24,
+          28
+        ],
+        [
+          24,
+          34
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": []
+    },
+    {
+      "id": "inn-n",
+      "points": [
+        [
+          0,
+          6
+        ],
+        [
+          11,
+          6
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "inn-n-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "inn-s",
+      "points": [
+        [
+          0,
+          21
+        ],
+        [
+          11,
+          21
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "inn-s-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "inn-w",
+      "points": [
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          21
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "inn-w-window",
+          "at": 7.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "inn-e",
+      "points": [
+        [
+          11,
+          6
+        ],
+        [
+          11,
+          21
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "inn-entry",
+          "at": 8,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "shrine-n",
+      "points": [
+        [
+          38,
+          5
+        ],
+        [
+          48,
+          5
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "shrine-n-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "shrine-s",
+      "points": [
+        [
+          38,
+          16
+        ],
+        [
+          48,
+          16
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "shrine-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "shrine-w",
+      "points": [
+        [
+          38,
+          5
+        ],
+        [
+          38,
+          16
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "shrine-entry",
+          "at": 7,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "shrine-e",
+      "points": [
+        [
+          48,
+          5
+        ],
+        [
+          48,
+          16
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "shrine-e-window",
+          "at": 5.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-a-n",
+      "points": [
+        [
+          0,
+          27
+        ],
+        [
+          10,
+          27
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-a-n-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-a-s",
+      "points": [
+        [
+          0,
+          36
+        ],
+        [
+          10,
+          36
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-a-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-a-w",
+      "points": [
+        [
+          0,
+          27
+        ],
+        [
+          0,
+          36
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-a-w-window",
+          "at": 4.5,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-a-e",
+      "points": [
+        [
+          10,
+          27
+        ],
+        [
+          10,
+          36
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-a-entry",
+          "at": 4,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-b-n",
+      "points": [
+        [
+          38,
+          31
+        ],
+        [
+          48,
+          31
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-b-entry",
+          "at": 5,
+          "width": 1.6,
+          "type": "door",
+          "state": "open",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-b-s",
+      "points": [
+        [
+          38,
+          39
+        ],
+        [
+          48,
+          39
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-b-s-window",
+          "at": 5.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-b-w",
+      "points": [
+        [
+          38,
+          31
+        ],
+        [
+          38,
+          39
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-b-w-window",
+          "at": 4.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    },
+    {
+      "id": "home-b-e",
+      "points": [
+        [
+          48,
+          31
+        ],
+        [
+          48,
+          39
+        ]
+      ],
+      "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp",
+      "thickness": 0.27,
+      "tile_cells": 1,
+      "openings": [
+        {
+          "id": "home-b-e-window",
+          "at": 4.0,
+          "width": 1.2,
+          "type": "window",
+          "state": "closed",
+          "asset": "world/azeroth/elwynn/buildings/blacksmith/blacksmithwood04.blp"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "edge-tree-0",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        0.8,
+        4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 0,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-1",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        46.7,
+        5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.7,
+      "rotation": 73,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-2",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        0.30000000000000004,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.7,
+      "rotation": 146,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "edge-tree-3",
+      "model": "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless01.m2",
+      "position": [
+        47.5,
+        33
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.7,
+      "rotation": 219,
+      "order": 80,
+      "layer": "overhead",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "council-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        24,
+        23.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 4,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "council-table-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        24,
+        22.55
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "council-table-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        24,
+        24.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "hall-bench-0",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        20.5,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "hall-bench-1",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        23,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "hall-bench-2",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        25.5,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "hall-bench-3",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        28,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "mayor-desk",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        19.5,
+        31
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.4,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "mayor-desk-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        19.5,
+        30.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "mayor-desk-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        19.5,
+        31.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "mayor-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        19.5,
+        31
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "archive-shelf-a",
+      "model": "world/generic/human/passive doodads/bookshelves/duskwoodbookshelf01.m2",
+      "position": [
+        25.1,
+        31.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "archive-shelf-b",
+      "model": "world/generic/human/passive doodads/bookshelves/duskwoodbookshelf01.m2",
+      "position": [
+        31.8,
+        31.7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.8,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "archive-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        28.5,
+        30
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.6,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "hall-planter-0",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        17,
+        18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "hall-planter-1",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        31,
+        18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.9,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-0",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        6.5,
+        9.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.4,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-0-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        6.5,
+        8.55
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-0-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        6.5,
+        10.45
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-0-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        6.15,
+        9.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "inn-table-0-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        6.8,
+        9.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "inn-table-0-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        7.2,
+        9.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.2,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "inn-table-1",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        6.5,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.4,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-1-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        6.5,
+        14.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-1-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        6.5,
+        15.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-table-1-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        6.15,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "inn-table-1-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        6.8,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "inn-table-1-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        7.2,
+        15
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.2,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "inn-counter",
+      "model": "world/generic/human/passive doodads/shopcounter/duskwoodshopcounter.m2",
+      "position": [
+        2,
+        17
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 3.2,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-keg",
+      "model": "world/generic/human/passive doodads/beerkegs/beerkeg01.m2",
+      "position": [
+        2.5,
+        8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.3,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "inn-stove",
+      "model": "world/generic/human/passive doodads/stoves/potbellystove.m2",
+      "position": [
+        2,
+        11.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.1,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-well",
+      "model": "world/generic/passivedoodads/well/well.m2",
+      "position": [
+        30.5,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.5,
+      "rotation": 15,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "well-bucket",
+      "model": "world/generic/human/passive doodads/buckets/bucket.m2",
+      "position": [
+        31.8,
+        11
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.5,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "shrine-altar",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        44,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.6,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "shrine-book",
+      "model": "world/generic/human/passive doodads/books/booklargeopen01.m2",
+      "position": [
+        44,
+        7.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "shrine-bench-0",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        40,
+        11.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.9,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "shrine-bench-1",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        43,
+        11.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.9,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "shrine-bench-2",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        46,
+        11.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.9,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "home-a-bed",
+      "model": "world/generic/human/passive doodads/beds/duskwoodbed.m2",
+      "position": [
+        2.2,
+        29.3
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.1,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "home-a-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        6.5,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.8,
+      "rotation": 90,
+      "order": 14,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "home-a-table-chair-a",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        6.5,
+        31.05
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "home-a-table-chair-b",
+      "model": "world/generic/human/passive doodads/chairs/generalchairloend01.m2",
+      "position": [
+        6.5,
+        32.95
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "home-a-table-bread",
+      "model": "world/generic/human/passive doodads/food/breadloaf01.m2",
+      "position": [
+        6.15,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "home-a-table-cheese",
+      "model": "world/generic/human/passive doodads/food/cheesewedge01.m2",
+      "position": [
+        6.8,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.32,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "home-a-table-mug",
+      "model": "world/generic/human/passive doodads/mugs/mug01.m2",
+      "position": [
+        7.2,
+        32
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.2,
+      "rotation": 0,
+      "order": 30,
+      "layer": "props"
+    },
+    {
+      "id": "home-b-table",
+      "model": "world/generic/human/passive doodads/tables/inntable.m2",
+      "position": [
+        43,
+        34
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2.2,
+      "rotation": 90,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-lamp-0",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        13,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "civic-lamp-1",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        35,
+        7
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "civic-lamp-2",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        13.5,
+        18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "civic-lamp-3",
+      "model": "world/generic/human/passive doodads/lampposts/duskwoodlamppost.m2",
+      "position": [
+        34.5,
+        18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props"
+    },
+    {
+      "id": "civic-bench-0",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        16,
+        9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-bench-1",
+      "model": "world/generic/human/passive doodads/benches/duskwoodbench.m2",
+      "position": [
+        20,
+        9
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 2,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-planter-0",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        14,
+        5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-planter-1",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        34,
+        5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-planter-2",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        12,
+        21.8
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-planter-3",
+      "model": "world/generic/human/passive doodads/planterboxes/stormwindplanter.m2",
+      "position": [
+        36,
+        17.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.85,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-storage-0",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        2,
+        19.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 0,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-storage-1",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        8.8,
+        19.4
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 20,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-storage-2",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        25.5,
+        33
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 40,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "civic-storage-3",
+      "model": "world/generic/passivedoodads/crate01/crate01.m2",
+      "position": [
+        32,
+        29
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.7,
+      "rotation": 60,
+      "order": 10,
+      "layer": "props",
+      "shadow": {
+        "opacity": 0.2,
+        "blur_cells": 0.07,
+        "offset_cells": [
+          0.07,
+          0.1
+        ]
+      }
+    }
+  ],
+  "details": [
+    {
+      "id": "hall-post-0",
+      "type": "rectangle",
+      "bounds": [
+        14.82,
+        18.82,
+        15.18,
+        19.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "hall-post-1",
+      "type": "rectangle",
+      "bounds": [
+        32.82,
+        18.82,
+        33.18,
+        19.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "hall-post-2",
+      "type": "rectangle",
+      "bounds": [
+        14.82,
+        33.82,
+        15.18,
+        34.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "hall-post-3",
+      "type": "rectangle",
+      "bounds": [
+        32.82,
+        33.82,
+        33.18,
+        34.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "hall-runner",
+      "type": "rectangle",
+      "bounds": [
+        22.1,
+        19.2,
+        25.9,
+        25.4
+      ],
+      "fill": "#854c37",
+      "stroke": "#c5a76c",
+      "width_cells": 0.06
+    },
+    {
+      "id": "hall-step-0",
+      "type": "line",
+      "points": [
+        [
+          21.5,
+          18.1
+        ],
+        [
+          26.5,
+          18.1
+        ]
+      ],
+      "stroke": "#857864",
+      "width_cells": 0.13
+    },
+    {
+      "id": "hall-step-1",
+      "type": "line",
+      "points": [
+        [
+          21.5,
+          18.37
+        ],
+        [
+          26.5,
+          18.37
+        ]
+      ],
+      "stroke": "#857864",
+      "width_cells": 0.13
+    },
+    {
+      "id": "hall-step-2",
+      "type": "line",
+      "points": [
+        [
+          21.5,
+          18.64
+        ],
+        [
+          26.5,
+          18.64
+        ]
+      ],
+      "stroke": "#857864",
+      "width_cells": 0.13
+    },
+    {
+      "id": "inn-post-0",
+      "type": "rectangle",
+      "bounds": [
+        -0.18,
+        5.82,
+        0.18,
+        6.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "inn-post-1",
+      "type": "rectangle",
+      "bounds": [
+        10.82,
+        5.82,
+        11.18,
+        6.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "inn-post-2",
+      "type": "rectangle",
+      "bounds": [
+        -0.18,
+        20.82,
+        0.18,
+        21.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "inn-post-3",
+      "type": "rectangle",
+      "bounds": [
+        10.82,
+        20.82,
+        11.18,
+        21.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "shrine-post-0",
+      "type": "rectangle",
+      "bounds": [
+        37.82,
+        4.82,
+        38.18,
+        5.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "shrine-post-1",
+      "type": "rectangle",
+      "bounds": [
+        47.82,
+        4.82,
+        48.18,
+        5.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "shrine-post-2",
+      "type": "rectangle",
+      "bounds": [
+        37.82,
+        15.82,
+        38.18,
+        16.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "shrine-post-3",
+      "type": "rectangle",
+      "bounds": [
+        47.82,
+        15.82,
+        48.18,
+        16.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-a-post-0",
+      "type": "rectangle",
+      "bounds": [
+        -0.18,
+        26.82,
+        0.18,
+        27.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-a-post-1",
+      "type": "rectangle",
+      "bounds": [
+        9.82,
+        26.82,
+        10.18,
+        27.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-a-post-2",
+      "type": "rectangle",
+      "bounds": [
+        -0.18,
+        35.82,
+        0.18,
+        36.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-a-post-3",
+      "type": "rectangle",
+      "bounds": [
+        9.82,
+        35.82,
+        10.18,
+        36.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "civic-garden-row-0",
+      "type": "line",
+      "points": [
+        [
+          37.3,
+          23.5
+        ],
+        [
+          45.7,
+          23.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "civic-garden-plant-0-0",
+      "type": "ellipse",
+      "bounds": [
+        37.47,
+        23.36,
+        37.730000000000004,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-0-1",
+      "type": "ellipse",
+      "bounds": [
+        38.769999999999996,
+        23.36,
+        39.03,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-0-2",
+      "type": "ellipse",
+      "bounds": [
+        40.07,
+        23.36,
+        40.330000000000005,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-0-3",
+      "type": "ellipse",
+      "bounds": [
+        41.37,
+        23.36,
+        41.63,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-0-4",
+      "type": "ellipse",
+      "bounds": [
+        42.67,
+        23.36,
+        42.93000000000001,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-0-5",
+      "type": "ellipse",
+      "bounds": [
+        43.97,
+        23.36,
+        44.230000000000004,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-0-6",
+      "type": "ellipse",
+      "bounds": [
+        45.269999999999996,
+        23.36,
+        45.53,
+        23.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-row-1",
+      "type": "line",
+      "points": [
+        [
+          37.3,
+          25.166666666666668
+        ],
+        [
+          45.7,
+          25.166666666666668
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "civic-garden-plant-1-0",
+      "type": "ellipse",
+      "bounds": [
+        37.47,
+        25.026666666666667,
+        37.730000000000004,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-1-1",
+      "type": "ellipse",
+      "bounds": [
+        38.769999999999996,
+        25.026666666666667,
+        39.03,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-1-2",
+      "type": "ellipse",
+      "bounds": [
+        40.07,
+        25.026666666666667,
+        40.330000000000005,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-1-3",
+      "type": "ellipse",
+      "bounds": [
+        41.37,
+        25.026666666666667,
+        41.63,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-1-4",
+      "type": "ellipse",
+      "bounds": [
+        42.67,
+        25.026666666666667,
+        42.93000000000001,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-1-5",
+      "type": "ellipse",
+      "bounds": [
+        43.97,
+        25.026666666666667,
+        44.230000000000004,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-1-6",
+      "type": "ellipse",
+      "bounds": [
+        45.269999999999996,
+        25.026666666666667,
+        45.53,
+        25.30666666666667
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-row-2",
+      "type": "line",
+      "points": [
+        [
+          37.3,
+          26.833333333333332
+        ],
+        [
+          45.7,
+          26.833333333333332
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "civic-garden-plant-2-0",
+      "type": "ellipse",
+      "bounds": [
+        37.47,
+        26.69333333333333,
+        37.730000000000004,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-2-1",
+      "type": "ellipse",
+      "bounds": [
+        38.769999999999996,
+        26.69333333333333,
+        39.03,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-2-2",
+      "type": "ellipse",
+      "bounds": [
+        40.07,
+        26.69333333333333,
+        40.330000000000005,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-2-3",
+      "type": "ellipse",
+      "bounds": [
+        41.37,
+        26.69333333333333,
+        41.63,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-2-4",
+      "type": "ellipse",
+      "bounds": [
+        42.67,
+        26.69333333333333,
+        42.93000000000001,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-2-5",
+      "type": "ellipse",
+      "bounds": [
+        43.97,
+        26.69333333333333,
+        44.230000000000004,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-2-6",
+      "type": "ellipse",
+      "bounds": [
+        45.269999999999996,
+        26.69333333333333,
+        45.53,
+        26.973333333333333
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-row-3",
+      "type": "line",
+      "points": [
+        [
+          37.3,
+          28.5
+        ],
+        [
+          45.7,
+          28.5
+        ]
+      ],
+      "stroke": "#50442a",
+      "width_cells": 0.13
+    },
+    {
+      "id": "civic-garden-plant-3-0",
+      "type": "ellipse",
+      "bounds": [
+        37.47,
+        28.36,
+        37.730000000000004,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-3-1",
+      "type": "ellipse",
+      "bounds": [
+        38.769999999999996,
+        28.36,
+        39.03,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-3-2",
+      "type": "ellipse",
+      "bounds": [
+        40.07,
+        28.36,
+        40.330000000000005,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-3-3",
+      "type": "ellipse",
+      "bounds": [
+        41.37,
+        28.36,
+        41.63,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-3-4",
+      "type": "ellipse",
+      "bounds": [
+        42.67,
+        28.36,
+        42.93000000000001,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-3-5",
+      "type": "ellipse",
+      "bounds": [
+        43.97,
+        28.36,
+        44.230000000000004,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "civic-garden-plant-3-6",
+      "type": "ellipse",
+      "bounds": [
+        45.269999999999996,
+        28.36,
+        45.53,
+        28.64
+      ],
+      "fill": "#47713a"
+    },
+    {
+      "id": "home-b-post-0",
+      "type": "rectangle",
+      "bounds": [
+        37.82,
+        30.82,
+        38.18,
+        31.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-b-post-1",
+      "type": "rectangle",
+      "bounds": [
+        47.82,
+        30.82,
+        48.18,
+        31.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-b-post-2",
+      "type": "rectangle",
+      "bounds": [
+        37.82,
+        38.82,
+        38.18,
+        39.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "home-b-post-3",
+      "type": "rectangle",
+      "bounds": [
+        47.82,
+        38.82,
+        48.18,
+        39.18
+      ],
+      "fill": "#453021"
+    },
+    {
+      "id": "notice-paper-0",
+      "type": "rectangle",
+      "bounds": [
+        13.1,
+        13.15,
+        13.55,
+        13.5
+      ],
+      "fill": "#d5c49d"
+    },
+    {
+      "id": "notice-paper-1",
+      "type": "rectangle",
+      "bounds": [
+        13.1,
+        13.65,
+        13.55,
+        14.0
+      ],
+      "fill": "#d5c49d"
+    },
+    {
+      "id": "notice-paper-2",
+      "type": "rectangle",
+      "bounds": [
+        13.1,
+        14.15,
+        13.55,
+        14.5
+      ],
+      "fill": "#d5c49d"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ратуша",
+      "position": [
+        24.0,
+        26.5
+      ]
+    },
+    {
+      "name": "Постоялый дом «Три ольхи»",
+      "position": [
+        5.5,
+        13.5
+      ]
+    },
+    {
+      "name": "Колодец",
+      "position": [
+        30.5,
+        10
+      ],
+      "access_position": [
+        28.3,
+        10
+      ]
+    },
+    {
+      "name": "Часовня Света",
+      "position": [
+        43.0,
+        10.5
+      ]
+    },
+    {
+      "name": "Жилой дом",
+      "position": [
+        5.0,
+        31.5
+      ]
+    },
+    {
+      "name": "Дом у сада",
+      "position": [
+        43.0,
+        35.0
+      ]
+    },
+    {
+      "name": "Доска объявлений",
+      "position": [
+        13.5,
+        14
+      ]
+    }
+  ],
+  "architecture": {
+    "outline_cells": 0.025,
+    "shadow_cells": 0.12,
+    "shadow_opacity": 0.28
+  },
+  "foundry": {
+    "key": "civic",
+    "global_light": true,
+    "darkness": 0.12,
+    "grid_alpha": 0.12,
+    "lights": [
+      {
+        "id": "civic-lamp-0",
+        "position": [
+          13,
+          7
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "civic-lamp-1",
+        "position": [
+          35,
+          7
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "civic-lamp-2",
+        "position": [
+          13.5,
+          18
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      },
+      {
+        "id": "civic-lamp-3",
+        "position": [
+          34.5,
+          18
+        ],
+        "bright": 2,
+        "dim": 5,
+        "color": "#ffc885",
+        "alpha": 0.22
+      }
+    ],
+    "regions": [
+      {
+        "id": "exit-north",
+        "name": "К рынку",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              21,
+              0,
+              27,
+              1.2
+            ]
+          }
+        ],
+        "behaviors": [
+          {
+            "type": "teleportToken",
+            "choice": true,
+            "destination": {
+              "scene": "market",
+              "region": "arrival-south"
+            }
+          }
+        ]
+      },
+      {
+        "id": "arrival-north",
+        "name": "Место прибытия",
+        "shapes": [
+          {
+            "type": "rectangle",
+            "bounds": [
+              22,
+              2.5,
+              26,
+              3.8
+            ]
+          }
+        ],
+        "behaviors": []
+      }
+    ],
+    "barriers": [
+      {
+        "id": "well-rim",
+        "closed": true,
+        "points": [
+          [
+            31.5,
+            10.0
+          ],
+          [
+            31.207106781186546,
+            10.707106781186548
+          ],
+          [
+            30.5,
+            11.0
+          ],
+          [
+            29.792893218813454,
+            10.707106781186548
+          ],
+          [
+            29.5,
+            10.0
+          ],
+          [
+            29.792893218813454,
+            9.292893218813452
+          ],
+          [
+            30.5,
+            9.0
+          ],
+          [
+            31.207106781186546,
+            9.292893218813452
+          ]
+        ],
+        "move": "normal",
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      }
+    ]
+  }
+}
