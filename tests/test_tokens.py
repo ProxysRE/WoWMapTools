@@ -63,7 +63,7 @@ class TokenTests(unittest.TestCase):
         try:
             request_file.write_text(json.dumps(request),encoding='utf-8')
             output=self.root/'variant-build';adapter.build_batch(request_file.relative_to(ROOT).as_posix(),output,dbc_assets=self.dbc,model_assets=self.models)
-            actor=json.loads((output/'wolf.json').read_text())
+            actor=json.loads((output/'wolf.json').read_text(encoding='utf-8'))
             variants=actor['flags']['wowmap']['poseVariants']
             self.assertEqual(actor['prototypeToken']['texture']['src'],variants['normal']['token'])
             self.assertEqual(actor['img'],variants['normal']['portrait'])
