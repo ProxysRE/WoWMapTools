@@ -1489,13 +1489,13 @@
   "objects": [
     {
       "id": "sepulchre-west-0-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         13,
         20
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 0,
       "layer": "props",
       "order": 12,
@@ -1510,13 +1510,13 @@
     },
     {
       "id": "sepulchre-west-1-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         17.8,
         24.1
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 47,
       "layer": "props",
       "order": 12,
@@ -1531,13 +1531,13 @@
     },
     {
       "id": "sepulchre-west-2-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         24,
         23.4
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 94,
       "layer": "props",
       "order": 12,
@@ -1552,13 +1552,13 @@
     },
     {
       "id": "sepulchre-west-3-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         11.7,
         18.3
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 141,
       "layer": "props",
       "order": 12,
@@ -1573,13 +1573,13 @@
     },
     {
       "id": "sepulchre-niche-4-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         18,
         9.8
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 8,
       "layer": "props",
       "order": 12,
@@ -1593,35 +1593,14 @@
       }
     },
     {
-      "id": "sepulchre-niche-4-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        18.14,
-        9.72
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 12,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-niche-5-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         22,
         10
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 55,
       "layer": "props",
       "order": 12,
@@ -1635,35 +1614,14 @@
       }
     },
     {
-      "id": "sepulchre-niche-5-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        22.14,
-        9.92
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 59,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-niche-6-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         26,
         10.2
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 102,
       "layer": "props",
       "order": 12,
@@ -1677,35 +1635,14 @@
       }
     },
     {
-      "id": "sepulchre-niche-6-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        26.14,
-        10.12
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 106,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-niche-7-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         19.2,
         14.4
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 149,
       "layer": "props",
       "order": 12,
@@ -1719,35 +1656,14 @@
       }
     },
     {
-      "id": "sepulchre-niche-7-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        19.34,
-        14.32
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 153,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-niche-8-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         25.7,
         15
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 16,
       "layer": "props",
       "order": 12,
@@ -1761,35 +1677,14 @@
       }
     },
     {
-      "id": "sepulchre-niche-8-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        25.84,
-        14.92
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 20,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-ossuary-9-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         9,
         29
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 63,
       "layer": "props",
       "order": 12,
@@ -1803,35 +1698,14 @@
       }
     },
     {
-      "id": "sepulchre-ossuary-9-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        9.14,
-        28.92
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 67,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-ossuary-10-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         11.5,
         31
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 110,
       "layer": "props",
       "order": 12,
@@ -1846,13 +1720,13 @@
     },
     {
       "id": "sepulchre-ossuary-11-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         15,
         34
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 157,
       "layer": "props",
       "order": 12,
@@ -1867,13 +1741,13 @@
     },
     {
       "id": "sepulchre-ossuary-12-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         8.4,
         35
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 24,
       "layer": "props",
       "order": 12,
@@ -1888,13 +1762,13 @@
     },
     {
       "id": "sepulchre-north-13-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         40.5,
         11.1
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 71,
       "layer": "props",
       "order": 12,
@@ -1909,13 +1783,13 @@
     },
     {
       "id": "sepulchre-north-14-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         44.3,
         15
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 118,
       "layer": "props",
       "order": 12,
@@ -1930,13 +1804,13 @@
     },
     {
       "id": "sepulchre-north-15-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         48,
         10.4
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 165,
       "layer": "props",
       "order": 12,
@@ -1951,13 +1825,13 @@
     },
     {
       "id": "sepulchre-north-16-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         50,
         18.8
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 32,
       "layer": "props",
       "order": 12,
@@ -1972,13 +1846,13 @@
     },
     {
       "id": "sepulchre-north-17-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         54.1,
         11.6
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 79,
       "layer": "props",
       "order": 12,
@@ -1993,13 +1867,13 @@
     },
     {
       "id": "sepulchre-south-18-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         41,
         29
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 126,
       "layer": "props",
       "order": 12,
@@ -2014,13 +1888,13 @@
     },
     {
       "id": "sepulchre-south-19-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         45,
         32.8
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 173,
       "layer": "props",
       "order": 12,
@@ -2035,13 +1909,13 @@
     },
     {
       "id": "sepulchre-south-20-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         48,
         34.5
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 40,
       "layer": "props",
       "order": 12,
@@ -2056,13 +1930,13 @@
     },
     {
       "id": "sepulchre-south-21-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         51.5,
         25.6
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 87,
       "layer": "props",
       "order": 12,
@@ -2077,13 +1951,13 @@
     },
     {
       "id": "sepulchre-south-22-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         54.5,
         34.1
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 134,
       "layer": "props",
       "order": 12,
@@ -2098,13 +1972,13 @@
     },
     {
       "id": "sepulchre-east-23-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         59,
         24
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 1,
       "layer": "props",
       "order": 12,
@@ -2118,35 +1992,14 @@
       }
     },
     {
-      "id": "sepulchre-east-23-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        59.14,
-        23.92
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 5,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-east-24-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         61,
         17.4
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 48,
       "layer": "props",
       "order": 12,
@@ -2160,35 +2013,14 @@
       }
     },
     {
-      "id": "sepulchre-east-24-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        61.14,
-        17.32
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 52,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-east-25-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         65.4,
         23.2
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 95,
       "layer": "props",
       "order": 12,
@@ -2202,35 +2034,14 @@
       }
     },
     {
-      "id": "sepulchre-east-25-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        65.54,
-        23.12
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 99,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "sepulchre-east-26-box",
-      "model": "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
         69.5,
         23
       ],
       "position_anchor": "bounds-center",
-      "size_cells": 1.4,
+      "size_cells": 1.5,
       "rotation": 142,
       "layer": "props",
       "order": 12,
@@ -2244,29 +2055,8 @@
       }
     },
     {
-      "id": "sepulchre-east-26-lid",
-      "model": "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
-      "position": [
-        69.64,
-        22.92
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 146,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
       "id": "memorial-monument-0",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         29,
         15.5
@@ -2287,7 +2077,7 @@
     },
     {
       "id": "memorial-monument-1",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         29,
         28.1
@@ -2308,7 +2098,7 @@
     },
     {
       "id": "memorial-monument-2",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         18,
         15.1
@@ -2329,7 +2119,7 @@
     },
     {
       "id": "memorial-monument-3",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         48.5,
         5.6
@@ -2350,7 +2140,7 @@
     },
     {
       "id": "memorial-monument-4",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         61.9,
         9.3
@@ -2371,7 +2161,7 @@
     },
     {
       "id": "memorial-monument-5",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         23.6,
         35.1
@@ -2392,7 +2182,7 @@
     },
     {
       "id": "memorial-monument-6",
-      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
       "position": [
         55,
         30.8
@@ -2568,174 +2358,6 @@
       "position_anchor": "bounds-center",
       "size_cells": 1.9,
       "rotation": 238,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-0",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
-      "position": [
-        7.8,
-        24.4
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.2,
-      "rotation": 0,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-1",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
-      "position": [
-        17.9,
-        15.6
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 45,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-2",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
-      "position": [
-        33,
-        15
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.46,
-      "rotation": 90,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-3",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
-      "position": [
-        47,
-        16
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.5899999999999999,
-      "rotation": 135,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-4",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
-      "position": [
-        55,
-        23.8
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.2,
-      "rotation": 180,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-5",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
-      "position": [
-        63,
-        14
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.33,
-      "rotation": 225,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-6",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine02/duskwoodvine02.m2",
-      "position": [
-        45.7,
-        30
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.46,
-      "rotation": 270,
-      "layer": "props",
-      "order": 12,
-      "shadow": {
-        "opacity": 0.22,
-        "blur_cells": 0.07,
-        "offset_cells": [
-          0.08,
-          0.12
-        ]
-      }
-    },
-    {
-      "id": "roots-vines-7",
-      "model": "world/azeroth/duskwood/passivedoodads/detail/duskwoodvine01/duskwoodvine01.m2",
-      "position": [
-        25.4,
-        37.1
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.5899999999999999,
-      "rotation": 315,
       "layer": "props",
       "order": 12,
       "shadow": {
@@ -5097,6 +4719,702 @@
       ],
       "fill": "#362d5a",
       "opacity": 0.32
+    },
+    {
+      "id": "roots-vines-0-root-0",
+      "type": "line",
+      "points": [
+        [
+          7.8,
+          24.4
+        ],
+        [
+          8.147,
+          24.4
+        ],
+        [
+          8.484,
+          24.819
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-0-root-1",
+      "type": "line",
+      "points": [
+        [
+          7.8,
+          24.4
+        ],
+        [
+          7.721,
+          24.737
+        ],
+        [
+          7.236,
+          24.971
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-0-root-2",
+      "type": "line",
+      "points": [
+        [
+          7.8,
+          24.4
+        ],
+        [
+          7.489,
+          24.247
+        ],
+        [
+          7.372,
+          23.721
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-0-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        8.15,
+        24.3,
+        8.45,
+        24.53
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-0-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        7.155,
+        24.371,
+        7.455,
+        24.601
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-1-root-0",
+      "type": "line",
+      "points": [
+        [
+          17.9,
+          15.6
+        ],
+        [
+          18.172,
+          15.872
+        ],
+        [
+          18.107,
+          16.465
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-1-root-1",
+      "type": "line",
+      "points": [
+        [
+          17.9,
+          15.6
+        ],
+        [
+          17.574,
+          15.803
+        ],
+        [
+          17.011,
+          15.606
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-1-root-2",
+      "type": "line",
+      "points": [
+        [
+          17.9,
+          15.6
+        ],
+        [
+          17.777,
+          15.236
+        ],
+        [
+          18.097,
+          14.733
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-1-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        18.104,
+        15.854,
+        18.404,
+        16.084
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-1-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        17.35,
+        15.2,
+        17.65,
+        15.43
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-2-root-0",
+      "type": "line",
+      "points": [
+        [
+          33,
+          15
+        ],
+        [
+          33,
+          15.422
+        ],
+        [
+          32.49,
+          15.832
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-2-root-1",
+      "type": "line",
+      "points": [
+        [
+          33,
+          15
+        ],
+        [
+          32.589,
+          14.904
+        ],
+        [
+          32.305,
+          14.314
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-2-root-2",
+      "type": "line",
+      "points": [
+        [
+          33,
+          15
+        ],
+        [
+          33.187,
+          14.622
+        ],
+        [
+          33.826,
+          14.479
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-2-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        32.85,
+        15.4,
+        33.15,
+        15.63
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-2-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        32.779,
+        14.405,
+        33.079,
+        14.635
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-3-root-0",
+      "type": "line",
+      "points": [
+        [
+          47,
+          16
+        ],
+        [
+          46.675,
+          16.325
+        ],
+        [
+          45.966,
+          16.248
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-3-root-1",
+      "type": "line",
+      "points": [
+        [
+          47,
+          16
+        ],
+        [
+          46.758,
+          15.61
+        ],
+        [
+          46.993,
+          14.937
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-3-root-2",
+      "type": "line",
+      "points": [
+        [
+          47,
+          16
+        ],
+        [
+          47.435,
+          15.853
+        ],
+        [
+          48.037,
+          16.235
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-3-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        46.496,
+        16.254,
+        46.796,
+        16.484
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-3-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        47.15,
+        15.5,
+        47.45,
+        15.73
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-4-root-0",
+      "type": "line",
+      "points": [
+        [
+          55,
+          23.8
+        ],
+        [
+          54.653,
+          23.8
+        ],
+        [
+          54.316,
+          23.381
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-4-root-1",
+      "type": "line",
+      "points": [
+        [
+          55,
+          23.8
+        ],
+        [
+          55.079,
+          23.463
+        ],
+        [
+          55.564,
+          23.229
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-4-root-2",
+      "type": "line",
+      "points": [
+        [
+          55,
+          23.8
+        ],
+        [
+          55.311,
+          23.953
+        ],
+        [
+          55.428,
+          24.479
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-4-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        54.35,
+        23.7,
+        54.65,
+        23.93
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-4-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        55.345,
+        23.629,
+        55.645,
+        23.859
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-5-root-0",
+      "type": "line",
+      "points": [
+        [
+          63,
+          14
+        ],
+        [
+          62.728,
+          13.728
+        ],
+        [
+          62.793,
+          13.135
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-5-root-1",
+      "type": "line",
+      "points": [
+        [
+          63,
+          14
+        ],
+        [
+          63.326,
+          13.797
+        ],
+        [
+          63.889,
+          13.994
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-5-root-2",
+      "type": "line",
+      "points": [
+        [
+          63,
+          14
+        ],
+        [
+          63.123,
+          14.364
+        ],
+        [
+          62.803,
+          14.867
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-5-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        62.496,
+        13.546,
+        62.796,
+        13.776
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-5-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        63.25,
+        14.2,
+        63.55,
+        14.43
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-6-root-0",
+      "type": "line",
+      "points": [
+        [
+          45.7,
+          30
+        ],
+        [
+          45.7,
+          29.578
+        ],
+        [
+          46.21,
+          29.168
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-6-root-1",
+      "type": "line",
+      "points": [
+        [
+          45.7,
+          30
+        ],
+        [
+          46.111,
+          30.096
+        ],
+        [
+          46.395,
+          30.686
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-6-root-2",
+      "type": "line",
+      "points": [
+        [
+          45.7,
+          30
+        ],
+        [
+          45.513,
+          30.378
+        ],
+        [
+          44.874,
+          30.521
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-6-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        45.55,
+        29.4,
+        45.85,
+        29.63
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-6-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        45.621,
+        30.395,
+        45.921,
+        30.625
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-7-root-0",
+      "type": "line",
+      "points": [
+        [
+          25.4,
+          37.1
+        ],
+        [
+          25.725,
+          36.775
+        ],
+        [
+          26.434,
+          36.852
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.09
+    },
+    {
+      "id": "roots-vines-7-root-1",
+      "type": "line",
+      "points": [
+        [
+          25.4,
+          37.1
+        ],
+        [
+          25.642,
+          37.49
+        ],
+        [
+          25.407,
+          38.163
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.11499999999999999
+    },
+    {
+      "id": "roots-vines-7-root-2",
+      "type": "line",
+      "points": [
+        [
+          25.4,
+          37.1
+        ],
+        [
+          24.965,
+          37.247
+        ],
+        [
+          24.363,
+          36.865
+        ]
+      ],
+      "stroke": "#514439",
+      "opacity": 0.75,
+      "width_cells": 0.14
+    },
+    {
+      "id": "roots-vines-7-leaf-0",
+      "type": "ellipse",
+      "bounds": [
+        25.604,
+        36.646,
+        25.904,
+        36.876
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
+    },
+    {
+      "id": "roots-vines-7-leaf-1",
+      "type": "ellipse",
+      "bounds": [
+        24.95,
+        37.4,
+        25.25,
+        37.63
+      ],
+      "fill": "#4c5b47",
+      "opacity": 0.57
     }
   ],
   "locations": [
