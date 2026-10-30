@@ -1,4 +1,5 @@
 import copy,json,tempfile,unittest
+from unittest.mock import patch
 from pathlib import Path
 from wowmap.character_variants import candidate_character,plan_variants,build_variants,validate_request
 from wowmap.characters import CharacterDB
@@ -71,5 +72,28 @@ class CharacterVariantTests(unittest.TestCase):
         with self.assertRaises(ValueError):validate_request(r)
         r=request();r['bodies']*=2
         with self.assertRaises(ValueError):validate_request(r)
+
+    def test_secondary_overlay_warnings_do_not_hide_required_missing_layers(self):
+        original=self.db.prepare;r=request();r['count']=1
+        def wrapped(kind):
+            def prepare(*args,**kwargs):
+                result=original(*args,**kwargs)
+                result['metadata']['omitted_optional_overlays']=[{'kind':kind,'path':'declared-secondary.blp'}]
+                return result
+            return prepare
+        with RawAssets(self.models) as raw:
+            for kind in ['scalp_overlay','facial_overlay']:
+                with patch.object(self.db,'prepare',side_effect=wrapped(kind)):
+                    result=plan_variants(self.db,raw,r)
+                    self.assertEqual(result['variants'][0]['warnings'][0]['kind'],kind)
+            with patch.object(self.db,'prepare',side_effect=wrapped('overlay')):
+                with self.assertRaisesRegex(ValueError,'omitted overlays'):plan_variants(self.db,raw,r)
+
+    def test_one_invalid_body_outfit_has_a_local_retry_limit(self):
+        r=request();r['count']=24;counter=iter(range(1000))
+        def distinct(*args):return dict(race='human',gender='male',skin=next(counter))
+        with patch('wowmap.character_variants.candidate_character',side_effect=distinct),patch.object(self.db,'prepare',side_effect=ValueError('bad combination')) as prepare:
+            with self.assertRaisesRegex(ValueError,'distinct valid variants'):plan_variants(self.db,None,r)
+            self.assertEqual(prepare.call_count,80)
 
 if __name__=='__main__':unittest.main()

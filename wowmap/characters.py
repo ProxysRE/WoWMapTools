@@ -233,10 +233,10 @@ class CharacterDB:
                 for col,group in [(2,1),(3,2),(4,3),(5,7)]:
                     if t.cell(row,col)&mask:hidden_groups.add(group)
 
-        def add(path,region):
+        def add(path,region,kind='overlay'):
             if not path:return
             if not assets.has(path):
-                omitted.append(dict(region=region,path=path,reason='optional DBC overlay absent from client'));return
+                omitted.append(dict(region=region,path=path,kind=kind,reason='optional DBC overlay absent from client'));return
             composite_layer(atlas,Image.fromarray(assets.image(path)),region);layers.append(dict(region=region,path=path))
         underwear=section(4,0,skin,required=False)
         for texture,region in zip(underwear,['leg_upper','torso_upper']):add(texture,region)
@@ -248,7 +248,7 @@ class CharacterDB:
         if facial_row is None and character['facial_hair']!=0:raise ValueError('Unknown facial hair / feature style')
         facial=section(2,character['facial_hair'],hair_color,required=False)
         if 1 not in hidden_groups:
-            for texture,region in zip(facial,['face_lower','face_upper']):add(texture,region)
+            for texture,region in zip(facial,['face_lower','face_upper']):add(texture,region,'facial_overlay')
         hair_row=self.hair.get((race,gender,hair_style))
         if hair_row is None and any(k[:2]==(race,gender) for k in self.hair):raise ValueError('Unknown hairstyle')
         if hair_row is None and (hair_style not in (0,1) or hair_color):raise ValueError('This model has no selectable hairstyles')
@@ -258,7 +258,7 @@ class CharacterDB:
         if not has_hair_sections and hair_color:raise ValueError('This body has no selectable hair colors')
         hair=section(3,hair_style,hair_color,required=has_hair_sections) or ['','','']
         if not bald and not hide_hair:
-            for texture,region in zip(hair[1:],['face_lower','face_upper']):add(texture,region)
+            for texture,region in zip(hair[1:],['face_lower','face_upper']):add(texture,region,'scalp_overlay')
         groups={n:1 for n in range(1,19)}
         groups.update({1:0,2:0,3:0,7:2,15:0,17:0})
         if facial_row is not None:
