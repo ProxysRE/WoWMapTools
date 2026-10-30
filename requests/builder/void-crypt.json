@@ -1,0 +1,595 @@
+{
+  "format": "foundry-builder.batch/1",
+  "require_item_icons": true,
+  "require_explicit_angles": true,
+  "documents": [
+    {
+      "id": "wolf",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/wolf.json",
+      "item_icons": {
+        "wolf-bite": "ability_druid_ferociousbite",
+        "wolf-scent": "ability_hunter_markedfordeath",
+        "wolf-mark-damage": "spell_shadow_shadowwordpain",
+        "wolf-rush": "ability_druid_dash",
+        "wolf-trip": "ability_druid_bash",
+        "wolf-pack": "ability_hunter_pet_wolf"
+      },
+      "appearance": {
+        "display_id": 73,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 40
+      }
+    },
+    {
+      "id": "spider",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/spider.json",
+      "item_icons": {
+        "spider-bite": "ability_poisonsting",
+        "spider-web": "spell_nature_web",
+        "spider-cocoon": "ability_ensnare",
+        "spider-brood": "ability_hunter_pet_spider"
+      },
+      "appearance": {
+        "display_id": 30,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 30
+      }
+    },
+    {
+      "id": "bear",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/bear.json",
+      "item_icons": {
+        "bear-paw": "ability_druid_rake",
+        "bear-multi": "ability_druid_swipe",
+        "bear-sweep": "ability_druid_maul",
+        "bear-roar": "ability_druid_challangingroar",
+        "bear-pain": "ability_druid_demoralizingroar"
+      },
+      "appearance": {
+        "display_id": 706,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 35
+      }
+    },
+    {
+      "id": "acolyte",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/acolyte.json",
+      "item_icons": {
+        "acolyte-bolt": "spell_shadow_shadowbolt",
+        "acolyte-flesh": "spell_shadow_antishadow",
+        "acolyte-revelation": "spell_shadow_mindtwisting",
+        "acolyte-channel": "spell_shadow_darkritual",
+        "acolyte-channel-damage": "spell_shadow_lifedrain02"
+      },
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "male"
+        },
+        "equipment": {
+          "chest": 14136,
+          "boots": 43,
+          "main_hand": 35
+        },
+        "pose": "idle",
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 25
+      }
+    },
+    {
+      "id": "caster",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/caster.json",
+      "item_icons": {
+        "caster-bolt": "spell_shadow_shadowbolt",
+        "caster-well": "spell_shadow_blackplague",
+        "caster-well-resolve": "spell_shadow_gathershadows",
+        "caster-line": "spell_shadow_shadowfury",
+        "caster-line-resolve": "spell_shadow_shadowpower",
+        "caster-fade": "spell_shadow_gathershadows"
+      },
+      "appearance": {
+        "character": {
+          "race": "human",
+          "gender": "female"
+        },
+        "equipment": {
+          "chest": 14152,
+          "boots": 43,
+          "main_hand": 35
+        },
+        "pose": {
+          "animation_id": 51,
+          "fraction": 0.5
+        },
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": -25
+      }
+    },
+    {
+      "id": "voidguard",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/voidguard.json",
+      "item_icons": {
+        "guard-fist": "spell_shadow_shadowpact",
+        "guard-multi": "ability_warrior_punishingblow",
+        "guard-grip": "spell_shadow_impphaseshift",
+        "guard-protect": "spell_shadow_sacrificialshield",
+        "guard-collapse": "spell_shadow_seedofdestruction"
+      },
+      "appearance": {
+        "display_id": 1130,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 25
+      }
+    },
+    {
+      "id": "stalker",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/stalker.json",
+      "item_icons": {
+        "stalker-claw": "ability_druid_rake",
+        "stalker-multi": "ability_dualwield",
+        "stalker-step": "ability_rogue_shadowstep",
+        "stalker-voice": "spell_shadow_coneofsilence",
+        "stalker-hunger": "spell_shadow_devouringplague"
+      },
+      "appearance": {
+        "display_id": 18050,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 30
+      }
+    },
+    {
+      "id": "faceless",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/faceless.json",
+      "item_icons": {
+        "faceless-slam": "ability_warrior_cleave",
+        "faceless-multi": "ability_warrior_savageblow",
+        "faceless-gaze": "spell_shadow_brainwash",
+        "faceless-gaze-hit": "spell_shadow_unholyfrenzy",
+        "faceless-kneel": "spell_shadow_charm",
+        "faceless-call": "spell_shadow_summonvoidwalker"
+      },
+      "appearance": {
+        "display_id": 27408,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 25
+      }
+    },
+    {
+      "id": "echo",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/echo.json",
+      "item_icons": {
+        "echo-touch": "spell_shadow_chilltouch",
+        "echo-flicker": "spell_arcane_blink",
+        "echo-pop": "spell_shadow_shadowfury"
+      },
+      "appearance": {
+        "display_id": 18069,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": -30
+      }
+    },
+    {
+      "id": "spiderling",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/spiderling.json",
+      "item_icons": {
+        "spiderling-bite": "ability_poisonsting",
+        "spiderling-cling": "spell_nature_web"
+      },
+      "appearance": {
+        "display_id": 30,
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 30
+      }
+    },
+    {
+      "id": "vaelis",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/vaelis.json",
+      "item_icons": {
+        "vaelis-ray": "spell_arcane_arcane01",
+        "vaelis-ray-void": "spell_shadow_shadowbolt",
+        "vaelis-multi": "spell_arcane_arcanetorrent",
+        "vaelis-line": "spell_arcane_arcanepotency",
+        "vaelis-line-hit": "spell_arcane_arcane03",
+        "vaelis-mirrors": "spell_magic_lesserinvisibilty",
+        "vaelis-detonation": "spell_arcane_arcaneresilience",
+        "vaelis-detonation-hit": "spell_arcane_arcane02",
+        "vaelis-voice-hit": "spell_shadow_psychicscream",
+        "vaelis-phase": "spell_shadow_shadowform",
+        "vaelis-wave": "spell_shadow_summonvoidwalker",
+        "vaelis-sector": "spell_arcane_portalundercity",
+        "vaelis-sector-tick": "spell_shadow_twilight",
+        "vaelis-bond": "spell_shadow_soulleech_3",
+        "vaelis-bond-hit": "spell_shadow_mindtwisting",
+        "vaelis-legend-move": "spell_arcane_blink",
+        "vaelis-legend-ray": "spell_shadow_brainwash",
+        "vaelis-resistance": "spell_arcane_mindmastery"
+      },
+      "appearance": {
+        "display_id": 17305,
+        "display_alpha": 255,
+        "pose": "idle",
+        "size": 512,
+        "portrait_size": 640,
+        "yaw": -90,
+        "portrait_yaw": 25
+      }
+    },
+    {
+      "id": "rift",
+      "mode": "npc",
+      "source": "requests/builder/sources/void-crypt/rift.json",
+      "item_icons": {
+        "rift-rule": "spell_arcane_portaldalaran"
+      }
+    }
+  ],
+  "placements": [
+    {
+      "id": "e1-wolf-1",
+      "actor": "wolf",
+      "scene": "crypt-entrance",
+      "position": [
+        16.5,
+        5.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e1-wolf-2",
+      "actor": "wolf",
+      "scene": "crypt-entrance",
+      "position": [
+        19.5,
+        6.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e1-wolf-3",
+      "actor": "wolf",
+      "scene": "crypt-entrance",
+      "position": [
+        23.5,
+        5.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e1-wolf-4",
+      "actor": "wolf",
+      "scene": "crypt-entrance",
+      "position": [
+        22.5,
+        9.0
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e2-spider-1",
+      "actor": "spider",
+      "scene": "crypt-entrance",
+      "position": [
+        5.5,
+        16.0
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e2-spider-2",
+      "actor": "spider",
+      "scene": "crypt-entrance",
+      "position": [
+        9.5,
+        21.0
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e2-spider-3",
+      "actor": "spider",
+      "scene": "crypt-entrance",
+      "position": [
+        6.0,
+        25.5
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e3-optional-bear-1",
+      "actor": "bear",
+      "scene": "crypt-entrance",
+      "position": [
+        30.5,
+        21.0
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e3-optional-wolf-1",
+      "actor": "wolf",
+      "scene": "crypt-entrance",
+      "position": [
+        31.0,
+        18.0
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "e3-optional-wolf-2",
+      "actor": "wolf",
+      "scene": "crypt-entrance",
+      "position": [
+        35.0,
+        20.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g1-voidguard-1",
+      "actor": "voidguard",
+      "scene": "crypt-passages",
+      "position": [
+        15.5,
+        14.5
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g1-acolyte-1",
+      "actor": "acolyte",
+      "scene": "crypt-passages",
+      "position": [
+        14.0,
+        13.8
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g1-acolyte-2",
+      "actor": "acolyte",
+      "scene": "crypt-passages",
+      "position": [
+        17.0,
+        15.8
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g2-caster-1",
+      "actor": "caster",
+      "scene": "crypt-passages",
+      "position": [
+        23.5,
+        29.0
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g2-stalker-1",
+      "actor": "stalker",
+      "scene": "crypt-passages",
+      "position": [
+        22.0,
+        30.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g2-stalker-2",
+      "actor": "stalker",
+      "scene": "crypt-passages",
+      "position": [
+        24.8,
+        28.0
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g3-voidguard-1",
+      "actor": "voidguard",
+      "scene": "crypt-passages",
+      "position": [
+        45.5,
+        21.0
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g3-acolyte-1",
+      "actor": "acolyte",
+      "scene": "crypt-passages",
+      "position": [
+        43.8,
+        22.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g4-faceless-1",
+      "actor": "faceless",
+      "scene": "crypt-passages",
+      "position": [
+        67.5,
+        20.0
+      ],
+      "width": 2,
+      "height": 2,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g5-optional-caster-1",
+      "actor": "caster",
+      "scene": "crypt-passages",
+      "position": [
+        49.5,
+        10.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g5-optional-acolyte-1",
+      "actor": "acolyte",
+      "scene": "crypt-passages",
+      "position": [
+        48.2,
+        11.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g6-optional-stalker-1",
+      "actor": "stalker",
+      "scene": "crypt-passages",
+      "position": [
+        68.5,
+        35.0
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "g6-optional-acolyte-1",
+      "actor": "acolyte",
+      "scene": "crypt-passages",
+      "position": [
+        67.2,
+        36.5
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    },
+    {
+      "id": "boss-vaelis-1",
+      "actor": "vaelis",
+      "scene": "crypt-sanctum",
+      "position": [
+        21.0,
+        18.0
+      ],
+      "width": 1,
+      "height": 1,
+      "actor_link": false,
+      "disposition": "hostile",
+      "hidden": false
+    }
+  ]
+}

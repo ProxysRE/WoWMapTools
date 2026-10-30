@@ -1,16 +1,60 @@
 {
   "format": "foundry-builder.batch/1",
   "documents": [
-    {"id": "marta", "mode": "npc", "source": "requests/builder/sources/marta.json",
-     "icons": {"/items/0/img": "inv_misc_key_01"}},
-    {"id": "oren", "mode": "npc", "source": "requests/builder/sources/oren.json"},
-    {"id": "pantry-key", "mode": "item", "source": "requests/builder/sources/pantry-key.json",
-     "icons": {"/img": "inv_misc_key_01"}},
-    {"id": "warm-mug", "mode": "spell", "source": "requests/builder/sources/warm-mug.json",
-     "icons": {"/img": "spell_fire_fireball"}}
+    {
+      "id": "marta",
+      "mode": "npc",
+      "source": "requests/builder/sources/marta.json",
+      "icons": {
+        "/items/0/img": "inv_misc_key_01"
+      }
+    },
+    {
+      "id": "oren",
+      "mode": "npc",
+      "source": "requests/builder/sources/oren.json"
+    },
+    {
+      "id": "pantry-key",
+      "mode": "item",
+      "source": "requests/builder/sources/pantry-key.json",
+      "icons": {
+        "/img": "inv_misc_key_01"
+      }
+    },
+    {
+      "id": "warm-mug",
+      "mode": "spell",
+      "source": "requests/builder/sources/warm-mug.json",
+      "icons": {
+        "/img": "spell_fire_fireball"
+      }
+    }
   ],
   "placements": [
-    {"id": "marta-reception", "actor": "marta", "scene": "ground", "position": [23.1, 20.5], "disposition": "neutral", "actor_link": true},
-    {"id": "oren-kitchen", "actor": "oren", "scene": "ground", "position": [22.3, 10.4], "disposition": "neutral", "actor_link": true}
-  ]
+    {
+      "id": "marta-reception",
+      "actor": "marta",
+      "scene": "ground",
+      "position": [
+        23.1,
+        20.5
+      ],
+      "disposition": "neutral",
+      "actor_link": true
+    },
+    {
+      "id": "oren-kitchen",
+      "actor": "oren",
+      "scene": "ground",
+      "position": [
+        22.3,
+        10.4
+      ],
+      "disposition": "neutral",
+      "actor_link": true
+    }
+  ],
+  "require_item_icons": false,
+  "visual_policy_note": "Legacy demonstration/fixture only; new NPC releases require verified WoW icons."
 }

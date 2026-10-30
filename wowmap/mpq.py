@@ -72,11 +72,11 @@ class Archive:
     def __exit__(self, *args):
         self.storm.lib.SFileCloseArchive(self.handle)
 
-    def entries(self, listfile=None):
+    def entries(self, listfile=None, pattern='*'):
         storm = self.storm
         data = FindData()
         external = storm.path_arg(listfile) if listfile else None
-        search = storm.lib.SFileFindFirstFile(self.handle, b'*', C.byref(data), external)
+        search = storm.lib.SFileFindFirstFile(self.handle, pattern.encode('utf-8'), C.byref(data), external)
         if not search or search == INVALID:
             code = storm.error()
             if code in (2, 18 if os.name == 'nt' else 1001):

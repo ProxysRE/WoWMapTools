@@ -1,0 +1,306 @@
+{
+  "name": "Нестабильный разлом — цель ритуала",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "dex": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "con": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "int": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "wis": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "cha": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "calc": "flat",
+        "flat": 13,
+        "formula": ""
+      },
+      "hp": {
+        "value": 12,
+        "max": 12,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "2d8+3"
+      },
+      "init": {
+        "ability": "dex",
+        "bonus": ""
+      },
+      "movement": {
+        "walk": 0,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "burrow": 0,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": null,
+          "tremorsense": null,
+          "truesight": null
+        },
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "",
+      "spell": {
+        "level": 0
+      },
+      "exhaustion": 0
+    },
+    "spells": {
+      "spell0": {
+        "value": 0,
+        "override": 0
+      },
+      "spell1": {
+        "value": 0,
+        "override": 0
+      },
+      "spell2": {
+        "value": 0,
+        "override": 0
+      },
+      "spell3": {
+        "value": 0,
+        "override": 0
+      },
+      "spell4": {
+        "value": 0,
+        "override": 0
+      },
+      "spell5": {
+        "value": 0,
+        "override": 0
+      },
+      "spell6": {
+        "value": 0,
+        "override": 0
+      },
+      "spell7": {
+        "value": 0,
+        "override": 0
+      },
+      "spell8": {
+        "value": 0,
+        "override": 0
+      },
+      "spell9": {
+        "value": 0,
+        "override": 0
+      },
+      "pact": {
+        "value": 0,
+        "override": 0
+      }
+    },
+    "details": {
+      "alignment": "Хаотично-злой",
+      "biography": {
+        "value": "<h2>Нестабильный разлом — цель ритуала</h2><p>Технический Actor для видимой разрушаемой руны. Не существо-подкрепление, не получает ходов и не приносит XP.</p><h3>Тактика</h3><p>Уничтожение до 0 хитов закрывает разлом. Успешная Магия Сл 14 действием из соседней клетки также закрывает его; мастер отмечает успех в помощнике.</p><p>Авторский статблок. CR — предварительная оценка, не результат игрового теста. Перемещения, отложенные события, ауры и сложные условия ведёт мастер; кнопки бросков и ресурсы собраны Builder.</p>",
+        "public": ""
+      },
+      "race": "",
+      "type": {
+        "value": "construct",
+        "subtype": "Порча Бездны",
+        "custom": ""
+      },
+      "cr": 0,
+      "xp": {},
+      "source": {
+        "book": "Крипта Бездны DEV2-R4 — авторский тест для 5 персонажей 6 уровня",
+        "page": "",
+        "license": ""
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [
+          "poison",
+          "psychic"
+        ],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [
+          "charmed",
+          "frightened",
+          "poisoned",
+          "prone",
+          "restrained",
+          "stunned",
+          "unconscious"
+        ],
+        "custom": ""
+      },
+      "languages": {
+        "value": [],
+        "custom": "",
+        "communication": {
+          "telepathy": {
+            "value": null,
+            "units": "ft"
+          }
+        }
+      }
+    },
+    "skills": {},
+    "resources": {},
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    }
+  },
+  "prototypeToken": {
+    "name": "Нестабильный разлом — цель ритуала",
+    "displayName": 20,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "visionMode": "basic"
+    },
+    "width": 1,
+    "height": 1,
+    "actorLink": false
+  },
+  "items": [
+    {
+      "name": "Закрыть разлом",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Неподвижная цель: КД 13, 12 хитов, иммунитет к яду и психическому урону. Не имеет действий, реакций или инициативы. При 0 хитов закрыт; либо персонаж действием из соседней клетки делает Интеллект (Магия) Сл 14. После успешной проверки мастер отмечает закрытие в помощнике. Рассеивание магии (эффект 3 круга) также закрывает разлом. Прочие состояния и принудительные перемещения к руне не применяются. Шаблон на полу проходим, не является стеной.</p>",
+          "chat": ""
+        },
+        "identifier": "rift-rule",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "passive": true
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

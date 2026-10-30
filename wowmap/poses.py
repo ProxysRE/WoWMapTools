@@ -161,11 +161,13 @@ class Skeleton:
         if not n: return np.array(default,dtype=np.float64)
         if interpolation not in (0,1): raise ValueError('Unsupported bone track interpolation: '+str(interpolation))
         source=self.data if global_sequence>=0 else self.source(sequence)
-        stride=8 if kind=='rotation' else 12
+        stride=8 if kind=='rotation' else 2 if kind=='alpha' else 12
         if tstart+n*4>len(source) or vstart+n*stride>len(source): raise ValueError('Animation keys outside source file')
         times=np.frombuffer(source,dtype='<u4',count=n,offset=tstart)
         if np.any(times[1:]<times[:-1]): raise ValueError('Animation timestamps are not ordered')
-        values=np.frombuffer(source,dtype='<i2' if kind=='rotation' else '<f4',count=n*(4 if kind=='rotation' else 3),offset=vstart).reshape(n,-1).astype(np.float64)
+        width=4 if kind=='rotation' else 1 if kind=='alpha' else 3
+        values=np.frombuffer(source,dtype='<i2' if kind in ('rotation','alpha') else '<f4',count=n*width,offset=vstart).reshape(n,-1).astype(np.float64)
+        if kind=='alpha': values=np.clip(values/32767,0,1)
         if kind=='rotation': values=np.where(values<0,values+32768,values-32767)/32767
         if not np.isfinite(values).all(): raise ValueError('Non-finite animation key')
         i=max(0,min(n-1,int(np.searchsorted(times,time,side='right'))-1))

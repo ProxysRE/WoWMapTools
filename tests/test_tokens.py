@@ -58,7 +58,7 @@ class TokenTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('pose_batch_adapter',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         options=dict(display_id=165,size=128,portrait_size=128,pose_variants={'normal':'bind','combat':'bind'})
-        request=dict(format='foundry-builder.batch/1',documents=[dict(id='wolf',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
+        request=dict(format='foundry-builder.batch/1',require_item_icons=False,documents=[dict(id='wolf',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
         request_file=ROOT/'requests/builder/test-pose-fixture.json'
         try:
             request_file.write_text(json.dumps(request),encoding='utf-8')
@@ -119,10 +119,23 @@ class TokenTests(unittest.TestCase):
                         dict(display_id=165,equipment=[1]),dict(display_id=165,actor_image=1)]:
             with self.assertRaises(ValueError):tokens.select(options)
         original=tokens.db.appearance
-        for update,message in [({'extended_display_id':1},'Humanoid'),({'geoset_data':1},'geoset'),({'alpha':128},'Translucent')]:
+        for update,message in [({'extended_display_id':1},'Humanoid'),({'geoset_data':1},'geoset')]:
             tokens.db.appearance=lambda did,u=update:{**original(did),**u}
             with self.assertRaisesRegex(ValueError,message):tokens.select(dict(display_id=165))
         self.assertEqual(tokens.images,{})
+
+    def test_display_alpha_is_applied_and_explicit_opaque_override_has_distinct_cache(self):
+        tokens=TokenAssets(self.dbc,self.models)
+        original=tokens.db.appearance
+        tokens.db.appearance=lambda did:{**original(did),'alpha':128}
+        a=tokens.select(dict(display_id=165,size=128))
+        b=tokens.select(dict(display_id=165,size=128,display_alpha=255))
+        self.assertNotEqual(a,b)
+        for path,alpha in [(a,128),(b,255)]:
+            with Image.open(io.BytesIO(tokens.images[path])) as im:self.assertEqual(im.getpixel((64,64))[3],alpha)
+        self.assertEqual(tokens.media[a]['appearances'][0]['alpha'],128)
+        self.assertEqual(tokens.media[b]['appearances'][0]['render_alpha'],255)
+        with self.assertRaises(ValueError):tokens.select(dict(display_id=165,display_alpha=True))
 
     def test_mismatched_schema_duplicate_ids_and_missing_model_link_fail(self):
         db=AppearanceDB(self.dbc)
@@ -166,7 +179,7 @@ class TokenTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('token_batch_adapter',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         original_reader=adapter.read_json
-        request={'format':'foundry-builder.batch/1','documents':[dict(id='test',mode='npc',
+        request={'format':'foundry-builder.batch/1','require_item_icons':False,'documents':[dict(id='test',mode='npc',
                  source='requests/builder/sources/oren.json',appearance=dict(display_id=165,size=128))],
                  'placements':[dict(id='test',actor='test',scene='ground',position=[2,2])]}
         adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else original_reader(path)

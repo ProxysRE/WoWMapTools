@@ -143,7 +143,7 @@ class CharacterTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('human_batch',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         reader=adapter.read_json
-        request=dict(format='foundry-builder.batch/1',documents=[dict(id='human',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
+        request=dict(format='foundry-builder.batch/1',require_item_icons=False,documents=[dict(id='human',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
         adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else reader(path)
         result=adapter.build_batch('requests/builder/active.json',self.root/'built',None,self.dbc,self.models)
         actor=json.loads((self.root/'built/human.json').read_text(encoding='utf-8'))

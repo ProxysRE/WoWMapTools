@@ -254,5 +254,7 @@
       }
     }
   ],
-  "placements": []
+  "placements": [],
+  "require_item_icons": false,
+  "visual_policy_note": "Legacy demonstration/fixture only; new NPC releases require verified WoW icons."
 }

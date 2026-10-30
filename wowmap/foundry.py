@@ -109,6 +109,11 @@ def compile_scene(plan, package_id, scene_key, keys, media_root, has_overhead=Fa
             door = (2 if boolean(opts.get('secret', False), 'secret') else 1) if op['type'] == 'door' else 0
             add_wall(a, b, op['id'], opts, door, STATE[op.get('state', 'closed')], op['type'] == 'window')
     barrier_ids = set()
+    for row in plan.get('burials',[]):
+        if not row.get('blocks_movement',True):continue
+        a,b,c,d=row['bounds'];pts=[[a,b],[c,b],[c,d],[a,d]]
+        for i,(p,q) in enumerate(zip(pts,pts[1:]+pts[:1])):
+            add_wall(p,q,'burial:'+row['id']+':'+str(i),dict(sight='none',light='none',sound='none'))
     for barrier in config.get('barriers', []):
         if barrier['id'] in barrier_ids: raise ValueError('Duplicate barrier id')
         barrier_ids.add(barrier['id'])
@@ -185,6 +190,12 @@ def compile_scene(plan, package_id, scene_key, keys, media_root, has_overhead=Fa
                           texture=dict(src=local_path(tile['path'])), elevation=number(tile.get('elevation', 0), 'tile elevation'),
                           occlusion=dict(mode=1 if tile.get('overhead', False) else 0, alpha=.15),
                           restrictions=dict(light=bool(tile.get('blocks_light', False)), weather=bool(tile.get('overhead', False))), locked=True))
+        if 'opacity' in tile:tiles[-1]['alpha']=number(tile['opacity'],'tile opacity',0,1)
+        if 'video' in tile:
+            video=tile['video']
+            if not isinstance(video,dict) or set(video)-{'autoplay','loop','volume'}:raise ValueError('Unsupported tile video fields')
+            if any(type(video[k]) is not bool for k in ('autoplay','loop') if k in video):raise ValueError('Tile video autoplay/loop must be boolean')
+            tiles[-1]['video']=dict(autoplay=video.get('autoplay',True),loop=video.get('loop',True),volume=number(video.get('volume',0),'tile video volume',0,1))
     for label, docs in [('wall', walls), ('light', lights), ('region', regions), ('sound', sounds), ('tile', tiles)]:
         if len({doc['_id'] for doc in docs}) != len(docs): raise ValueError(f'Duplicate {label} id')
     return dict(_id=sid, name=plan.get('name', scene_key), active=False, navigation=True, width=w, height=h, padding=0,

@@ -1,0 +1,725 @@
+{
+  "name": "Пожиратель эха",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 12,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "dex": {
+        "value": 16,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "con": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "int": {
+        "value": 8,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "wis": {
+        "value": 13,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "cha": {
+        "value": 10,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "calc": "flat",
+        "flat": 15,
+        "formula": ""
+      },
+      "hp": {
+        "value": 52,
+        "max": 52,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "8d8+16"
+      },
+      "init": {
+        "ability": "dex",
+        "bonus": ""
+      },
+      "movement": {
+        "walk": 35,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "burrow": 0,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": null,
+          "tremorsense": null,
+          "truesight": null
+        },
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "",
+      "spell": {
+        "level": 0
+      },
+      "exhaustion": 0
+    },
+    "spells": {
+      "spell0": {
+        "value": 0,
+        "override": 0
+      },
+      "spell1": {
+        "value": 0,
+        "override": 0
+      },
+      "spell2": {
+        "value": 0,
+        "override": 0
+      },
+      "spell3": {
+        "value": 0,
+        "override": 0
+      },
+      "spell4": {
+        "value": 0,
+        "override": 0
+      },
+      "spell5": {
+        "value": 0,
+        "override": 0
+      },
+      "spell6": {
+        "value": 0,
+        "override": 0
+      },
+      "spell7": {
+        "value": 0,
+        "override": 0
+      },
+      "spell8": {
+        "value": 0,
+        "override": 0
+      },
+      "spell9": {
+        "value": 0,
+        "override": 0
+      },
+      "pact": {
+        "value": 0,
+        "override": 0
+      }
+    },
+    "details": {
+      "alignment": "Хаотично-злой",
+      "biography": {
+        "value": "<h2>Пожиратель эха</h2><p>Тёмный силуэт с фиолетовой пустотой вместо лица.</p><h3>Тактика</h3><p>Охотится за одиночками, но не телепортируется из любой точки карты. Голос крадёт только один раз; остальное время использует когти.</p><p>Авторский статблок. CR — предварительная оценка, не результат игрового теста. Перемещения, отложенные события, ауры и сложные условия ведёт мастер; кнопки бросков и ресурсы собраны Builder.</p>",
+        "public": ""
+      },
+      "race": "",
+      "type": {
+        "value": "aberration",
+        "subtype": "Порча Бездны",
+        "custom": ""
+      },
+      "cr": 2,
+      "xp": {},
+      "source": {
+        "book": "Крипта Бездны DEV2-R4 — авторский тест для 5 персонажей 6 уровня",
+        "page": "",
+        "license": ""
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [],
+        "custom": "",
+        "communication": {
+          "telepathy": {
+            "value": 60,
+            "units": "ft"
+          }
+        }
+      }
+    },
+    "skills": {},
+    "resources": {},
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    }
+  },
+  "prototypeToken": {
+    "name": "Пожиратель эха",
+    "displayName": 20,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "visionMode": "basic"
+    },
+    "width": 1,
+    "height": 1,
+    "actorLink": false
+  },
+  "items": [
+    {
+      "name": "Коготь тени",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие: +5, 5 фт., одна цель; 1d6+3 рубящего урона.</p>",
+          "chat": ""
+        },
+        "identifier": "stalker-claw",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2014",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [
+              "slashing"
+            ],
+            "custom": {
+              "enabled": true,
+              "formula": "1d6+3"
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": null,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": null,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "5",
+          "flat": true,
+          "type": "melee",
+          "classification": "weapon"
+        },
+        "damage": [
+          {
+            "formula": "1d6+3",
+            "type": "slashing"
+          }
+        ],
+        "range": {
+          "reach": 5,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённое действие существа; не предмет для крафта."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Мультиатака",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие: две атаки Когтем тени, бросать отдельно.</p>",
+          "chat": ""
+        },
+        "identifier": "stalker-multi",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Мультиатака",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 5,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Шаг за спину",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Бонусное действие, перезарядка 5–6: из тусклого света или темноты телепортируется до 20 фт. в свободное видимое место с тусклым светом или темнотой. Не даёт невидимость, преимущество на атаку или дополнительное действие. Условия освещения и перенос вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "stalker-step",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Шаг за спину",
+            "activation": {
+              "type": "bonus",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 20,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Украденный голос",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, 1/долгий отдых; одна видимая цель в 30 фт. Телосложение Сл 13: провал — 2d6 психического урона и цель не может говорить или использовать словесные компоненты до конца следующего хода пожирателя; успех — половина урона без немоты. Не запрещает бессловесные действия. Окончание и ограничение компонентов вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "stalker-voice",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Украденный голос",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 30,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            },
+            "save": {
+              "ability": "con",
+              "dc": 13
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "2d6",
+                "type": "psychic"
+              }
+            ]
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll",
+              "formula": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Голод по одиночеству",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Вспомогательный урон: один раз в собственный ход после попадания Когтем по цели, у которой нет дееспособного союзника в 5 фт., дополнительно 2d6 психического урона. Не срабатывает на второй коготь того же хода. Условие проверяет мастер.</p>",
+          "chat": ""
+        },
+        "identifier": "stalker-hunger",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "damage",
+            "activity_name": "Голод по одиночеству",
+            "activation": {
+              "type": "special",
+              "value": null,
+              "condition": "Первое подходящее попадание в свой ход по изолированной цели"
+            },
+            "targeting": {
+              "range": {
+                "value": 5,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            },
+            "damage": [
+              {
+                "formula": "2d6",
+                "type": "psychic"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

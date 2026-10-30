@@ -3,7 +3,7 @@
   "scene": "crypt-entrance",
   "source_plan": "examples/void-crypt-entrance.json",
   "source": "WoW WotLK 3.3.5a catalog.jsonl.gz and validated private ZIP files",
-  "status": "All used BLP/M2 dependencies verified; full-resolution render of three-scene bundle succeeded on 2026-10-27.",
+  "status": "DEV2-R2: resources and native-scale review verified; in-game acceptance pending.",
   "packages": [
     {
       "path": "packages/dungeons-textures-c1558cc2-001.zip",
@@ -19,6 +19,11 @@
       "path": "packages/world-azeroth-duskwood-fa40c120-001.zip",
       "bytes": 5266910,
       "sha256": "91e050dd8cb2f61c10ffa220294fe5567aba8777dd673d86a53604cb42323d29"
+    },
+    {
+      "path": "packages/world-generic-human-36964228-001.zip",
+      "bytes": 21616558,
+      "sha256": "79115838d17078d7efd97f9f191a39c81dc7a8be5204c366836d10d852b15f45"
     }
   ],
   "textures": [
@@ -26,8 +31,10 @@
     "dungeons/textures/brick/jacryptbrick01.blp",
     "dungeons/textures/floor/jacryptfloor01.blp",
     "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+    "dungeons/textures/stairs/jacryptstair.blp",
     "tileset/ashenvale/ashenvaledirt.blp",
-    "tileset/ashenvale/ashenvalemossbase.blp"
+    "tileset/ashenvale/ashenvalemossbase.blp",
+    "world/generic/human/passive doodads/altars/basestone.blp"
   ],
   "models": [
     "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
@@ -35,10 +42,29 @@
     "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.m2",
     "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
     "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
-    "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2"
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2",
+    "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2"
   ],
   "qa": {
     "confirmed": "All explicitly referenced base/overlay/floor/wall BLP paths occur in original catalog and ZIP files; selected M2 models are MD20 v264 with SKIN and source texture dependencies present in the Duskwood package; visible top-down sprites rendered and export verified",
     "not_yet_confirmed": "Interactive gameplay inside installed Foundry and visual polish after game-master feedback"
-  }
+  },
+  "model_dependencies": [
+    "world/azeroth/duskwood/passivedoodads/fence/rockwall09.blp",
+    "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble00.skin",
+    "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtree01_leaves.blp",
+    "world/azeroth/duskwood/passivedoodads/spooklesstrees/duskwoodtreespookless0100.skin",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.blp",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone0500.skin",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.blp",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone0600.skin",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.blp",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone0700.skin",
+    "world/azeroth/duskwood/passivedoodads/tombs/tombstone0800.skin",
+    "world/azeroth/duskwood/passivedoodads/trees/duskwoodtree01_trunk3.blp",
+    "world/generic/human/passive doodads/altars/basestone.blp",
+    "world/generic/human/passive doodads/altars/gatestone01.blp",
+    "world/generic/human/passive doodads/sarcophagi/sarcophagus copy.blp",
+    "world/generic/human/passive doodads/sarcophagi/sarcophagus00.skin"
+  ]
 }

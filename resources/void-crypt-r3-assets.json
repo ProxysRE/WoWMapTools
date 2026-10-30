@@ -1,0 +1,138 @@
+{
+  "format": "wowmap.scene-assets/1",
+  "revision": "DEV2-R3",
+  "packages": [
+    {
+      "file": "dungeons-textures-c1558cc2-001.zip",
+      "url": "https://drive.google.com/file/d/1-Z0t-YUrocAkbci-XJiAS0aCFfWwE1LK/view?usp=drivesdk",
+      "resources": [
+        "dungeons/textures/blackfathom/bm_bf_stonewall01.blp",
+        "dungeons/textures/brick/jacryptbrick01.blp",
+        "dungeons/textures/floor/jacryptfloor01.blp",
+        "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+        "dungeons/textures/stairs/jacryptstair.blp"
+      ]
+    },
+    {
+      "file": "dungeons-textures-c1558cc2-002.zip",
+      "url": "https://drive.google.com/file/d/10e4D2s_I89fiAM8FY5K6_SM6iEUeM51M/view?usp=drivesdk",
+      "resources": [
+        "dungeons/textures/walls/bm_dmaul_wall02.blp"
+      ]
+    },
+    {
+      "file": "recovered-crypt-assets.zip",
+      "url": "https://drive.google.com/file/d/1a0UmkYjTzCTiYUnvukCzBLtUHjTdZ4-e/view?usp=drivesdk",
+      "resources": [
+        "interface/glues/models/ui_scourge/cemetery01.blp",
+        "interface/glues/models/ui_scourge/warningtreeweb.blp"
+      ]
+    },
+    {
+      "file": "tileset-ashenvale-fabe58ef-001.zip",
+      "url": "https://drive.google.com/file/d/1-o4ZLza_i_Ri_H72LCEZvhh0oNGMcg2d/view?usp=drivesdk",
+      "resources": [
+        "tileset/ashenvale/ashenvaledirt.blp",
+        "tileset/ashenvale/ashenvalemossbase.blp"
+      ]
+    },
+    {
+      "file": "world-azeroth-duskwood-fa40c120-001.zip",
+      "url": "https://drive.google.com/file/d/1-Bdn_hijE9wbz4AXwc2rDUUJ0q68GP2S/view?usp=drivesdk",
+      "resources": [
+        "world/azeroth/duskwood/passivedoodads/bush/duskwoodbush01.m2",
+        "world/azeroth/duskwood/passivedoodads/bush/duskwoodbush0100.skin",
+        "world/azeroth/duskwood/passivedoodads/coffin/coffin.m2",
+        "world/azeroth/duskwood/passivedoodads/coffin/coffin00.skin",
+        "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid.m2",
+        "world/azeroth/duskwood/passivedoodads/coffinlid/coffinlid00.skin",
+        "world/azeroth/duskwood/passivedoodads/detail/duskwoodgrass01/duskwoodgrass01.m2",
+        "world/azeroth/duskwood/passivedoodads/detail/duskwoodgrass01/duskwoodgrass0100.skin",
+        "world/azeroth/duskwood/passivedoodads/detail/duskwoodgrass01/grass01.blp",
+        "world/azeroth/duskwood/passivedoodads/fence/rockwall09.blp",
+        "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble.m2",
+        "world/azeroth/duskwood/passivedoodads/fence/rockwallrubble00.skin",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.blp",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone05.m2",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone0500.skin",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.blp",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone06.m2",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone0600.skin",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.blp",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone07.m2",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone0700.skin",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone08.m2",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstone0800.skin",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument0100.skin",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument02.blp",
+        "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument03.blp",
+        "world/azeroth/duskwood/passivedoodads/trees/duskwoodtree05.m2",
+        "world/azeroth/duskwood/passivedoodads/trees/duskwoodtree0500.skin",
+        "world/azeroth/duskwood/passivedoodads/trees/duskwoodtreeleavestest2.blp",
+        "world/azeroth/duskwood/passivedoodads/trees/duskwoodtreeleavestest4.blp"
+      ]
+    },
+    {
+      "file": "world-azeroth-karazahn-0ef58a62-001.zip",
+      "url": "https://drive.google.com/file/d/1hkeQHisMjxaZht2h9hWKmGQ7SDzYJ6ME/view?usp=drivesdk",
+      "resources": [
+        "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+        "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble0100.skin",
+        "world/azeroth/karazahn/passivedoodads/rubble/rockrubble01.blp"
+      ]
+    },
+    {
+      "file": "world-azeroth-theblastedlands-e9623f4a-001.zip",
+      "url": "https://drive.google.com/file/d/1shcJWXh3njlLT5RML3k07uUKzVQ9dXS0/view?usp=drivesdk",
+      "resources": [
+        "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumn01.m2",
+        "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumn0100.skin",
+        "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumnskin.blp"
+      ]
+    },
+    {
+      "file": "world-generic-human-36964228-001.zip",
+      "url": "https://drive.google.com/file/d/1SsQieSMixtfNoWQj2ZdGGEqYuRzz0lZm/view?usp=drivesdk",
+      "resources": [
+        "world/generic/human/passive doodads/altars/altar01.m2",
+        "world/generic/human/passive doodads/altars/altar0100.skin",
+        "world/generic/human/passive doodads/altars/basestone.blp",
+        "world/generic/human/passive doodads/altars/gatestone01.blp",
+        "world/generic/human/passive doodads/banners/scarletbanner01.blp",
+        "world/generic/human/passive doodads/candelabras/candelabratall01.m2",
+        "world/generic/human/passive doodads/candelabras/candelabratall0100.skin",
+        "world/generic/human/passive doodads/candelabras/candelbra_brass01.blp",
+        "world/generic/human/passive doodads/sarcophagi/sarcophagus copy.blp",
+        "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
+        "world/generic/human/passive doodads/sarcophagi/sarcophagus00.skin"
+      ]
+    },
+    {
+      "file": "world-goober-7dfe7848-001.zip",
+      "url": "https://drive.google.com/file/d/1UXAL3rMavN5eoxy-EKpIQ1r2pE9qH5i6/view?usp=drivesdk",
+      "resources": [
+        "world/goober/g_scourgerunecircle01.blp",
+        "world/goober/g_scourgerunecirclecrystal.m2",
+        "world/goober/g_scourgerunecirclecrystal00.skin",
+        "world/goober/g_scourgerunecirclerunes01.blp"
+      ]
+    },
+    {
+      "file": "world-kalimdor-diremaul-91241e48-001.zip",
+      "url": "https://drive.google.com/file/d/1L576sucOxQ1ysZTJ6V6TKXP9C2bs1MXE/view?usp=drivesdk",
+      "resources": [
+        "world/kalimdor/diremaul/passivedoodads/rubble/diremaultreeroot02.m2",
+        "world/kalimdor/diremaul/passivedoodads/rubble/diremaultreeroot0200.skin"
+      ]
+    },
+    {
+      "file": "world-kalimdor-feralas-72614461-001.zip",
+      "url": "https://drive.google.com/file/d/1ousXXixwaaa9k5z9GuVicR6FKBoosfCB/view?usp=drivesdk",
+      "resources": [
+        "world/kalimdor/feralas/passivedoodads/tree/feralastreeroots01_128.blp",
+        "world/kalimdor/feralas/passivedoodads/tree/feralastreevine01.blp"
+      ]
+    }
+  ]
+}

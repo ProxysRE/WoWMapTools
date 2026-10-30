@@ -1,0 +1,798 @@
+{
+  "name": "Сумрачный лесной волк",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 16,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "dex": {
+        "value": 15,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "con": {
+        "value": 12,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "int": {
+        "value": 3,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "wis": {
+        "value": 12,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "cha": {
+        "value": 6,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "calc": "flat",
+        "flat": 14,
+        "formula": ""
+      },
+      "hp": {
+        "value": 38,
+        "max": 38,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "7d8+7"
+      },
+      "init": {
+        "ability": "dex",
+        "bonus": ""
+      },
+      "movement": {
+        "walk": 40,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "burrow": 0,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": null,
+          "tremorsense": null,
+          "truesight": null
+        },
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "",
+      "spell": {
+        "level": 0
+      },
+      "exhaustion": 0
+    },
+    "spells": {
+      "spell0": {
+        "value": 0,
+        "override": 0
+      },
+      "spell1": {
+        "value": 0,
+        "override": 0
+      },
+      "spell2": {
+        "value": 0,
+        "override": 0
+      },
+      "spell3": {
+        "value": 0,
+        "override": 0
+      },
+      "spell4": {
+        "value": 0,
+        "override": 0
+      },
+      "spell5": {
+        "value": 0,
+        "override": 0
+      },
+      "spell6": {
+        "value": 0,
+        "override": 0
+      },
+      "spell7": {
+        "value": 0,
+        "override": 0
+      },
+      "spell8": {
+        "value": 0,
+        "override": 0
+      },
+      "spell9": {
+        "value": 0,
+        "override": 0
+      },
+      "pact": {
+        "value": 0,
+        "override": 0
+      }
+    },
+    "details": {
+      "alignment": "Без мировоззрения",
+      "biography": {
+        "value": "<h2>Сумрачный лесной волк</h2><p>Чёрный лесной волк с холодным свечением глаз. Под шерстью пульсируют тёмные жилы.</p><h3>Тактика</h3><p>Сначала помечает крайнего противника. Два волка обходят, остальные удерживают фронт. Не прыгает сквозь стены. Раненая стая может отступить.</p><p>Авторский статблок. CR — предварительная оценка, не результат игрового теста. Перемещения, отложенные события, ауры и сложные условия ведёт мастер; кнопки бросков и ресурсы собраны Builder.</p>",
+        "public": ""
+      },
+      "race": "",
+      "type": {
+        "value": "beast",
+        "subtype": "Порча Бездны",
+        "custom": ""
+      },
+      "cr": 1,
+      "xp": {},
+      "source": {
+        "book": "Крипта Бездны DEV2-R4 — авторский тест для 5 персонажей 6 уровня",
+        "page": "",
+        "license": ""
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [],
+        "custom": "",
+        "communication": {
+          "telepathy": {
+            "value": null,
+            "units": "ft"
+          }
+        }
+      }
+    },
+    "skills": {},
+    "resources": {},
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    }
+  },
+  "prototypeToken": {
+    "name": "Сумрачный лесной волк",
+    "displayName": 20,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "visionMode": "basic"
+    },
+    "width": 1,
+    "height": 1,
+    "actorLink": false
+  },
+  "items": [
+    {
+      "name": "Укус",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие: +5, 5 фт., одна цель; 1d8+3 колющего урона.</p>",
+          "chat": ""
+        },
+        "identifier": "wolf-bite",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2014",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [
+              "piercing"
+            ],
+            "custom": {
+              "enabled": true,
+              "formula": "1d8+3"
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": null,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": null,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "5",
+          "flat": true,
+          "type": "melee",
+          "classification": "weapon"
+        },
+        "damage": [
+          {
+            "formula": "1d8+3",
+            "type": "piercing"
+          }
+        ],
+        "range": {
+          "reach": 5,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённое действие существа; не предмет для крафта."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Запах страха",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Бонусное действие, одна видимая цель в 30 фт. До конца следующего хода волка его первое попадание укусом по этой цели наносит ещё 1d4 психического урона. Только одна метка этого волка; метки других волков не усиливают его удар. Метка видима как тёмный след. Условие отслеживается вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "wolf-scent",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Запах страха",
+            "activation": {
+              "type": "bonus",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 30,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Отзвук метки",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Вспомогательный урон 1d4 психического; только после первого попадания владельца по цели его действующей метки. После броска метку снять. Не прибавлять к каждому укусу.</p>",
+          "chat": ""
+        },
+        "identifier": "wolf-mark-damage",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "damage",
+            "activity_name": "Отзвук метки",
+            "activation": {
+              "type": "special",
+              "value": null,
+              "condition": "Первое попадание укусом по собственной метке"
+            },
+            "targeting": {
+              "range": {
+                "value": 5,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            },
+            "damage": [
+              {
+                "formula": "1d4",
+                "type": "psychic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Рывок из сумрака",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, перезарядка 5–6 в начале хода. Волк перемещается до 20 фт. по свободному пути (провоцирует обычные атаки) и выполняет один укус отдельной кнопкой. Если перед укусом прошёл по прямой 15 фт. и попал, цель Большого или меньшего размера проходит спасбросок Силы Сл 13 отдельной кнопкой; провал — сбита с ног, успех — без эффекта. Прыжок и проверку пути ведёт мастер.</p>",
+          "chat": ""
+        },
+        "identifier": "wolf-rush",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Рывок из сумрака",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 20,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Сбить с ног",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Вспомогательная кнопка: после попадания Рывком при выполненных условиях; одна цель Большого или меньшего размера в 5 фт., Сила Сл 13. Провал — сбита с ног; успех — без эффекта. Встаёт обычным способом. Не расходует второе действие.</p>",
+          "chat": ""
+        },
+        "identifier": "wolf-trip",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Сбить с ног",
+            "activation": {
+              "type": "special",
+              "value": null,
+              "condition": "Попадание Рывком после 15 фт. прямого разбега"
+            },
+            "targeting": {
+              "range": {
+                "value": 5,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            },
+            "save": {
+              "ability": "str",
+              "dc": 13
+            },
+            "on_save": "none",
+            "damage": []
+          }
+        ],
+        "effects": [
+          {
+            "name": "Сбить с ног",
+            "statuses": [
+              "prone"
+            ],
+            "transfer": false,
+            "activity": 0,
+            "on_save": false,
+            "duration": {},
+            "description": "Вспомогательная кнопка: после попадания Рывком при выполненных условиях; одна цель Большого или меньшего размера в 5 фт., Сила Сл 13. Провал — сбита с ног; успех — без эффекта. Встаёт обычным способом. Не расходует второе действие."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Стая смыкается",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Реакция: другой волк в 10 фт. получил урон. Владелец перемещается до 10 фт. к нападающему, которого видит в 40 фт.; обычные провоцированные атаки действуют. Не даёт бесплатной атаки. Перемещение вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "wolf-pack",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Стая смыкается",
+            "activation": {
+              "type": "reaction",
+              "value": 1,
+              "condition": "Другой волк в 10 фт. получил урон"
+            },
+            "targeting": {
+              "range": {
+                "value": 40,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

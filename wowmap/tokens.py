@@ -106,7 +106,7 @@ class TokenAssets:
 
     def select(self, options, view='top'):
         if view not in ('top','front'):raise ValueError('Token view must be top or front')
-        if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw','pose'}:
+        if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw','pose','display_alpha'}:
             raise ValueError('Appearance contains unsupported options')
         from .poses import pose_options
         pose=pose_options(options.get('pose'))
@@ -130,8 +130,10 @@ class TokenAssets:
             if appearance['extended_display_id'] or appearance['model'].startswith('character/'):
                 raise ValueError('Humanoid display IDs require explicit character assembly options')
             if appearance['geoset_data']:raise ValueError('Creature geoset selection is not implemented yet')
-            if appearance['alpha']!=255:raise ValueError('Translucent creature displays are not implemented yet')
-            identity=display_id
+            alpha=options.get('display_alpha',appearance['alpha'])
+            if type(alpha) is not int or not 0<=alpha<=255:raise ValueError('display_alpha must be 0..255')
+            appearance['render_alpha']=alpha
+            identity=(display_id,alpha)
         pose_key=json.dumps(pose,sort_keys=True)
         key=(identity,size,yaw,view,pose_key)
         if key in self.selected:return self.selected[key]
@@ -154,6 +156,9 @@ class TokenAssets:
                 deps={appearance['model'],info['skins'][0],*render['used_textures']}
                 deps.update(render.get('pose',{}).get('external_sources',[]))
                 sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]
+        if not assembled and appearance['render_alpha']!=255:
+            image=image.copy()
+            image.putalpha(image.getchannel('A').point(lambda a:round(a*appearance['render_alpha']/255)))
         buffer=io.BytesIO();image.save(buffer,format='WEBP',lossless=True,exact=True)
         data=buffer.getvalue();digest=hashlib.sha256(data).hexdigest()
         path=(PREFIX if view=='top' else PORTRAIT_PREFIX)+digest+'.webp'

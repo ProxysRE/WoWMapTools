@@ -1,0 +1,830 @@
+{
+  "name": "Сумеречный заклинатель",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 9,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "con": {
+        "value": 12,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "int": {
+        "value": 18,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "wis": {
+        "value": 12,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "cha": {
+        "value": 13,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "calc": "flat",
+        "flat": 14,
+        "formula": ""
+      },
+      "hp": {
+        "value": 66,
+        "max": 66,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "12d8+12"
+      },
+      "init": {
+        "ability": "dex",
+        "bonus": ""
+      },
+      "movement": {
+        "walk": 30,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "burrow": 0,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": null,
+          "tremorsense": null,
+          "truesight": null
+        },
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "int",
+      "spell": {
+        "level": 7
+      },
+      "exhaustion": 0
+    },
+    "spells": {
+      "spell0": {
+        "value": 0,
+        "override": 0
+      },
+      "spell1": {
+        "value": 0,
+        "override": 0
+      },
+      "spell2": {
+        "value": 0,
+        "override": 0
+      },
+      "spell3": {
+        "value": 0,
+        "override": 0
+      },
+      "spell4": {
+        "value": 0,
+        "override": 0
+      },
+      "spell5": {
+        "value": 0,
+        "override": 0
+      },
+      "spell6": {
+        "value": 0,
+        "override": 0
+      },
+      "spell7": {
+        "value": 0,
+        "override": 0
+      },
+      "spell8": {
+        "value": 0,
+        "override": 0
+      },
+      "spell9": {
+        "value": 0,
+        "override": 0
+      },
+      "pact": {
+        "value": 0,
+        "override": 0
+      }
+    },
+    "details": {
+      "alignment": "Хаотично-злой",
+      "biography": {
+        "value": "<h2>Сумеречный заклинатель</h2><p>Последователь, превращающий формулы магистра в разломы пространства.</p><h3>Тактика</h3><p>Начинает с колодца или подготовки линии. Не имеет бесплатного дополнительного залпа при завершении подготовленного удара.</p><p>Все приведённые силы — особые магические действия без ячеек. Уровень заклинателя указан справочно; список покупных заклинаний отсутствует. Правила прерывания явно приведены в способностях.</p><p>Авторский статблок. CR — предварительная оценка, не результат игрового теста. Перемещения, отложенные события, ауры и сложные условия ведёт мастер; кнопки бросков и ресурсы собраны Builder.</p>",
+        "public": ""
+      },
+      "race": "",
+      "type": {
+        "value": "humanoid",
+        "subtype": "Порча Бездны",
+        "custom": ""
+      },
+      "cr": 3,
+      "xp": {},
+      "source": {
+        "book": "Крипта Бездны DEV2-R4 — авторский тест для 5 персонажей 6 уровня",
+        "page": "",
+        "license": ""
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [
+          "common"
+        ],
+        "custom": "",
+        "communication": {
+          "telepathy": {
+            "value": null,
+            "units": "ft"
+          }
+        }
+      }
+    },
+    "skills": {},
+    "resources": {},
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    }
+  },
+  "prototypeToken": {
+    "name": "Сумеречный заклинатель",
+    "displayName": 20,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "visionMode": "basic"
+    },
+    "width": 1,
+    "height": 1,
+    "actorLink": false
+  },
+  "items": [
+    {
+      "name": "Теневой снаряд",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие: дальняя магическая атака +6, 90 фт., одна видимая цель; 2d8+4 некротического урона.</p>",
+          "chat": ""
+        },
+        "identifier": "caster-bolt",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2014",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [
+              "necrotic"
+            ],
+            "custom": {
+              "enabled": true,
+              "formula": "2d8+4"
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": null,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": null,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "6",
+          "flat": true,
+          "type": "ranged",
+          "classification": "spell"
+        },
+        "damage": [
+          {
+            "formula": "2d8+4",
+            "type": "necrotic"
+          }
+        ],
+        "range": {
+          "value": 90,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённое действие существа; не предмет для крафта."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Колодец притяжения — подготовка",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, перезарядка 5–6: отметить видимую точку на полу в 60 фт. и круг радиусом 10 фт. В начале следующего хода заклинатель тратит действие на разрешение отдельной кнопкой. До разрешения требует концентрации; при её потере круг исчезает. Все участники получают полный ход для выхода. Не наносит урон при размещении.</p>",
+          "chat": ""
+        },
+        "identifier": "caster-well",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Колодец притяжения — подготовка",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 60,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Колодец — разрешение",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, только если колодец подготовлен предыдущим ходом и концентрация сохранена. Все существа в отмеченном круге: Сила Сл 14, провал — 2d6 силового урона и притягивание к центру до 10 фт.; успех — половина без перемещения. Круг исчезает. Шаблон поставить в прежнюю точку; перемещение вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "caster-well-resolve",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Колодец — разрешение",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 60,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": "",
+                "choice": false
+              },
+              "template": {
+                "type": "radius",
+                "size": 10,
+                "units": "ft"
+              },
+              "prompt": true
+            },
+            "save": {
+              "ability": "str",
+              "dc": 14
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "2d6",
+                "type": "force"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Рассекающий сумрак — подготовка",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, перезарядка 5–6: обозначить линию длиной 40, шириной 5 фт. от текущего места. В начале следующего хода разрешить отдельным действием. Линия не поворачивается и не перемещается вслед за целью; требует концентрации до разрешения. При потере концентрации отменяется.</p>",
+          "chat": ""
+        },
+        "identifier": "caster-line",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Рассекающий сумрак — подготовка",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Рассекающий сумрак — удар",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, только для подготовленной неизменной линии 40×5 фт.; все существа внутри: Ловкость Сл 14, 3d8 некротического урона, половина при успехе. Не сочетается с обычным снарядом в том же действии.</p>",
+          "chat": ""
+        },
+        "identifier": "caster-line-resolve",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Рассекающий сумрак — удар",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "creature",
+                "count": "",
+                "choice": false
+              },
+              "template": {
+                "type": "line",
+                "size": 40,
+                "units": "ft",
+                "width": 5
+              },
+              "prompt": true
+            },
+            "save": {
+              "ability": "dex",
+              "dc": 14
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "3d8",
+                "type": "necrotic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Угасание",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Бонусное действие, 1/долгий отдых: телепортируется в свободное видимое место в 15 фт. Не проходит через закрытую дверь без видимости и не создаёт невидимость. Телепортация вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "caster-fade",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Угасание",
+            "activation": {
+              "type": "bonus",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 15,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll",
+              "formula": ""
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

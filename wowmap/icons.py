@@ -4,6 +4,7 @@ No network access and no automatic guesses: search names, choose an exact icon,
 verify its original bytes, and package a lossless WebP under a content hash.
 """
 import argparse
+from contextlib import contextmanager
 import copy
 import gzip
 import hashlib
@@ -42,6 +43,7 @@ class IconAssets:
         self.media = {}
         self.selected = {}
         self.bindings = []
+        self._archives = None
         with gzip.open(catalog, 'rb') as stream:
             content = stream.read(64 * 1024 * 1024 + 1)
         if len(content) > 64 * 1024 * 1024:
@@ -61,6 +63,20 @@ class IconAssets:
             self.names.setdefault(PurePosixPath(key).stem, []).append(key)
         if not self.records:
             raise ValueError('No Interface/Icons images in asset catalog')
+
+    @contextmanager
+    def session(self):
+        """Reuse each ZIP during a batch and release handles even on failure."""
+        if self._archives is not None:
+            yield self
+            return
+        self._archives = {}
+        try:
+            yield self
+        finally:
+            for archive in self._archives.values():
+                archive.close()
+            self._archives = None
 
     def search(self, query, limit=30):
         if not isinstance(query, str) or not query.strip() or not 1 <= limit <= 100:
@@ -98,11 +114,18 @@ class IconAssets:
         # Drive uploads sometimes flatten the packages/ directory. Both layouts work.
         if not package.is_file() and PurePosixPath(record['package']).parts[:1] == ('packages',):
             package = relative_file(self.root, PurePosixPath(record['package']).name)
-        with ZipFile(package) as archive:
+        def read_icon(archive):
             info = archive.getinfo(record['member'])
             if info.file_size > MAX_ICON_BYTES:
                 raise ValueError('Icon exceeds 4 MiB')
-            raw = archive.read(info)
+            return archive.read(info)
+        if self._archives is None:
+            with ZipFile(package) as archive:
+                raw = read_icon(archive)
+        else:
+            if package not in self._archives:
+                self._archives[package] = ZipFile(package)
+            raw = read_icon(self._archives[package])
         if len(raw) != record['size'] or 'raw:' + hashlib.sha256(raw).hexdigest() != record['id']:
             raise ValueError(f'Icon checksum mismatch: {key}')
         with decode_image(raw,max_pixels=1024*1024,max_dimension=None) as source:

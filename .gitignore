@@ -15,3 +15,6 @@ stormlib-build/
 
 # GUI Builder local reports
 foundry_builder/logs/
+
+# Installer backups are local working copies.
+wowmap/backup-before-*/

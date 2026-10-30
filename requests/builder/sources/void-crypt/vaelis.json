@@ -1,0 +1,1878 @@
+{
+  "name": "Магистр Ваэлис — Постигший Истину",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 10,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "con": {
+        "value": 16,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "int": {
+        "value": 18,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "wis": {
+        "value": 14,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      },
+      "cha": {
+        "value": 18,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "calc": "flat",
+        "flat": 16,
+        "formula": ""
+      },
+      "hp": {
+        "value": 300,
+        "max": 300,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "40d8+120"
+      },
+      "init": {
+        "ability": "dex",
+        "bonus": ""
+      },
+      "movement": {
+        "walk": 30,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "burrow": 0,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": null,
+          "tremorsense": null,
+          "truesight": null
+        },
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "int",
+      "spell": {
+        "level": 11
+      },
+      "exhaustion": 0
+    },
+    "spells": {
+      "spell0": {
+        "value": 0,
+        "override": 0
+      },
+      "spell1": {
+        "value": 0,
+        "override": 0
+      },
+      "spell2": {
+        "value": 0,
+        "override": 0
+      },
+      "spell3": {
+        "value": 0,
+        "override": 0
+      },
+      "spell4": {
+        "value": 0,
+        "override": 0
+      },
+      "spell5": {
+        "value": 0,
+        "override": 0
+      },
+      "spell6": {
+        "value": 0,
+        "override": 0
+      },
+      "spell7": {
+        "value": 0,
+        "override": 0
+      },
+      "spell8": {
+        "value": 0,
+        "override": 0
+      },
+      "spell9": {
+        "value": 0,
+        "override": 0
+      },
+      "pact": {
+        "value": 0,
+        "override": 0
+      }
+    },
+    "details": {
+      "alignment": "Хаотично-злой",
+      "biography": {
+        "value": "<h2>Магистр Ваэлис — Постигший Истину</h2><p>Высший эльф, исследовавший память человеческой крипты. Уверен, что подчинил Бездну. Фаза I выше 150 хитов; фаза II при 150 или меньше, один раз, без лечения и без потери нанесённого сверх порога урона.</p><h3>Тактика</h3><p>Два легендарных действия за раунд, восстанавливаются в начале своего хода; не более одного разряда за раунд. При первом тесте бой на полных ресурсах группы. Ходы с подготовкой и разрешением крупных атак не содержат обычной мультиатаки. Подробный сценарий и помощник мастера входят в комплект.</p><p>Все приведённые силы — особые магические действия без ячеек. Уровень заклинателя указан справочно; список покупных заклинаний отсутствует. Правила прерывания явно приведены в способностях.</p><p>Авторский статблок. CR — предварительная оценка, не результат игрового теста. Перемещения, отложенные события, ауры и сложные условия ведёт мастер; кнопки бросков и ресурсы собраны Builder.</p>",
+        "public": ""
+      },
+      "race": "Высший эльф",
+      "type": {
+        "value": "humanoid",
+        "subtype": "Порча Бездны",
+        "custom": ""
+      },
+      "cr": 8,
+      "xp": {},
+      "source": {
+        "book": "Крипта Бездны DEV2-R4 — авторский тест для 5 персонажей 6 уровня",
+        "page": "",
+        "license": ""
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [
+          "common",
+          "elvish"
+        ],
+        "custom": "",
+        "communication": {
+          "telepathy": {
+            "value": null,
+            "units": "ft"
+          }
+        }
+      }
+    },
+    "skills": {},
+    "resources": {
+      "legact": {
+        "value": 2,
+        "max": 2
+      },
+      "legres": {
+        "value": 2,
+        "max": 2
+      }
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    }
+  },
+  "prototypeToken": {
+    "name": "Магистр Ваэлис — Постигший Истину",
+    "displayName": 20,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "visionMode": "basic"
+    },
+    "width": 1,
+    "height": 1,
+    "actorLink": false
+  },
+  "items": [
+    {
+      "name": "Исправление ошибки — фаза I",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие фазы I: дальняя магическая атака +7, 90 фт., одна видимая цель; 2d8+4 силового урона. В фазе II использовать отдельную психическую версию.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-ray",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2014",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [
+              "force"
+            ],
+            "custom": {
+              "enabled": true,
+              "formula": "2d8+4"
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": null,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": null,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "7",
+          "flat": true,
+          "type": "ranged",
+          "classification": "spell"
+        },
+        "damage": [
+          {
+            "formula": "2d8+4",
+            "type": "force"
+          }
+        ],
+        "range": {
+          "value": 90,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённое действие существа; не предмет для крафта."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Исправление ошибки — фаза II",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "system": {
+        "activities": {},
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "description": {
+          "value": "<p>Действие фазы II: дальняя магическая атака +7, 90 фт., одна видимая цель; 2d8+4 психического урона. Заменяет силовую версию, не добавляется к ней.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-ray-void",
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2014",
+          "revision": 1
+        },
+        "identified": true,
+        "unidentified": {
+          "description": ""
+        },
+        "container": null,
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "rarity": "",
+        "attunement": "",
+        "attuned": false,
+        "equipped": true,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {},
+        "armor": {},
+        "damage": {
+          "base": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [
+              "psychic"
+            ],
+            "custom": {
+              "enabled": true,
+              "formula": "2d8+4"
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "magicalBonus": 0,
+        "properties": [],
+        "proficient": null,
+        "range": {
+          "value": null,
+          "long": null,
+          "reach": null,
+          "units": "ft"
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "mastery": ""
+      },
+      "mechanics": {
+        "attack": {
+          "ability": "none",
+          "bonus": "7",
+          "flat": true,
+          "type": "ranged",
+          "classification": "spell"
+        },
+        "damage": [
+          {
+            "formula": "2d8+4",
+            "type": "psychic"
+          }
+        ],
+        "range": {
+          "value": 90,
+          "units": "ft",
+          "count": 1,
+          "target_type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        }
+      },
+      "enhancement_policy": {
+        "mode": "locked",
+        "allowed_groups": [],
+        "native_properties": [],
+        "material_property": null,
+        "reason": "Врождённое действие существа; не предмет для крафта."
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Мультиатака: Исправление ошибки",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие: два снаряда Исправления ошибки своей фазы, бросать отдельно; разрешено выбрать разные цели. Не используется при подготовке, призыве или разрешении крупной способности.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-multi",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Мультиатака: Исправление ошибки",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 90,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 2,
+                "choice": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Линия доказательства — подготовка",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие фазы I, перезарядка 5–6: обозначить линию 60×5 фт. из текущего места. Точка начала и направление неизменны. В начале следующего хода разрешить отдельным действием. Считать подготовку заклинанием 3 круга для контрзаклинания; оно отменяет подготовку. Сл разрушения подготовленной руны Рассеиванием магии — 15. Недееспособность также отменяет удар. Урон при подготовке не наносится.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-line",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Линия доказательства — подготовка",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Линия доказательства — удар",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, только при действующей подготовке с прошлого хода. Все существа в прежней линии 60×5 фт. проходят Ловкость Сл 15: 4d8 силового урона, половина при успехе. Завершение тратит действие; дополнительной мультиатаки нет. Отменённая подготовка не разрешается.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-line-hit",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Линия доказательства — удар",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "creature",
+                "count": "",
+                "choice": false
+              },
+              "template": {
+                "type": "line",
+                "size": 60,
+                "units": "ft",
+                "width": 5
+              },
+              "prompt": true
+            },
+            "save": {
+              "ability": "dex",
+              "dc": 15
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "4d8",
+                "type": "force"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Безупречное отражение",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие фазы I, 1/долгий отдых: две копии рядом с магом на 1 минуту. Копии не имеют ходов и не блокируют клетки. При первом попадании атакой по Ваэлису в раунде, пока есть копии, он может реакцией уничтожить одну копию и отменить только это попадание. Площадной эффект, затронувший Ваэлиса, уничтожает обе копии, но действует на самого мага как обычно. Истинное зрение обходит подмену. Количество копий и реакция вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-mirrors",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Безупречное отражение",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll",
+              "formula": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Резонансная детонация — подготовка",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие любой фазы, перезарядка 5–6: Ваэлис начинает видимое накопление энергии. Его положение фиксируется до разрешения; не перемещается и не использует легендарные действия. В начале следующего хода он тратит действие на выпуск. Подготовка считается заклинанием 3 круга: контрзаклинание отменяет её; рассеивание руны Сл 15 или недееспособность также отменяют. Укрытие за каменной колонной/сплошной стеной полностью защищает. Мастер заранее показывает область и укрытия; не добавляет новых опасных секторов во время подготовки.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-detonation",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Резонансная детонация — подготовка",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Детонация — выпуск",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие, только после полной подготовки с прошлого хода. Все существа в радиусе 60 фт. без полного каменного укрытия: Ловкость Сл 15, 4d8 силового урона, половина при успехе. В фазе II вместо силового 5d8 психического отдельной кнопкой ниже. Сам Ваэлис не цель. Отсечение закрытых колоннами целей вручную; удар не проходит сквозь стены.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-detonation-hit",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Детонация — выпуск",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "creature",
+                "count": "",
+                "choice": false
+              },
+              "template": {
+                "type": "radius",
+                "size": 60,
+                "units": "ft"
+              },
+              "prompt": true
+            },
+            "save": {
+              "ability": "dex",
+              "dc": 15
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "4d8",
+                "type": "force"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Голос из-за звёзд — выпуск",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие фазы II, вместо обычного выпуска подготовленной детонации. Радиус 60 фт., все другие существа без полного каменного укрытия: Ловкость Сл 15, 5d8 психического урона, половина при успехе. Не бросать одновременно с обычной детонацией. Положение фиксируется на время подготовки; новые секторы не размещаются.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-voice-hit",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Голос из-за звёзд — выпуск",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "creature",
+                "count": "",
+                "choice": false
+              },
+              "template": {
+                "type": "radius",
+                "size": 60,
+                "units": "ft"
+              },
+              "prompt": true
+            },
+            "save": {
+              "ability": "dex",
+              "dc": 15
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "5d8",
+                "type": "psychic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Фаза II: Вас нужно исправить",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Пассивный переход один раз при 150 или меньше хитов, если Ваэлис жив. Отменяет незаконченную подготовку фазы I; не лечит, не обнуляет эффекты и ресурсы, не даёт внеочередного действия. Срабатывает визуально сразу, новые действия доступны на его обычном ходу. Эльф остаётся Средним; огромный силуэт — только аура. Включить фазу помощником мастера либо отметить вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-phase",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "passive": true
+      }
+    },
+    {
+      "name": "Незваные свидетели — подготовка волны",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие фазы II, всего две волны за бой. Волна I: два отголоска. Волна II: один Страж разлома и один отголосок. Между подготовками волн не менее двух раундов. Два разлома появляются на заранее отмеченных свободных местах; через полный круг инициативы в начале следующего хода Ваэлиса требуется действие для выпуска. Пока разлом открыт, его можно атаковать (КД 13, 12 хитов, иммунитет к яду и психическому) либо закрыть действием из соседней клетки: Интеллект (Магия) Сл 14. Закрытый разлом не выпускает своё существо. Максимум три живых призванных существа; лимит и места проверяет помощник. Новые существа не атакуют при появлении; первый ход — в следующем круге инициативы после босса. Призыв прекращается при смерти босса. Помощник ведёт разломы и лимит; мастер запускает действия, не дублируя расход кнопки и помощника.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-wave",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Незваные свидетели — подготовка волны",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 60,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "2",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll",
+              "formula": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Переписать пространство — подготовка",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие фазы II, перезарядка 5–6: обозначить конус 30 фт. из выбранной неподвижной точки арены. Он становится опасным в начале следующего хода Ваэлиса и существует до начала следующего после этого хода. Подготовку и границы объявить всем. Одновременно один сектор; предыдущий исчезает при новом. Не применять в раунд подготовки или выпуска детонации. Мастер выбирает сектор, из которого каждый затронутый персонаж способен выйти обычным перемещением или Рывком; не закрывать единственный выход.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-sector",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Переписать пространство — подготовка",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "recharge",
+              "type": "recoverAll",
+              "formula": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Разрыв пространства — урон сектора",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Вспомогательно, только для действующего сектора: существо, впервые вошедшее в него за ход или начавшее там ход, проходит Ловкость Сл 15; 3d6 силового урона, половина при успехе. Не чаще одного раза за ход одного существа, не при начальном появлении сектора под ним. Шаблон конуса 30 фт. разместить в прежней точке; границы и сроки вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-sector-tick",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Разрыв пространства — урон сектора",
+            "activation": {
+              "type": "special",
+              "value": null,
+              "condition": "Первый вход за ход или начало хода в действующем секторе"
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "creature",
+                "count": "",
+                "choice": false
+              },
+              "template": {
+                "type": "cone",
+                "size": 30,
+                "units": "ft"
+              },
+              "prompt": true
+            },
+            "save": {
+              "ability": "dex",
+              "dc": 15
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "3d6",
+                "type": "force"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Парадокс близости — метки",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Действие фазы II, 1/долгий отдых: два видимых разных врага в 60 фт., находящихся не далее 30 фт. друг от друга. Метки видимы. Если до начала следующего хода Ваэлиса они окажутся в 5 фт. друг от друга, обе метки гаснут без последствий. Иначе каждый проходит Мудрость Сл 15 отдельной кнопкой: 3d6 психического урона, половина при успехе; затем метки исчезают. Если одна цель теряет сознание до срока, обе метки гаснут. Не накладывать во время подготовки детонации. Дистанции и сроки вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-bond",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Парадокс близости — метки",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 60,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 2,
+                "choice": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "max": "1",
+          "spent": 0,
+          "recovery": [
+            {
+              "period": "lr",
+              "type": "recoverAll",
+              "formula": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Парадокс — разрыв связи",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Вспомогательно в начале следующего хода босса, только для двух непогашенных меток; каждый Мудрость Сл 15, 3d6 психического урона, половина при успехе. Если метки погашены или одна цель без сознания, кнопку не использовать. После разрешения снять обе метки.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-bond-hit",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Парадокс — разрыв связи",
+            "activation": {
+              "type": "special",
+              "value": null,
+              "condition": "Срок двух непогашенных меток наступил"
+            },
+            "targeting": {
+              "range": {
+                "value": 60,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 2,
+                "choice": true
+              }
+            },
+            "save": {
+              "ability": "wis",
+              "dc": 15
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "3d6",
+                "type": "psychic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Легендарное действие: Сместить аксиому",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>После окончания чужого хода, стоимость 1 из 2 легендарных действий: Ваэлис перемещается до 10 фт. без провоцирования атак. Не более одного такого перемещения за раунд; не во время подготовки детонации. Восстанавливает запас в начале своего хода. Перемещение и ограничение частоты вручную.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-legend-move",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Легендарное действие: Сместить аксиому",
+            "activation": {
+              "type": "legendary",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Легендарное действие: Отзвук мысли",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>После окончания чужого хода, стоимость 1 из 2 легендарных действий, не более одного разряда за раунд; одна видимая цель в 60 фт. Ловкость Сл 15: 1d8+4 психического урона, половина при успехе. Недоступно во время подготовки детонации. Запас восстанавливается в начале своего хода; частоту ведёт мастер.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-legend-ray",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "save",
+            "activity_name": "Легендарное действие: Отзвук мысли",
+            "activation": {
+              "type": "legendary",
+              "value": 1,
+              "condition": ""
+            },
+            "targeting": {
+              "range": {
+                "value": 60,
+                "units": "ft"
+              },
+              "affects": {
+                "type": "creature",
+                "count": 1,
+                "choice": true
+              }
+            },
+            "save": {
+              "ability": "dex",
+              "dc": 15
+            },
+            "on_save": "half",
+            "damage": [
+              {
+                "formula": "1d8+4",
+                "type": "psychic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Легендарная устойчивость (2/день)",
+      "type": "feat",
+      "img": "systems/dnd5e/icons/svg/items/feature.svg",
+      "system": {
+        "activities": {},
+        "uses": {
+          "spent": 0,
+          "recovery": []
+        },
+        "advancement": {},
+        "description": {
+          "value": "<p>Вспомогательно после провала собственного спасброска: заменить провал успехом, расходуя одно из двух использований ресурса legres. Восстановление после долгого отдыха. Выбор мастера, не автоматическое срабатывание.</p>",
+          "chat": ""
+        },
+        "identifier": "vaelis-resistance",
+        "source": {
+          "revision": 1,
+          "rules": "2014"
+        },
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "requirements": "",
+        "type": {
+          "value": "monster",
+          "subtype": ""
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1785067404537,
+        "modifiedTime": 1785069134180,
+        "lastModifiedBy": "0JcNGPUY98uIPE0H",
+        "exportSource": {
+          "worldId": "test",
+          "uuid": "Item.EasvIgYdkQUJRecz",
+          "coreVersion": "13.347",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3"
+        }
+      },
+      "mechanics": {
+        "activities": [
+          {
+            "type": "utility",
+            "activity_name": "Легендарная устойчивость (2/день)",
+            "activation": {
+              "type": "special",
+              "value": null,
+              "condition": "Провален собственный спасбросок"
+            },
+            "targeting": {
+              "range": {
+                "units": "self"
+              },
+              "affects": {
+                "type": "self",
+                "count": 1,
+                "choice": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.347",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null,
+    "exportSource": null
+  }
+}

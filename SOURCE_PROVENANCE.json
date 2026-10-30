@@ -1,0 +1,35 @@
+{
+  "format": "wowmap.source-provenance/1",
+  "checked_at": "2026-10-30",
+  "base_commit": "06583bf011a5bc4db1265d67eaf0305bd2bd0f37",
+  "integrated_layers": [
+    "Profiles/VoidFX DEV2 cumulative patch",
+    "renderer material fixes 0.32",
+    "renderer material visibility and skins 0.35",
+    "readiness audit: icon ZIP sessions, release angle/effect-icon checks, eleven corrected token recipes"
+  ],
+  "targets": {
+    "foundry": "13.351",
+    "dnd5e": "5.3.3",
+    "client": "3.3.5.12340"
+  },
+  "sha256": {
+    "wowmap/models.py": "dc00e87d84552f2837e381d6fab1fb8d00f75f4710958dd2c01704b4bb01dce3",
+    "wowmap/poses.py": "b425008d02b4079ff9c73ada1b54ab08318c90e783078c092beec776afd7eec6",
+    "wowmap/tokens.py": "09a5f480efa2fee7e2134c436033c1238bfaaeaf3ed4fa8bec140d0f80a55334",
+    "wowmap/characters.py": "5e9599ebdd9062f1b5c224986bd0ba12ecad845221895392372ab872f4cd918d",
+    "wowmap/character_variants.py": "abf24f3d89967bb10dbe62b44ecd09dab90957519526f0cc281e909baf76c10f",
+    "wowmap/creature_appearances.py": "0c24425debb3cde33e141b54771640ef129fc299288445dbe154ca2343c45f56",
+    "wowmap/asset_index.py": "b6da239553c68c7ddc5ef569f01b083e7b0169fc97909c2185a09179d9dfc930",
+    "wowmap/icons.py": "427e10369ea3c2d16446a8479c6df2057eecc3486f5dcc5f879a0ec8422fe8d0",
+    "tools/build_foundry_batch.py": "7c2cb7fb0f6f7f70f9e911afb1dbcb70742988d39dbb1e7b72aae99b1ddd4655"
+  },
+  "tests": {
+    "map_tests": 168,
+    "map_skipped_native_mpq": 4,
+    "npc_builder_audit": "passed",
+    "local_markdown_documents": 44,
+    "original_model_renders": 18,
+    "live_foundry": false
+  }
+}

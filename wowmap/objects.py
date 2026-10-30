@@ -6,10 +6,10 @@ import math
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter
-from .models import inspect_model, preview
+from .models import inspect_model, preview,renderer_fingerprint
 
 LAYERS = ('ground', 'props', 'overhead')
-CACHE_VERSION = 'm2-topdown-4'
+CACHE_VERSION = 'm2-topdown-5'
 
 
 def finite(value, label):
@@ -60,6 +60,7 @@ def cached_sprite(assets, model, cache, resolution=768):
     if info['missing']: raise ValueError('Missing model dependencies: '+', '.join(info['missing']))
     paths=[info['path']]+info['required_skins']+info['required_textures']
     digest=hashlib.sha256((CACHE_VERSION+str(resolution)).encode())
+    digest.update(renderer_fingerprint().encode())
     for path in sorted(set(paths)):
         digest.update(path.encode());digest.update(hashlib.sha256(assets.read(path)).digest())
     key=digest.hexdigest();cache=Path(cache);cache.mkdir(parents=True,exist_ok=True)
@@ -73,6 +74,7 @@ def cached_sprite(assets, model, cache, resolution=768):
                 image.load();return image.convert('RGBA'),metadata,True
         except (OSError,ValueError,KeyError): pass
     image,metadata=preview(assets,model,resolution)
+    metadata['renderer_fingerprint']=renderer_fingerprint()
     temp=png.with_suffix('.tmp');image.save(temp,format='PNG');temp.replace(png)
     metadata['png_sha256']=hashlib.sha256(png.read_bytes()).hexdigest()
     temp=meta.with_suffix('.tmp');temp.write_text(json.dumps(metadata,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(meta)
