@@ -10,6 +10,8 @@ import io
 import json
 from pathlib import Path
 import struct
+import hashlib
+from functools import lru_cache
 from zipfile import ZipFile
 import numpy as np
 from PIL import Image
@@ -20,14 +22,32 @@ RAW_CACHE_BYTES = 16 * 1024 * 1024
 IMAGE_CACHE_BYTES = 32 * 1024 * 1024
 
 
+@lru_cache(maxsize=1)
+def renderer_fingerprint():
+    """Invalidate stored sprites when projection, materials or BLP decoding change."""
+    digest=hashlib.sha256()
+    for name in ('models.py','images.py','effects.py'):
+        digest.update(Path(__file__).with_name(name).read_bytes())
+    digest.update(np.__version__.encode());digest.update(Image.__version__.encode())
+    return digest.hexdigest()
+
+
 class RawAssets:
     def __init__(self, folder, verify_archives=False):
         self.files = {}
         self.archives = []
         self.cache = OrderedDict()
         self.raw_cache = OrderedDict()
+        self._index_connection=None
+        self.indexed=False
         try:
             folder=Path(folder)
+            if not verify_archives:
+                from .asset_index import open_index
+                self._index_connection,indexed_files=open_index(folder,self)
+                if indexed_files is not None:
+                    self.files=indexed_files;self.indexed=True
+                    return
             for path in sorted([*folder.glob('*.zip'),*(folder/'packages').glob('*.zip')]):
                 archive = ZipFile(path)
                 self.archives.append(archive)
@@ -54,7 +74,8 @@ class RawAssets:
     def close(self):
         for archive in self.archives: archive.close()
         self.archives.clear()
-        self.files.clear()
+        if self._index_connection is not None:self._index_connection.close();self._index_connection=None
+        self.files={}
         self.cache.clear()
         self.raw_cache.clear()
 
@@ -110,7 +131,8 @@ def model_info(data, name):
     vertices, _ = array_at(data,60,48)
     views = struct.unpack_from('<I',data,68)[0]
     if not 1 <= views <= 8: raise ValueError('Invalid number of skin profiles')
-    return dict(path=normalize(name),vertices=vertices,textures=textures,
+    from .effects import effect_features
+    return dict(path=normalize(name),vertices=vertices,textures=textures,effect_features=effect_features(data),
                 skins=[normalize(name[:-3]+f'{index:02d}.skin') for index in range(views)])
 
 
@@ -121,9 +143,10 @@ def inspect_model(assets, name, geosets=None):
     info['replaceable_texture_types'] = sorted({t['kind'] for t in info['textures'] if t['kind'] != 0})
     if assets.has(info['skins'][0]):
         draws=material_draws(assets,data,info,geosets)
-        used={d['texture'] for d in draws if d['texture']}
+        layers=[layer for d in draws for layer in [d,*d.get('secondary',[])]]
+        used={d['texture'] for d in layers if d['texture']}
         info['required_textures']=sorted(used)
-        info['used_replaceable_texture_types']=sorted({d['texture_kind'] for d in draws if d['texture_kind']})
+        info['used_replaceable_texture_types']=sorted({d['texture_kind'] for d in layers if d['texture_kind']})
         info['blend_modes']=sorted({d['blend'] for d in draws})
         info['inspection_complete']=True
     else:
@@ -157,13 +180,30 @@ def material_draws(assets, data, info, geosets=None):
         if geosets is not None and sections[section_index][0] not in geosets:continue
         if section_index>=len(sections) or material_index>=len(materials) or combo>=len(texture_lookup):
             raise ValueError('Invalid material batch')
-        if texture_count!=1: raise ValueError('Preview supports single-texture batches only')
+        if texture_count not in (1,2): raise ValueError('Preview supports at most two texture stages')
+        if combo+texture_count>len(texture_lookup):raise ValueError('Invalid texture lookup range')
+        secondary=[]
+        if texture_count==2:
+            # WotLK flag 8 supplies explicit fixed-function combiner operations.
+            # Only the documented pairs used by the selected Faceless models.
+            if not struct.unpack_from('<I',data,16)[0]&8:raise ValueError('Two-stage material needs explicit combiner table')
+            n,off=array_at(data,304,2);shader=batch[2]
+            if shader+2>n:raise ValueError('Invalid texture combiner lookup')
+            first,second=struct.unpack_from('<2H',data,off+shader*2)
+            if first!=1 or second not in (1,3,4,6,7):raise ValueError('Unsupported two-stage texture combiner')
+            ti=int(texture_lookup[combo+1])
+            if ti>=len(info['textures']) or batch[10]+1>=len(coordinates):raise ValueError('Invalid second texture lookup')
+            t=info['textures'][ti]
+            secondary=[dict(texture=t['path'],texture_kind=t['kind'],coordinate=int(coordinates[batch[10]+1]),
+                            texture_wrap=(bool(t['flags']&1),bool(t['flags']&2)),combiner=second)]
         tex_index=int(texture_lookup[combo])
         if tex_index>=len(info['textures']): raise ValueError('Invalid texture lookup')
         flags,blend=materials[material_index]
         if len(coordinates):
-            if batch[7]>=len(coordinates):raise ValueError('Invalid texture-coordinate lookup')
-            coordinate=int(coordinates[batch[7]])
+            # M2Batch.materialLayer is not a texture-coordinate index.
+            # The SKIN record stores textureCoordComboIndex at field 10.
+            if batch[10]>=len(coordinates):raise ValueError('Invalid texture-coordinate lookup')
+            coordinate=int(coordinates[batch[10]])
         else:coordinate=0
         section=sections[section_index]
         start=section[4]+(section[1]<<16); length=section[5]
@@ -171,8 +211,9 @@ def material_draws(assets, data, info, geosets=None):
         triangles=lookup[indices[start:start+length]].reshape(-1,3)
         texture=info['textures'][tex_index]
         if texture['kind']==0 and not texture['path']:raise ValueError('Selected material has no texture path')
-        draws.append(dict(triangles=triangles,texture=texture['path'],texture_kind=texture['kind'],
-                          coordinate=coordinate,blend=blend,flags=flags))
+        draws.append(dict(color_index=batch[5] if batch[5]<32768 else batch[5]-65536,weight_combo=batch[11],triangles=triangles,texture=texture['path'],texture_kind=texture['kind'],
+                          coordinate=coordinate,blend=blend,flags=flags,
+                          texture_wrap=(bool(texture['flags']&1),bool(texture['flags']&2)),secondary=secondary))
     return draws
 
 
@@ -195,11 +236,42 @@ def mesh_data(assets, name, texture_overrides=None, geosets=None):
         raise ValueError('Non-finite model geometry')
     draws=material_draws(assets,data,info,geosets)
     for draw in draws:
-        if draw['blend'] not in (0,1,2,4):raise ValueError(f"Unsupported preview blend mode: {draw['blend']}")
-        if draw['coordinate'] not in (-1,0,1):raise ValueError('Unsupported texture coordinate type')
-        if draw['texture_kind']:draw['texture']=normalize(overrides[draw['texture_kind']])
-        if not assets.has(draw['texture']):raise ValueError('Missing selected skin: '+draw['texture'])
+        if draw['blend'] not in (0,1,2,4,6):raise ValueError(f"Unsupported preview blend mode: {draw['blend']}")
+        for layer in [draw,*draw.get('secondary',[])]:
+            if layer['coordinate'] not in (-1,0,1):raise ValueError('Unsupported texture coordinate type')
+            if layer['texture_kind']:layer['texture']=normalize(overrides[layer['texture_kind']])
+            if not assets.has(layer['texture']):raise ValueError('Missing selected skin: '+layer['texture'])
     return vertices,draws,info
+
+
+def combine_secondary(base,second,operation):
+    """Fixed-function Mod, Mod2x, Add and Mod2xNA; cutout alpha approximation."""
+    color=base.copy()
+    if operation in (1,4):
+        color[...,:3]*=second[...,:3]*(2 if operation==4 else 1)
+        color[...,3]*=second[...,3]
+    elif operation==6:color[...,:3]*=2*second[...,:3]  # alpha unchanged (NA)
+    elif operation==3:color=np.minimum(color+second,1)
+    elif operation==7:color[...,:3]=np.minimum(color[...,:3]+second[...,:3],1)  # AddNA: preserve alpha
+    else:raise ValueError('Unsupported secondary combiner')
+    return np.clip(color,0,1)
+
+
+def multiplicative_composite(base,source):
+    """Flatten Mod2x only over existing object coverage; no map-background guess."""
+    result=base.copy();mask=(source[...,3]>0)&(base[...,3]>0)
+    result[...,:3][mask]=np.clip(2*base[...,:3][mask]*source[...,:3][mask],0,1)
+    return result
+
+
+def sample_material(tex,layer,weights,vertices,tri,normals):
+    uv=sphere_uv(normals) if layer['coordinate']==-1 else weights@vertices['uv2' if layer['coordinate']==1 else 'uv'][tri]
+    pixels=[]
+    for axis,extent in [(0,tex.shape[1]),(1,tex.shape[0])]:
+        c=uv[:,:,axis]
+        p=np.floor((c%1)*extent).astype(int)%extent if layer['texture_wrap'][axis] else np.floor(np.clip(c,0,1)*extent).astype(int).clip(0,extent-1)
+        pixels.append(p)
+    return tex[pixels[1],pixels[0]].astype(np.float32)/255
 
 
 def sphere_uv(normals):
@@ -237,6 +309,42 @@ def composed_mesh(assets,name,texture_overrides=None,geosets=None,attachments=No
         if options.get('preset')!='bind':
             skeleton=Skeleton(assets,name,options,gear)
             vertices=skeleton.skin(vertices)
+    # Sample M2Color alpha AND texture-weight tracks at the same time as bones.
+    # Several models store mutually exclusive whole bodies in color-index batches.
+    hidden=[]
+    material_sampler=skeleton
+    if material_sampler is None:
+        # Bind geometry still needs the default material-visibility state.
+        from .poses import Skeleton,sequences
+        rows=sequences(assets.read(name))
+        if rows:
+            row=next((r for r in rows if r['animation_id']==0 and r['variation']==0),rows[0])
+            material_sampler=Skeleton(assets,name,{'animation_id':row['animation_id'],'variation':row['variation'],'time_ms':0})
+    if material_sampler is not None:
+        data=assets.read(name)
+        n_colors,o_colors=array_at(data,72,40)
+        n_lookup,o_lookup=array_at(data,144,2)
+        n_weights,o_weights=array_at(data,88,20)
+        keep=[]
+        for index,draw in enumerate(draws):
+            alpha=1.;color=np.ones(3,dtype=np.float64)
+            ci=draw.get('color_index',-1)
+            if ci>=0:
+                if ci>=n_colors:raise ValueError('Invalid material color index')
+                off=o_colors+ci*40
+                color=material_sampler.track(off,'color',[1,1,1],material_sampler.sequence,material_sampler.time)
+                alpha=float(material_sampler.track(off+20,'alpha',[1],material_sampler.sequence,material_sampler.time)[0])
+            combo=draw.get('weight_combo',65535)
+            if combo<n_lookup:
+                wi=struct.unpack_from('<H',data,o_lookup+combo*2)[0]
+                if wi<n_weights:
+                    alpha*=float(material_sampler.track(o_weights+wi*20,'alpha',[1],material_sampler.sequence,material_sampler.time)[0])
+            draw['material_color']=np.clip(color,0,1).tolist()
+            draw['material_alpha']=alpha
+            if alpha<=1e-6:hidden.append(index)
+            else:keep.append(draw)
+        draws=keep
+        info['hidden_material_batches']=hidden
     for part in attachments or []:
         extra,batches,part_info=mesh_data(assets,part['model'],part.get('textures'))
         translation=np.asarray(part['position'],dtype=np.float32)
@@ -277,11 +385,10 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
         # Apply the same proper rotation to normals; this is not a mirrored image.
         for key in ('position','normal'):vertices[key][:]=vertices[key][:,[1,2,0]]
     xyz=vertices['position']
-    if geosets is not None:
-        triangles=[d['triangles'].reshape(-1) for d in draws if d['triangles'].size]
-        if not triangles:raise ValueError('Selected geosets contain no triangles')
-        bounds_xyz=xyz[np.unique(np.concatenate(triangles))]
-    else:bounds_xyz=xyz
+    # Frame only retained geometry, including alpha-hidden body variants.
+    triangles=[d['triangles'].reshape(-1) for d in draws if d['triangles'].size]
+    if not triangles:raise ValueError('Selected materials contain no triangles')
+    bounds_xyz=xyz[np.unique(np.concatenate(triangles))]
     low=bounds_xyz[:,:2].min(axis=0); high=bounds_xyz[:,:2].max(axis=0)
     span=max(high-low)
     if span<1e-6: raise ValueError('Degenerate projected bounds')
@@ -295,11 +402,14 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
     # Geometry may already be posed; no particle, ribbon or UV animation evaluation.
     epsilon=span*1e-5
     # Finish solid/cutout geometry before its additive overlay, including coplanar passes.
-    for draw in sorted(draws,key=lambda d:d['blend']==4):
+    for draw in sorted(draws,key=lambda d:{6:1,4:2}.get(d['blend'],0)):
         additive=draw['blend']==4
-        layer=np.zeros_like(image) if additive else image
-        layer_depth=np.full_like(depth,-np.inf) if additive else depth
-        tex=assets.image(draw['texture'])
+        multiplicative=draw['blend']==6
+        overlay=additive or multiplicative
+        layer=np.zeros_like(image) if overlay else image
+        layer_depth=np.full_like(depth,-np.inf) if overlay else depth
+        # Resolve/decode each material texture once per batch, not per triangle.
+        textures=[assets.image(part['texture']) for part in [draw,*draw.get('secondary',[])]]
         for tri in draw['triangles']:
             p=screen[tri]; z=xyz[tri,2]
             xmin=max(0,int(np.floor(p[:,0].min())));xmax=min(size-1,int(np.ceil(p[:,0].max())))
@@ -317,22 +427,28 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
             height=weights@z
             db=layer_depth[ymin:ymax+1,xmin:xmax+1]
             covered &= height>db
-            if additive and not draw['flags']&8:
+            if overlay and not draw['flags']&8:
                 covered &= height>=depth[ymin:ymax+1,xmin:xmax+1]-epsilon
+            if not covered.any():continue
             normals=weights@vertices['normal'][tri]
-            if draw['coordinate']==-1:tuv=sphere_uv(normals)
-            else:tuv=weights@vertices['uv2' if draw['coordinate']==1 else 'uv'][tri]
-            tx=np.floor((tuv[:,:,0]%1)*tex.shape[1]).astype(int)%tex.shape[1]
-            ty=np.floor((tuv[:,:,1]%1)*tex.shape[0]).astype(int)%tex.shape[0]
-            color=tex[ty,tx].astype(np.float32)/255
+            color=sample_material(textures[0],draw,weights,vertices,tri,normals)
             if draw['blend']==0: color[:,:,3]=1
+            for extra,tex in zip(draw.get('secondary',[]),textures[1:]):
+                color=combine_secondary(color,sample_material(tex,extra,weights,vertices,tri,normals),extra['combiner'])
+            if draw['blend']==0: color[:,:,3]=1
+            elif multiplicative:color[:,:,3]=1  # texture alpha is not coverage for Mod2x
             elif additive:covered &= (color[:,:,3]>0)&(color[:,:,:3].max(axis=-1)>0)
             else: covered &= color[:,:,3]>=.5
+            color[:,:,:3]*=np.asarray(draw.get('material_color',[1,1,1]))
+            color[:,:,3]*=draw.get('material_alpha',1.)
+            covered &= color[:,:,3]>1e-6
             shade=.65+.35*np.maximum(normals@light,0)
             if draw['flags']&1:shade=np.ones_like(shade)
             color[:,:,:3]*=shade[:,:,None]
             dest=layer[ymin:ymax+1,xmin:xmax+1]
             dest[covered]=color[covered];db[covered]=height[covered]
+        if multiplicative:
+            image=multiplicative_composite(image,layer)
         if additive:
             image=additive_composite(image,layer)
             if not draw['flags']&16:
@@ -342,9 +458,12 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
     metadata=dict(path=normalize(name),pixels=size,world_xy_bounds=[low.tolist(),high.tolist()],
                   anchor_pixels=[float(v) for v in pivot],pixels_per_world_unit=float(scale),
                   limitations=['static base pose','no billboarding','no particles or ribbons',
-                               'single texture per batch','alpha blend approximated by cutout'])
+                               'limited two-stage combiners','alpha blend approximated by cutout'])
+    metadata['hidden_material_batches']=info.get('hidden_material_batches',[])
+    metadata['effect_features']=info['effect_features']
     metadata['blend_modes']=sorted({d['blend'] for d in draws})
-    metadata['used_textures']=sorted({d['texture'] for d in draws})
+    if 6 in metadata['blend_modes']:metadata['limitations'].append('Mod2x flattened over existing object coverage only; no background modulation')
+    metadata['used_textures']=sorted({layer['texture'] for d in draws for layer in [d,*d.get('secondary',[])]})
     if 'pose' in info:
         metadata['pose']=info['pose']
         metadata['limitations'][0]='single sampled skeletal frame'
@@ -367,6 +486,7 @@ def main():
     parser.add_argument('command',choices=['audit','preview'])
     parser.add_argument('--packages',required=True)
     parser.add_argument('--model')
+    parser.add_argument('--display-id',type=int,help='Original CreatureDisplayInfo ID; resolve skin slots from DBC')
     parser.add_argument('--catalog',help='Optional full catalog.jsonl.gz to locate missing dependencies')
     parser.add_argument('--filter',default='ashenvale')
     parser.add_argument('--size',type=int,default=512)
@@ -390,8 +510,15 @@ def main():
                 (out/'audit.json').write_text(json.dumps(reports,ensure_ascii=False,indent=2),encoding='utf-8')
                 print(f'Inspected {len(reports)} models; see {out / "audit.json"}')
             else:
-                if not args.model:raise ValueError('--model is required for preview')
-                image,metadata=preview(assets,args.model,args.size)
+                textures=None
+                if args.display_id is not None:
+                    from .creature_appearances import creature_display_skin
+                    display=creature_display_skin(assets,args.display_id)
+                    if args.model and normalize(args.model)!=display['model']:raise ValueError('--model conflicts with display ID')
+                    args.model=display['model'];textures=display['textures']
+                if not args.model:raise ValueError('--model or --display-id is required for preview')
+                image,metadata=preview(assets,args.model,args.size,texture_overrides=textures)
+                if args.display_id is not None:metadata['display_id']=args.display_id
                 image.save(out/'model.png')
                 (out/'model.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2),encoding='utf-8')
                 print(out/'model.png')

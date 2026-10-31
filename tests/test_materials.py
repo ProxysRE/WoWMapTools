@@ -7,7 +7,7 @@ from zipfile import ZipFile
 import numpy as np
 from PIL import Image
 from test_models import fixture
-from wowmap.models import RawAssets,inspect_model,preview,additive_composite,sphere_uv
+from wowmap.models import RawAssets,inspect_model,preview,additive_composite,sphere_uv,combine_secondary,material_draws,model_info
 from wowmap.objects import cached_sprite
 from wowmap.catalog import requirements
 
@@ -56,6 +56,48 @@ def overlay_fixture(overlay_z=0, coordinate=0, duplicate=False, blend=4):
 
 
 class MaterialTests(unittest.TestCase):
+    def test_material_layer_is_not_the_uv_lookup_index(self):
+        model,skin,texture=fixture();model=bytearray(model);skin=bytearray(skin)
+        struct.pack_into('<II',model,136,1,len(model));model.extend(struct.pack('<h',0))
+        n,off=struct.unpack_from('<II',skin,36)
+        struct.pack_into('<H',skin,off+12,9)  # materialLayer=9; only UV lookup 0 exists
+        with tempfile.TemporaryDirectory() as temp:
+            with ZipFile(Path(temp)/'assets.zip','w') as z:
+                z.writestr('world/test.m2',model);z.writestr('world/test00.skin',skin);z.writestr('tileset/test/red.png',texture)
+            with RawAssets(temp) as raw:
+                im,_=preview(raw,'world/test.m2',64)
+                self.assertTrue(im.getbbox())
+
+    def test_two_stage_material_dependencies_and_mod2x_no_alpha(self):
+        original,skin,_=fixture();model=bytearray(original[:160]+b'\0'*152+original[160:]);skin=bytearray(skin)
+        for header in (60,80,112,128):
+            n,off=struct.unpack_from('<II',original,header);struct.pack_into('<II',model,header,n,off+152)
+        n,off=struct.unpack_from('<II',model,80)
+        pathlen,pathoff=struct.unpack_from('<II',model,off+8)
+        struct.pack_into('<I',model,off+12,pathoff+152)
+        name=b'tileset/test/second.png\0';records=bytes(model[off:off+16]);newoff=len(model)
+        struct.pack_into('<II',model,80,2,newoff)
+        model.extend(records+struct.pack('<4I',0,0,len(name),newoff+32)+name)
+        for header,raw,count in [(128,struct.pack('<2H',0,1),2),(136,struct.pack('<2h',0,-1),2),(304,struct.pack('<2H',1,6),2)]:
+            struct.pack_into('<II',model,header,count,len(model));model.extend(raw)
+        struct.pack_into('<I',model,16,8)
+        _,off=struct.unpack_from('<II',skin,36);struct.pack_into('<H',skin,off+14,2)
+        with tempfile.TemporaryDirectory() as temp:
+            with ZipFile(Path(temp)/'assets.zip','w') as z:
+                z.writestr('world/test.m2',model);z.writestr('world/test00.skin',skin)
+                z.writestr('tileset/test/red.png',png((0,100,0,255)))
+            with RawAssets(temp) as raw:
+                info=inspect_model(raw,'world/test.m2')
+                self.assertEqual(info['missing'],['tileset/test/second.png'])
+            with ZipFile(Path(temp)/'assets.zip','a') as z:z.writestr('tileset/test/second.png',png((128,128,128,0)))
+            with RawAssets(temp) as raw:
+                im,meta=preview(raw,'world/test.m2',128)
+                self.assertEqual(len(meta['used_textures']),2)
+                self.assertEqual(im.getpixel((64,64))[3],255,'Mod2xNA must not erase opaque body with transparent reflection map')
+        base=np.array([[[.2,.4,.6,.7]]]);second=np.array([[[.5,.25,1,0]]])
+        np.testing.assert_allclose(combine_secondary(base,second,6),[[[.2,.2,1,.7]]])
+        np.testing.assert_allclose(combine_secondary(base,second,3),[[[.7,.65,1,.7]]])
+
     def test_additive_light_preserves_opaque_alpha_and_black_does_not_cover_background(self):
         base=np.array([[[.2,.3,.4,1],[0,0,0,0]]],dtype=np.float32)
         source=np.array([[[.6,.2,0,.5],[0,0,0,1]]],dtype=np.float32)
@@ -111,6 +153,7 @@ class MaterialTests(unittest.TestCase):
             with ZipFile(root/'assets.zip','w') as z:
                 z.writestr('world/test.m2',model);z.writestr('world/test00.skin',skin)
                 z.writestr('tileset/test/red.png',texture)
+                z.writestr('ground.blp',texture)
             with RawAssets(root) as assets:
                 info=inspect_model(assets,'world/test.m2')
                 self.assertEqual(info['missing'],[])

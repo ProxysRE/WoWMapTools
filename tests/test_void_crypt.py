@@ -50,6 +50,17 @@ class VoidCryptEntranceTests(unittest.TestCase):
         ids = [w["id"] for w in plan["walls"]]
         self.assertEqual(len(ids), len(set(ids)))
 
+    def test_burials_are_models_with_footprints_and_descent_is_textured(self):
+        plan=self.load()
+        burials=[o for o in plan['objects'] if o['id'].endswith('-stone')]
+        self.assertEqual(len(burials),4)
+        self.assertEqual({Path(o['model']).name for o in burials},{'sarcophagus.m2','coffin.m2'})
+        self.assertFalse(any(d['id'].startswith(('west-sarc-','east-bier-','stair-tread-')) for d in plan['details']))
+        self.assertEqual(len(plan['stairs']),1);self.assertEqual(plan['stairs'][0]['steps'],8)
+        self.assertIn('jacryptstair.blp',plan['stairs'][0]['asset'])
+        self.assertTrue(all(any(b['id']==o['id'].removesuffix('-stone')+'-footprint' for b in plan['foundry']['barriers']) for o in burials))
+        self.assertEqual(plan['burials'][0]['state'],'broken')
+
     def test_foundry_regions_link_to_next_scene(self):
         plan = self.load()
         scene = compile_scene(

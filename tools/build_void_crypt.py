@@ -19,12 +19,7 @@ from wowmap.models import RawAssets, inspect_model, preview
 from wowmap.render import render, resource_names, validate
 
 SCENES=("crypt-entrance","crypt-passages","crypt-sanctum")
-PACKAGE_NAMES=(
-    "dungeons-textures-c1558cc2-001.zip",
-    "tileset-ashenvale-fabe58ef-001.zip",
-    "world-azeroth-duskwood-fa40c120-001.zip",
-    "world-generic-human-36964228-001.zip",
-)
+PACKAGE_NAMES=tuple(row['file'] for row in json.loads((ROOT/'resources/void-crypt-r3-assets.json').read_text(encoding='utf-8'))['packages'])
 
 
 def scene_file(key):
@@ -95,10 +90,11 @@ def archive_export(bundle,zip_path):
 
 def main(argv=None):
     ap=argparse.ArgumentParser(description="Render and export the linked three-scene Void Crypt")
-    ap.add_argument("--packages",required=True,help="Folder containing the three private WotLK ZIP packages")
+    ap.add_argument("--packages",required=True,help="Folder containing the private WotLK ZIP packages listed in the asset manifest")
     ap.add_argument("--out",required=True,help="Working/output directory (must not contain a previous export)")
     ap.add_argument("--id",default="void-crypt",help="Unique Foundry bundle slug; default void-crypt")
     ap.add_argument("--preflight-only",action="store_true",help="Verify real texture/M2 dependencies and link schema without rendering")
+    ap.add_argument("--visual-review",help="Author's reviewed appearance signatures; regenerate proofs before using")
     args=ap.parse_args(argv)
     try:
         start=time.perf_counter()
@@ -108,6 +104,10 @@ def main(argv=None):
         if not args.preflight_only and ((export_path.exists() and any(export_path.iterdir())) or zip_path.exists()):
             raise ValueError("Export already exists: use a new --id/--out (existing assets are never overwritten)")
         plans,checks=preflight(args.packages,args.id)
+        if args.visual_review:
+            from wowmap.review import review_plans,verify_decisions
+            with RawAssets(args.packages) as raw:review=review_plans(plans,raw,work/'visual-review')
+            verify_decisions(review,json.loads(Path(args.visual_review).read_text(encoding='utf-8-sig')))
         print(json.dumps({"status":"preflight_ok","checks":checks},ensure_ascii=False,indent=2),flush=True)
         if args.preflight_only:
             return 0

@@ -1,0 +1,54 @@
+{
+  "format": "wowmap.character-variants.request/1",
+  "seed": 28102026,
+  "count": 6,
+  "portrait_yaw": 30,
+  "bodies": [
+    {
+      "id": "human-male",
+      "character": {
+        "race": "human",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "human-female",
+      "character": {
+        "race": "human",
+        "gender": "female"
+      }
+    }
+  ],
+  "outfits": [
+    {
+      "id": "blue-mage",
+      "equipment": {
+        "chest": 14136,
+        "boots": 43,
+        "main_hand": 35
+      },
+      "pose": "idle"
+    },
+    {
+      "id": "dark-mage",
+      "equipment": {
+        "chest": 14152,
+        "boots": 43,
+        "main_hand": 35
+      },
+      "pose": "idle"
+    },
+    {
+      "id": "mail-guard",
+      "equipment": {
+        "chest": 285,
+        "legs": 286,
+        "boots": 287,
+        "gloves": 718,
+        "main_hand": 25,
+        "off_hand": 2362
+      },
+      "pose": "idle"
+    }
+  ]
+}

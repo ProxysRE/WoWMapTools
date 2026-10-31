@@ -138,6 +138,346 @@
         ],
         "feather": 0.47
       }
+    },
+    {
+      "id": "dev2-weathered-0",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.15,
+      "opacity": 0.5,
+      "tint": "#67506e",
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            10.5,
+            16.2
+          ],
+          [
+            13.7,
+            16
+          ],
+          [
+            14,
+            18.5
+          ],
+          [
+            12.25,
+            19
+          ],
+          [
+            10.7,
+            18.6
+          ]
+        ],
+        "feather": 0.18,
+        "roughness": 0.24
+      }
+    },
+    {
+      "id": "dev2-weathered-1",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.15,
+      "opacity": 0.5,
+      "tint": "#67506e",
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            25,
+            9.7
+          ],
+          [
+            28.7,
+            9.5
+          ],
+          [
+            29,
+            12.5
+          ],
+          [
+            27.0,
+            13
+          ],
+          [
+            25.2,
+            12.6
+          ]
+        ],
+        "feather": 0.18,
+        "roughness": 0.24
+      }
+    },
+    {
+      "id": "dev2-weathered-2",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.15,
+      "opacity": 0.5,
+      "tint": "#67506e",
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            28,
+            20.2
+          ],
+          [
+            30.7,
+            20
+          ],
+          [
+            31,
+            23.5
+          ],
+          [
+            29.5,
+            24
+          ],
+          [
+            28.2,
+            23.6
+          ]
+        ],
+        "feather": 0.18,
+        "roughness": 0.24
+      }
+    },
+    {
+      "id": "dev2-weathered-3",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.15,
+      "opacity": 0.5,
+      "tint": "#67506e",
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            16,
+            24.2
+          ],
+          [
+            19.7,
+            24
+          ],
+          [
+            20,
+            26.5
+          ],
+          [
+            18.0,
+            27
+          ],
+          [
+            16.2,
+            26.6
+          ]
+        ],
+        "feather": 0.18,
+        "roughness": 0.24
+      }
+    },
+    {
+      "id": "r3-void-soil-0",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.2,
+      "tint": "#6d5181",
+      "opacity": 0.38,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            31.428327609037954,
+            19.642224407636313
+          ],
+          [
+            32.62832760903795,
+            19.462224407636313
+          ],
+          [
+            32.828327609037956,
+            20.11222440763631
+          ],
+          [
+            32.228327609037954,
+            20.462224407636313
+          ],
+          [
+            31.578327609037952,
+            20.262224407636314
+          ]
+        ],
+        "feather": 0.2,
+        "roughness": 0.23
+      }
+    },
+    {
+      "id": "r3-void-soil-2",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.2,
+      "tint": "#6d5181",
+      "opacity": 0.38,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            24.16482761958006,
+            28.298526614880764
+          ],
+          [
+            25.36482761958006,
+            28.118526614880764
+          ],
+          [
+            25.564827619580058,
+            28.768526614880763
+          ],
+          [
+            24.964827619580056,
+            29.118526614880764
+          ],
+          [
+            24.314827619580058,
+            28.918526614880765
+          ]
+        ],
+        "feather": 0.2,
+        "roughness": 0.23
+      }
+    },
+    {
+      "id": "r3-void-soil-4",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.2,
+      "tint": "#6d5181",
+      "opacity": 0.38,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            13.036500010542106,
+            26.33630220724445
+          ],
+          [
+            14.236500010542105,
+            26.15630220724445
+          ],
+          [
+            14.436500010542105,
+            26.80630220724445
+          ],
+          [
+            13.836500010542105,
+            27.15630220724445
+          ],
+          [
+            13.186500010542106,
+            26.956302207244452
+          ]
+        ],
+        "feather": 0.2,
+        "roughness": 0.23
+      }
+    },
+    {
+      "id": "r3-void-soil-6",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.2,
+      "tint": "#6d5181",
+      "opacity": 0.38,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            9.17167239096205,
+            15.717775592363687
+          ],
+          [
+            10.371672390962049,
+            15.537775592363687
+          ],
+          [
+            10.571672390962048,
+            16.187775592363685
+          ],
+          [
+            9.971672390962048,
+            16.537775592363687
+          ],
+          [
+            9.32167239096205,
+            16.337775592363688
+          ]
+        ],
+        "feather": 0.2,
+        "roughness": 0.23
+      }
+    },
+    {
+      "id": "r3-void-soil-8",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.2,
+      "tint": "#6d5181",
+      "opacity": 0.38,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            16.435172380419946,
+            7.061473385119234
+          ],
+          [
+            17.635172380419945,
+            6.881473385119234
+          ],
+          [
+            17.835172380419944,
+            7.531473385119234
+          ],
+          [
+            17.235172380419943,
+            7.881473385119234
+          ],
+          [
+            16.585172380419944,
+            7.681473385119234
+          ]
+        ],
+        "feather": 0.2,
+        "roughness": 0.23
+      }
+    },
+    {
+      "id": "r3-void-soil-10",
+      "asset": "dungeons/textures/floor/mm_duskwood_stonefloor_01.blp",
+      "tile_cells": 1.2,
+      "tint": "#6d5181",
+      "opacity": 0.38,
+      "shape": {
+        "type": "polygon",
+        "points": [
+          [
+            27.563499989457895,
+            9.023697792755547
+          ],
+          [
+            28.763499989457895,
+            8.843697792755547
+          ],
+          [
+            28.963499989457894,
+            9.493697792755547
+          ],
+          [
+            28.363499989457893,
+            9.843697792755547
+          ],
+          [
+            27.713499989457894,
+            9.643697792755548
+          ]
+        ],
+        "feather": 0.2,
+        "roughness": 0.23
+      }
     }
   ],
   "walls": [
@@ -1268,27 +1608,6 @@
       }
     },
     {
-      "id": "ancestral-bier-0",
-      "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
-      "position": [
-        13.4,
-        19
-      ],
-      "position_anchor": "bounds-center",
-      "size_cells": 1.5,
-      "rotation": 0,
-      "layer": "props",
-      "order": 10,
-      "shadow": {
-        "opacity": 0.2,
-        "blur_cells": 0.06,
-        "offset_cells": [
-          0.08,
-          0.1
-        ]
-      }
-    },
-    {
       "id": "ancestral-bier-1",
       "model": "world/generic/human/passive doodads/sarcophagi/sarcophagus.m2",
       "position": [
@@ -1497,6 +1816,549 @@
           0.1
         ]
       }
+    },
+    {
+      "id": "r3-ancestral-column-0",
+      "model": "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumn01.m2",
+      "position": [
+        15.5,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 0,
+      "layer": "props",
+      "order": 15,
+      "art_role": "pillar",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ancestral-column-1",
+      "model": "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumn01.m2",
+      "position": [
+        26.5,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 45,
+      "layer": "props",
+      "order": 15,
+      "art_role": "pillar",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ancestral-column-2",
+      "model": "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumn01.m2",
+      "position": [
+        15.5,
+        24
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 90,
+      "layer": "props",
+      "order": 15,
+      "art_role": "pillar",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ancestral-column-3",
+      "model": "world/azeroth/theblastedlands/passivedoodads/column/blastedlandsbrokencolumn01.m2",
+      "position": [
+        26.5,
+        24
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.7,
+      "rotation": 135,
+      "layer": "props",
+      "order": 15,
+      "art_role": "pillar",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-void-ritual",
+      "model": "world/goober/g_scourgerunecirclecrystal.m2",
+      "position": [
+        21,
+        18
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 6.3,
+      "rotation": 0,
+      "layer": "ground",
+      "order": 2,
+      "art_role": "ground_decal",
+      "shadow": false
+    },
+    {
+      "id": "r3-edge-memorial-0",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "position": [
+        13.1,
+        10
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 0,
+      "layer": "props",
+      "order": 15,
+      "art_role": "monument",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-edge-memorial-1",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "position": [
+        28.6,
+        11.1
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 37,
+      "layer": "props",
+      "order": 15,
+      "art_role": "monument",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-edge-memorial-2",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "position": [
+        13.0,
+        26.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 74,
+      "layer": "props",
+      "order": 15,
+      "art_role": "monument",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-edge-memorial-3",
+      "model": "world/azeroth/duskwood/passivedoodads/tombs/tombstonemonument01.m2",
+      "position": [
+        28.6,
+        25.5
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 1.25,
+      "rotation": 111,
+      "layer": "props",
+      "order": 15,
+      "art_role": "monument",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-0",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        32.12832760903795,
+        19.962224407636313
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-1",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        29.65630220724445,
+        25.263499989457895
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.77,
+      "rotation": 47,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-2",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        24.86482761958006,
+        28.618526614880764
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.89,
+      "rotation": 94,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-3",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        19.037775592363687,
+        29.128327609037953
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 141,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-4",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        13.736500010542105,
+        26.65630220724445
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.77,
+      "rotation": 188,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-5",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        10.381473385119236,
+        21.86482761958006
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.89,
+      "rotation": 235,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-6",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        9.871672390962049,
+        16.037775592363687
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 282,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-7",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        12.343697792755547,
+        10.736500010542105
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.77,
+      "rotation": 329,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-8",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        17.135172380419945,
+        7.381473385119234
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.89,
+      "rotation": 376,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-9",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        22.96222440763631,
+        6.871672390962047
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 423,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-10",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        28.263499989457895,
+        9.343697792755547
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.77,
+      "rotation": 470,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-fallen-masonry-11",
+      "model": "world/azeroth/karazahn/passivedoodads/rubble/karazahnrockrubble01.m2",
+      "position": [
+        31.618526614880764,
+        14.135172380419945
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.89,
+      "rotation": 517,
+      "layer": "props",
+      "order": 15,
+      "art_role": "walkable_debris",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ritual-candle-0",
+      "model": "world/generic/human/passive doodads/candelabras/candelabratall01.m2",
+      "position": [
+        14,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 0,
+      "layer": "props",
+      "order": 15,
+      "art_role": "small_furnishing",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ritual-candle-1",
+      "model": "world/generic/human/passive doodads/candelabras/candelabratall01.m2",
+      "position": [
+        28,
+        12
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 90,
+      "layer": "props",
+      "order": 15,
+      "art_role": "small_furnishing",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ritual-candle-2",
+      "model": "world/generic/human/passive doodads/candelabras/candelabratall01.m2",
+      "position": [
+        14,
+        24
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 180,
+      "layer": "props",
+      "order": 15,
+      "art_role": "small_furnishing",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
+    },
+    {
+      "id": "r3-ritual-candle-3",
+      "model": "world/generic/human/passive doodads/candelabras/candelabratall01.m2",
+      "position": [
+        28,
+        24
+      ],
+      "position_anchor": "bounds-center",
+      "size_cells": 0.65,
+      "rotation": 270,
+      "layer": "props",
+      "order": 15,
+      "art_role": "small_furnishing",
+      "shadow": {
+        "opacity": 0.3,
+        "blur_cells": 0.075,
+        "offset_cells": [
+          0.1,
+          0.12
+        ]
+      }
     }
   ],
   "details": [
@@ -1524,32 +2386,6 @@
       ],
       "stroke": "#7b7278",
       "width_cells": 0.1,
-      "opacity": 0.78
-    },
-    {
-      "id": "original-ritual-circle",
-      "type": "ellipse",
-      "bounds": [
-        16.5,
-        13.5,
-        25.5,
-        22.5
-      ],
-      "stroke": "#837980",
-      "width_cells": 0.2,
-      "opacity": 0.78
-    },
-    {
-      "id": "void-heart",
-      "type": "ellipse",
-      "bounds": [
-        18.2,
-        15.2,
-        23.8,
-        20.8
-      ],
-      "stroke": "#393045",
-      "width_cells": 0.14,
       "opacity": 0.78
     },
     {
@@ -3125,622 +3961,6 @@
       "opacity": 0.5
     },
     {
-      "id": "scattered-void-pools-0",
-      "type": "ellipse",
-      "bounds": [
-        29.459999999999997,
-        17.75,
-        30.34,
-        18.25
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.2
-    },
-    {
-      "id": "scattered-void-pools-1",
-      "type": "ellipse",
-      "bounds": [
-        29.42846821647323,
-        20.234828262356196,
-        30.308468216473234,
-        20.734828262356196
-      ],
-      "fill": "#523966",
-      "opacity": 0.27
-    },
-    {
-      "id": "scattered-void-pools-2",
-      "type": "ellipse",
-      "bounds": [
-        28.69407273128257,
-        22.696439204337327,
-        29.574072731282573,
-        23.196439204337327
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.34
-    },
-    {
-      "id": "scattered-void-pools-3",
-      "type": "ellipse",
-      "bounds": [
-        27.26949739783937,
-        24.93411752885396,
-        28.149497397839372,
-        25.43411752885396
-      ],
-      "fill": "#523966",
-      "opacity": 0.41000000000000003
-    },
-    {
-      "id": "scattered-void-pools-4",
-      "type": "ellipse",
-      "bounds": [
-        24.654578835807254,
-        25.65217844378114,
-        25.534578835807256,
-        26.15217844378114
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.2
-    },
-    {
-      "id": "scattered-void-pools-5",
-      "type": "ellipse",
-      "bounds": [
-        22.433829880214756,
-        26.767364447554193,
-        23.313829880214758,
-        27.267364447554193
-      ],
-      "fill": "#523966",
-      "opacity": 0.27
-    },
-    {
-      "id": "scattered-void-pools-6",
-      "type": "ellipse",
-      "bounds": [
-        19.910332224768332,
-        27.247806682693934,
-        20.790332224768335,
-        27.747806682693934
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.34
-    },
-    {
-      "id": "scattered-void-pools-7",
-      "type": "ellipse",
-      "bounds": [
-        17.268133412359205,
-        27.012424864428006,
-        18.148133412359208,
-        27.512424864428006
-      ],
-      "fill": "#523966",
-      "opacity": 0.41000000000000003
-    },
-    {
-      "id": "scattered-void-pools-8",
-      "type": "ellipse",
-      "bounds": [
-        15.427545133177683,
-        25.021032047792936,
-        16.307545133177683,
-        25.521032047792936
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.2
-    },
-    {
-      "id": "scattered-void-pools-9",
-      "type": "ellipse",
-      "bounds": [
-        13.415699012612295,
-        23.56231996724295,
-        14.295699012612294,
-        24.06231996724295
-      ],
-      "fill": "#523966",
-      "opacity": 0.27
-    },
-    {
-      "id": "scattered-void-pools-10",
-      "type": "ellipse",
-      "bounds": [
-        11.828148409668088,
-        21.54277837533622,
-        12.708148409668087,
-        22.04277837533622
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.34
-    },
-    {
-      "id": "scattered-void-pools-11",
-      "type": "ellipse",
-      "bounds": [
-        10.821557150462871,
-        19.088518160616108,
-        11.70155715046287,
-        19.588518160616108
-      ],
-      "fill": "#523966",
-      "opacity": 0.41000000000000003
-    },
-    {
-      "id": "scattered-void-pools-12",
-      "type": "ellipse",
-      "bounds": [
-        11.742895080276657,
-        16.538116823043406,
-        12.622895080276656,
-        17.038116823043406
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.2
-    },
-    {
-      "id": "scattered-void-pools-13",
-      "type": "ellipse",
-      "bounds": [
-        12.112483913134778,
-        14.080725962516116,
-        12.992483913134777,
-        14.580725962516116
-      ],
-      "fill": "#523966",
-      "opacity": 0.27
-    },
-    {
-      "id": "scattered-void-pools-14",
-      "type": "ellipse",
-      "bounds": [
-        13.175228512493925,
-        11.742042770015978,
-        14.055228512493924,
-        12.242042770015978
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.34
-    },
-    {
-      "id": "scattered-void-pools-15",
-      "type": "ellipse",
-      "bounds": [
-        14.891232433610856,
-        9.719185951707356,
-        15.771232433610855,
-        10.219185951707356
-      ],
-      "fill": "#523966",
-      "opacity": 0.41000000000000003
-    },
-    {
-      "id": "scattered-void-pools-16",
-      "type": "ellipse",
-      "bounds": [
-        17.57957145167822,
-        9.363877793142498,
-        18.459571451678222,
-        9.863877793142498
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.2
-    },
-    {
-      "id": "scattered-void-pools-17",
-      "type": "ellipse",
-      "bounds": [
-        19.931487372911384,
-        8.561470635755132,
-        20.811487372911387,
-        9.061470635755132
-      ],
-      "fill": "#523966",
-      "opacity": 0.27
-    },
-    {
-      "id": "scattered-void-pools-18",
-      "type": "ellipse",
-      "bounds": [
-        22.496901244261068,
-        8.429119485264286,
-        23.37690124426107,
-        8.929119485264286
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.34
-    },
-    {
-      "id": "scattered-void-pools-19",
-      "type": "ellipse",
-      "bounds": [
-        25.08243932089722,
-        9.022088303104649,
-        25.96243932089722,
-        9.522088303104649
-      ],
-      "fill": "#523966",
-      "opacity": 0.41000000000000003
-    },
-    {
-      "id": "scattered-void-pools-20",
-      "type": "ellipse",
-      "bounds": [
-        26.63472297464602,
-        11.245559917924695,
-        27.514722974646023,
-        11.745559917924695
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.2
-    },
-    {
-      "id": "scattered-void-pools-21",
-      "type": "ellipse",
-      "bounds": [
-        28.42920271587316,
-        12.964631820173658,
-        29.309202715873163,
-        13.464631820173658
-      ],
-      "fill": "#523966",
-      "opacity": 0.27
-    },
-    {
-      "id": "scattered-void-pools-22",
-      "type": "ellipse",
-      "bounds": [
-        29.726972575551045,
-        15.181534738585121,
-        30.606972575551048,
-        15.681534738585121
-      ],
-      "fill": "#3d345d",
-      "opacity": 0.34
-    },
-    {
-      "id": "floor-masonry-chip-0",
-      "type": "polygon",
-      "points": [
-        [
-          31.282725698469534,
-          19.865495705666167
-        ],
-        [
-          32.032725698469534,
-          20.01549570566617
-        ],
-        [
-          31.88272569846953,
-          20.615495705666167
-        ]
-      ],
-      "fill": "#4f4756",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-1",
-      "type": "polygon",
-      "points": [
-        [
-          28.768763983702396,
-          24.916737142127776
-        ],
-        [
-          29.518763983702396,
-          25.066737142127778
-        ],
-        [
-          29.368763983702394,
-          25.666737142127776
-        ]
-      ],
-      "fill": "#685f66",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-2",
-      "type": "polygon",
-      "points": [
-        [
-          24.065988556341757,
-          28.03425968936856
-        ],
-        [
-          24.815988556341757,
-          28.184259689368563
-        ],
-        [
-          24.665988556341755,
-          28.78425968936856
-        ]
-      ],
-      "fill": "#4f4756",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-3",
-      "type": "polygon",
-      "points": [
-        [
-          18.434504294333834,
-          28.38272569846953
-        ],
-        [
-          19.184504294333834,
-          28.532725698469534
-        ],
-        [
-          19.034504294333832,
-          29.13272569846953
-        ]
-      ],
-      "fill": "#685f66",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-4",
-      "type": "polygon",
-      "points": [
-        [
-          13.383262857872223,
-          25.868763983702394
-        ],
-        [
-          14.133262857872223,
-          26.018763983702396
-        ],
-        [
-          13.983262857872223,
-          26.618763983702394
-        ]
-      ],
-      "fill": "#4f4756",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-5",
-      "type": "polygon",
-      "points": [
-        [
-          10.265740310631438,
-          21.165988556341755
-        ],
-        [
-          11.015740310631438,
-          21.315988556341757
-        ],
-        [
-          10.865740310631438,
-          21.915988556341755
-        ]
-      ],
-      "fill": "#685f66",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-6",
-      "type": "polygon",
-      "points": [
-        [
-          9.917274301530465,
-          15.534504294333832
-        ],
-        [
-          10.667274301530465,
-          15.684504294333832
-        ],
-        [
-          10.517274301530465,
-          16.284504294333832
-        ]
-      ],
-      "fill": "#4f4756",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-7",
-      "type": "polygon",
-      "points": [
-        [
-          12.431236016297605,
-          10.483262857872223
-        ],
-        [
-          13.181236016297605,
-          10.633262857872223
-        ],
-        [
-          13.031236016297605,
-          11.233262857872223
-        ]
-      ],
-      "fill": "#685f66",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-8",
-      "type": "polygon",
-      "points": [
-        [
-          17.134011443658242,
-          7.36574031063144
-        ],
-        [
-          17.884011443658242,
-          7.51574031063144
-        ],
-        [
-          17.73401144365824,
-          8.11574031063144
-        ]
-      ],
-      "fill": "#4f4756",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-9",
-      "type": "polygon",
-      "points": [
-        [
-          22.76549570566617,
-          7.017274301530466
-        ],
-        [
-          23.51549570566617,
-          7.167274301530465
-        ],
-        [
-          23.365495705666167,
-          7.767274301530466
-        ]
-      ],
-      "fill": "#685f66",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-10",
-      "type": "polygon",
-      "points": [
-        [
-          27.81673714212778,
-          9.531236016297607
-        ],
-        [
-          28.56673714212778,
-          9.681236016297607
-        ],
-        [
-          28.41673714212778,
-          10.281236016297607
-        ]
-      ],
-      "fill": "#4f4756",
-      "opacity": 0.65
-    },
-    {
-      "id": "floor-masonry-chip-11",
-      "type": "polygon",
-      "points": [
-        [
-          30.93425968936856,
-          14.23401144365824
-        ],
-        [
-          31.68425968936856,
-          14.38401144365824
-        ],
-        [
-          31.534259689368557,
-          14.98401144365824
-        ]
-      ],
-      "fill": "#685f66",
-      "opacity": 0.65
-    },
-    {
-      "id": "pillar-stone-0",
-      "type": "rectangle",
-      "bounds": [
-        14.65,
-        11.15,
-        16.35,
-        12.85
-      ],
-      "fill": "#6c6574",
-      "stroke": "#352e3e",
-      "width_cells": 0.16
-    },
-    {
-      "id": "pillar-cap-0",
-      "type": "rectangle",
-      "bounds": [
-        14.95,
-        11.45,
-        16.05,
-        12.55
-      ],
-      "fill": "#a29a9d",
-      "opacity": 0.9
-    },
-    {
-      "id": "pillar-stone-1",
-      "type": "rectangle",
-      "bounds": [
-        25.65,
-        11.15,
-        27.35,
-        12.85
-      ],
-      "fill": "#6c6574",
-      "stroke": "#352e3e",
-      "width_cells": 0.16
-    },
-    {
-      "id": "pillar-cap-1",
-      "type": "rectangle",
-      "bounds": [
-        25.95,
-        11.45,
-        27.05,
-        12.55
-      ],
-      "fill": "#a29a9d",
-      "opacity": 0.9
-    },
-    {
-      "id": "pillar-stone-2",
-      "type": "rectangle",
-      "bounds": [
-        14.65,
-        23.15,
-        16.35,
-        24.85
-      ],
-      "fill": "#6c6574",
-      "stroke": "#352e3e",
-      "width_cells": 0.16
-    },
-    {
-      "id": "pillar-cap-2",
-      "type": "rectangle",
-      "bounds": [
-        14.95,
-        23.45,
-        16.05,
-        24.55
-      ],
-      "fill": "#a29a9d",
-      "opacity": 0.9
-    },
-    {
-      "id": "pillar-stone-3",
-      "type": "rectangle",
-      "bounds": [
-        25.65,
-        23.15,
-        27.35,
-        24.85
-      ],
-      "fill": "#6c6574",
-      "stroke": "#352e3e",
-      "width_cells": 0.16
-    },
-    {
-      "id": "pillar-cap-3",
-      "type": "rectangle",
-      "bounds": [
-        25.95,
-        23.45,
-        27.05,
-        24.55
-      ],
-      "fill": "#a29a9d",
-      "opacity": 0.9
-    },
-    {
       "id": "decayed-roots-0-root-0",
       "type": "line",
       "points": [
@@ -4237,93 +4457,364 @@
     ],
     "barriers": [
       {
-        "id": "pillar-collision-0",
+        "id": "r3-ancestral-column-0-footprint",
         "points": [
           [
-            14.65,
+            14.6625,
+            12.0
+          ],
+          [
+            14.7625,
+            11.575
+          ],
+          [
+            15.075,
+            11.25
+          ],
+          [
+            15.5,
             11.15
           ],
           [
-            16.35,
-            11.15
+            15.925,
+            11.25
           ],
           [
-            16.35,
+            16.2375,
+            11.575
+          ],
+          [
+            16.3375,
+            12.0
+          ],
+          [
+            16.2375,
+            12.425
+          ],
+          [
+            15.925,
+            12.75
+          ],
+          [
+            15.5,
             12.85
           ],
           [
-            14.65,
-            12.85
+            15.075,
+            12.75
+          ],
+          [
+            14.7625,
+            12.425
           ]
         ],
-        "closed": true
+        "closed": true,
+        "sight": "normal",
+        "light": "normal",
+        "sound": "none"
       },
       {
-        "id": "pillar-collision-1",
+        "id": "r3-ancestral-column-1-footprint",
         "points": [
           [
-            25.65,
-            11.15
+            25.675,
+            11.775
           ],
           [
-            27.35,
-            11.15
+            25.9125,
+            11.4125
           ],
           [
-            27.35,
-            12.85
+            26.275,
+            11.175
           ],
           [
-            25.65,
-            12.85
+            26.725,
+            11.175
+          ],
+          [
+            27.1,
+            11.4
+          ],
+          [
+            27.325,
+            11.775
+          ],
+          [
+            27.325,
+            12.225
+          ],
+          [
+            27.0875,
+            12.5875
+          ],
+          [
+            26.725,
+            12.825
+          ],
+          [
+            26.275,
+            12.825
+          ],
+          [
+            25.9,
+            12.6
+          ],
+          [
+            25.675,
+            12.225
           ]
         ],
-        "closed": true
+        "closed": true,
+        "sight": "normal",
+        "light": "normal",
+        "sound": "none"
       },
       {
-        "id": "pillar-collision-2",
+        "id": "r3-ancestral-column-2-footprint",
         "points": [
           [
             14.65,
-            23.15
+            24.0
+          ],
+          [
+            14.75,
+            23.575
+          ],
+          [
+            15.075,
+            23.2625
+          ],
+          [
+            15.5,
+            23.1625
+          ],
+          [
+            15.925,
+            23.2625
+          ],
+          [
+            16.25,
+            23.575
           ],
           [
             16.35,
-            23.15
+            24.0
           ],
           [
-            16.35,
-            24.85
+            16.25,
+            24.425
           ],
           [
-            14.65,
-            24.85
+            15.925,
+            24.7375
+          ],
+          [
+            15.5,
+            24.8375
+          ],
+          [
+            15.075,
+            24.7375
+          ],
+          [
+            14.75,
+            24.425
           ]
         ],
-        "closed": true
+        "closed": true,
+        "sight": "normal",
+        "light": "normal",
+        "sound": "none"
       },
       {
-        "id": "pillar-collision-3",
+        "id": "r3-ancestral-column-3-footprint",
         "points": [
           [
-            25.65,
-            23.15
+            25.675,
+            23.775
           ],
           [
-            27.35,
-            23.15
+            25.9,
+            23.4
           ],
           [
-            27.35,
-            24.85
+            26.275,
+            23.175
           ],
           [
-            25.65,
-            24.85
+            26.725,
+            23.175
+          ],
+          [
+            27.0875,
+            23.4125
+          ],
+          [
+            27.325,
+            23.775
+          ],
+          [
+            27.325,
+            24.225
+          ],
+          [
+            27.1,
+            24.6
+          ],
+          [
+            26.725,
+            24.825
+          ],
+          [
+            26.275,
+            24.825
+          ],
+          [
+            25.9125,
+            24.5875
+          ],
+          [
+            25.675,
+            24.225
           ]
         ],
-        "closed": true
+        "closed": true,
+        "sight": "normal",
+        "light": "normal",
+        "sound": "none"
+      },
+      {
+        "id": "r3-edge-memorial-0-footprint",
+        "points": [
+          [
+            12.5875,
+            9.6
+          ],
+          [
+            13.5375,
+            9.375
+          ],
+          [
+            13.6125,
+            9.6
+          ],
+          [
+            13.6125,
+            10.625
+          ],
+          [
+            12.5875,
+            10.625
+          ]
+        ],
+        "closed": true,
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "r3-edge-memorial-1-footprint",
+        "points": [
+          [
+            27.8125,
+            11.2875
+          ],
+          [
+            28.4375,
+            10.475
+          ],
+          [
+            29.325,
+            10.8625
+          ],
+          [
+            29.25,
+            11.0875
+          ],
+          [
+            28.6375,
+            11.9125
+          ]
+        ],
+        "closed": true,
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "r3-edge-memorial-2-footprint",
+        "points": [
+          [
+            12.2625,
+            26.175
+          ],
+          [
+            13.25,
+            25.9
+          ],
+          [
+            13.725,
+            26.75
+          ],
+          [
+            13.525,
+            26.8875
+          ],
+          [
+            12.5375,
+            27.1625
+          ]
+        ],
+        "closed": true,
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
+      },
+      {
+        "id": "r3-edge-memorial-3-footprint",
+        "points": [
+          [
+            27.8375,
+            25.75
+          ],
+          [
+            28.2,
+            24.8
+          ],
+          [
+            29.1625,
+            25.1625
+          ],
+          [
+            29.025,
+            26.1375
+          ],
+          [
+            28.7875,
+            26.125
+          ]
+        ],
+        "closed": true,
+        "sight": "none",
+        "light": "none",
+        "sound": "none"
       }
     ]
-  }
+  },
+  "burials": [
+    {
+      "id": "ancestral-open-tomb",
+      "asset": "world/generic/human/passive doodads/altars/basestone.blp",
+      "bounds": [
+        12.65,
+        18.6,
+        14.15,
+        19.4
+      ],
+      "state": "open"
+    }
+  ],
+  "art_revision": "DEV2-R3",
+  "art_notes": "Original WoW models; recovered Interface textures; passable loose lids and small debris; measured solid/trunk footprints."
 }

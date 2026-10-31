@@ -1,0 +1,120 @@
+{
+  "format": "wowmap.character-variants.request/1",
+  "seed": 30102026,
+  "count": 24,
+  "portrait_yaw": 25,
+  "bodies": [
+    {
+      "id": "human-male",
+      "character": {
+        "race": "human",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "human-female",
+      "character": {
+        "race": "human",
+        "gender": "female"
+      }
+    },
+    {
+      "id": "orc-male",
+      "character": {
+        "race": "orc",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "orc-female",
+      "character": {
+        "race": "orc",
+        "gender": "female"
+      }
+    },
+    {
+      "id": "bloodelf-male",
+      "character": {
+        "race": "bloodelf",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "bloodelf-female",
+      "character": {
+        "race": "bloodelf",
+        "gender": "female"
+      }
+    }
+  ],
+  "outfits": [
+    {
+      "id": "civilian",
+      "equipment": {
+        "shirt": 2576,
+        "legs": 10035,
+        "boots": 43
+      },
+      "pose": "idle"
+    },
+    {
+      "id": "mail-guard",
+      "equipment": {
+        "chest": 285,
+        "legs": 286,
+        "boots": 287,
+        "gloves": 718,
+        "head": 3836,
+        "shoulders": 4725,
+        "main_hand": 25,
+        "off_hand": 143,
+        "cape": 1190
+      },
+      "pose": "idle"
+    },
+    {
+      "id": "mage",
+      "equipment": {
+        "chest": 14136,
+        "boots": 43,
+        "main_hand": 35
+      },
+      "pose": "idle"
+    },
+    {
+      "id": "mixed",
+      "equipment": {
+        "legs": 10035,
+        "boots": 43
+      },
+      "equipment_pools": {
+        "chest": [
+          285,
+          14152
+        ],
+        "main_hand": [
+          25,
+          35
+        ],
+        "off_hand": [
+          null,
+          143
+        ],
+        "head": [
+          null,
+          3836
+        ],
+        "shoulders": [
+          null,
+          4725
+        ],
+        "cape": [
+          null,
+          1190,
+          1270
+        ]
+      },
+      "pose": "idle"
+    }
+  ]
+}

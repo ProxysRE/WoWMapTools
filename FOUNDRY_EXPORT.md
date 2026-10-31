@@ -108,3 +108,12 @@ python -m wowmap.foundry --scene output/inn-ground --scene output/inn-upper --id
 - [Сохранение ID при создании](https://foundryvtt.com/api/v13/interfaces/foundry.abstract.types.DatabaseCreateOperation.html), [диалог импорта](https://foundryvtt.com/api/v13/classes/foundry.applications.api.DialogV2.html).
 
 Современная статья Scene Regions обновлена под v14; для данных экспорта используются именно ссылки `/api/v13/`.
+
+
+## Видео-тайлы поверх статичной карты
+
+У `foundry.tiles` можно явно задать `opacity` (0..1) и
+`video: {"autoplay": true, "loop": true, "volume": 0}`. `path` указывает
+на локальный WebM, который должен находиться в Data и включаться в поставку.
+Конвертировать всю карту в видео не требуется. Полные M2-частицы этим не
+воспроизводятся; см. [эффекты окружения](ENVIRONMENT_FX.md).

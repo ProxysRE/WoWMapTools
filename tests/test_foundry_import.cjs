@@ -4,7 +4,8 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const code = fs.readFileSync(require('node:path').join(__dirname,'../wowmap/import_foundry.js'),'utf8');
 async function test({collision=false, missing=false, invalid=false, generation=13,
-                     populated=false, actorCollision=false, invalidActor=false, missingNested=false, systemVersion='5.3.3', delta}={}) {
+                     populated=false, actorCollision=false, invalidActor=false, missingNested=false, systemVersion='5.3.3', delta,
+                     gmDocs=false, invalidGM=false, gmCollision=false}={}) {
   const errors=[];const calls=[];const existingActors=new Set();
   const doc={_id:'sceneId',name:'Inn',background:{src:'wowmap/inn/ground/background.webp'},tiles:[],regions:[],
     tokens:populated?[{name:'Innkeeper',actorId:'actorId',texture:{src:'icons/svg/mystery-man.svg'}}]:[]};
@@ -31,17 +32,28 @@ async function test({collision=false, missing=false, invalid=false, generation=1
       calls.push({kind:'scenes',data,options});return data;
     }
   }
+  class GMDocument {
+    constructor(){if(invalidGM)throw Error('invalid GM document');}
+    validate(){return true;}
+    static async createDocuments(data,options){calls.push({kind:'gm',data,options});return data;}
+  }
   const context={game:{user:{isGM:true},release:{generation},system:{id:'dnd5e',version:systemVersion},
-      scenes:{has:()=>collision},actors:{has:id=>actorCollision||existingActors.has(id)}},
+      scenes:{has:()=>collision},actors:{has:id=>actorCollision||existingActors.has(id)},journal:{has:()=>gmCollision},macros:{has:()=>gmCollision}},
     foundry:{applications:{api:{DialogV2:{prompt:async()=> 'custom/inn/bundle.json'}}},utils:{deepClone:structuredClone}},
-    CONFIG:{Scene:{documentClass:Scene},Actor:{documentClass:Actor},RegionBehavior:{dataModels:{}}},
+    CONFIG:{Scene:{documentClass:Scene},Actor:{documentClass:Actor},JournalEntry:{documentClass:GMDocument},Macro:{documentClass:GMDocument},RegionBehavior:{dataModels:{}}},
     fetch:async(url,opts)=> opts?.method==='HEAD'? {ok:!missing&&!(missingNested&&url==='wowmap/content/icons/test.webp'),status:404}:
-      {ok:true,json:async()=>({format:'wowmap.foundry/1',mediaRoot:'wowmap/inn',scenes:[doc],actors,targets:{dnd5e:'5.3.3'}})},
+      {ok:true,json:async()=>({format:'wowmap.foundry/1',mediaRoot:'wowmap/inn',scenes:[doc],actors,targets:{dnd5e:'5.3.3'},
+        journals:gmDocs?[{_id:'journalId',name:'GM guide',pages:[]}]:[],macros:gmDocs?[{_id:'macroId',name:'Boss helper',type:'script',command:'void 0'}]:[]})},
     ui:{notifications:{error:msg=>errors.push(msg),info:()=>{}}},console:{error:()=>{}}};
   await vm.runInNewContext(code,context);
   return {calls,errors};
 }
 (async()=>{
+  const gm=await test({populated:true,gmDocs:true});assert.equal(gm.errors.length,0);assert.equal(gm.calls.length,4);
+  assert.deepEqual(gm.calls.map(c=>c.kind),['actors','scenes','gm','gm']);
+  for(const options of [{invalidGM:true},{gmCollision:true}]){
+    const result=await test({populated:true,gmDocs:true,...options});assert.equal(result.calls.length,0);assert.equal(result.errors.length,1);
+  }
   const success=await test();assert.equal(success.errors.length,0);assert.equal(success.calls.length,1);
   assert.equal(success.calls[0].options.keepId,true);assert.equal(success.calls[0].options.keepEmbeddedIds,true);
   assert.equal(success.calls[0].data[0].background.src,'custom/inn/ground/background.webp');

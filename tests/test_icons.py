@@ -141,7 +141,7 @@ class IconTests(unittest.TestCase):
         source=original(ROOT/'requests/builder/sources/brum-scavenger.json')
         entry=dict(id='brum',mode='npc',source='requests/builder/sources/brum-scavenger.json',
                    item_icons={'brum-stone':'inv_misc_key_01'})
-        request=dict(format='foundry-builder.batch/1',documents=[entry],placements=[])
+        request=dict(format='foundry-builder.batch/1',require_item_icons=False,documents=[entry],placements=[])
         adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else original(path)
         out=self.root/'named';report=adapter.build_batch('requests/builder/active.json',out,self.assets)
         doc=json.loads((out/'brum.json').read_text(encoding='utf-8'))

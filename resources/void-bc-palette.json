@@ -1,0 +1,34 @@
+[
+  {
+    "model": "world/expansion01/doodads/generic/draenei/tempestkeep/narru_crystal_corrupted_no_lightning.m2",
+    "note": "Not selected: overbright static projection; opacity/UV/particles remain incomplete."
+  },
+  {
+    "model": "world/expansion01/doodads/generic/ethereal/cage/et_cagebase.m2",
+    "note": "Static base selected for technical lab only. Crypt style fit still requires a scene review."
+  },
+  {
+    "model": "world/expansion01/doodads/generic/ethereal/collector/et_collector01.m2",
+    "note": "Static geometry selected for technical lab. Native particles omitted; authored smoke is separate."
+  },
+  {
+    "model": "world/expansion01/doodads/generic/ethereal/crystalforge/et_crystalforge.m2",
+    "note": "Not selected: circular base alone does not communicate Void corruption."
+  },
+  {
+    "model": "world/expansion01/doodads/generic/ethereal/portal/et_portal01off.m2",
+    "note": "Not selected for top-down map: edge-on projection is a narrow stripe."
+  },
+  {
+    "model": "world/expansion01/doodads/netherstorm/lightning/netherstormcracksmokeonly01.m2",
+    "note": "Rejected: helper plane appears as a cyan rectangle; native smoke particles absent."
+  },
+  {
+    "model": "world/expansion01/doodads/tempestkeep/passivedoodads/crystals/tk_smallwing_crystals.m2",
+    "note": "Rejected until unsupported UV/texture-coordinate mode is implemented."
+  },
+  {
+    "model": "world/expansion01/doodads/tempestkeep/passivedoodads/prisoncellglass/tk_prison_cell_dark.m2",
+    "note": "Rejected until its second-stage combiner and opacity behavior are supported."
+  }
+]

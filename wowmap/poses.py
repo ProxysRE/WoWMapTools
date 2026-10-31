@@ -18,10 +18,10 @@ NAMES = {0:'Stand', 15:'HandsClosed', 16:'AttackUnarmed', 17:'Attack1H',
 def pose_options(value):
     if value is None: return {'preset':'bind'}
     if isinstance(value,str):
-        if value not in ('bind','idle','combat'): raise ValueError('Unknown pose preset')
+        if value not in ('bind','idle','calm','combat'): raise ValueError('Unknown pose preset')
         return {'preset':value}
     if not isinstance(value,dict) or set(value)-{'animation_id','variation','time_ms','fraction','close_hands'}:
-        raise ValueError('Pose must be bind, idle, combat or an animation selection')
+        raise ValueError('Pose must be bind, idle, calm, combat or an animation selection')
     result=dict(value)
     for key,default in [('animation_id',None),('variation',0)]:
         v=result.get(key,default)
@@ -53,27 +53,33 @@ def sequences(data):
 def choose_sequence(rows,options,gear=None):
     preset=options.get('preset')
     gear=gear or {}
+    safe_ids={0,25,26,27,28,29,48,51,52,108}
+    automatic=preset in ('calm','combat','idle')
     if preset=='idle': candidates=[0]
-    elif preset=='combat':
+    elif preset in ('calm','combat'):
         inventory=gear.get('main_hand',{}).get('inventory_type')
         subclass=gear.get('main_hand',{}).get('subclass')
-        if inventory==17: candidates=([28,27] if subclass in (6,10) else [27,28])+[26,25,18,19,17,16]
-        elif subclass==3: candidates=[48,29,26,25,16]
-        elif subclass==19: candidates=[51,26,25,16]
-        elif inventory==25: candidates=[108,26,25,16]
-        elif inventory in (15,26): candidates=[29,48,26,25,16]
-        elif 'main_hand' in gear: candidates=[26,25,17,16]
-        else: candidates=[25,16,26,17]
+        if inventory==17: candidates=([28,27] if subclass in (6,10) else [27,28])+[26,25,0]
+        elif subclass==3: candidates=[48,29,26,25,0]
+        elif subclass==19: candidates=[51,26,25,0]
+        elif inventory==25: candidates=[108,26,25,0]
+        elif inventory in (15,26): candidates=[29,48,26,25,0]
+        elif 'main_hand' in gear: candidates=[26,25,0]
+        else: candidates=[25,0]
     else: candidates=[options['animation_id']]
     variation=options.get('variation',0)
     for aid in candidates:
         selected=next((r for r in rows if r['animation_id']==aid and r['variation']==variation),None)
-        if selected is not None: break
+        if selected is None: continue
+        resolved=selected;seen=set()
+        while resolved['flags']&0x40:
+            if resolved['index'] in seen or resolved['alias']>=len(rows): raise ValueError('Invalid animation alias chain')
+            seen.add(resolved['index']);resolved=rows[resolved['alias']]
+        # A Ready/Stand label may alias an attack. Never publish that as a calm pose.
+        if automatic and (resolved['animation_id'] not in safe_ids or
+                          (preset=='idle' and resolved['animation_id']!=0)): continue
+        break
     else: raise ValueError('Model has no requested pose animation: '+str(candidates))
-    resolved=selected;seen=set()
-    while resolved['flags']&0x40:
-        if resolved['index'] in seen or resolved['alias']>=len(rows): raise ValueError('Invalid animation alias chain')
-        seen.add(resolved['index']);resolved=rows[resolved['alias']]
     return selected,resolved
 
 
@@ -101,7 +107,7 @@ def rotation_matrix(q):
 
 class Skeleton:
     def __init__(self,assets,name,options,gear=None):
-        self.assets=assets;self.name=name;self.data=assets.read(name)
+        self.assets=assets;self.name=name;self.options=dict(options);self.data=assets.read(name)
         model_info(self.data,name)
         self.rows=sequences(self.data)
         self.selected,self.sequence=choose_sequence(self.rows,options,gear)
@@ -161,11 +167,13 @@ class Skeleton:
         if not n: return np.array(default,dtype=np.float64)
         if interpolation not in (0,1): raise ValueError('Unsupported bone track interpolation: '+str(interpolation))
         source=self.data if global_sequence>=0 else self.source(sequence)
-        stride=8 if kind=='rotation' else 12
+        stride=8 if kind=='rotation' else 2 if kind=='alpha' else 12
         if tstart+n*4>len(source) or vstart+n*stride>len(source): raise ValueError('Animation keys outside source file')
         times=np.frombuffer(source,dtype='<u4',count=n,offset=tstart)
         if np.any(times[1:]<times[:-1]): raise ValueError('Animation timestamps are not ordered')
-        values=np.frombuffer(source,dtype='<i2' if kind=='rotation' else '<f4',count=n*(4 if kind=='rotation' else 3),offset=vstart).reshape(n,-1).astype(np.float64)
+        width=4 if kind=='rotation' else 1 if kind=='alpha' else 3
+        values=np.frombuffer(source,dtype='<i2' if kind in ('rotation','alpha') else '<f4',count=n*width,offset=vstart).reshape(n,-1).astype(np.float64)
+        if kind=='alpha': values=np.clip(values/32767,0,1)
         if kind=='rotation': values=np.where(values<0,values+32768,values-32767)/32767
         if not np.isfinite(values).all(): raise ValueError('Non-finite animation key')
         i=max(0,min(n-1,int(np.searchsorted(times,time,side='right'))-1))
@@ -225,4 +233,6 @@ class Skeleton:
                     resolved_animation_id=self.sequence['animation_id'],
                     time_ms=float(self.time),duration_ms=row['duration_ms'],
                     external_sources=sorted(self.dependencies),hand_grip=bool(self.hand_sequence),
+                    requested_preset=self.options.get('preset'),
+                    fallback_to_stand=self.options.get('preset') in ('calm','combat') and self.sequence['animation_id']==0,
                     billboard_bones_without_camera_alignment=sorted(set(self.ignored_billboards)))

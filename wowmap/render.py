@@ -57,6 +57,10 @@ def validate(plan):
     validate_objects(plan.get('objects', []))
     from .finishes import validate_finishes
     validate_finishes(plan)
+    from .stairs import validate_stairs
+    validate_stairs(plan)
+    from .burials import validate_burials
+    validate_burials(plan)
     return width, height
 
 
@@ -105,6 +109,8 @@ def mask_for(shape,size,ppc,rng):
 
 def resource_names(plan):
     names={layer['asset'] for layer in [plan['base']]+plan.get('layers',[])+plan.get('floors',[])}
+    names.update(stair['asset'] for stair in plan.get('stairs',[]))
+    names.update(row['asset'] for row in plan.get('burials',[]))
     for wall in plan.get('walls',[]):
         names.add(wall['asset'])
         for opening in wall.get('openings',[]):
@@ -168,6 +174,12 @@ def _render(plan, size, paths, output, raw, images, source_plan, placement_repor
     rgb = np.asarray(image, dtype=np.float32)
     rgb *= (1 + (variation - .5) * strength)[..., None]
     image = Image.fromarray(np.uint8(np.clip(rgb, 0, 255)))
+    if plan.get('stairs'):
+        from .stairs import render_stairs
+        image=Image.alpha_composite(image.convert('RGBA'),render_stairs(plan,images,size,ppc)).convert('RGB')
+    if plan.get('burials'):
+        from .burials import render_burials
+        image=Image.alpha_composite(image.convert('RGBA'),render_burials(plan,images,size,ppc)).convert('RGB')
     output = Path(output)
     extension=plan.get('export_format','png')
     def save_image(image,stem):

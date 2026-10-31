@@ -26,11 +26,13 @@ def search(records,query,extension=None,limit=20):
 
 def requirements(plan,records,raw=None):
     plan,report=expand(plan);validate(plan)
-    wanted=resource_names(plan);uninspected=[];replaceable=[]
+    wanted=resource_names(plan);uninspected=[];replaceable=[];model_errors=[]
     for model in sorted({obj['model'] for obj in plan.get('objects',[])}):
         wanted.add(model)
         if raw is not None and raw.has(model):
-            info=inspect_model(raw,model)
+            try:info=inspect_model(raw,model)
+            except (ValueError,KeyError) as error:
+                model_errors.append(dict(model=model,error=str(error)));uninspected.append(model);continue
             wanted.update(info['required_skins']);wanted.update(info['required_textures'])
             if info['used_replaceable_texture_types']:replaceable.append(model)
             if not info['inspection_complete']:uninspected.append(model)
@@ -40,9 +42,11 @@ def requirements(plan,records,raw=None):
         if name not in records:unknown.append(name);continue
         entry=records[name]
         found.append(dict(path=name,package=entry['package'],id=entry['id'],available=raw.has(name) if raw else False))
+    missing=[name for name in sorted(wanted) if raw is None or not raw.has(name)]
     return dict(resources=found,missing_packages=sorted({r['package'] for r in found if not r['available']}),
+                unavailable_resources=missing,model_errors=model_errors,
                 not_in_catalog=unknown,models_needing_inspection=uninspected,replaceable_texture_models=replaceable,
-                dependencies_complete=not uninspected and not replaceable and not unknown,
+                dependencies_complete=not uninspected and not replaceable and not unknown and not missing and not model_errors,
                 note='Material references require the M2 and selected SKIN; this is not an automatic downloader.')
 
 

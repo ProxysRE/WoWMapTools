@@ -33,17 +33,9 @@ def make_nav_mask(plan, compiled, step=.25, clearance=.43):
     w, h = plan["size_cells"]
     ys, xs = np.mgrid[step / 2:h:step, step / 2:w:step]
     occupied = np.zeros(xs.shape, dtype=bool)
-    # All three undercrypt floors consist of rectangles and ellipses.
+    from wowmap.navigation import inside
     for floor in plan.get("floors", []):
-        shape = floor["shape"]
-        a, b, c, d = shape["bounds"]
-        if shape["type"] == "rectangle":
-            occupied |= (xs >= a) & (xs < c) & (ys >= b) & (ys < d)
-        elif shape["type"] == "ellipse":
-            occupied |= ((xs - (a + c) / 2) / ((c - a) / 2)) ** 2 + \
-                        ((ys - (b + d) / 2) / ((d - b) / 2)) ** 2 < 1
-        else:
-            raise AssertionError("Unexpected floor shape in crypt QA")
+        occupied |= inside(floor['shape'],xs,ys)
     for wall in compiled["walls"]:
         if wall["door"] or wall["move"] == 0:
             continue  # Opens without a key/puzzle; do not lock the route.
@@ -136,28 +128,32 @@ class VoidCryptBundleTests(unittest.TestCase):
             self.assertTrue(all(not z.get("behaviors") for z in zones))
 
     def test_passages_two_routes_and_all_waypoints(self):
-        scene = self.compiled["crypt-passages"]
-        self.assertGreaterEqual(len(scene["walls"]), 60)
-        self.assertEqual(len(scene["lights"]), 16)
-        mask,step=make_nav_mask(self.plans["crypt-passages"],scene)
-        start,end=(6,21),(68,21)
-        for name,pos in [
-            ("branch",(29,22)), ("north chapel",(50,14)), ("south chambers",(51,30)),
-            ("merged exit",(61,21)), ("sacristy",(61,9)), ("ossuary",(12,31)),
-            ("northern niche",(22,12)), ("collapsed chapel",(44,7)), ("south dead-end",(25,35))
-        ]:
-            self.assertTrue(path_exists(mask,step,start,pos), name)
-        self.assertTrue(path_exists(mask,step,start,end))
-        # Removing either optional circuit still leaves one valid way around the collapse.
-        self.assertTrue(path_exists(mask,step,start,end,
-                        excluded=lambda x,y: 34<=x<=58 and y<=21), "Southern detour")
-        self.assertTrue(path_exists(mask,step,start,end,
-                        excluded=lambda x,y: 34<=x<=58 and y>=26), "Northern detour")
+        from wowmap.navigation import walk_mask,find_path
+        scene=self.compiled['crypt-passages'];plan=self.plans['crypt-passages']
+        network=json.loads((ROOT/'resources/void-crypt-corridors.json').read_text(encoding='utf-8'))
+        self.assertGreaterEqual(len(scene['walls']),240)
+        self.assertEqual(len(scene['lights']),16)
+        self.assertEqual(plan['corridor_design']['metrics']['declared_widths'],[2,3])
+        self.assertGreaterEqual(plan['corridor_design']['metrics']['physical_loops'],4)
+        self.assertLessEqual(plan['corridor_design']['metrics']['longest_authored_straight_cells'],12)
+        mask,step=walk_mask(plan,scene)
+        start,end=(5.5,20.5),(68.5,21.5)
+        for room in network['rooms']:
+            a,b,c,d=room['bounds']
+            self.assertIsNotNone(find_path(mask,step,start,((a+c)/2,(b+d)/2)),room['id'])
+        route=find_path(mask,step,start,end)
+        self.assertIsNotNone(route)
+        self.assertGreater(len(route)*step,80)
+        self.assertIsNotNone(find_path(mask,step,start,end,exclude=lambda x,y:29<=x<=54 and y>=22),'upper route')
+        self.assertIsNotNone(find_path(mask,step,start,end,exclude=lambda x,y:29<=x<=54 and y<=17),'lower route')
+        big,step=walk_mask(plan,scene,token_cells=2)
+        for target in [(15.5,14.5),(31.5,18.5),(38.5,31.5),(59.5,28.5),(67.5,20.5)]:
+            self.assertIsNotNone(find_path(big,step,start,target),('2x2 reserve',target))
 
     def test_sanctum_reachable_and_boss_center_unobstructed(self):
         plan=self.plans["crypt-sanctum"]
         compiled=self.compiled["crypt-sanctum"]
-        self.assertEqual(len(plan["foundry"]["barriers"]),4)
+        self.assertEqual(len([o for o in plan['objects'] if o.get('art_role')=='pillar']),4)
         self.assertGreaterEqual(len(compiled["walls"]),55)
         mask,step=make_nav_mask(plan,compiled)
         start=(7,18)
@@ -167,6 +163,7 @@ class VoidCryptBundleTests(unittest.TestCase):
         ]:
             self.assertTrue(path_exists(mask,step,start,end),name)
         for obj in plan["objects"]:
+            if obj.get('art_role')=='ground_decal':continue
             self.assertGreater(math.dist(obj["position"],[21,18]), 4.5)
         # Central 3x3 boss space has no solid wall segments or pillar barriers.
         for xx in (20,21,22):

@@ -8,6 +8,7 @@ from contextlib import ExitStack
 import copy
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -35,6 +36,39 @@ def source_path(path):
     return target
 
 
+def validate_visual_policy(document,entry,request,icons):
+    """Release policy: every embedded item uses an explicitly verified WoW icon."""
+    if request.get('require_item_icons',True):
+        for item in document.get('items',[]):
+            image=item.get('img')
+            if icons is None or image not in icons.images:
+                raise ValueError('Missing verified WoW item icon: '+entry['id']+' / '+item.get('name','?'))
+            # dnd5e activity buttons and generated effects should carry the same
+            # selected ability icon instead of their template sword/blank image.
+            for activity in item.get('system',{}).get('activities',{}).values():
+                if not activity.get('img') or activity['img'].startswith('icons/'):
+                    activity['img']=image
+                elif activity['img'] not in icons.images:
+                    raise ValueError('Unverified WoW activity icon: '+entry['id'])
+            for effect in item.get('effects',[]):
+                if not effect.get('img') or effect['img'].startswith('icons/'):
+                    effect['img']=image
+                elif effect['img'] not in icons.images:
+                    raise ValueError('Unverified WoW effect icon: '+entry['id'])
+    if request.get('require_explicit_angles',False) and 'appearance' in entry:
+        options=entry['appearance']
+        if any(key not in options for key in ('yaw','portrait_yaw')):
+            raise ValueError('Release appearance requires explicit token and portrait angles: '+entry['id'])
+
+    if 'appearance' in entry:
+        # Front-facing artwork has a fixed native orientation. Portrait yaw is
+        # independent; in-scene token rotation remains freely controlled.
+        yaw=entry['appearance'].get('yaw',-90)
+        if (isinstance(yaw,bool) or not isinstance(yaw,(int,float))
+                or not math.isfinite(yaw) or not math.isclose(yaw % 360,270,abs_tol=1e-8)):
+            raise ValueError('Release token yaw must face forward (-90 or 270); use portrait_yaw for portrait angles: '+entry['id'])
+
+
 def build_batch(request_path,output,icon_assets=None,dbc_assets=None,model_assets=None):
     with ExitStack() as resources:
         return _build_batch(request_path,output,icon_assets,dbc_assets,model_assets,resources)
@@ -53,7 +87,7 @@ def _build_batch(request_path,output,icon_assets,dbc_assets,model_assets,resourc
         if icon_assets is None:raise ValueError('This request needs --icon-assets pointing to a private icon export')
         sys.path.insert(0,str(ROOT))
         from wowmap.icons import IconAssets
-        icons=IconAssets(icon_assets)
+        icons=resources.enter_context(IconAssets(icon_assets).session())
     if any('appearance' in entry for entry in entries):
         if dbc_assets is None or model_assets is None:raise ValueError('Creature appearances need --dbc-assets and --model-assets')
         sys.path.insert(0,str(ROOT))
@@ -80,6 +114,7 @@ def _build_batch(request_path,output,icon_assets,dbc_assets,model_assets,resourc
                 if old & {row['pointer'] for row in icons.bindings[start:]}:
                     raise ValueError('icons and item_icons target the same image')
                 outcome.document=candidate
+        if outcome.kind=='actor':validate_visual_policy(outcome.document,entry,request,icons)
         if icons:
             icon_bindings.extend(dict(document=key,**row) for row in icons.bindings[binding_start:])
         if 'appearance' in entry:

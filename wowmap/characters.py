@@ -33,6 +33,17 @@ RACES={1:'human',2:'orc',3:'dwarf',4:'nightelf',5:'scourge',6:'tauren',7:'gnome'
 ATTACHMENT_SLOTS={'head':{1},'shoulders':{3},'main_hand':{13,17,21,15,25,26},'off_hand':{13,14,22,23}}
 SLOTS={'shirt':{4},'chest':{5,20},'legs':{7},'boots':{8},'gloves':{10},'belt':{6},'bracers':{9},'cape':{16}}
 SLOTS.update(ATTACHMENT_SLOTS)
+PLAYABLE_RACES={1,2,3,4,5,6,7,8,10,11}
+PROFILES=('normal','death_knight','npc')
+
+
+def section_allowed(flags,profile,race):
+    if profile not in PROFILES:raise ValueError('Unknown customization profile: '+str(profile))
+    if profile=='death_knight':return bool(flags&1)
+    if flags&4:return False
+    return bool(flags&1) if profile=='normal' and race in PLAYABLE_RACES else bool(flags&9)
+
+
 TABLES={'charsections':10,'charhairgeosets':6,'characterfacialhairstyles':8,'itemdisplayinfo':25,'item':8,'chrraces':69,'helmetgeosetvisdata':8}
 
 
@@ -42,11 +53,13 @@ def integer(value,label):
 
 
 def character_options(character,equipment):
-    if not isinstance(character,dict) or set(character)-{'race','gender','skin','face','hair_style','hair_color','facial_hair'}:
+    if not isinstance(character,dict) or set(character)-{'race','gender','skin','face','hair_style','hair_color','facial_hair','profile'}:
         raise ValueError('character contains unsupported appearance fields')
     if character.get('race','human') not in RACES.values():raise ValueError('Unknown WotLK customization race')
     if character.get('gender','male') not in ('male','female'):raise ValueError('gender must be male or female')
-    result=dict(race=character.get('race','human'),gender=character.get('gender','male'))
+    profile=character.get('profile','normal')
+    if profile not in PROFILES:raise ValueError('Unknown customization profile: '+str(profile))
+    result=dict(race=character.get('race','human'),gender=character.get('gender','male'),profile=profile)
     for field,default in [('skin',0),('face',0),('hair_style',1 if result['race'] in {'human','orc','dwarf','nightelf','scourge','tauren','gnome','troll','bloodelf','draenei'} else 0),('hair_color',0),('facial_hair',0)]:
         result[field]=integer(character.get(field,default),field)
     if not isinstance(equipment,dict) or set(equipment)-set(SLOTS):
@@ -114,11 +127,14 @@ class CharacterDB:
                     raise ValueError('Ambiguous '+name+' selection')
                 target[key]=row
 
-    def section(self,gender,kind,variation,color,required=True,race=1):
+    def section(self,gender,kind,variation,color,required=True,race=1,profile='normal'):
         row=self.sections.get((race,gender,kind,variation,color))
         if row is None:
             if required:raise ValueError(f'Unknown race {race} appearance section: {kind}/{variation}/{color}')
             return []
+        flags=self.tables['charsections'].cell(row,7)
+        if not section_allowed(flags,profile,race):
+            raise ValueError(f'Customization profile {profile} excludes section {kind}/{variation}/{color} (flags {flags:#x})')
         return [normalize(s) if s else '' for s in (self.tables['charsections'].cell(row,c,'string') for c in (4,5,6))]
 
     def equipment(self,slot,item_id):
@@ -135,19 +151,20 @@ class CharacterDB:
                     geosets=[d.cell(r,c) for c in (7,8,9)],icon=d.cell(r,5,'string'),
                     textures=[d.cell(r,c,'string') for c in range(15,23)],models=[d.cell(r,c,'string') for c in (1,2)],model_textures=[d.cell(r,c,'string') for c in (3,4)],helmet_visibility=[d.cell(r,c) for c in (13,14)],visual_id=d.cell(r,23),particle_color_id=d.cell(r,24))
 
-    def options(self,raw):
+    def options(self,raw,profile='normal'):
         from .models import inspect_model
         result=[]
         for race,name in RACES.items():
             for gender,sex in [('male',0),('female',1)]:
-                row=dict(race=name,race_id=race,gender=gender)
-                row['skins']=sorted({k[4] for k,r in self.sections.items() if k[:3]==(race,sex,0) and raw.has(self.tables['charsections'].cell(r,4,'string'))})
+                row=dict(race=name,race_id=race,gender=gender,profile=profile)
+                sections={k:r for k,r in self.sections.items() if section_allowed(self.tables['charsections'].cell(r,7),profile,k[0])}
+                row['skins']=sorted({k[4] for k,r in sections.items() if k[:3]==(race,sex,0) and raw.has(self.tables['charsections'].cell(r,4,'string'))})
                 row['hair_styles']=sorted({k[2] for k in self.hair if k[:2]==(race,sex)})
-                row['faces_by_skin']={str(skin):sorted({k[3] for k in self.sections if k[:3]==(race,sex,1) and k[4]==skin}) for skin in row['skins']}
-                row['hair_colors_by_style']={str(style):sorted({k[4] for k in self.sections if k[:4]==(race,sex,3,style)}) for style in row['hair_styles']}
+                row['faces_by_skin']={str(skin):sorted({k[3] for k in sections if k[:3]==(race,sex,1) and k[4]==skin}) for skin in row['skins']}
+                row['hair_colors_by_style']={str(style):sorted({k[4] for k in sections if k[:4]==(race,sex,3,style)}) for style in row['hair_styles']}
                 row['facial_features']=sorted({k[2] for k in self.facial if k[:2]==(race,sex)})
                 try:
-                    assets,model,replacements,geosets,meta=self.assemble(raw,dict(race=name,gender=gender),{})
+                    assets,model,replacements,geosets,meta=self.assemble(raw,dict(race=name,gender=gender,profile=profile),{})
                     info=inspect_model(assets,model,geosets)
                     if info['missing']:raise ValueError('Missing dependencies: '+', '.join(info['missing']))
                     if set(info['used_replaceable_texture_types'])-set(replacements):raise ValueError('Unbound body material')
@@ -193,7 +210,12 @@ class CharacterDB:
         character,equipment=character_options(character,equipment);gender=0 if character['gender']=='male' else 1
         assets=AssemblyAssets(raw);skin=character['skin'];hair_color=character['hair_color'];hair_style=character['hair_style']
         race=next(k for k,v in RACES.items() if v==character['race'])
-        def section(kind,variation,color,required=True):return self.section(gender,kind,variation,color,required,race)
+        selected_sections=[]
+        def section(kind,variation,color,required=True):
+            paths=self.section(gender,kind,variation,color,required,race,character['profile'])
+            row=self.sections.get((race,gender,kind,variation,color))
+            if row is not None:selected_sections.append(dict(kind=kind,variation=variation,color=color,flags=self.tables['charsections'].cell(row,7)))
+            return paths
         if race==17 and 'cape' in equipment:raise ValueError('Tuskarr cape geoset is a head covering, not a wearable cloak')
         base=section(0,0,skin)
         atlas=Image.fromarray(assets.image(base[0])).convert('RGBA')
@@ -211,10 +233,10 @@ class CharacterDB:
                 for col,group in [(2,1),(3,2),(4,3),(5,7)]:
                     if t.cell(row,col)&mask:hidden_groups.add(group)
 
-        def add(path,region):
+        def add(path,region,kind='overlay'):
             if not path:return
             if not assets.has(path):
-                omitted.append(dict(region=region,path=path,reason='optional DBC overlay absent from client'));return
+                omitted.append(dict(region=region,path=path,kind=kind,reason='optional DBC overlay absent from client'));return
             composite_layer(atlas,Image.fromarray(assets.image(path)),region);layers.append(dict(region=region,path=path))
         underwear=section(4,0,skin,required=False)
         for texture,region in zip(underwear,['leg_upper','torso_upper']):add(texture,region)
@@ -226,7 +248,7 @@ class CharacterDB:
         if facial_row is None and character['facial_hair']!=0:raise ValueError('Unknown facial hair / feature style')
         facial=section(2,character['facial_hair'],hair_color,required=False)
         if 1 not in hidden_groups:
-            for texture,region in zip(facial,['face_lower','face_upper']):add(texture,region)
+            for texture,region in zip(facial,['face_lower','face_upper']):add(texture,region,'facial_overlay')
         hair_row=self.hair.get((race,gender,hair_style))
         if hair_row is None and any(k[:2]==(race,gender) for k in self.hair):raise ValueError('Unknown hairstyle')
         if hair_row is None and (hair_style not in (0,1) or hair_color):raise ValueError('This model has no selectable hairstyles')
@@ -236,7 +258,7 @@ class CharacterDB:
         if not has_hair_sections and hair_color:raise ValueError('This body has no selectable hair colors')
         hair=section(3,hair_style,hair_color,required=has_hair_sections) or ['','','']
         if not bald and not hide_hair:
-            for texture,region in zip(hair[1:],['face_lower','face_upper']):add(texture,region)
+            for texture,region in zip(hair[1:],['face_lower','face_upper']):add(texture,region,'scalp_overlay')
         groups={n:1 for n in range(1,19)}
         groups.update({1:0,2:0,3:0,7:2,15:0,17:0})
         if facial_row is not None:
@@ -298,7 +320,7 @@ class CharacterDB:
         if race==13 and set(gear)&{'legs','boots'}:raise ValueError('Naga bodies have no wearable legs or boots')
         assets.atlas=np.asarray(atlas).copy()
         metadata=dict(assembly='character-equipment/2',schema=SCHEMA,character=character,equipment=gear,
-                      layers=layers,atlas_sha256=hashlib.sha256(assets.atlas.tobytes()).hexdigest(),atlas_size=list(atlas.size),omitted_optional_overlays=omitted)
+                      layers=layers,section_flags=selected_sections,customization_profile=character['profile'],atlas_sha256=hashlib.sha256(assets.atlas.tobytes()).hexdigest(),atlas_size=list(atlas.size),omitted_optional_overlays=omitted)
         return assets,model,replacements,selected,metadata
 
     def attachments(self,assets,model,character,gear):
@@ -383,14 +405,14 @@ class CharacterDB:
 def main():
     parser=argparse.ArgumentParser(description='Inspect WotLK character options, search Item IDs, or render equipped characters')
     parser.add_argument('command',choices=['search','options','render']);parser.add_argument('--dbc-assets',required=True)
-    parser.add_argument('--model-assets');parser.add_argument('--query',default='cloth');parser.add_argument('--slot',choices=list(SLOTS))
+    parser.add_argument('--profile',choices=PROFILES,default='normal');parser.add_argument('--model-assets');parser.add_argument('--query',default='cloth');parser.add_argument('--slot',choices=list(SLOTS))
     parser.add_argument('--limit',type=int,default=30);parser.add_argument('--request');parser.add_argument('--out',default='output/character-outfit')
     args=parser.parse_args()
     try:
         if args.command=='search':result=CharacterDB(args.dbc_assets).search(args.query,args.slot,args.limit)
         elif args.command=='options':
             if not args.model_assets:raise ValueError('Options needs --model-assets')
-            with RawAssets(args.model_assets) as raw:result=CharacterDB(args.dbc_assets).options(raw)
+            with RawAssets(args.model_assets) as raw:result=CharacterDB(args.dbc_assets).options(raw,args.profile)
         else:
             if not args.model_assets or not args.request:raise ValueError('Rendering needs --request and --model-assets')
             path=Path(args.request)

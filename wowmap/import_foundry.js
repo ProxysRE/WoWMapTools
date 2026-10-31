@@ -19,7 +19,10 @@
     }
     const data = foundry.utils.deepClone(bundle.scenes);
     const actors = foundry.utils.deepClone(bundle.actors || []);
+    const journals = foundry.utils.deepClone(bundle.journals || []);
+    const macros = foundry.utils.deepClone(bundle.macros || []);
     if (!Array.isArray(actors)) throw new Error('Invalid actors collection.');
+    if (!Array.isArray(journals) || !Array.isArray(macros)) throw new Error('Invalid GM documents.');
     if (actors.length && (game.system.id !== 'dnd5e' || game.system.version !== (bundle.targets?.dnd5e || '5.3.3'))) {
       throw new Error('This populated bundle requires dnd5e ' + (bundle.targets?.dnd5e || '5.3.3'));
     }
@@ -49,6 +52,21 @@
       prepareImages(actor);
       const model = new ActorClass(actor, {strict: true});
       model.validate({strict: true});
+    }
+    // Validate optional encounter notes and helper macros before any mutation.
+    for (const [docs, collection, DocumentClass] of [
+      [journals, game.journal, journals.length ? CONFIG.JournalEntry.documentClass : null],
+      [macros, game.macros, macros.length ? CONFIG.Macro.documentClass : null]
+    ]) {
+      const seen = new Set();
+      for (const doc of docs) {
+        if (seen.has(doc._id) || collection.has(doc._id)) throw new Error(`GM document ID already exists: ${doc.name}`);
+        seen.add(doc._id);
+        doc.folder = null;
+        prepareImages(doc);
+        const model = new DocumentClass(doc, {strict: true});
+        model.validate({strict: true});
+      }
     }
     for (const scene of data) {
       if (ids.has(scene._id) || game.scenes.has(scene._id)) throw new Error(`Scene ID already exists: ${scene.name}. Use a new export package id.`);
@@ -92,6 +110,8 @@
     // Keep embedded IDs so cross-scene Region UUIDs remain valid.
     const created = await SceneClass.createDocuments(data, {keepId: true, keepEmbeddedIds: true});
     if (created.length !== data.length) throw new Error('Only some scenes were created; inspect the scene list before retrying.');
+    if (journals.length) await CONFIG.JournalEntry.documentClass.createDocuments(journals, {keepId:true, keepEmbeddedIds:true});
+    if (macros.length) await CONFIG.Macro.documentClass.createDocuments(macros, {keepId:true, keepEmbeddedIds:true});
     for (const scene of created) {
       for (const region of scene.regions) {
         for (const behavior of region.behaviors) {
@@ -101,7 +121,7 @@
         }
       }
     }
-    ui.notifications.info(`WoWMapTools: imported ${created.length} scenes and ${actors.length} actors.`);
+    ui.notifications.info(`WoWMapTools: imported ${created.length} scenes, ${actors.length} actors, ${journals.length} journals and ${macros.length} helper macros.`);
   } catch (error) {
     console.error('WoWMapTools import', error);
     ui.notifications.error(`WoWMapTools: ${error.message}`, {permanent: true});
