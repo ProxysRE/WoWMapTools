@@ -10,7 +10,7 @@ from zipfile import ZipFile
 import numpy as np
 from PIL import Image
 from test_models import fixture
-from test_tokens import appearance_fixture,table
+from test_tokens import appearance_fixture,table,standing_model
 from wowmap.characters import CharacterDB,REGIONS,ATLAS,character_options
 from wowmap.models import RawAssets,preview
 from wowmap.tokens import TokenAssets
@@ -71,7 +71,7 @@ def character_fixture(root):
     original=model;model=bytearray(original[:160]+b'\0'*144+original[160:])
     for header in [60,80,112,128]:
         count,offset=struct.unpack_from('<II',model,header);struct.pack_into('<II',model,header,count,offset+144)
-    struct.pack_into('<II',model,44,1,len(model));model.extend(b'\0'*88)
+    model=standing_model(model)
     points=[0,1,2,5,6,11]
     struct.pack_into('<II',model,240,len(points),len(model))
     for point in points:model.extend(struct.pack('<II3f',point,0,point*.1,0,1)+b'\0'*20)

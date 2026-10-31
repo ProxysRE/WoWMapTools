@@ -109,7 +109,9 @@ class TokenAssets:
         if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw','pose','display_alpha'}:
             raise ValueError('Appearance contains unsupported options')
         from .poses import pose_options
-        pose=pose_options(options.get('pose'))
+        pose_value=options.get('pose','calm')
+        if pose_value is None:pose_value='calm'
+        pose=pose_options(pose_value)
         assembled='character' in options
         if assembled and 'display_id' in options:raise ValueError('Choose character or display_id, not both')
         if 'equipment' in options and not assembled:raise ValueError('Equipment requires an explicit character appearance')
@@ -146,13 +148,13 @@ class TokenAssets:
                 # The top-down token and portrait share atlas, geometry and provenance.
                 prepared_key=(identity,pose_key)
                 if self._prepared is None or self._prepared[0]!=prepared_key:
-                    prepared=self.character_db.prepare(assets,character,equipment,options.get('pose'))
+                    prepared=self.character_db.prepare(assets,character,equipment,pose_value)
                     self._prepared=(prepared_key,prepared)
                 image,render,appearance,sources=self.character_db.render_prepared(self._prepared[1],size,yaw,view)
             else:
                 info=inspect_model(assets,appearance['model'])
                 replacements={k:v for k,v in appearance['textures'].items() if k in info['used_replaceable_texture_types']}
-                image,render=preview(assets,appearance['model'],size,replacements,yaw,view,pose=options.get('pose'))
+                image,render=preview(assets,appearance['model'],size,replacements,yaw,view,pose=pose_value)
                 deps={appearance['model'],info['skins'][0],*render['used_textures']}
                 deps.update(render.get('pose',{}).get('external_sources',[]))
                 sources=[dict(path=p,sha256=hashlib.sha256(assets.read(p)).hexdigest()) for p in sorted(deps)]

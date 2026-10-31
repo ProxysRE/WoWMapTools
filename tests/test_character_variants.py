@@ -57,12 +57,14 @@ class CharacterVariantTests(unittest.TestCase):
             build_variants(r,self.dbc,self.models,self.root/'missing')
         self.assertFalse((self.root/'missing').exists())
 
-    def test_combat_is_default_and_never_silently_falls_back_to_bind(self):
+    def test_calm_is_default_and_uses_stand_when_ready_is_absent(self):
         r=request();r['count']=1
         for outfit in r['outfits']:outfit.pop('pose')
-        with self.assertRaisesRegex(ValueError,'distinct valid variants'):
-            build_variants(r,self.dbc,self.models,self.root/'no-animation')
-        self.assertFalse((self.root/'no-animation').exists())
+        result=build_variants(r,self.dbc,self.models,self.root/'standing')
+        self.assertEqual(result['variants'][0]['appearance']['pose'],'calm')
+        for outfit in r['outfits']:outfit['pose']=None
+        with RawAssets(self.models) as raw:result=plan_variants(self.db,raw,r)
+        self.assertEqual(result['variants'][0]['appearance']['pose'],'calm')
 
     def test_invalid_requests_are_rejected(self):
         for field,value in [('count',True),('count',25),('seed',False),('portrait_yaw',float('nan')),('portrait_yaw',float('inf'))]:

@@ -23,6 +23,16 @@ def table(fields, rows, strings):
     return struct.pack('<4s4I',b'WDBC',len(rows),fields,fields*4,len(strings))+b''.join(rows)+strings
 
 
+def standing_model(data):
+    data=bytearray(data)
+    seq=bytearray(64);struct.pack_into('<HHI',seq,0,0,0,1000);struct.pack_into('<I',seq,12,0x20)
+    struct.pack_into('<II',data,28,1,len(data));data.extend(seq)
+    bone=bytearray(88);struct.pack_into('<h',bone,8,-1)
+    for offset in (16,36,56):struct.pack_into('<Hh',bone,offset,0,-1)
+    struct.pack_into('<II',data,44,1,len(data));data.extend(bone)
+    return data
+
+
 def appearance_fixture(root):
     dbc=root/'dbc';dbc.mkdir();models=root/'models';(models/'packages').mkdir(parents=True)
     path=b'creature/test/test.mdx\0';skins=b'\0red.png\0blue.png\0'
@@ -36,7 +46,7 @@ def appearance_fixture(root):
     with ZipFile(dbc/'tables.zip','w') as z:
         z.writestr('dbfilesclient/creaturemodeldata.dbc',table(28,[model_row],b'\0'+path))
         z.writestr('dbfilesclient/creaturedisplayinfo.dbc',table(16,rows,skins))
-    model,skin,red=fixture();model=bytearray(model);_,offset=struct.unpack_from('<II',model,80)
+    model,skin,red=fixture();model=standing_model(model);_,offset=struct.unpack_from('<II',model,80)
     struct.pack_into('<IIII',model,offset,11,0,0,0)
     _,vertices_offset=struct.unpack_from('<II',model,60)
     struct.pack_into('<f',model,vertices_offset+48+8,1)  # A non-flat triangle is visible from both cameras.
@@ -85,6 +95,11 @@ class TokenTests(unittest.TestCase):
                 assets=tokens._assets
                 self.assertEqual(opened.call_count,1)
             self.assertFalse(assets.archives);self.assertIsNone(tokens._assets)
+            for media in tokens.media.values():
+                pose=media['appearances'][0]['render']['pose']
+                self.assertEqual(pose['requested_preset'],'calm')
+                self.assertEqual(pose['resolved_animation_id'],0)
+                self.assertTrue(pose['fallback_to_stand'])
             self.assertEqual(first,tokens.pair(options))
             self.assertEqual(opened.call_count,1)  # Cached pairs never reopen ZIPs.
             with self.assertRaisesRegex(RuntimeError,'render failed'):

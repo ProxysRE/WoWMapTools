@@ -27,10 +27,7 @@
         "boots": 43,
         "main_hand": 35
       },
-      "pose": {
-        "animation_id": 51,
-        "fraction": 0.45
-      }
+      "pose": "calm"
     },
     {
       "id": "dark-mage",
@@ -38,7 +35,8 @@
         "chest": 14152,
         "boots": 43,
         "main_hand": 35
-      }
+      },
+      "pose": "calm"
     },
     {
       "id": "mail-guard",
@@ -49,7 +47,8 @@
         "gloves": 718,
         "main_hand": 25,
         "off_hand": 2362
-      }
+      },
+      "pose": "calm"
     }
   ]
 }
