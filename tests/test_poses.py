@@ -118,6 +118,16 @@ class PoseTests(unittest.TestCase):
         assets,_=skeleton_fixture()
         with self.assertRaisesRegex(ValueError,'duration'):Skeleton(assets,'test.m2',{'animation_id':26,'time_ms':1001})
 
+    def test_idle_prefers_stand_even_when_ready_exists_and_rejects_ready_alias(self):
+        rows=[dict(index=i,animation_id=aid,variation=0,flags=0x20,alias=0)
+              for i,aid in enumerate([26,25,0])]
+        gear={'main_hand':{'inventory_type':13}}
+        self.assertEqual(choose_sequence(rows,{'preset':'idle'},gear)[0]['animation_id'],0)
+        self.assertEqual(choose_sequence(rows,{'preset':'combat'},gear)[0]['animation_id'],26)
+        rows[2].update(flags=0x40,alias=0)
+        with self.assertRaisesRegex(ValueError,'no requested'):
+            choose_sequence(rows,{'preset':'idle'},gear)
+
     def test_calm_and_legacy_combat_never_select_attack_or_unsafe_alias(self):
         def row(aid,index,flags=0x20,alias=0):
             return dict(index=index,animation_id=aid,variation=0,flags=flags,alias=alias)

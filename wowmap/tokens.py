@@ -109,8 +109,8 @@ class TokenAssets:
         if not isinstance(options,dict) or set(options)-{'display_id','character','equipment','size','yaw','actor_image','portrait_size','portrait_yaw','pose','display_alpha'}:
             raise ValueError('Appearance contains unsupported options')
         from .poses import pose_options
-        pose_value=options.get('pose','calm')
-        if pose_value is None:pose_value='calm'
+        pose_value=options.get('pose','idle')
+        if pose_value is None:pose_value='idle'
         pose=pose_options(pose_value)
         assembled='character' in options
         if assembled and 'display_id' in options:raise ValueError('Choose character or display_id, not both')

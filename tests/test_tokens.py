@@ -97,9 +97,9 @@ class TokenTests(unittest.TestCase):
             self.assertFalse(assets.archives);self.assertIsNone(tokens._assets)
             for media in tokens.media.values():
                 pose=media['appearances'][0]['render']['pose']
-                self.assertEqual(pose['requested_preset'],'calm')
+                self.assertEqual(pose['requested_preset'],'idle')
                 self.assertEqual(pose['resolved_animation_id'],0)
-                self.assertTrue(pose['fallback_to_stand'])
+                self.assertFalse(pose['fallback_to_stand'])
             self.assertEqual(first,tokens.pair(options))
             self.assertEqual(opened.call_count,1)  # Cached pairs never reopen ZIPs.
             with self.assertRaisesRegex(RuntimeError,'render failed'):

@@ -57,14 +57,14 @@ class CharacterVariantTests(unittest.TestCase):
             build_variants(r,self.dbc,self.models,self.root/'missing')
         self.assertFalse((self.root/'missing').exists())
 
-    def test_calm_is_default_and_uses_stand_when_ready_is_absent(self):
+    def test_idle_is_default_including_explicit_null(self):
         r=request();r['count']=1
         for outfit in r['outfits']:outfit.pop('pose')
         result=build_variants(r,self.dbc,self.models,self.root/'standing')
-        self.assertEqual(result['variants'][0]['appearance']['pose'],'calm')
+        self.assertEqual(result['variants'][0]['appearance']['pose'],'idle')
         for outfit in r['outfits']:outfit['pose']=None
         with RawAssets(self.models) as raw:result=plan_variants(self.db,raw,r)
-        self.assertEqual(result['variants'][0]['appearance']['pose'],'calm')
+        self.assertEqual(result['variants'][0]['appearance']['pose'],'idle')
 
     def test_invalid_requests_are_rejected(self):
         for field,value in [('count',True),('count',25),('seed',False),('portrait_yaw',float('nan')),('portrait_yaw',float('inf'))]:

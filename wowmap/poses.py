@@ -76,7 +76,8 @@ def choose_sequence(rows,options,gear=None):
             if resolved['index'] in seen or resolved['alias']>=len(rows): raise ValueError('Invalid animation alias chain')
             seen.add(resolved['index']);resolved=rows[resolved['alias']]
         # A Ready/Stand label may alias an attack. Never publish that as a calm pose.
-        if automatic and resolved['animation_id'] not in safe_ids: continue
+        if automatic and (resolved['animation_id'] not in safe_ids or
+                          (preset=='idle' and resolved['animation_id']!=0)): continue
         break
     else: raise ValueError('Model has no requested pose animation: '+str(candidates))
     return selected,resolved

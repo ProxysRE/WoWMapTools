@@ -85,7 +85,7 @@ def validate_request(request):
                     if any(item is not None and (type(item) is not int or not 0<item<=0xffffffff) for item in choices):raise ValueError('equipment_pools accepts positive uint32 Item IDs or null')
                     if len(set(choices))!=len(choices):raise ValueError('Duplicate equipment_pools choices would bias random selection')
                 from .poses import pose_options
-                pose_options('calm' if row.get('pose') is None else row['pose'])
+                pose_options('idle' if row.get('pose') is None else row['pose'])
     yaw=request.get('portrait_yaw',30)
     if isinstance(yaw,bool) or not isinstance(yaw,(int,float)) or not -180<=yaw<=180:raise ValueError('portrait_yaw must be finite degrees -180..180')
 
@@ -125,7 +125,7 @@ def plan_variants(db,raw,request):
         try:
             character=candidate_character(db,body,rng)
             appearance=dict(character=character,equipment=candidate_equipment(outfit,rng),
-                            pose=copy.deepcopy('calm' if outfit.get('pose') is None else outfit['pose']),yaw=-90,
+                            pose=copy.deepcopy('idle' if outfit.get('pose') is None else outfit['pose']),yaw=-90,
                             portrait_yaw=request.get('portrait_yaw',30),size=512,portrait_size=640)
             identity=json.dumps(appearance,sort_keys=True)
             if identity in seen:continue

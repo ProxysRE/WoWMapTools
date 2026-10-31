@@ -27,7 +27,7 @@
         "boots": 43,
         "main_hand": 35
       },
-      "pose": "calm"
+      "pose": "idle"
     },
     {
       "id": "dark-mage",
@@ -36,7 +36,7 @@
         "boots": 43,
         "main_hand": 35
       },
-      "pose": "calm"
+      "pose": "idle"
     },
     {
       "id": "mail-guard",
@@ -48,7 +48,7 @@
         "main_hand": 25,
         "off_hand": 2362
       },
-      "pose": "calm"
+      "pose": "idle"
     }
   ]
 }

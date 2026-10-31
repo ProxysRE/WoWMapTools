@@ -70,7 +70,7 @@
         "off_hand": 143,
         "cape": 1190
       },
-      "pose": "calm"
+      "pose": "idle"
     },
     {
       "id": "mage",
@@ -79,7 +79,7 @@
         "boots": 43,
         "main_hand": 35
       },
-      "pose": "calm"
+      "pose": "idle"
     },
     {
       "id": "mixed",
@@ -114,7 +114,7 @@
           1270
         ]
       },
-      "pose": "calm"
+      "pose": "idle"
     }
   ]
 }
