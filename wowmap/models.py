@@ -195,7 +195,7 @@ def mesh_data(assets, name, texture_overrides=None, geosets=None):
         raise ValueError('Non-finite model geometry')
     draws=material_draws(assets,data,info,geosets)
     for draw in draws:
-        if draw['blend'] not in (0,1,2,4):raise ValueError(f"Unsupported preview blend mode: {draw['blend']}")
+        if draw['blend'] not in (0,1,2,4,5,6):raise ValueError(f"Unsupported preview blend mode: {draw['blend']}")
         if draw['coordinate'] not in (-1,0,1):raise ValueError('Unsupported texture coordinate type')
         if draw['texture_kind']:draw['texture']=normalize(overrides[draw['texture_kind']])
         if not assets.has(draw['texture']):raise ValueError('Missing selected skin: '+draw['texture'])
@@ -225,6 +225,22 @@ def additive_composite(destination, source):
     premultiplied=destination[...,:3]*old_alpha+emitted
     rgb=np.divide(premultiplied,alpha,out=np.zeros_like(premultiplied),where=alpha>1e-8)
     return np.concatenate((np.clip(rgb,0,1),np.clip(alpha,0,1)),axis=-1)
+
+
+def modulate_composite(destination, source, coverage, doubled=False):
+    """M2 modes 5/6: DST_COLOR/ZERO and DST_COLOR/SRC_COLOR.
+
+    Reflection/shadow passes modulate existing surface RGB, independently of
+    texture alpha. Retain the base surface's coverage for a reusable RGBA sprite;
+    a multiply-only pass cannot encode a filter on an unknown future background.
+    Raster coverage is separate from the texture's alpha, including zero-alpha
+    texels. Each batch is rasterized once before this composition.
+    """
+    result=destination.copy()
+    mask=coverage & (destination[...,3]>0)
+    rgb=destination[...,:3]*source[...,:3]*(2 if doubled else 1)
+    result[...,:3][mask]=np.clip(rgb[mask],0,1)
+    return result
 
 
 def composed_mesh(assets,name,texture_overrides=None,geosets=None,attachments=None,pose=None,gear=None):
@@ -294,11 +310,14 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
     light=np.array([-.3,.4,.85]);light=light/np.linalg.norm(light)
     # Geometry may already be posed; no particle, ribbon or UV animation evaluation.
     epsilon=span*1e-5
-    # Finish solid/cutout geometry before its additive overlay, including coplanar passes.
-    for draw in sorted(draws,key=lambda d:d['blend']==4):
+    # Finish solid/cutout geometry before overlays. Preserve file order between
+    # overlay batches: addition and multiplication do not commute.
+    for draw in sorted(draws,key=lambda d:d['blend'] in (4,5,6)):
         additive=draw['blend']==4
-        layer=np.zeros_like(image) if additive else image
-        layer_depth=np.full_like(depth,-np.inf) if additive else depth
+        modulate=draw['blend'] in (5,6)
+        overlay=additive or modulate
+        layer=np.zeros_like(image) if overlay else image
+        layer_depth=np.full_like(depth,-np.inf) if overlay else depth
         tex=assets.image(draw['texture'])
         for tri in draw['triangles']:
             p=screen[tri]; z=xyz[tri,2]
@@ -317,7 +336,7 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
             height=weights@z
             db=layer_depth[ymin:ymax+1,xmin:xmax+1]
             covered &= height>db
-            if additive and not draw['flags']&8:
+            if overlay and not draw['flags']&8:
                 covered &= height>=depth[ymin:ymax+1,xmin:xmax+1]-epsilon
             normals=weights@vertices['normal'][tri]
             if draw['coordinate']==-1:tuv=sphere_uv(normals)
@@ -327,6 +346,7 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
             color=tex[ty,tx].astype(np.float32)/255
             if draw['blend']==0: color[:,:,3]=1
             elif additive:covered &= (color[:,:,3]>0)&(color[:,:,:3].max(axis=-1)>0)
+            elif modulate:color[:,:,3]=1  # Raster coverage, not texture opacity.
             else: covered &= color[:,:,3]>=.5
             shade=.65+.35*np.maximum(normals@light,0)
             if draw['flags']&1:shade=np.ones_like(shade)
@@ -335,6 +355,9 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
             dest[covered]=color[covered];db[covered]=height[covered]
         if additive:
             image=additive_composite(image,layer)
+        elif modulate:
+            image=modulate_composite(image,layer,layer[:,:,3]>0,draw['blend']==6)
+        if overlay:
             if not draw['flags']&16:
                 valid=layer[:,:,3]>0;depth[valid]=np.maximum(depth[valid],layer_depth[valid])
     if not image[:,:,3].any(): raise ValueError(f'No visible {view} triangles')
@@ -351,6 +374,8 @@ def preview(assets, name, size=512, texture_overrides=None, yaw=0, view='top', g
     metadata['unused_missing_resources']=info['unused_missing']
     if geosets is not None:metadata['selected_geosets']=sorted(geosets)
     if 4 in metadata['blend_modes']:metadata['limitations'].append('additive light flattened to RGBA coverage')
+    if any(m in metadata['blend_modes'] for m in (5,6)):
+        metadata['limitations'].append('modulation flattened onto model surface; base alpha preserved')
     if any(d['coordinate']==-1 for d in draws):metadata['environment_mapping']='orthographic sphere map'
     if part_metadata:metadata['attachments']=part_metadata
     if texture_overrides:metadata['selected_textures']={str(k):normalize(v) for k,v in texture_overrides.items()}

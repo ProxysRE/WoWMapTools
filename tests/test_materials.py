@@ -7,7 +7,7 @@ from zipfile import ZipFile
 import numpy as np
 from PIL import Image
 from test_models import fixture
-from wowmap.models import RawAssets,inspect_model,preview,additive_composite,sphere_uv
+from wowmap.models import RawAssets,inspect_model,preview,additive_composite,modulate_composite,sphere_uv
 from wowmap.objects import cached_sprite
 from wowmap.catalog import requirements
 
@@ -75,11 +75,13 @@ class MaterialTests(unittest.TestCase):
 
     def render_overlay(self, temp, **kwargs):
         center_only=kwargs.pop('center_only',False)
+        base_color=kwargs.pop('base_color',(0,100,0,255))
+        overlay_color=kwargs.pop('overlay_color',(100,0,0,128))
         model,skin=overlay_fixture(**kwargs)
         with ZipFile(Path(temp)/'assets.zip','w') as z:
             z.writestr('world/test.m2',model);z.writestr('world/test00.skin',skin)
-            z.writestr('tileset/test/base.png',png((0,100,0,255)))
-            z.writestr('tileset/test/glow.png',png((100,0,0,128),center_only))
+            z.writestr('tileset/test/base.png',png(base_color))
+            z.writestr('tileset/test/glow.png',png(overlay_color,center_only))
         with RawAssets(temp) as assets:return preview(assets,'world/test.m2',128)
 
     def test_coplanar_glow_is_added_once_even_when_triangles_repeat(self):
@@ -101,8 +103,41 @@ class MaterialTests(unittest.TestCase):
 
     def test_unsupported_blend_is_still_an_error(self):
         with tempfile.TemporaryDirectory() as temp:
-            with self.assertRaisesRegex(ValueError,'Unsupported preview blend mode: 5'):
-                self.render_overlay(temp,blend=5)
+            with self.assertRaisesRegex(ValueError,'Unsupported preview blend mode: 7'):
+                self.render_overlay(temp,blend=7)
+
+    def test_modulation_preserves_surface_coverage_and_respects_raster_mask(self):
+        base=np.array([[[.4,.2,.8,.3],[0,0,0,0],[.3,.4,.5,1]]])
+        reflection=np.array([[[.5,1,.75,0],[1,1,1,0],[1,1,1,1]]])
+        mask=np.array([[True,True,False]])
+        out=modulate_composite(base,reflection,mask,doubled=True)
+        np.testing.assert_allclose(out[0,0],[.4,.4,1,.3])
+        np.testing.assert_array_equal(out[0,1:],base[0,1:])
+        np.testing.assert_array_equal(base[0,0],[.4,.2,.8,.3])
+        np.testing.assert_allclose(modulate_composite(base,reflection,mask)[0,0],[.2,.2,.6,.3])
+
+    def test_coplanar_modulation_runs_once_and_ignores_texture_alpha(self):
+        for blend,factor in [(5,1),(6,2)]:
+            with self.subTest(blend=blend),tempfile.TemporaryDirectory() as temp:
+                image,meta=self.render_overlay(temp,blend=blend,duplicate=True,
+                    base_color=(80,100,160,255),overlay_color=(128,64,255,0))
+            actual=image.getpixel((64,64))
+            expected=[min(255,int(b*s/255*factor)) for b,s in zip((80,100,160),(128,64,255))]+[255]
+            np.testing.assert_allclose(actual,expected,atol=1)
+            self.assertEqual(image.getpixel((0,0)),(0,0,0,0))
+            self.assertEqual(meta['blend_modes'],[0,blend])
+
+    def test_modulation_is_occluded_and_sphere_reflection_is_applied(self):
+        for blend in (5,6):
+            with self.subTest(blend=blend),tempfile.TemporaryDirectory() as temp:
+                image,_=self.render_overlay(temp,blend=blend,overlay_z=-1,
+                    base_color=(80,100,160,255),overlay_color=(0,0,0,0))
+            self.assertEqual(image.getpixel((64,64)),(80,100,160,255))
+        with tempfile.TemporaryDirectory() as temp:
+            image,meta=self.render_overlay(temp,blend=6,coordinate=-1,center_only=True,
+                base_color=(80,100,160,255),overlay_color=(128,128,128,0))
+        np.testing.assert_allclose(image.getpixel((45,85)),(80,100,160,255),atol=1)
+        self.assertEqual(meta['environment_mapping'],'orthographic sphere map')
 
     def test_unused_texture_and_other_lod_do_not_block_render_cache_or_catalog(self):
         model,skin,texture=fixture();model=unused_reference(model)
