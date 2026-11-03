@@ -44,6 +44,9 @@ def validate(plan):
         if rotation not in (0,90,180,270):raise ValueError('tile_rotation must be 0, 90, 180 or 270')
         if not 0<=layer.get('texture_variation',0)<=.5:raise ValueError('texture_variation must be 0..0.5')
         if 'tint' in layer:ImageColor.getrgb(layer['tint'])
+        if 'water' in layer:
+            from .water import validate_water
+            validate_water(layer)
         shape = layer.get('shape')
         if shape:
             from .geometry import validate_shape
@@ -154,6 +157,9 @@ def _render(plan, size, paths, output, raw, images, source_plan, placement_repor
     for i, (layer, path) in enumerate(zip(all_layers, paths)):
         rng = layer_rng(seed, layer['id'])
         plane = texture(path, size, round(layer.get('tile_cells', 4) * ppc), rng, layer.get('tile_rotation',0), layer.get('texture_variation',0), layer.get('tint'))
+        if 'water' in layer:
+            from .water import water_surface
+            plane = water_surface(plane, layer, ppc, layer_rng(seed, layer['id'] + ':water'))
         if i == 0:
             image = plane
         else:
