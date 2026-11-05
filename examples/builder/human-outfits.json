@@ -4,7 +4,7 @@
     {
       "id": "worker",
       "mode": "npc",
-      "source": "requests/builder/sources/human-outfits/worker.json",
+      "source": "examples/builder/sources/human-outfits/worker.json",
       "appearance": {
         "character": {
           "gender": "male",
@@ -22,7 +22,7 @@
     {
       "id": "mail",
       "mode": "npc",
-      "source": "requests/builder/sources/human-outfits/mail.json",
+      "source": "examples/builder/sources/human-outfits/mail.json",
       "appearance": {
         "character": {
           "gender": "male",
@@ -41,7 +41,7 @@
     {
       "id": "robe",
       "mode": "npc",
-      "source": "requests/builder/sources/human-outfits/robe.json",
+      "source": "examples/builder/sources/human-outfits/robe.json",
       "appearance": {
         "character": {
           "gender": "male",
@@ -58,7 +58,7 @@
     {
       "id": "female-robe",
       "mode": "npc",
-      "source": "requests/builder/sources/human-outfits/female-robe.json",
+      "source": "examples/builder/sources/human-outfits/female-robe.json",
       "appearance": {
         "character": {
           "gender": "female",

@@ -143,14 +143,14 @@ class CharacterTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('human_batch',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         reader=adapter.read_json
-        request=dict(format='foundry-builder.batch/1',documents=[dict(id='human',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
-        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else reader(path)
-        result=adapter.build_batch('requests/builder/active.json',self.root/'built',None,self.dbc,self.models)
+        request=dict(format='foundry-builder.batch/1',documents=[dict(id='human',mode='npc',source='examples/builder/sources/oren.json',appearance=options)],placements=[])
+        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='basic.json' else reader(path)
+        result=adapter.build_batch('examples/builder/basic.json',self.root/'built',None,self.dbc,self.models)
         actor=json.loads((self.root/'built/human.json').read_text(encoding='utf-8'))
         self.assertEqual(actor['system']['details']['race'],'Человек');self.assertEqual(actor['system']['attributes']['hp']['max'],11)
         self.assertNotEqual(actor['img'],actor['prototypeToken']['texture']['src']);self.assertEqual(len(result['media']),2)
         request['documents'][0]['appearance']['equipment']['shirt']=999
-        with self.assertRaises(ValueError):adapter.build_batch('requests/builder/active.json',self.root/'bad',None,self.dbc,self.models)
+        with self.assertRaises(ValueError):adapter.build_batch('examples/builder/basic.json',self.root/'bad',None,self.dbc,self.models)
         self.assertFalse((self.root/'bad').exists())
 
     def test_attachment_lookup_race_helmet_variants_and_shared_depth_render(self):

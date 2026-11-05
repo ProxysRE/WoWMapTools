@@ -22,8 +22,8 @@ def main():
     parser.add_argument('--dbc-assets',required=True);parser.add_argument('--model-assets',required=True)
     parser.add_argument('--audit',default='output/character-demo-capabilities.json')
     args=parser.parse_args();db=CharacterDB(args.dbc_assets)
-    template=json.loads((ROOT/'requests/builder/sources/human-outfits/worker.json').read_text(encoding='utf-8'))
-    documents=[];audit=[];directory=ROOT/'requests/builder/sources/all-races';directory.mkdir(exist_ok=True)
+    template=json.loads((ROOT/'examples/builder/sources/human-outfits/worker.json').read_text(encoding='utf-8'))
+    documents=[];audit=[];directory=ROOT/'examples/builder/sources/all-races';directory.mkdir(exist_ok=True)
     with RawAssets(args.model_assets) as raw:
         capabilities=db.options(raw)
         for body in capabilities['bodies']:
@@ -49,7 +49,7 @@ def main():
             documents.append(dict(id=key,mode='npc',source=source.relative_to(ROOT).as_posix(),appearance=dict(character=character,equipment=gear,size=256,portrait_size=384)))
             audit.append(dict(id=key,equipment=gear,omitted_from_demo_preset=omitted))
     request=dict(format='foundry-builder.batch/1',documents=documents,placements=[])
-    (ROOT/'requests/builder/all-races.json').write_text(json.dumps(request,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'examples/builder/all-races.json').write_text(json.dumps(request,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     output=Path(args.audit);output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(json.dumps(dict(capabilities=capabilities,demo=audit),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(bodies=len(documents),declared_demo_omissions=sum(len(x['omitted_from_demo_preset']) for x in audit))))

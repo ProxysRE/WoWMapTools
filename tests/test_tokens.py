@@ -58,8 +58,8 @@ class TokenTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('pose_batch_adapter',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         options=dict(display_id=165,size=128,portrait_size=128,pose_variants={'normal':'bind','combat':'bind'})
-        request=dict(format='foundry-builder.batch/1',documents=[dict(id='wolf',mode='npc',source='requests/builder/sources/oren.json',appearance=options)],placements=[])
-        request_file=ROOT/'requests/builder/test-pose-fixture.json'
+        request=dict(format='foundry-builder.batch/1',documents=[dict(id='wolf',mode='npc',source='examples/builder/sources/oren.json',appearance=options)],placements=[])
+        request_file=ROOT/'examples/builder/test-pose-fixture.json'
         try:
             request_file.write_text(json.dumps(request),encoding='utf-8')
             output=self.root/'variant-build';adapter.build_batch(request_file.relative_to(ROOT).as_posix(),output,dbc_assets=self.dbc,model_assets=self.models)
@@ -167,12 +167,12 @@ class TokenTests(unittest.TestCase):
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         original_reader=adapter.read_json
         request={'format':'foundry-builder.batch/1','documents':[dict(id='test',mode='npc',
-                 source='requests/builder/sources/oren.json',appearance=dict(display_id=165,size=128))],
+                 source='examples/builder/sources/oren.json',appearance=dict(display_id=165,size=128))],
                  'placements':[dict(id='test',actor='test',scene='ground',position=[2,2])]}
-        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else original_reader(path)
+        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='basic.json' else original_reader(path)
         out=self.root/'built'
-        with self.assertRaisesRegex(ValueError,'--dbc-assets'):adapter.build_batch('requests/builder/active.json',out)
-        result=adapter.build_batch('requests/builder/active.json',out,None,self.dbc,self.models)
+        with self.assertRaisesRegex(ValueError,'--dbc-assets'):adapter.build_batch('examples/builder/basic.json',out)
+        result=adapter.build_batch('examples/builder/basic.json',out,None,self.dbc,self.models)
         actor=json.loads((out/'test.json').read_text(encoding='utf-8'))
         self.assertNotEqual(actor['img'],actor['prototypeToken']['texture']['src'])
         self.assertTrue((out/actor['img']).is_file());self.assertEqual(len(result['media']),2)
@@ -187,10 +187,10 @@ class TokenTests(unittest.TestCase):
         self.assertEqual((self.root/'map'/token).read_bytes(),(out/token).read_bytes())
         request['documents'][0]['appearance']['actor_image']=False
         preserved=self.root/'preserved'
-        without_portrait=adapter.build_batch('requests/builder/active.json',preserved,None,self.dbc,self.models)
+        without_portrait=adapter.build_batch('examples/builder/basic.json',preserved,None,self.dbc,self.models)
         self.assertEqual(len(without_portrait['media']),1)
         self.assertEqual(json.loads((preserved/'test.json').read_text(encoding='utf-8'))['img'],'icons/svg/mystery-man.svg')
         request['documents'][0]['appearance']['display_id']=999
-        with self.assertRaises(ValueError):adapter.build_batch('requests/builder/active.json',self.root/'bad',None,self.dbc,self.models)
+        with self.assertRaises(ValueError):adapter.build_batch('examples/builder/basic.json',self.root/'bad',None,self.dbc,self.models)
         self.assertFalse((self.root/'bad').exists())
         self.assertEqual(actor['system']['details']['race'],'Человек')

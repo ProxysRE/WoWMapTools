@@ -18,7 +18,7 @@ on:
     inputs:
       request:
         description: Repository-relative batch JSON
-        default: requests/builder/active.json
+        default: examples/builder/basic.json
         required: true
 permissions:
   contents: read
@@ -48,6 +48,7 @@ jobs:
           python builder_app.py --self-test
           python project_audit.py
       - name: Build requested JSON documents and population manifest
+        if: github.event_name == 'workflow_dispatch' || hashFiles('requests/builder/active.json') != ''
         shell: pwsh
         run: python tools/build_foundry_batch.py "$env:BUILDER_REQUEST" --out output/builder
       - name: Package standalone Builder application

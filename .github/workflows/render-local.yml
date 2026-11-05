@@ -20,6 +20,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Require an explicit map request
+        shell: pwsh
+        run: |
+          if (-not (Test-Path 'requests/active.json')) {
+            throw 'No active map request. Add requests/active.json before running the renderer.'
+          }
       - name: Check local configuration
         shell: pwsh
         env:

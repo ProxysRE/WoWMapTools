@@ -70,7 +70,7 @@ class PopulationTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('batch_adapter',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         with tempfile.TemporaryDirectory() as temp:
-            out=Path(temp)/'valid';result=adapter.build_batch('requests/builder/active.json',out)
+            out=Path(temp)/'valid';result=adapter.build_batch('examples/builder/basic.json',out)
             self.assertEqual(len(result['documents']),4)
             pop=json.loads((out/'population.json').read_text(encoding='utf-8'));validate_population(pop)
             self.assertEqual(len(pop['actors']),2)
@@ -78,6 +78,6 @@ class PopulationTests(unittest.TestCase):
                 report=json.loads((out/row['report']).read_text(encoding='utf-8'))
                 self.assertEqual(report['source_contract']['errors'],[])
                 self.assertEqual(report['midi_compatibility']['errors'],[])
-            with self.assertRaisesRegex(ValueError,'empty'):adapter.build_batch('requests/builder/active.json',out)
+            with self.assertRaisesRegex(ValueError,'empty'):adapter.build_batch('examples/builder/basic.json',out)
             with self.assertRaises(ValueError):adapter.build_batch('../../outside.json',Path(temp)/'invalid')
             self.assertFalse((Path(temp)/'invalid').exists())

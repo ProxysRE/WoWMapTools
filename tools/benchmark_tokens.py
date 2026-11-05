@@ -30,7 +30,7 @@ print(json.dumps(dict(seconds=time.perf_counter()-start,assemblies=count[0],medi
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--reference',required=True);p.add_argument('--dbc-assets',required=True);p.add_argument('--model-assets',required=True)
-    p.add_argument('--request',default='requests/builder/all-races.json');p.add_argument('--repeats',type=int,default=3)
+    p.add_argument('--request',default='examples/builder/all-races.json');p.add_argument('--repeats',type=int,default=3)
     p.add_argument('--out',default='output/token-benchmark.json')
     args=p.parse_args()
     if not 1<=args.repeats<=10:p.error('--repeats must be 1..10')

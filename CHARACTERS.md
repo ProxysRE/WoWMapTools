@@ -78,7 +78,7 @@ ModelTexture[0] задаёт текстуру `item/objectcomponents/cape/*.blp`
 Физики ткани нет: используется исходная статическая форма. Мантия и плащ могут
 пересекаться в исходной модели, автоматического исправления ткани нет.
 
-`requests/builder/capes.json` содержит шесть технических NPC с плащами разных
+`examples/builder/capes.json` содержит шесть технических NPC с плащами разных
 форм и расцветок. `portrait_yaw: 145` показывает их со спины в три четверти;
 обычный ракурс по умолчанию не меняется. Токены остаются сверху. Сборка — той же
 командой Builder, что ниже, с этим заданием и новым пустым `--out`.
@@ -118,7 +118,7 @@ HelmetGeosetVisData управляет скрытием волос, особен
 ```console
 python -m wowmap.characters search --dbc-assets D:\WoWAssets\DBC --slot head --query plate --limit 20
 python -m wowmap.characters render --dbc-assets D:\WoWAssets\DBC --model-assets D:\WoWAssets\Characters --request requests/appearance.json --out output/outfit
-python tools/build_foundry_batch.py requests/builder/all-races.json --dbc-assets D:\WoWAssets\DBC --model-assets D:\WoWAssets\Characters --out output/all-races
+python tools/build_foundry_batch.py examples/builder/all-races.json --dbc-assets D:\WoWAssets\DBC --model-assets D:\WoWAssets\Characters --out output/all-races
 ```
 
 Поиск использует английские имена моделей, текстур и иконок, не локализованные
@@ -128,13 +128,13 @@ python tools/build_foundry_batch.py requests/builder/all-races.json --dbc-assets
 автоматически. **Внешность не меняет механику:** Item ID не добавляет предмет в
 инвентарь, КД, атаки или урон. Боевой лист создаётся обычным Builder отдельно.
 
-`requests/builder/all-races.json` — 33 технических NPC, 66 изображений, КД 10,
+`examples/builder/all-races.json` — 33 технических NPC, 66 изображений, КД 10,
 1 хит, без атак. Одинаковый демонстрационный комплект проверен на игровых расах.
 Для дополнительных NPC неподходящие части исключены **при подготовке задания**
 и перечислены в отчёте демонстрации; renderer не удаляет запрошенные предметы.
 `tools/prepare_character_demo.py` воспроизводит проверку ресурсов и подготовку
 этого задания; его `--audit` задаёт путь отчёта. Старый пример
-`requests/builder/human-outfits.json` остаётся четырьмя образцами текстурной одежды.
+`examples/builder/human-outfits.json` остаётся четырьмя образцами текстурной одежды.
 
 Нужны ZIP выбранных `character-*`, `item-texturecomponents-*`,
 `item-objectcomponents-*`, дополнительные creature-текстуры, на которые ссылается

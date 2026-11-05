@@ -4,7 +4,7 @@
     {
       "id": "human-male",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/human-male.json",
+      "source": "examples/builder/sources/pose-demo/human-male.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -33,7 +33,7 @@
     {
       "id": "orc-female",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/orc-female.json",
+      "source": "examples/builder/sources/pose-demo/orc-female.json",
       "appearance": {
         "character": {
           "race": "orc",
@@ -61,7 +61,7 @@
     {
       "id": "tauren-male",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/tauren-male.json",
+      "source": "examples/builder/sources/pose-demo/tauren-male.json",
       "appearance": {
         "character": {
           "race": "tauren",
@@ -89,7 +89,7 @@
     {
       "id": "naga-female",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/naga-female.json",
+      "source": "examples/builder/sources/pose-demo/naga-female.json",
       "appearance": {
         "character": {
           "race": "naga_",
@@ -114,7 +114,7 @@
     {
       "id": "wolf",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/wolf.json",
+      "source": "examples/builder/sources/pose-demo/wolf.json",
       "appearance": {
         "display_id": 165,
         "portrait_yaw": 55,
@@ -129,7 +129,7 @@
     {
       "id": "greatsword",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/greatsword.json",
+      "source": "examples/builder/sources/pose-demo/greatsword.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -154,7 +154,7 @@
     {
       "id": "staff",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/staff.json",
+      "source": "examples/builder/sources/pose-demo/staff.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -179,7 +179,7 @@
     {
       "id": "archer",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/archer.json",
+      "source": "examples/builder/sources/pose-demo/archer.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -204,7 +204,7 @@
     {
       "id": "rifle",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/rifle.json",
+      "source": "examples/builder/sources/pose-demo/rifle.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -229,7 +229,7 @@
     {
       "id": "caster",
       "mode": "npc",
-      "source": "requests/builder/sources/pose-demo/caster.json",
+      "source": "examples/builder/sources/pose-demo/caster.json",
       "appearance": {
         "character": {
           "race": "human",

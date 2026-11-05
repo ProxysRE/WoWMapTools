@@ -4,7 +4,7 @@
     {
       "id": "human-male",
       "mode": "npc",
-      "source": "requests/builder/sources/capes/human-male.json",
+      "source": "examples/builder/sources/capes/human-male.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -29,7 +29,7 @@
     {
       "id": "human-female",
       "mode": "npc",
-      "source": "requests/builder/sources/capes/human-female.json",
+      "source": "examples/builder/sources/capes/human-female.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -54,7 +54,7 @@
     {
       "id": "orc-female",
       "mode": "npc",
-      "source": "requests/builder/sources/capes/orc-female.json",
+      "source": "examples/builder/sources/capes/orc-female.json",
       "appearance": {
         "character": {
           "race": "orc",
@@ -79,7 +79,7 @@
     {
       "id": "tauren-male",
       "mode": "npc",
-      "source": "requests/builder/sources/capes/tauren-male.json",
+      "source": "examples/builder/sources/capes/tauren-male.json",
       "appearance": {
         "character": {
           "race": "tauren",
@@ -104,7 +104,7 @@
     {
       "id": "bloodelf-female",
       "mode": "npc",
-      "source": "requests/builder/sources/capes/bloodelf-female.json",
+      "source": "examples/builder/sources/capes/bloodelf-female.json",
       "appearance": {
         "character": {
           "race": "bloodelf",
@@ -129,7 +129,7 @@
     {
       "id": "gnome-female",
       "mode": "npc",
-      "source": "requests/builder/sources/capes/gnome-female.json",
+      "source": "examples/builder/sources/capes/gnome-female.json",
       "appearance": {
         "character": {
           "race": "gnome",

@@ -4,7 +4,7 @@
     {
       "id": "human-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/human-male.json",
+      "source": "examples/builder/sources/all-races/human-male.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -27,7 +27,7 @@
     {
       "id": "human-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/human-female.json",
+      "source": "examples/builder/sources/all-races/human-female.json",
       "appearance": {
         "character": {
           "race": "human",
@@ -50,7 +50,7 @@
     {
       "id": "orc-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/orc-male.json",
+      "source": "examples/builder/sources/all-races/orc-male.json",
       "appearance": {
         "character": {
           "race": "orc",
@@ -73,7 +73,7 @@
     {
       "id": "orc-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/orc-female.json",
+      "source": "examples/builder/sources/all-races/orc-female.json",
       "appearance": {
         "character": {
           "race": "orc",
@@ -96,7 +96,7 @@
     {
       "id": "dwarf-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/dwarf-male.json",
+      "source": "examples/builder/sources/all-races/dwarf-male.json",
       "appearance": {
         "character": {
           "race": "dwarf",
@@ -119,7 +119,7 @@
     {
       "id": "dwarf-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/dwarf-female.json",
+      "source": "examples/builder/sources/all-races/dwarf-female.json",
       "appearance": {
         "character": {
           "race": "dwarf",
@@ -142,7 +142,7 @@
     {
       "id": "nightelf-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/nightelf-male.json",
+      "source": "examples/builder/sources/all-races/nightelf-male.json",
       "appearance": {
         "character": {
           "race": "nightelf",
@@ -165,7 +165,7 @@
     {
       "id": "nightelf-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/nightelf-female.json",
+      "source": "examples/builder/sources/all-races/nightelf-female.json",
       "appearance": {
         "character": {
           "race": "nightelf",
@@ -188,7 +188,7 @@
     {
       "id": "scourge-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/scourge-male.json",
+      "source": "examples/builder/sources/all-races/scourge-male.json",
       "appearance": {
         "character": {
           "race": "scourge",
@@ -211,7 +211,7 @@
     {
       "id": "scourge-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/scourge-female.json",
+      "source": "examples/builder/sources/all-races/scourge-female.json",
       "appearance": {
         "character": {
           "race": "scourge",
@@ -234,7 +234,7 @@
     {
       "id": "tauren-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/tauren-male.json",
+      "source": "examples/builder/sources/all-races/tauren-male.json",
       "appearance": {
         "character": {
           "race": "tauren",
@@ -257,7 +257,7 @@
     {
       "id": "tauren-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/tauren-female.json",
+      "source": "examples/builder/sources/all-races/tauren-female.json",
       "appearance": {
         "character": {
           "race": "tauren",
@@ -280,7 +280,7 @@
     {
       "id": "gnome-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/gnome-male.json",
+      "source": "examples/builder/sources/all-races/gnome-male.json",
       "appearance": {
         "character": {
           "race": "gnome",
@@ -303,7 +303,7 @@
     {
       "id": "gnome-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/gnome-female.json",
+      "source": "examples/builder/sources/all-races/gnome-female.json",
       "appearance": {
         "character": {
           "race": "gnome",
@@ -326,7 +326,7 @@
     {
       "id": "troll-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/troll-male.json",
+      "source": "examples/builder/sources/all-races/troll-male.json",
       "appearance": {
         "character": {
           "race": "troll",
@@ -349,7 +349,7 @@
     {
       "id": "troll-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/troll-female.json",
+      "source": "examples/builder/sources/all-races/troll-female.json",
       "appearance": {
         "character": {
           "race": "troll",
@@ -372,7 +372,7 @@
     {
       "id": "goblin-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/goblin-male.json",
+      "source": "examples/builder/sources/all-races/goblin-male.json",
       "appearance": {
         "character": {
           "race": "goblin",
@@ -395,7 +395,7 @@
     {
       "id": "goblin-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/goblin-female.json",
+      "source": "examples/builder/sources/all-races/goblin-female.json",
       "appearance": {
         "character": {
           "race": "goblin",
@@ -418,7 +418,7 @@
     {
       "id": "bloodelf-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/bloodelf-male.json",
+      "source": "examples/builder/sources/all-races/bloodelf-male.json",
       "appearance": {
         "character": {
           "race": "bloodelf",
@@ -441,7 +441,7 @@
     {
       "id": "bloodelf-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/bloodelf-female.json",
+      "source": "examples/builder/sources/all-races/bloodelf-female.json",
       "appearance": {
         "character": {
           "race": "bloodelf",
@@ -464,7 +464,7 @@
     {
       "id": "draenei-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/draenei-male.json",
+      "source": "examples/builder/sources/all-races/draenei-male.json",
       "appearance": {
         "character": {
           "race": "draenei",
@@ -487,7 +487,7 @@
     {
       "id": "draenei-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/draenei-female.json",
+      "source": "examples/builder/sources/all-races/draenei-female.json",
       "appearance": {
         "character": {
           "race": "draenei",
@@ -510,7 +510,7 @@
     {
       "id": "felorc-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/felorc-male.json",
+      "source": "examples/builder/sources/all-races/felorc-male.json",
       "appearance": {
         "character": {
           "race": "felorc",
@@ -532,7 +532,7 @@
     {
       "id": "naga-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/naga-male.json",
+      "source": "examples/builder/sources/all-races/naga-male.json",
       "appearance": {
         "character": {
           "race": "naga_",
@@ -552,7 +552,7 @@
     {
       "id": "naga-female",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/naga-female.json",
+      "source": "examples/builder/sources/all-races/naga-female.json",
       "appearance": {
         "character": {
           "race": "naga_",
@@ -572,7 +572,7 @@
     {
       "id": "broken-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/broken-male.json",
+      "source": "examples/builder/sources/all-races/broken-male.json",
       "appearance": {
         "character": {
           "race": "broken",
@@ -593,7 +593,7 @@
     {
       "id": "skeleton-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/skeleton-male.json",
+      "source": "examples/builder/sources/all-races/skeleton-male.json",
       "appearance": {
         "character": {
           "race": "skeleton",
@@ -615,7 +615,7 @@
     {
       "id": "vrykul-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/vrykul-male.json",
+      "source": "examples/builder/sources/all-races/vrykul-male.json",
       "appearance": {
         "character": {
           "race": "vrykul",
@@ -637,7 +637,7 @@
     {
       "id": "tuskarr-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/tuskarr-male.json",
+      "source": "examples/builder/sources/all-races/tuskarr-male.json",
       "appearance": {
         "character": {
           "race": "tuskarr",
@@ -659,7 +659,7 @@
     {
       "id": "foresttroll-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/foresttroll-male.json",
+      "source": "examples/builder/sources/all-races/foresttroll-male.json",
       "appearance": {
         "character": {
           "race": "foresttroll",
@@ -681,7 +681,7 @@
     {
       "id": "taunka-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/taunka-male.json",
+      "source": "examples/builder/sources/all-races/taunka-male.json",
       "appearance": {
         "character": {
           "race": "taunka",
@@ -703,7 +703,7 @@
     {
       "id": "northrendskeleton-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/northrendskeleton-male.json",
+      "source": "examples/builder/sources/all-races/northrendskeleton-male.json",
       "appearance": {
         "character": {
           "race": "northrendskeleton",
@@ -721,7 +721,7 @@
     {
       "id": "icetroll-male",
       "mode": "npc",
-      "source": "requests/builder/sources/all-races/icetroll-male.json",
+      "source": "examples/builder/sources/all-races/icetroll-male.json",
       "appearance": {
         "character": {
           "race": "icetroll",

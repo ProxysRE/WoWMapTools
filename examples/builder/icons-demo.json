@@ -1,12 +1,12 @@
 {
   "format": "foundry-builder.batch/1",
   "documents": [
-    {"id": "marta", "mode": "npc", "source": "requests/builder/sources/marta.json",
+    {"id": "marta", "mode": "npc", "source": "examples/builder/sources/marta.json",
      "icons": {"/items/0/img": "inv_misc_key_01"}},
-    {"id": "oren", "mode": "npc", "source": "requests/builder/sources/oren.json"},
-    {"id": "pantry-key", "mode": "item", "source": "requests/builder/sources/pantry-key.json",
+    {"id": "oren", "mode": "npc", "source": "examples/builder/sources/oren.json"},
+    {"id": "pantry-key", "mode": "item", "source": "examples/builder/sources/pantry-key.json",
      "icons": {"/img": "inv_misc_key_01"}},
-    {"id": "warm-mug", "mode": "spell", "source": "requests/builder/sources/warm-mug.json",
+    {"id": "warm-mug", "mode": "spell", "source": "examples/builder/sources/warm-mug.json",
      "icons": {"/img": "spell_fire_fireball"}}
   ],
   "placements": [

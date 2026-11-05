@@ -56,7 +56,7 @@ https://github.com/wowmodelviewer/wowmodelviewer/blob/master/src/games/wow/Model
 Готовый тестовый пакет строится командой:
 
 ```console
-python tools/build_foundry_batch.py requests/builder/material-fixes.json --dbc-assets "D:\WoWAssets\DBC" --model-assets "D:\WoWAssets\Models" --out output/material-fixes
+python tools/build_foundry_batch.py examples/builder/material-fixes.json --dbc-assets "D:\WoWAssets\DBC" --model-assets "D:\WoWAssets\Models" --out output/material-fixes
 ```
 
 Папка моделей должна содержать соответствующие ZIP из приватной выгрузки.

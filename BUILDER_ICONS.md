@@ -45,7 +45,7 @@ python -m wowmap.icons --assets "D:\WoWAssets\Icons" --query "inv_stone" --limit
 {
   "id": "marta",
   "mode": "npc",
-  "source": "requests/builder/sources/marta.json",
+  "source": "examples/builder/sources/marta.json",
   "icons": {
     "/items/0/img": "inv_misc_key_01"
   }
@@ -75,10 +75,10 @@ Builder. `/img` задаёт основной значок, `/items/0/img` — �
 сборку. Если `icons` и `item_icons` назначают одну картинку одного предмета,
 сборка также останавливается, даже когда выбраны одинаковые файлы.
 
-Пример уже находится в `requests/builder/icons-demo.json`:
+Пример уже находится в `examples/builder/icons-demo.json`:
 
 ```console
-python tools/build_foundry_batch.py requests/builder/icons-demo.json --icon-assets "D:\WoWAssets\Icons" --out output/icons-demo
+python tools/build_foundry_batch.py examples/builder/icons-demo.json --icon-assets "D:\WoWAssets\Icons" --out output/icons-demo
 ```
 
 Собираются прежние два NPC, ключ и заговор. WoW-иконка ключа назначается и отдельному

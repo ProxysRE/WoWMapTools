@@ -4,7 +4,7 @@
     {
       "id": "murloc-material-test",
       "mode": "npc",
-      "source": "requests/builder/sources/murloc-material-test.json",
+      "source": "examples/builder/sources/murloc-material-test.json",
       "appearance": {
         "display_id": 188,
         "size": 512,
@@ -16,7 +16,7 @@
     {
       "id": "kobold-material-test",
       "mode": "npc",
-      "source": "requests/builder/sources/kobold-material-test.json",
+      "source": "examples/builder/sources/kobold-material-test.json",
       "appearance": {
         "display_id": 26,
         "size": 512,

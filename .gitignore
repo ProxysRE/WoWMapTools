@@ -15,3 +15,13 @@ stormlib-build/
 
 # GUI Builder local reports
 foundry_builder/logs/
+
+# Local editor, OS and test outputs
+.DS_Store
+Thumbs.db
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+*.tmp
+*.bak

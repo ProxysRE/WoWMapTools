@@ -4,7 +4,7 @@
     {
       "id": "wolf-timber",
       "mode": "npc",
-      "source": "requests/builder/sources/wolf-timber.json",
+      "source": "examples/builder/sources/wolf-timber.json",
       "appearance": {
         "display_id": 165,
         "size": 512,
@@ -16,7 +16,7 @@
     {
       "id": "wolf-black",
       "mode": "npc",
-      "source": "requests/builder/sources/wolf-black.json",
+      "source": "examples/builder/sources/wolf-black.json",
       "appearance": {
         "display_id": 644,
         "size": 512,
@@ -28,7 +28,7 @@
     {
       "id": "wolf-arctic",
       "mode": "npc",
-      "source": "requests/builder/sources/wolf-arctic.json",
+      "source": "examples/builder/sources/wolf-arctic.json",
       "appearance": {
         "display_id": 776,
         "size": 512,

@@ -9,7 +9,7 @@
 Отдельный путь [character + equipment](CHARACTERS.md) собирает одежду на базовом
 теле выбранной расы и пола, включая отдельные модели экипировки, независимо от creature display ID.
 
-Также собраны [гнолл, трогг и фурболг](FOREST_NPCS.md), проверены
+Также собраны гнолл, трогг и фурболг в прежнем тестовом наборе, проверены
 [мурлок и кобольд](MODEL_FIXES.md). Это примеры поддержанных моделей,
 а не гарантия для всех существ клиента.
 
@@ -53,7 +53,7 @@ ID, модель, выбранные текстуры, хеши DBC и ресу�
 Внешность не меняет тип, характеристики, атаки или способности листа.
 
 ```console
-python tools/build_foundry_batch.py requests/builder/tokens-demo.json --dbc-assets "D:\WoWAssets\DBC" --model-assets "D:\WoWAssets\Models" --out output/wolves
+python tools/build_foundry_batch.py examples/builder/tokens-demo.json --dbc-assets "D:\WoWAssets\DBC" --model-assets "D:\WoWAssets\Models" --out output/wolves
 ```
 
 Пример содержит три **технических**, не боевых листа: все характеристики 10, КД 10,

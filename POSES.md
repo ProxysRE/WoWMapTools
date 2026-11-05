@@ -61,10 +61,10 @@ time_ms: 0..длительность. Несуществующая анимац�
 `actor_image: false` оставляет портрет прежним. Ресурсы обоих обликов включаются
 в выходной каталог. Без `pose_variants` никаких данных модуля не добавляется.
 
-Воспроизводимый набор: [pose-demo.json](requests/builder/pose-demo.json).
+Воспроизводимый набор: [pose-demo.json](examples/builder/pose-demo.json).
 
 ```console
-python tools/build_foundry_batch.py requests/builder/pose-demo.json --dbc-assets D:\WoWAssets\DBC --model-assets D:\WoWAssets\Models --out output/pose-demo
+python tools/build_foundry_batch.py examples/builder/pose-demo.json --dbc-assets D:\WoWAssets\DBC --model-assets D:\WoWAssets\Models --out output/pose-demo
 ```
 
 ## Модуль Foundry

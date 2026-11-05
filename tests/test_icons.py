@@ -67,7 +67,7 @@ class IconTests(unittest.TestCase):
     def test_real_builder_icons_and_scene_population_media_transfer(self):
         spec=importlib.util.spec_from_file_location('icon_batch_adapter',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
-        request=ROOT/'requests/builder/icons-demo.json'
+        request=ROOT/'examples/builder/icons-demo.json'
         out=self.root/'built'
         with self.assertRaisesRegex(ValueError,'--icon-assets'):adapter.build_batch(str(request),out)
         self.assertFalse(out.exists())
@@ -106,7 +106,7 @@ class IconTests(unittest.TestCase):
             return data
         adapter.read_json=request_with_missing_icon
         out=self.root/'bad'
-        with self.assertRaises(ValueError):adapter.build_batch('requests/builder/icons-demo.json',out,self.assets)
+        with self.assertRaises(ValueError):adapter.build_batch('examples/builder/icons-demo.json',out,self.assets)
         self.assertFalse(out.exists())
 
     def test_item_identifiers_survive_reordering_and_reject_ambiguity(self):
@@ -138,12 +138,12 @@ class IconTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('named_icon_batch',ROOT/'tools/build_foundry_batch.py')
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         original=adapter.read_json
-        source=original(ROOT/'requests/builder/sources/brum-scavenger.json')
-        entry=dict(id='brum',mode='npc',source='requests/builder/sources/brum-scavenger.json',
+        source=original(ROOT/'tests/fixtures/builder/brum-scavenger.json')
+        entry=dict(id='brum',mode='npc',source='tests/fixtures/builder/brum-scavenger.json',
                    item_icons={'brum-stone':'inv_misc_key_01'})
         request=dict(format='foundry-builder.batch/1',documents=[entry],placements=[])
-        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='active.json' else original(path)
-        out=self.root/'named';report=adapter.build_batch('requests/builder/active.json',out,self.assets)
+        adapter.read_json=lambda path:copy.deepcopy(request) if path.name=='basic.json' else original(path)
+        out=self.root/'named';report=adapter.build_batch('examples/builder/basic.json',out,self.assets)
         doc=json.loads((out/'brum.json').read_text(encoding='utf-8'))
         self.assertTrue(doc['items'][1]['img'].startswith(PREFIX))
         review=json.loads((out/'icon-bindings.json').read_text(encoding='utf-8'))
@@ -151,9 +151,9 @@ class IconTests(unittest.TestCase):
         self.assertTrue((out/report['icon_reviews'][0]).is_file())
         entry['icons']={'/items/1/img':'spell_fire_fireball'}
         with self.assertRaisesRegex(ValueError,'same image'):
-            adapter.build_batch('requests/builder/active.json',self.root/'conflict',self.assets)
+            adapter.build_batch('examples/builder/basic.json',self.root/'conflict',self.assets)
         self.assertFalse((self.root/'conflict').exists())
         del entry['icons'];request['placements']={}
         with self.assertRaisesRegex(ValueError,'population size'):
-            adapter.build_batch('requests/builder/active.json',self.root/'invalid',self.assets)
+            adapter.build_batch('examples/builder/basic.json',self.root/'invalid',self.assets)
         self.assertFalse((self.root/'invalid').exists())
