@@ -15,6 +15,7 @@ stormlib-build/
 
 # GUI Builder local reports
 foundry_builder/logs/
+foundry_modules/wowmap-effects/media/
 
 # Local editor, OS and test outputs
 .DS_Store

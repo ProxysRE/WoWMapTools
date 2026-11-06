@@ -1,0 +1,10 @@
+{
+  "id": "wowmap-effects",
+  "title": "WoWMap — эффекты способностей (пилот)",
+  "description": "Пробный огненный снаряд WoW через Sequencer. Ручной запуск и явная привязка к активности dnd5e.",
+  "version": "0.1.0",
+  "compatibility": {"minimum":"13", "verified":"13.351", "maximum":"13"},
+  "authors": [{"name":"WoWMapTools"}],
+  "esmodules": ["effects.mjs"],
+  "relationships": {"requires":[{"id":"sequencer","type":"module","compatibility":{"minimum":"3.6.11"}}]}
+}
