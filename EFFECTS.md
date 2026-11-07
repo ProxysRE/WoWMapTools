@@ -115,3 +115,10 @@ creature/golemharvest. Исходные модели: `frostbolt.m2`,
 [описание M2Particle v264](https://github.com/paalgyula/summit/blob/development/pkg/converter/m2/m2.go),
 [Sequencer 3.6.11 Effect API](https://github.com/fantasycalendar/FoundryVTT-Sequencer/blob/3.6.11/docs/api/effect.md),
 [хук активности dnd5e 5.3.3](https://github.com/foundryvtt/dnd5e/blob/release-5.3.3/module/documents/activity/mixin.mjs).
+
+## Лучевые эффекты
+
+Отдельный рендерер `python -m wowmap.beams` и адаптер растягиваемой полосы описаны
+в [руководстве лучей](BEAMS.md). Они используют SpellChainEffects и оригинальные
+текстуры, не растянутый видеоролик снаряда. Старый самостоятельный огненный пилот
+остаётся без изменений; автоматические лучи подключены в книжном модуле 0.40.25.
