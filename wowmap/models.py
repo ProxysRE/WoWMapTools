@@ -162,8 +162,11 @@ def material_draws(assets, data, info, geosets=None):
         if tex_index>=len(info['textures']): raise ValueError('Invalid texture lookup')
         flags,blend=materials[material_index]
         if len(coordinates):
-            if batch[7]>=len(coordinates):raise ValueError('Invalid texture-coordinate lookup')
-            coordinate=int(coordinates[batch[7]])
+            # M2Batch offset 18 is textureCoordComboIndex. Offset 12 is
+            # materialLayer and must never be used as a UV lookup index.
+            if batch[10]>=len(coordinates):raise ValueError('Invalid texture-coordinate lookup')
+            coordinate=int(coordinates[batch[10]])
+            if coordinate not in (-1,0,1):raise ValueError('Unsupported texture coordinate source: '+str(coordinate))
         else:coordinate=0
         section=sections[section_index]
         start=section[4]+(section[1]<<16); length=section[5]
@@ -426,3 +429,4 @@ def main():
 
 
 if __name__=='__main__': raise SystemExit(main())
+

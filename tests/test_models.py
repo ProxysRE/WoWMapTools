@@ -6,7 +6,7 @@ import unittest
 from unittest.mock import patch
 from zipfile import ZipFile
 from PIL import Image
-from wowmap.models import RawAssets, inspect_model, model_info, preview
+from wowmap.models import RawAssets, inspect_model, model_info, preview, material_draws
 
 
 def fixture():
@@ -103,6 +103,19 @@ class ModelTests(unittest.TestCase):
             with RawAssets(temp) as assets:
                 image,_=preview(assets,'world/test.m2',128)
                 self.assertGreater(image.getpixel((64,64))[0],150)
+
+    def test_uv_combo_is_independent_from_material_layer(self):
+        model,skin,_=fixture();model=bytearray(model);skin=bytearray(skin)
+        struct.pack_into('<II',model,136,1,len(model));model.extend(struct.pack('<h',1))
+        _,offset=struct.unpack_from('<II',skin,36)
+        struct.pack_into('<H',skin,offset+12,9)  # materialLayer, not a lookup index
+        struct.pack_into('<H',skin,offset+18,0)  # textureCoordComboIndex
+        class Assets:
+            def read(self,_):return skin
+        info=model_info(model,'world/test.m2')
+        self.assertEqual(material_draws(Assets(),model,info)[0]['coordinate'],1)
+        struct.pack_into('<H',skin,offset+18,2)
+        with self.assertRaisesRegex(ValueError,'texture-coordinate'):material_draws(Assets(),model,info)
 
     def test_malformed_model_rejected(self):
         with self.assertRaises(ValueError):model_info(b'bad','world/test.m2')
