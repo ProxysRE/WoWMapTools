@@ -1,0 +1,192 @@
+{
+  "schema_version": 3,
+  "strict_automation": true,
+  "identifier": "audit-package",
+  "name": "Техническая проверка: класс, два подкласса и раса",
+  "class": {
+    "name": "Контрольный класс",
+    "identifier": "audit-class",
+    "description": "<p>Технический пример связей. Не класс из книги Warcraft.</p>",
+    "hit_die": "d8",
+    "primary_abilities": [
+      "wis"
+    ],
+    "spellcasting": {
+      "progression": "none",
+      "ability": ""
+    },
+    "advancement": [
+      {
+        "type": "hit_points"
+      },
+      {
+        "type": "item_grant",
+        "level": 1,
+        "title": "Контрольная особенность",
+        "items": [
+          {
+            "ref": "feature:audit-action",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "type": "subclass",
+        "level": 3
+      }
+    ]
+  },
+  "features": [
+    {
+      "key": "feature:audit-action",
+      "name": "Контрольное действие",
+      "description": "<p>Создаёт нажимаемую activity.</p>",
+      "automation": {
+        "mode": "full"
+      },
+      "mechanics": {
+        "activity_type": "utility",
+        "activity_name": "Проверить",
+        "activation": {
+          "type": "action",
+          "value": 1
+        }
+      }
+    },
+    {
+      "key": "feature:path-0",
+      "name": "Способность пути 0",
+      "description": "<p>Создаёт нажимаемую activity.</p>",
+      "automation": {
+        "mode": "full"
+      },
+      "mechanics": {
+        "activity_type": "utility",
+        "activity_name": "Проверить",
+        "activation": {
+          "type": "action",
+          "value": 1
+        }
+      }
+    },
+    {
+      "key": "feature:path-1",
+      "name": "Способность пути 1",
+      "description": "<p>Создаёт нажимаемую activity.</p>",
+      "automation": {
+        "mode": "full"
+      },
+      "mechanics": {
+        "activity_type": "utility",
+        "activity_name": "Проверить",
+        "activation": {
+          "type": "action",
+          "value": 1
+        }
+      }
+    }
+  ],
+  "rules": "2014",
+  "subclasses": [
+    {
+      "name": "Контрольный подкласс",
+      "identifier": "audit-path",
+      "class_identifier": "audit-class",
+      "description": "<p>Служебный пример аудита.</p>",
+      "spellcasting": {
+        "progression": "none",
+        "ability": ""
+      },
+      "advancement": [
+        {
+          "type": "item_grant",
+          "level": 3,
+          "items": [
+            "feature:path-0"
+          ]
+        },
+        {
+          "type": "item_grant",
+          "level": 20,
+          "items": [
+            "feature:path-0"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Второй путь",
+      "identifier": "other-path",
+      "class_identifier": "audit-class",
+      "description": "<p>Служебный пример аудита.</p>",
+      "spellcasting": {
+        "progression": "none",
+        "ability": ""
+      },
+      "advancement": [
+        {
+          "type": "item_grant",
+          "level": 3,
+          "items": [
+            "feature:path-1"
+          ]
+        },
+        {
+          "type": "item_grant",
+          "level": 20,
+          "items": [
+            "feature:path-1"
+          ]
+        }
+      ]
+    }
+  ],
+  "races": [
+    {
+      "name": "Проверочная раса",
+      "identifier": "audit-race",
+      "sizes": [
+        "sm",
+        "med"
+      ],
+      "movement": {
+        "walk": 25,
+        "swim": 30
+      },
+      "senses": {
+        "ranges": {
+          "darkvision": 60
+        }
+      },
+      "advancement": [
+        {
+          "type": "asi",
+          "level": 0,
+          "points": 0,
+          "fixed": {
+            "con": 2,
+            "int": 1
+          }
+        },
+        {
+          "type": "trait",
+          "level": 0,
+          "grants": [
+            "languages:standard:common"
+          ]
+        },
+        {
+          "type": "item_choice",
+          "choices": {
+            "0": {
+              "count": 1
+            }
+          },
+          "pool": [
+            "feature:audit-action"
+          ]
+        }
+      ]
+    }
+  ]
+}

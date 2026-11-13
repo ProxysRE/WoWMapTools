@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent
 MANIFEST_PATH = ROOT / "PROJECT_MANIFEST.json"
 NUMBERED_COPY = re.compile(r"\(\d+\)(?=\.[^.]+$)")
 TEMPLATE_KEYS = {
+    "class", "subclass", "race", "background",
     "npc",
     "feat",
     "weapon",
@@ -39,7 +40,7 @@ TEMPLATE_KEYS = {
 }
 LEGACY_TEMPLATE_FILES = {
     f"{template_key}_template.json"
-    for template_key in TEMPLATE_KEYS
+    for template_key in TEMPLATE_KEYS - {"class", "subclass", "race", "background"}
 }
 DOCUMENTATION_FILES = {
     "AI_FOUNDRY_BUILDER_GUIDE.md",
@@ -1577,7 +1578,9 @@ def audit() -> list[str]:
                         f"Midi-QOL/DAE {relative}: {issue}"
                         for issue in compatibility["errors"]
                     )
-                _audit_target_versions(document, str(relative), errors)
+                # Native reference catalogues are source snapshots, not exports.
+                if path.name not in {"class_reference_catalog.json", "subclass_reference_catalog.json"}:
+                    _audit_target_versions(document, str(relative), errors)
                 if path.parent == ROOT and isinstance(document, dict):
                     _audit_source_example(path, document, errors)
         elif path.suffix.casefold() == ".py":
@@ -1601,6 +1604,15 @@ def audit() -> list[str]:
     _audit_export_core_compatibility(errors)
     _audit_output_archive(errors)
     _audit_runtime_script(errors)
+    try:
+        import class_package_builder
+        import foundry_module_builder
+        for name in ("content_package.json", "standard_options.json"):
+            source = _load_json(ROOT / "examples" / name)
+            package = class_package_builder.build_package(source, ROOT / "examples")
+            foundry_module_builder.prepare_documents(package, module_id="builder-audit")
+    except Exception as error:
+        errors.append(f"Сквозная сборка контента персонажей: {error}")
 
     launcher = ROOT / "start_builder_app.bat"
     try:

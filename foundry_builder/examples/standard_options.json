@@ -1,0 +1,205 @@
+{
+  "schema_version": 4,
+  "identifier": "standard-options",
+  "name": "Пример игровых опций",
+  "rules": "2014",
+  "strict_automation": true,
+  "external_classes": [
+    "fighter"
+  ],
+  "subclasses": [
+    {
+      "name": "Проверочный путь",
+      "identifier": "example-path",
+      "class_identifier": "fighter",
+      "advancement": [
+        {
+          "type": "item_grant",
+          "level": 3,
+          "items": [
+            "feature:path-action"
+          ]
+        }
+      ]
+    }
+  ],
+  "races": [
+    {
+      "name": "Проверочная раса",
+      "identifier": "example-race",
+      "sizes": [
+        "med"
+      ],
+      "movement": {
+        "walk": 30
+      },
+      "advancement": [
+        {
+          "type": "item_grant",
+          "level": 0,
+          "items": [
+            "feature:heritage"
+          ]
+        }
+      ]
+    }
+  ],
+  "backgrounds": [
+    {
+      "name": "Проверочная предыстория",
+      "identifier": "example-background",
+      "description": "<p>Технический пример. Не игровой контент из книги.</p>",
+      "advancement": [
+        {
+          "type": "trait",
+          "level": 0,
+          "grants": [
+            "skills:prc"
+          ]
+        },
+        {
+          "type": "item_grant",
+          "level": 0,
+          "items": [
+            "feat:alertness"
+          ]
+        }
+      ],
+      "starting_equipment": []
+    }
+  ],
+  "features": [
+    {
+      "key": "feature:path-action",
+      "name": "Проверочное действие",
+      "description": "<p>Техническая кнопка.</p>",
+      "automation": {
+        "mode": "full"
+      },
+      "mechanics": {
+        "activity_type": "utility",
+        "activation": {
+          "type": "action",
+          "value": 1
+        }
+      }
+    },
+    {
+      "key": "feature:heritage",
+      "name": "Наследие",
+      "feature_type": "race",
+      "description": "<p>Пассивная черта технического примера.</p>",
+      "automation": {
+        "mode": "passive"
+      },
+      "mechanics": {
+        "passive": true
+      }
+    }
+  ],
+  "feats": [
+    {
+      "key": "feat:alertness",
+      "name": "Наблюдательность (пример)",
+      "description": "<p>Пассивная черта технического примера.</p>",
+      "automation": {
+        "mode": "passive"
+      },
+      "mechanics": {
+        "passive": true
+      }
+    }
+  ],
+  "spells": [
+    {
+      "name": "Проверочное заклинание",
+      "type": "spell",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": {
+          "value": "<p>Технический заговор: дальнобойная атака заклинанием, при попадании 1d6 урона силовым полем.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "",
+          "book": "",
+          "page": "",
+          "license": "",
+          "rules": "2014",
+          "revision": 1
+        },
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "",
+          "units": "inst"
+        },
+        "target": {
+          "affects": {
+            "type": "creature",
+            "count": "1",
+            "choice": true,
+            "special": ""
+          },
+          "template": {
+            "units": "ft",
+            "contiguous": false,
+            "type": "",
+            "stationary": false
+          }
+        },
+        "range": {
+          "value": 60,
+          "units": "ft"
+        },
+        "uses": {
+          "max": "",
+          "spent": 0,
+          "recovery": []
+        },
+        "level": 0,
+        "school": "evo",
+        "materials": {
+          "value": "",
+          "consumed": false,
+          "cost": 0,
+          "supply": 0
+        },
+        "properties": [],
+        "activities": {},
+        "identifier": "example-spell",
+        "method": "spell",
+        "prepared": 1
+      },
+      "mechanics": {
+        "activity_type": "attack",
+        "attack": {
+          "ability": "spellcasting",
+          "type": "ranged",
+          "classification": "spell"
+        },
+        "damage": [
+          {
+            "formula": "1d6",
+            "type": "force"
+          }
+        ]
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "13.347",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 0,
+        "modifiedTime": 0,
+        "lastModifiedBy": null,
+        "exportSource": null
+      }
+    }
+  ]
+}

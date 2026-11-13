@@ -38,11 +38,15 @@ import midi_compat
 import project_config
 import spell_builder
 import weapon_builder
+from class_builder import build_class, ClassBuilderError
+from subclass_builder import build_subclass
+from race_builder import build_race
+from background_builder import build_background
 
 
 ROOT = Path(__file__).resolve().parent
 APP_TITLE = "Foundry JSON Builder"
-APP_VERSION = "1.5"
+APP_VERSION = "1.6.0"
 
 WINDOWS_RESERVED_FILENAMES = {
     "CON",
@@ -77,6 +81,10 @@ class BuildOutcome:
 
 
 BUILDERS = (
+    BuilderSpec("race", "Раса", "Раса или законченный вариант подрасы с развитием.", "race", "race"),
+    BuilderSpec("class", "Класс", "Класс персонажа с развитием по уровням.", "class", "class"),
+    BuilderSpec("subclass", "Подкласс", "Подкласс авторского или стандартного класса D&D.", "subclass", "subclass"),
+    BuilderSpec("background", "Предыстория", "Предыстория с владениями, чертами и начальным снаряжением.", "background", "background"),
     BuilderSpec(
         "npc",
         "Полный лист НПС",
@@ -146,6 +154,7 @@ BUILDERS = (
 SPECS_BY_KEY = {spec.key: spec for spec in BUILDERS}
 KEY_BY_LABEL = {spec.label: spec.key for spec in BUILDERS}
 TYPE_TO_BUILDER = {
+    "class": "class", "subclass": "subclass", "race": "race", "background": "background",
     "npc": "npc",
     "feat": "feat",
     "weapon": "weapon",
@@ -157,6 +166,7 @@ TYPE_TO_BUILDER = {
     "enhancement_set": "enhancement_set",
 }
 KIND_FOLDERS = {
+    "class": "classes", "subclass": "subclasses", "race": "races", "background": "backgrounds",
     "actor": "actors",
     "feat": "items",
     "weapon": "weapons",
@@ -256,7 +266,15 @@ def build_document(
         )
 
     try:
-        if builder_key == "npc":
+        if builder_key in {"class", "subclass", "race", "background"}:
+            from package_validation import walk_strings
+            if any(value.startswith(("feature:", "feat:", "spell:")) for value in walk_strings(source)):
+                raise AppBuildError("Локальные ссылки feature:/feat:/spell: требуют связанного набора character_builder.py. Для отдельного документа укажите проверенные UUID.")
+            build = {"class": build_class, "subclass": build_subclass, "race": build_race, "background": build_background}[builder_key]
+            document, report = build(source, source=source_name)
+            kind = builder_key
+            report_dict = _report_to_dict(report)
+        elif builder_key == "npc":
             document, report = build_npc.build_npc(
                 source,
                 source_name=source_name,
@@ -358,6 +376,7 @@ def build_document(
         enhancement_builder.EnhancementBuilderError,
         enhancement_set_builder.EnhancementSetBuilderError,
         build_enhancement_module.EnhancementModuleBuildError,
+        ClassBuilderError,
     ) as error:
         raise AppBuildError(str(error)) from error
     except (KeyError, TypeError, ValueError) as error:

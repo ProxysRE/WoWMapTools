@@ -107,6 +107,9 @@ ACTIVATION_TYPES = {
     "action",
     "bonus",
     "reaction",
+    "minute",
+    "hour",
+    "day",
     "legendary",
     "lair",
     "special",
@@ -1380,11 +1383,15 @@ def _apply_activity_common(
     if duration:
         activity["duration"]["value"] = str(duration.get("value") or "")
         activity["duration"]["units"] = str(duration.get("units") or "inst")
+        activity["duration"]["override"] = True
+        activity["duration"]["concentration"] = bool(duration.get("concentration", False))
 
     targeting = mechanics.get("targeting") or {}
     range_data = targeting.get("range") or {}
-    if "value" in activity["range"]:
-        activity["range"]["value"] = str(range_data.get("value") or "")
+    if "value" in range_data:
+        activity["range"]["value"] = str(range_data["value"])
+    if range_data:
+        activity["range"]["override"] = True
     activity["range"]["units"] = str(range_data.get("units") or "self")
     template_data = targeting.get("template") or {}
     activity["target"]["template"].update(
@@ -1452,8 +1459,16 @@ def _apply_activity_common(
                 )
                 namespace["resourcePool"] = {
                     "key": str(resource["target"]),
-                    "cost": str(resource.get("value") or "1"),
+                    "cost": str(resource.get("value", "1")),
+                    "operation": str(resource.get("operation", "consume")),
+                    "requireEmpty": bool(resource.get("require_empty", False)),
                 }
+                if "max_cost" in resource:
+                    namespace["resourcePool"]["maxCost"] = str(resource["max_cost"])
+                if namespace["resourcePool"]["operation"] not in {"consume", "restore", "clear", "raise", "consumeAll"}:
+                    raise ValueError("resource.operation: consume, restore, clear, raise или consumeAll.")
+                if mechanics.get("consume_uses") is True and (mechanics.get("uses") or {}).get("max"):
+                    activity["consumption"]["targets"] = [{"type": "itemUses", "target": "", "value": "1", "scaling": {"mode": "", "formula": ""}}]
             else:
                 activity["consumption"]["targets"] = [
                     {
@@ -1974,7 +1989,22 @@ def _build_effects(
     report: BuildReport,
     existing_effects: list[Any] | None = None,
 ) -> list[dict[str, Any]]:
-    specs = midi_compat.collect_effect_specs(mechanics)
+    # Bind nested effects to stable source step IDs, not positions in the
+    # filtered list of built activities (an invalid step may have been skipped).
+    effect_mechanics = deepcopy(mechanics)
+    for index, step in enumerate(effect_mechanics.get("activities") or []):
+        if not isinstance(step, dict):
+            continue
+        stable = str(step.get("_id") or "")
+        if not re.fullmatch(r"[A-Za-z0-9]{16}", stable):
+            stable = _activity_id(index)
+        for nested in step.get("effects") or []:
+            if isinstance(nested, dict):
+                if nested.get("activity") in (None, "") and nested.get("activities") in (None, ""):
+                    nested["activity"] = stable
+                if "duration" not in nested and "duration" in step:
+                    nested["duration"] = deepcopy(step["duration"])
+    specs = midi_compat.collect_effect_specs(effect_mechanics)
     if not specs:
         return []
     feat_duration = (

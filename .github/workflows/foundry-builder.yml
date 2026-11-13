@@ -47,6 +47,16 @@ jobs:
         run: |
           python builder_app.py --self-test
           python project_audit.py
+      - name: Install official compendium compiler
+        run: npm install --prefix .builder-cli @foundryvtt/foundryvtt-cli@3.0.5
+      - name: Test character content, real LevelDB roundtrip and resource runtime
+        working-directory: foundry_builder
+        shell: pwsh
+        run: |
+          $env:FOUNDRY_CLI_MODULE = Join-Path $env:GITHUB_WORKSPACE '.builder-cli/node_modules/@foundryvtt/foundryvtt-cli/index.mjs'
+          python -m unittest discover -s tests -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node tests/test_resource_runtime.mjs
       - name: Build requested JSON documents and population manifest
         if: github.event_name == 'workflow_dispatch' || hashFiles('requests/builder/active.json') != ''
         shell: pwsh

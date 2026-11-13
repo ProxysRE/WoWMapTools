@@ -1,6 +1,6 @@
 {
   "project": "Генератор JSON для импорта в FoundryVTT",
-  "manifest_version": 24,
+  "manifest_version": 25,
   "canonical_directory": "/Генератор JSON для импорта в FoundryVTT",
   "targets": {
     "foundry": "13.351",
@@ -28,7 +28,13 @@
     "enhancement_builder.py",
     "enhancement_set_builder.py",
     "rolltable_builder.py",
-    "build_enhancement_module.py"
+    "build_enhancement_module.py",
+    "class_builder.py",
+    "subclass_builder.py",
+    "race_builder.py",
+    "background_builder.py",
+    "class_package_builder.py",
+    "foundry_module_builder.py"
   ],
   "entry_point": "build_npc.py",
   "gui_entry_point": "builder_app.py",
@@ -74,14 +80,50 @@
       "docs/PROJECT_MAINTENANCE.md",
       "docs/SPELLS_JSON.md",
       "docs/VALIDATION.md",
-      "docs/WEAPONS_JSON.md"
+      "docs/WEAPONS_JSON.md",
+      "AI_CONTENT_PACKAGE_GUIDE.md",
+      "AI_CLASS_SUBCLASS_JSON_GUIDE.md",
+      "AI_FEATURE_JSON_GUIDE.md",
+      "docs/BACKGROUNDS_JSON.md",
+      "README.md"
     ],
     "validation": [
       "project_audit.py",
       "midi_compat.py"
     ],
     "runtime": [
-      "runtime/foundry-json-builder-enhancements/scripts/enhancement-groups.mjs"
+      "runtime/foundry-json-builder-enhancements/scripts/enhancement-groups.mjs",
+      "runtime/resource-pools.mjs"
+    ],
+    "character_content": [
+      "character_builder.py",
+      "class_builder.py",
+      "subclass_builder.py",
+      "race_builder.py",
+      "background_builder.py",
+      "class_package_builder.py",
+      "foundry_module_builder.py",
+      "package_validation.py",
+      "compendium_layout.py",
+      "character_test_support.py"
+    ],
+    "character_examples": [
+      "class_input_template.json",
+      "race_input_template.json",
+      "class_reference_catalog.json",
+      "subclass_reference_catalog.json",
+      "examples/content_package.json",
+      "examples/standard_options.json"
+    ],
+    "character_tests": [
+      "tests/test_character_packages.py",
+      "tests/test_install_archive.py",
+      "tests/test_leveldb_roundtrip.py",
+      "tests/test_racial_content.py",
+      "tests/test_resource_runtime.mjs",
+      "tests/test_standard_options.py"
     ]
-  }
+  },
+  "application_version": "1.6.0",
+  "character_entry_point": "character_builder.py"
 }

@@ -1,0 +1,4616 @@
+{
+  "catalog_version": 1,
+  "purpose": "Lossless Foundry VTT subclass reference exports for builder development",
+  "item_type": "subclass",
+  "entry_count": 15,
+  "entries": [
+    {
+      "source_file": "fvtt-Item-bessmertnyj-IOXPf7nERFEMMycB.json",
+      "sha256": "45148dca7bf37420f9725d7e05c871c3e5e317c7603b43c078637ecfab0fcd2a",
+      "name": "Бессмертный",
+      "identifier": "undying",
+      "class_identifier": "warlock-",
+      "document": {
+        "folder": null,
+        "name": "Бессмертный",
+        "type": "subclass",
+        "img": "icons/magic/death/undead-skeleton-lich-armor.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Бессмертный | The Undying</h2><p>Вы заключили договор с бывшим смертным существом, которое нашло способ обмануть смерть. Только самая могущественная нежить может стать Бессмертным покровителем: могущественные личи, грозные лорды-вампиры, рыцари смерти и зловещие духи несмерти.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:20%;height:17px\"><p style=\"text-align:center\"><strong>Уровень</strong></p></td><td style=\"width:80%;height:17px\"><p><strong>Особенности</strong></p></td></tr></thead><tbody><tr><td><p style=\"text-align:center\">2</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.8a9HxJWtX1py3hD2]{Некротическая оболочка}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.wSph7Mrii4YNDDEJ]{Касание могилы}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.AMdIGJiZCZkZvLv5]{Магия бессмертных}</p></td></tr><tr><td><p style=\"text-align:center\">6</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.6T7rSRhc5VtyDFHc]{Пьющий жизнь}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.RSBpC5UnukiYJUOJ]{Тревожный лик}</p></td></tr><tr><td><p style=\"text-align:center\">10</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.GBxY7IUMmaFhH1f8]{Неестественная стойкость}</p></td></tr><tr><td><p style=\"text-align:center\">14</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.6GVZo6rvuOYjcasP]{Нескончаемая жизнь}</p></td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "undying",
+          "classIdentifier": "warlock-",
+          "advancement": {
+            "U5jQw0r3met6sGn2": {
+              "_id": "U5jQw0r3met6sGn2",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "optional": false,
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.wM9fnxw59UXpY7VD"
+                  },
+                  {
+                    "optional": false,
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.57wkuXd1fHIPg15O"
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "method": "pact",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 2,
+              "title": "Заклинания подкласса",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "4npAUo5sQHcf7QP8": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.mC2DjsjgKtIAe6yP",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.hJO87SQO7Eukw6QB",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "method": "pact",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Заклинания подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "4npAUo5sQHcf7QP8",
+              "flags": {}
+            },
+            "1LOpmD7l6CN5DLJ0": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.R2MqYLB4INGBxOnc",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.L7gk9eIh1ylqKLCA",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "method": "pact",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Заклинания подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "1LOpmD7l6CN5DLJ0",
+              "flags": {}
+            },
+            "BcRqOEi8vnh9ywJ6": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.G4MSpIn0FovESvi9",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.7w4b1s2PWBI83hET",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "method": "pact",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 7,
+              "title": "Заклинания подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "BcRqOEi8vnh9ywJ6",
+              "flags": {}
+            },
+            "0TEpTOIn4ZlBkRwe": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.3cckyVvPB8YNeDLZ",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.3vXqVsHj7YmBQ1SI",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "method": "pact",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 9,
+              "title": "Заклинания подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "0TEpTOIn4ZlBkRwe",
+              "flags": {}
+            },
+            "FRKKi8M5cVWB3cvE": {
+              "_id": "FRKKi8M5cVWB3cvE",
+              "type": "Trait",
+              "configuration": {
+                "mode": "default",
+                "allowReplacements": false,
+                "grants": [
+                  "dr:necrotic"
+                ],
+                "choices": []
+              },
+              "value": {
+                "chosen": []
+              },
+              "level": 10,
+              "title": "",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "nR91HKmMe3kK062s": {
+              "_id": "nR91HKmMe3kK062s",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.8a9HxJWtX1py3hD2",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.wSph7Mrii4YNDDEJ",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.AMdIGJiZCZkZvLv5",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 2,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "AvOODTd2A67SSO6q": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.6T7rSRhc5VtyDFHc",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.RSBpC5UnukiYJUOJ",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 6,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "AvOODTd2A67SSO6q",
+              "flags": {}
+            },
+            "CuKN9Y1eWkIxjk0A": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.GBxY7IUMmaFhH1f8",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "CuKN9Y1eWkIxjk0A",
+              "flags": {}
+            },
+            "6OqzJffytuuXEYxU": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.6GVZo6rvuOYjcasP",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 14,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "6OqzJffytuuXEYxU",
+              "flags": {}
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.dycp3cERtnwlmRu8",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.IOXPf7nERFEMMycB",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254699930,
+          "modifiedTime": 1785254699937,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-klyatva-vozmezdiya-dbV3u8Z8P6d1v8lG.json",
+      "sha256": "48ab825e769bc81ba3f75ec2fbc88ac54f0b06cc854a930ad636148ff0683b40",
+      "name": "Клятва возмездия",
+      "identifier": "vengeance",
+      "class_identifier": "paladin-",
+      "document": {
+        "folder": null,
+        "name": "Клятва возмездия",
+        "type": "subclass",
+        "img": "icons/magic/symbols/mask-metal-silver-white.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Клятва возмездия | Oath of Vengeance</h2><p>Известные как мстители или темные рыцари, паладины, дающие эту Священную клятву, часто делают это из жажды мести. Хотят ли они уничтожить одно существо, которое причинило им зло, или сразиться с коррумпированной организацией, которая издевается над невинными, - они посвящают свою жизнь уничтожению заклятого врага.</p><h3>Догмы возмездия</h3><p>Хотя конкретная Клятва и цель могут отличаться, все паладины, давшие клятву возмездия, соблюдают приведенные ниже догмы:</p><p><strong>Уничтожить зло.</strong> Сражайтесь со своими заклятыми врагами при каждой при любой возможности. Боритесь с большим злом.</p><p><strong>Нет пощады</strong>. Не давайте пощады заклятым врагам. Побеждайте зло любыми средствами.</p><p><strong>Возмещение</strong>. Возмещайте зло, причиненное вашими заклятыми врагами и другими злодеями.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><th style=\"width:20%;height:17px\">Уровень</th><th style=\"height:17px;width:80%\">Особенности</th></tr></thead><tbody><tr style=\"height:17px\"><td style=\"text-align:center;height:17px;width:20%\">1-й</td><td style=\"height:17px;width:80%\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.HTNTNcxv3mpHbRrs]{Догмы возмездия}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.5TjUfwsvIpuC6mjm]{Заклятый враг}</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;height:17px;width:20%\">2-й</td><td style=\"height:17px;width:80%\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.zxY8ljnhHe471eqj]{Заклинания возмездия}</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;height:17px;width:20%\">3-й</td><td style=\"height:17px;width:80%\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.IEocmK2bL0LeBida]{Обет вражды}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.y7Vff1vZd4ZTQHJK]{Мстительная кара}</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;height:17px;width:20%\">7-й</td><td style=\"height:17px;width:80%\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.8Xe5qgJoZu18wxli]{Аура возмездия}</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;height:17px;width:20%\">15-й</td><td style=\"height:17px;width:80%\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.IxRrSio0Ewnqbf7l]{Неумолимый мститель}</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;height:17px;width:20%\">20-й</td><td style=\"height:17px;width:80%\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.x7stNFMPgWzohMWl]{Аватар возмездия}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "vengeance",
+          "classIdentifier": "paladin-",
+          "advancement": {
+            "cUvVQ0iSRn7Uar16": {
+              "_id": "cUvVQ0iSRn7Uar16",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.d6mvFJvqsRl6FG4g",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.pBux4mtUuaP9aJfB",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "cha"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 2,
+              "title": "Заклинания клятвы",
+              "flags": {},
+              "hint": ""
+            },
+            "Eohem3tmubCZi4JA": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.hHdE2G8F8VR08bxF",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.DulrpjBUeVVgrrNA",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "cha"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Заклинания клятвы",
+              "_id": "Eohem3tmubCZi4JA",
+              "flags": {},
+              "hint": ""
+            },
+            "AINoQ3JcSoej73jX": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.bmGqZnc69SQysORr",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.pu6riAdb2LChGsD3",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "cha"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 9,
+              "title": "Заклинания клятвы",
+              "_id": "AINoQ3JcSoej73jX",
+              "flags": {},
+              "hint": ""
+            },
+            "EPnSN3Uqhc4eL1d8": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.K5SkRCCfmvLnsL3i",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.nJ8TX9ZpXVUznyPT",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "cha"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 13,
+              "title": "Заклинания клятвы",
+              "_id": "EPnSN3Uqhc4eL1d8",
+              "flags": {},
+              "hint": ""
+            },
+            "ILRtgP3jkK61VLXj": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.U1d84yECDyYZdEnA",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.VsdwrXXgpElVReQm",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "cha"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 17,
+              "title": "Заклинания клятвы",
+              "_id": "ILRtgP3jkK61VLXj",
+              "flags": {},
+              "hint": ""
+            },
+            "yNsRujjrQ70UMKoD": {
+              "_id": "yNsRujjrQ70UMKoD",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.HTNTNcxv3mpHbRrs",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.5TjUfwsvIpuC6mjm",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 1,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "7tS2dGxvugRgBrSf": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.zxY8ljnhHe471eqj",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 2,
+              "title": "Особенность",
+              "_id": "7tS2dGxvugRgBrSf",
+              "flags": {},
+              "hint": ""
+            },
+            "ZpGfxTgGTWYOiJXq": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.IEocmK2bL0LeBida",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.y7Vff1vZd4ZTQHJK",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "_id": "ZpGfxTgGTWYOiJXq",
+              "flags": {},
+              "hint": ""
+            },
+            "8jgOykUz1QRsQrtJ": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.8Xe5qgJoZu18wxli",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенность",
+              "_id": "8jgOykUz1QRsQrtJ",
+              "flags": {},
+              "hint": ""
+            },
+            "596b3O3KLdJbtMaa": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.IxRrSio0Ewnqbf7l",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 15,
+              "title": "Особенность",
+              "_id": "596b3O3KLdJbtMaa",
+              "flags": {},
+              "hint": ""
+            },
+            "pH81zb25qwBgpt3N": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.x7stNFMPgWzohMWl",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 20,
+              "title": "Особенность",
+              "_id": "pH81zb25qwBgpt3N",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.5F2eu8tAP4Nc9kiP",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.dbV3u8Z8P6d1v8lG",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254726085,
+          "modifiedTime": 1785254726093,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-konklav-ubijc-monstrov-ZzfMg1bV0wwgz6d7.json",
+      "sha256": "a52610237e47a1bd6ba6e339df62fc4e14d95c73d24a4e3c518f6be7b98c71d0",
+      "name": "Конклав Убийц монстров",
+      "identifier": "monster-slayer",
+      "class_identifier": "ranger-",
+      "document": {
+        "folder": null,
+        "name": "Конклав Убийц монстров",
+        "type": "subclass",
+        "img": "icons/magic/death/undead-skeleton-tusk-purple.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Конклав Убийц монстров | Monster Slayer Conclave</h2><p>Некоторых Следопытов от цивилизованной жизни отталкивает глубокая ненависть к монстрам. Часто становясь жертвами этих ужасных чудовищ в юности, те, кто принимает мантию Убийц монстров, путешествуют по миру, охотясь за мерзкими сверхъестественными существами, жертвами которых падают невинные смертные, и безжалостно уничтожают их. Они выслеживают вампиров, злых фей, беспокойных духов, оборотней и любых других мерзких существ и уничтожают их без колебаний.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> <strong>Уровень</strong></td><td style=\"width:85%;height:17px\"> <strong>Особенность</strong></td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.l26RaFYlRHQLYudE]{Заклинания Убийцы монстров}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.jWxYtG4ba21RJIbn]{Охотничьи знания}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.CBv3Dftu7VHjzEb4]{Хитрость убийцы}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 7</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.EvsbNkznQWQUPV3L]{Железный фокус}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 11</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.4C2VkzxLLBiH1Ev3]{Немезида монстра}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 15</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.J6kwBfuAnYR1OTQB]{Беспощадное противостояние}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "monster-slayer",
+          "classIdentifier": "ranger-",
+          "advancement": {
+            "MD64Uw4v8XlOIVfT": {
+              "_id": "MD64Uw4v8XlOIVfT",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.d6mvFJvqsRl6FG4g",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.31Wl6sI9H1RspwYu",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "wis"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Заклинания подкласса",
+              "flags": {},
+              "hint": ""
+            },
+            "ixKyM6bL82gz7qKZ": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.xJrZI9sitEnagzZJ",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.tVkOKnYPKNHRlHdH",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "wis"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Заклинания подкласса",
+              "_id": "ixKyM6bL82gz7qKZ",
+              "flags": {},
+              "hint": ""
+            },
+            "hxEk27PR5ERrXu4A": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.9EdFCD8XJNdmJmrn",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.hIaHx6K0X5bxyHiM",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "wis"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 9,
+              "title": "Заклинания подкласса",
+              "_id": "hxEk27PR5ERrXu4A",
+              "flags": {},
+              "hint": ""
+            },
+            "NhAhqZ3R5LP8ZRZO": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.K5SkRCCfmvLnsL3i",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.aKKGghqiUb6tLOiM",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "wis"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 13,
+              "title": "Заклинания подкласса",
+              "_id": "NhAhqZ3R5LP8ZRZO",
+              "flags": {},
+              "hint": ""
+            },
+            "lYvuO2mz8aUgvWRR": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.S7e8t6AIgYh9AJV0",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.VsdwrXXgpElVReQm",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "wis"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 17,
+              "title": "Заклинания подкласса",
+              "_id": "lYvuO2mz8aUgvWRR",
+              "flags": {},
+              "hint": ""
+            },
+            "9TdS9aDTyRasUn7v": {
+              "_id": "9TdS9aDTyRasUn7v",
+              "type": "Trait",
+              "configuration": {
+                "mode": "default",
+                "allowReplacements": false,
+                "grants": [],
+                "choices": [
+                  {
+                    "count": 1,
+                    "pool": [
+                      "skills:his",
+                      "skills:arc",
+                      "skills:nat",
+                      "skills:rel"
+                    ]
+                  }
+                ]
+              },
+              "level": 3,
+              "title": "Охотничье знание",
+              "value": {
+                "chosen": []
+              },
+              "hint": "Вы получаете умение в навыке по выбору: Магия, История, Природа или Религия.",
+              "flags": {}
+            },
+            "AKSwjKnZOxjPq3fI": {
+              "_id": "AKSwjKnZOxjPq3fI",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.P2JgErcbUf79IuKp",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Сноровка убийцы монстров",
+              "flags": {},
+              "hint": ""
+            },
+            "rke0sZKp7kTs4P1c": {
+              "_id": "rke0sZKp7kTs4P1c",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.l26RaFYlRHQLYudE",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.jWxYtG4ba21RJIbn",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.CBv3Dftu7VHjzEb4",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "BzpVzrIjuN5AcpZ2": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.EvsbNkznQWQUPV3L",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенность",
+              "_id": "BzpVzrIjuN5AcpZ2",
+              "flags": {},
+              "hint": ""
+            },
+            "RS4bVYu48EYPpOhB": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.4C2VkzxLLBiH1Ev3",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 11,
+              "title": "Особенность",
+              "_id": "RS4bVYu48EYPpOhB",
+              "flags": {},
+              "hint": ""
+            },
+            "KvupzaRrLFdRDlHC": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.J6kwBfuAnYR1OTQB",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 15,
+              "title": "Особенность",
+              "_id": "KvupzaRrLFdRDlHC",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.SQX6JSDeC4iLlWzB",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.ZzfMg1bV0wwgz6d7",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254739966,
+          "modifiedTime": 1785254739976,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-krovь-drakonov-(alьternativnyj)-VltszaghN0uS62QK.json",
+      "sha256": "fbb9f145e28e7f1df09a158a302b574c772f769fd65b3d7800401afee67c1f79",
+      "name": "Кровь драконов (альтернативный)",
+      "identifier": "draconic-bloodline",
+      "class_identifier": "sorcerer-",
+      "document": {
+        "name": "Кровь драконов (альтернативный)",
+        "type": "subclass",
+        "img": "icons/creatures/reptiles/dragon-horned-blue.webp",
+        "effects": [],
+        "folder": null,
+        "flags": {
+          "core": {}
+        },
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Кровь драконов | Draconic Bloodline</h2><p>Овладейте огромной мистической силой своего драконьего предка!</p><p>Ваша врождённая магия происходит от магии драконов которая проникла в вашу кровь или кровь ваших предков. Чаще всего чародеи с подобными корнями ведут род от могучих чародеев древности, которые заключили с драконом сделку или даже происходили от драконов. Некоторые из подобных династий широко известны, но большинство скрывает своё происхождение. Любой чародей может стать первым в новой династии в результате договора или иного необычайного происшествия.</p><table style=\"width:100%;height:129px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><th style=\"width:91.0511px;height:17px\">Уровень</th><th style=\"height:17px;width:485.466px\">Особенности</th></tr></thead><tbody><tr style=\"height:44px\"><td style=\"text-align:center;height:44px;width:65.5511px\">1-й</td><td style=\"height:44px;width:485.466px\"><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.EZsonMThTNLZq35j]{Дракон-предок}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.Nq7QgT4fqJs3jLXz]{Дополнительные драконы-предки} LL, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.nYuk53uGQ0u4bt9L]{Заклинания драконов} LL, <br />@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.MW1ExvBLm8Hg82aA]{Драконья стойкость}</p></td></tr><tr style=\"height:34px\"><td style=\"text-align:center;width:65.5511px;height:34px\">6-й</td><td style=\"width:485.466px;height:34px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.5kijoUJWNCFlTTZb]{Стихийное чародейство} LL</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;width:65.5511px;height:17px\">14-й</td><td style=\"width:485.466px;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.3647zjKSE9zFwOXc]{Драконьи крылья}</td></tr><tr style=\"height:17px\"><td style=\"text-align:center;width:65.5511px;height:17px\">18-й</td><td style=\"width:485.466px;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.vGSD0P2j8wwt5GQs]{Драконье присутствие} LL</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "PHB (feat LL)",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "draconic-bloodline",
+          "classIdentifier": "sorcerer-",
+          "advancement": {
+            "bjbipb2oydq3zsuy": {
+              "_id": "bjbipb2oydq3zsuy",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.EZsonMThTNLZq35j",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.Nq7QgT4fqJs3jLXz",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.nYuk53uGQ0u4bt9L",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.MW1ExvBLm8Hg82aA",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 1,
+              "title": "Особенности",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "rfd6o6858pl8k7fl": {
+              "_id": "rfd6o6858pl8k7fl",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.3647zjKSE9zFwOXc",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 14,
+              "title": "Особенность",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "YAewMXLpQVK3Tlsk": {
+              "_id": "YAewMXLpQVK3Tlsk",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "optional": false,
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.bM98WJMhzC5LjfrO"
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "cha"
+                  ],
+                  "method": "innate",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 1,
+              "title": "Заклинание подкласса",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "4H6AQwz6l2pUVLtq": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.H7rVgBnXOitLqOmH",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "cha"
+                  ],
+                  "method": "innate",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Заклинание подкласса",
+              "icon": null,
+              "_id": "4H6AQwz6l2pUVLtq",
+              "flags": {},
+              "hint": ""
+            },
+            "afWRuobXFEbZRt8j": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.rBvPcUpTyB9Tdgoe",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "cha"
+                  ],
+                  "method": "innate",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Заклинание подкласса",
+              "icon": null,
+              "_id": "afWRuobXFEbZRt8j",
+              "flags": {},
+              "hint": ""
+            },
+            "VjE9qwfdOLpkJiBh": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.BUfAq9Ypabhdaq47",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "cha"
+                  ],
+                  "method": "innate",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 7,
+              "title": "Заклинание подкласса",
+              "icon": null,
+              "_id": "VjE9qwfdOLpkJiBh",
+              "flags": {},
+              "hint": ""
+            },
+            "sOfdhJNhydH2COzy": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.uLKYcMWQhOpEnJCe",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "cha"
+                  ],
+                  "method": "innate",
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 9,
+              "title": "Заклинание подкласса",
+              "icon": null,
+              "_id": "sOfdhJNhydH2COzy",
+              "flags": {},
+              "hint": ""
+            },
+            "PgdcMObS2oImD6Zm": {
+              "_id": "PgdcMObS2oImD6Zm",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "6": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": "feat",
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.amWOi2HpK2FFEeEg"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.P1O3KCXYnAWRjxVr"
+                  }
+                ],
+                "spell": null,
+                "restriction": {
+                  "type": "class",
+                  "subtype": "metamagic",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "",
+              "icon": null,
+              "hint": "Выберите Элементальное заклинание, но если ваш предок аметистовый, кристаллический, изумрудный или топазовый, то вместо этого выберите Эзотерическое заклинание.",
+              "flags": {}
+            },
+            "rnCmBo7mnl5sFSCj": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.5kijoUJWNCFlTTZb",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 6,
+              "title": "Особенности",
+              "icon": null,
+              "_id": "rnCmBo7mnl5sFSCj",
+              "flags": {},
+              "hint": ""
+            },
+            "NCVYRgbfS6biHBF4": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.vGSD0P2j8wwt5GQs",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 18,
+              "title": "Особенность",
+              "icon": null,
+              "_id": "NCVYRgbfS6biHBF4",
+              "flags": {},
+              "hint": ""
+            },
+            "zQp6F7RF1pxnEsnX": {
+              "_id": "zQp6F7RF1pxnEsnX",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "1": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": null,
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.7WrYgR2pjZWvNvsI"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.1xajddG2KgVb0olK"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.jTWAA7TJt50KHzah"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.hbwiDBWyrVeOyIf6"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.R4IErcz4Yj9HELZC"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.ZhzWGxd52U3qjisR"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.i0E8RdU4cgCBztom"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.kuAZdiREUc8FXIsM"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.TgfURPhKMJlg8Y70"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.YaQRDXV1b6BcMdEK"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.tQEEnWPEu16Ntn6c"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.KR9rS3Nv38qaqbzr"
+                  }
+                ],
+                "spell": null,
+                "restriction": {
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Список заклинаний предка",
+              "icon": null,
+              "hint": "Выберите список заклинаний вашего предка.",
+              "flags": {}
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.X6iAGZr8SCpPhUZw",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.VltszaghN0uS62QK",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254752796,
+          "modifiedTime": 1785254752803,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-mag-evokacii-24MEISEG10F3woZ6.json",
+      "sha256": "3822c3815456447c466074d04adf1c0b730f3bf42989ac49f58f01d21b186491",
+      "name": "Маг Эвокации",
+      "identifier": "evoker",
+      "class_identifier": "wizard-",
+      "document": {
+        "folder": null,
+        "name": "Маг Эвокации",
+        "type": "subclass",
+        "img": "https://raw.githubusercontent.com/laaruk/images/main/pic/Evocation.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Маг Эвокации | Evoker</h2><p>Хотя большинство считает Магов Эвокации проводниками разрушительной магии, сами маги эвокации считают себя мастерами мистической энергии всех видов. Обжигающее пламя, лютый мороз, трещащие молнии и едкая кислота - магам эвокации подвластно все. Сильные маги эвокации представляют собой ужасающее зрелище на поле боя, превращая врагов в дымящиеся кучи с помощью своей магии стихий.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:20%;height:17px\"><p style=\"text-align:center\"><strong>Уровень</strong></p></td><td style=\"width:80%;height:17px\"><p><strong>Особенности</strong></p></td></tr></thead><tbody><tr><td><p style=\"text-align:center\">3</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.4DFg1oLL8vHYay79]{Ученый Эвокации}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.L7qL60G1T7Ao8ieS]{Мощный фокус}</p></td></tr><tr><td><p style=\"text-align:center\">6</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.8FJtc7mT0pStd6Hg]{Скульптор заклинаний}</p></td></tr><tr><td><p style=\"text-align:center\">10</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.j4wlCENvA5pxGMSV]{Усиленная эвокация}</p></td></tr><tr><td><p style=\"text-align:center\">14</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.GzU5wb5KYX4ILMoy]{Мастер Эвокации}</p></td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "custom": "Alternate Wizard (Laserllama)",
+            "rules": "2014",
+            "revision": 1,
+            "book": "Laserllama",
+            "page": "",
+            "license": ""
+          },
+          "identifier": "evoker",
+          "classIdentifier": "wizard-",
+          "advancement": {
+            "j4HTG9ib9g7tyALM": {
+              "_id": "j4HTG9ib9g7tyALM",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": "spell",
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.ITQ3U88tWC6EokiP"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.5M8uw6ooTsh9S92G"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.9NknY2KImNdUc75B"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.1v8IS0xgyMTbSFYV"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.1Jx4KuqbfUXKGYwZ"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.KBn6cIhTnrhNlUY1"
+                  }
+                ],
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "prepared": 0
+                },
+                "restriction": {
+                  "level": "0",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Выберите фокус",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "zEv6Lh7Ar7jSfuJ2": {
+              "_id": "zEv6Lh7Ar7jSfuJ2",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "optional": false,
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.4DFg1oLL8vHYay79"
+                  },
+                  {
+                    "optional": false,
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.L7qL60G1T7Ao8ieS"
+                  },
+                  {
+                    "optional": true,
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.XYVv51ujVji6rVji"
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "MMKkF7QG7575jTE9": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "optional": false,
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.8FJtc7mT0pStd6Hg"
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 6,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "MMKkF7QG7575jTE9",
+              "flags": {}
+            },
+            "6JhidpPdqiS13hCd": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.j4wlCENvA5pxGMSV",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "6JhidpPdqiS13hCd",
+              "flags": {}
+            },
+            "FSiltN3Trsc3kue7": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.GzU5wb5KYX4ILMoy",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 14,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "FSiltN3Trsc3kue7",
+              "flags": {}
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {
+              "formula": ""
+            }
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.Lm0bSBOdlj0pX2eB",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.24MEISEG10F3woZ6",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254692757,
+          "modifiedTime": 1785254692762,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-master-oruzhiya-QxlJbaJZQRoGiOBL.json",
+      "sha256": "29216123357515470e04a91c81c85b80ba0d0510ca859c752f997efac6ce2135",
+      "name": "Мастер оружия",
+      "identifier": "master",
+      "class_identifier": "fighter-",
+      "document": {
+        "name": "Мастер оружия",
+        "type": "subclass",
+        "img": "icons/skills/melee/strike-weapons-orange.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Мастер оружия | Master at Arms</h2><p>В то время как большинство Воинов овладевают одной конкретной боевой дисциплиной, мастер оружия - это редкий воин, способный по-настоящему овладеть несколькими стилями боя. Благодаря упорству, преданности или необычайному мастерству, эти элитные Воины изучают все, что могут, в теории боя. Мастер оружия всегда находится в поисках нового оружия или стиля боя, которым можно овладеть.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> <strong>Уровень</strong></td><td style=\"width:85%;height:17px\"> <strong>Особенность</strong></td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.W5k1S4bA3mAkZjg8]{Продвинутая техника}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 7</td><td style=\"width:85%;height:17px\"><strong>Боевой стиль</strong>, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Ardx7B8TL4OqKDuT]{Мастер форм}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 10</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.4gxziBeQRSdj4lgn]{Мастерский порыв}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 15</td><td style=\"width:85%;height:17px\"><strong>Боевой стиль, Мастер форм (+1 приём)</strong></td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 18</td><td><strong>Мастер форм (+1 приём)</strong>, @UUID[Compendium.laaru-dnd5-hw.classfeatures.xkZQSut59CvdGDHm]{Воин легенды}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "master",
+          "classIdentifier": "fighter-",
+          "advancement": {
+            "h68Hd3LeSEOlGfF2": {
+              "_id": "h68Hd3LeSEOlGfF2",
+              "type": "ScaleValue",
+              "configuration": {
+                "identifier": "num",
+                "type": "number",
+                "distance": {
+                  "units": ""
+                },
+                "scale": {
+                  "3": {
+                    "value": 3
+                  },
+                  "4": {
+                    "value": 4
+                  },
+                  "8": {
+                    "value": 5
+                  },
+                  "12": {
+                    "value": 6
+                  },
+                  "16": {
+                    "value": 7
+                  }
+                }
+              },
+              "value": {},
+              "title": "Количество костей приёма Мастера оружия",
+              "flags": {},
+              "hint": ""
+            },
+            "4lGRy6WxNcqkMr3G": {
+              "_id": "4lGRy6WxNcqkMr3G",
+              "type": "ScaleValue",
+              "configuration": {
+                "identifier": "exploit",
+                "type": "dice",
+                "distance": {
+                  "units": ""
+                },
+                "scale": {
+                  "3": {
+                    "number": null,
+                    "faces": 8,
+                    "modifiers": []
+                  },
+                  "5": {
+                    "number": null,
+                    "faces": 10,
+                    "modifiers": []
+                  },
+                  "11": {
+                    "number": null,
+                    "faces": 12,
+                    "modifiers": []
+                  }
+                }
+              },
+              "value": {},
+              "title": "Кость приёма Мастера оружия",
+              "flags": {},
+              "hint": ""
+            },
+            "P9RszigFX128Vb3W": {
+              "_id": "P9RszigFX128Vb3W",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 1,
+                    "replacement": false
+                  },
+                  "7": {
+                    "count": 1,
+                    "replacement": false
+                  },
+                  "15": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": null,
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.8YwPFv3UAPjWVDNf"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.OUr9NVWwGd1U1Hvg"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.PpavB41YCCKM3CIS"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.lUyf6SqvlFCWwTdT"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.hCop9uJrWhF1QPb4"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.beHBnsan16fKYJdt"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.LRG5OPrTazlB00Of"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.M9kQ1d90B9tBo7mG"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.SyFugJXlYNwLryK8"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.viokVazkihXQMaqR"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.P3YHvT8yhBwFYAB7"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.bNrzlwbSBpAWbjnf"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.IYzoDJqUku3FyBn2"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.EXPUCmYRXuvbTpE4"
+                  }
+                ],
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                },
+                "restriction": {
+                  "type": "",
+                  "subtype": "",
+                  "level": "",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Боевой стиль",
+              "hint": "Вы изучаете один дополнительный боевой стиль по своему выбору.",
+              "flags": {}
+            },
+            "wSLKbioPFwomEgFb": {
+              "_id": "wSLKbioPFwomEgFb",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.W5k1S4bA3mAkZjg8",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.PcBGL8e5VQD45wZP",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "ILz4Ct6jjWB3C5SB": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Ardx7B8TL4OqKDuT",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.syBxh98h34YVLrHf",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенности",
+              "_id": "ILz4Ct6jjWB3C5SB",
+              "flags": {},
+              "hint": ""
+            },
+            "Ysv4VXprTfiQGeWy": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.4gxziBeQRSdj4lgn",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенность",
+              "_id": "Ysv4VXprTfiQGeWy",
+              "flags": {},
+              "hint": ""
+            },
+            "R3cEOUUbzfWJar1D": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.xkZQSut59CvdGDHm",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 18,
+              "title": "Особенность",
+              "_id": "R3cEOUUbzfWJar1D",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {
+          "core": {}
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.ZKC70xeke8xsBDuM",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.QxlJbaJZQRoGiOBL",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254686972,
+          "modifiedTime": 1785254686978,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "folder": null,
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-mesmer-IpdZfTF3JewPnJ8z.json",
+      "sha256": "bd1a7d711f8ca91d2d48508da9d5f4f1a613fefc277f5d9224cb4f9985763805",
+      "name": "Месмер",
+      "identifier": "mesmer",
+      "class_identifier": "bard-",
+      "document": {
+        "name": "Месмер",
+        "type": "subclass",
+        "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Месмер | Mesmer </h2><p>Эти гламурные барды, часто родом из дивных дворов Фейвильда, используют свою магию, чтобы обмануть и пленить всех, кто на них смотрит. Барды, известные как месмеры, никогда не уступают в силе, используя свою мощную личность, чтобы манипулировать или побуждать аудиторию к достижению своих целей.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> Уровень</td><td style=\"width:85%;height:17px\"> Особенность</td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.tiTBcKoOjyUDUnPe]{Завораживающее присутствие}, @Compendium[laaru-dnd5-hw.classfeatures.2ij9hDjskxu4CDIk]{Чудесное представление}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 5</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.ZJdJ2y6Vp7OJL973]{Грандиозное выступление}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 11</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.9g8Ag9bcInDJOV56]{Мантия защиты}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 15</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.YuU6BLs0wPsS06oa]{Присутствие фей}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "mesmer",
+          "classIdentifier": "bard-",
+          "advancement": {
+            "U4Do0OEM30Nhyxxo": {
+              "_id": "U4Do0OEM30Nhyxxo",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.SwyCIaEuigZ5kiF1",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.KcziiS01MniKTNZ9",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.bM98WJMhzC5LjfrO",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": {
+                  "ability": [
+                    "cha"
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "method": "spell",
+                  "prepared": 2
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Заклинания месмера",
+              "flags": {},
+              "hint": ""
+            },
+            "zTBVVedLS3IHO89v": {
+              "_id": "zTBVVedLS3IHO89v",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.tiTBcKoOjyUDUnPe",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.2ij9hDjskxu4CDIk",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "db6YbR3fNoq2Gt8e": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.ZJdJ2y6Vp7OJL973",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Особенность",
+              "_id": "db6YbR3fNoq2Gt8e",
+              "flags": {},
+              "hint": ""
+            },
+            "maMBzB7GAYpULc5a": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.9g8Ag9bcInDJOV56",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 11,
+              "title": "Особенность",
+              "_id": "maMBzB7GAYpULc5a",
+              "flags": {},
+              "hint": ""
+            },
+            "Q3qmUkyyeJtP4FbL": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.YuU6BLs0wPsS06oa",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 15,
+              "title": "Особенность",
+              "_id": "Q3qmUkyyeJtP4FbL",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.IgNYeEuVfWzteQDH",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.IpdZfTF3JewPnJ8z",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254666651,
+          "modifiedTime": 1785254666663,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "folder": null,
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-misticheskij-rycarь-bVSA1MphhLyIPauJ.json",
+      "sha256": "0390122166fc69cbad91eb8763b64461240bdbfc68dc10e64870f2a7ae53108a",
+      "name": "Мистический рыцарь",
+      "identifier": "arcane",
+      "class_identifier": "fighter-",
+      "document": {
+        "name": "Мистический рыцарь",
+        "type": "subclass",
+        "img": "icons/magic/unholy/hand-weapon-glow-black-green.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Мистический рыцарь | Arcane Knight</h2><p>Мистические рыцари дополняют свое умение обращаться с боевым оружием знаниями магии. По сравнению с магами, изучающими только магию, Мистические рыцари могут создавать лишь незначительные заклинания, но в сочетании с их смертоносным мастерством владения боевым оружием эти незначительные заклинания становятся мощными улучшениями.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> <strong>Уровень</strong></td><td style=\"width:85%;height:17px\"> <strong>Особенность</strong></td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.NMFPFpfYArdw0mgn]{Оружейная связь}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.5i2fzXiCljRHojz6]{Заклинания}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 7</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.PcIHbTZMqOT9FVRU]{Боевая магия}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 10</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.6PegRmbsFDDKKUnB]{Зачарованные удары}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 15</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.dF3i5Cne1GbTDRPJ]{Мистический порыв}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 18</td><td style=\"width:85%;height:17px\">@UUID[Compendium.laaru-dnd5-hw.classfeatures.NqnLHgYtG8K0dYRg]{Легендарный мистический рыцарь}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "arcane",
+          "classIdentifier": "fighter-",
+          "advancement": {
+            "uE0EqHF0bDBFH0gf": {
+              "_id": "uE0EqHF0bDBFH0gf",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.NMFPFpfYArdw0mgn",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.5i2fzXiCljRHojz6",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.EjSEU2KIGOk2aKXI",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "8bIdG1fAkm7LUaSB": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.PcIHbTZMqOT9FVRU",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенность",
+              "_id": "8bIdG1fAkm7LUaSB",
+              "flags": {},
+              "hint": ""
+            },
+            "rtyvzCVEKK3aJiCS": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.6PegRmbsFDDKKUnB",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенность",
+              "_id": "rtyvzCVEKK3aJiCS",
+              "flags": {},
+              "hint": ""
+            },
+            "cA5AoZJdYIWNnriU": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.dF3i5Cne1GbTDRPJ",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 15,
+              "title": "Особенность",
+              "_id": "cA5AoZJdYIWNnriU",
+              "flags": {},
+              "hint": ""
+            },
+            "lVqC9X0rYKyx10WH": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.NqnLHgYtG8K0dYRg",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 18,
+              "title": "Особенность",
+              "_id": "lVqC9X0rYKyx10WH",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "third",
+            "ability": "int",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {
+          "core": {}
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.hy4aBLMreiHXkFeG",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.bVSA1MphhLyIPauJ",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254688459,
+          "modifiedTime": 1785254688465,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "folder": null,
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-misticheskij-trikster-iQ2ctDqUNiqceufs.json",
+      "sha256": "fb3ddf0ed2c1e931b89382f4c97e9801794ccb8b1a390205fec84b6adfaeb3f4",
+      "name": "Мистический трикстер",
+      "identifier": "arcane-trickster",
+      "class_identifier": "rogue-",
+      "document": {
+        "folder": null,
+        "name": "Мистический трикстер",
+        "type": "subclass",
+        "img": "icons/magic/fire/flame-burning-hand-purple.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Мистический трикстер | Arcane Trickster</h2><p>Если большинство Плутов полагаются исключительно на свой изысканный набор навыков, то вы решили дополнить его магией. Усиливая свои навыки и уловки мистическими заклинаниями, вы способны совершать удивительные хитроумные подвиги. Большинство Плутов, ставших на путь Мистического трикстера, обычно становятся шутниками, взломщиками, лазутчиками, карманниками и даже искателями приключений.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:20%;height:17px\"><p style=\"text-align:center\"><strong>Уровень</strong></p></td><td style=\"width:80%;height:17px\"><p><strong>Особенности</strong></p></td></tr></thead><tbody><tr><td><p style=\"text-align:center\">3</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.UydmfMv6fqHlkp19]{Заклинания}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.qnRKmUU94EfEgw9G]{Адепт магической руки}</p></td></tr><tr><td><p style=\"text-align:center\">7</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.z0W8EzjbNHnEogdP]{Засада трикстера}</p></td></tr><tr><td><p style=\"text-align:center\">13</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.yD6Y8bwdux15ICQO]{Мистическое отвлечение}</p></td></tr><tr><td><p style=\"text-align:center\">17</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.qkxIDYcgo2wsSq1d]{Вор заклинаний}</p></td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "arcane-trickster",
+          "classIdentifier": "rogue-",
+          "advancement": {
+            "rNWrTU0XlDFbFdsT": {
+              "_id": "rNWrTU0XlDFbFdsT",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 2,
+                    "replacement": false
+                  },
+                  "10": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": "spell",
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.pOFPMBJMktwCrPd1"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.SblvhxcdRzPEUmKs"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.x5uXJduVO8z3e1k1"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.5M8uw6ooTsh9S92G"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.lFsYLBcwCsabanD1"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.GqCuyOvVhWldHpuC"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.fkaBKGNKlBMbSPwx"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.09Pn5Jf2NMiApKo6"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.Vc5xlOFSeMIRUwaE"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.pCEiOJEhKUKLo5P3"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.Nln55FGWxDZRG5CL"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.4rjhJZz5ob7yJX7T"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.7jJoIyWxTEN3JhtN"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.wdTjQttjZsDk9QVi"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.1v8IS0xgyMTbSFYV"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.1Jx4KuqbfUXKGYwZ"
+                  }
+                ],
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "prepared": 0
+                },
+                "restriction": {
+                  "level": "0",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Фокусы, выбор",
+              "icon": null,
+              "hint": "Вы изучаете два других фокуса на ваш выбор из списка. \nЕще один фокус на выбор вы изучаете на 10-м уровне.",
+              "flags": {}
+            },
+            "yjZ0uorbH2ljyrMa": {
+              "_id": "yjZ0uorbH2ljyrMa",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": "spell",
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.bv1jcEHUx0G3I976"
+                  }
+                ],
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "prepared": 0
+                },
+                "restriction": {
+                  "level": "0",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Фокус, магическая рука",
+              "icon": null,
+              "hint": "Вы изучаете фокус: Магическая рука",
+              "flags": {}
+            },
+            "xQIZnSpwP5UMUoLu": {
+              "_id": "xQIZnSpwP5UMUoLu",
+              "type": "ScaleValue",
+              "configuration": {
+                "identifier": "know",
+                "type": "number",
+                "distance": {
+                  "units": ""
+                },
+                "scale": {
+                  "3": {
+                    "value": 3
+                  },
+                  "4": {
+                    "value": 4
+                  },
+                  "5": {
+                    "value": 5
+                  },
+                  "7": {
+                    "value": 6
+                  },
+                  "9": {
+                    "value": 7
+                  },
+                  "11": {
+                    "value": 8
+                  },
+                  "13": {
+                    "value": 9
+                  },
+                  "15": {
+                    "value": 10
+                  },
+                  "17": {
+                    "value": 11
+                  },
+                  "19": {
+                    "value": 12
+                  }
+                }
+              },
+              "value": {},
+              "title": "Известные заклинания",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "JBLxlc5Rsmp5hXPf": {
+              "_id": "JBLxlc5Rsmp5hXPf",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.UydmfMv6fqHlkp19",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.qnRKmUU94EfEgw9G",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.gUrR71vSfrfVjTt0",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности подкласса",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "WJlxYenEW5dGZnb4": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.z0W8EzjbNHnEogdP",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенности подкласса",
+              "icon": null,
+              "_id": "WJlxYenEW5dGZnb4",
+              "flags": {},
+              "hint": ""
+            },
+            "IUf109X4kfZM6feX": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.yD6Y8bwdux15ICQO",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 13,
+              "title": "Особенности подкласса",
+              "icon": null,
+              "_id": "IUf109X4kfZM6feX",
+              "flags": {},
+              "hint": ""
+            },
+            "ReEXPUxEjR5HCI46": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.qkxIDYcgo2wsSq1d",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 17,
+              "title": "Особенности подкласса",
+              "icon": null,
+              "_id": "ReEXPUxEjR5HCI46",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "third",
+            "ability": "int",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {
+          "core": {}
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.zWs2ZlMeo3fEyDs3",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.iQ2ctDqUNiqceufs",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254731491,
+          "modifiedTime": 1785254731498,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-orden-koldunov-rycarej-kxDKp0qiBa2UvMrw.json",
+      "sha256": "cca6e50ac2e438f29879ca95d79033e29e335b50c23f746ba1f381a73f5fa1f2",
+      "name": "Орден Колдунов рыцарей",
+      "identifier": "witch-knights",
+      "class_identifier": "blood-hunter-",
+      "document": {
+        "folder": null,
+        "name": "Орден Колдунов рыцарей",
+        "type": "subclass",
+        "img": "icons/magic/unholy/hand-weapon-glow-black-green.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Орден Колдунов рыцарей | Order of Witch Knights</h2><p>Кровавыми охотниками, вступившими в темный Орден Колдунов рыцарей, движет непреодолимое желание уничтожить великое зло мира. К особо преданным, готовым отдать все, часто обращаются потусторонние силы, существа со сверхъестественным могуществом. Эти благодетели предлагают силу в обмен на частицу души воителя или беспрекословную преданность.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:20%;height:17px\"><p style=\"text-align:center\"><strong>Уровень</strong></p></td><td style=\"width:80%;height:17px\"><p><strong>Особенности</strong></p></td></tr></thead><tbody><tr><td><p style=\"text-align:center\">3</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.CTjSvb9l0Gypl44C]{Магия договора}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.Ai2a1h1oSHZ7UrrB]{Багровая кара}</p></td></tr><tr><td><p style=\"text-align:center\">7</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.mtDB51DeXsAvZNUS]{Кровавый воитель}</p></td></tr><tr><td><p style=\"text-align:center\">13</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.9jYQnm7yP9oZYZDP]{Околдованные удары}</p></td></tr><tr><td><p style=\"text-align:center\">18</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.9cgdQ97F0AlbvLhA]{Нечестивое жертвоприношение}</p></td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "witch-knights",
+          "classIdentifier": "blood-hunter-",
+          "advancement": {
+            "tpm8Lf8ecxgbWkJy": {
+              "_id": "tpm8Lf8ecxgbWkJy",
+              "type": "ScaleValue",
+              "configuration": {
+                "identifier": "slot",
+                "type": "number",
+                "distance": {
+                  "units": ""
+                },
+                "scale": {
+                  "3": {
+                    "value": 1
+                  },
+                  "4": {
+                    "value": 2
+                  }
+                }
+              },
+              "value": {},
+              "title": "Ячейки заклинаний",
+              "icon": null,
+              "hint": "",
+              "flags": {}
+            },
+            "kKhprXj1qS9kWkze": {
+              "_id": "kKhprXj1qS9kWkze",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.XSq1O63qkF261BaK",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Круг ячеек заклинаний",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "yLKVHibLzQp5zYSr": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.gNs3JI0maFfnsxgU",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 7,
+              "title": "Круг ячеек заклинаний",
+              "hint": "",
+              "icon": null,
+              "_id": "yLKVHibLzQp5zYSr",
+              "flags": {}
+            },
+            "S3JkRFURTYFfGuGN": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.OkBujToB7XgglQO8",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 13,
+              "title": "Круг ячеек заклинаний",
+              "hint": "",
+              "icon": null,
+              "_id": "S3JkRFURTYFfGuGN",
+              "flags": {}
+            },
+            "hg0HHEF5h5tAe2VI": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.1navLRqgSEd2AVUJ",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 19,
+              "title": "Круг ячеек заклинаний",
+              "hint": "",
+              "icon": null,
+              "_id": "hg0HHEF5h5tAe2VI",
+              "flags": {}
+            },
+            "zgXmRv9YuiIBZZW1": {
+              "_id": "zgXmRv9YuiIBZZW1",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.CTjSvb9l0Gypl44C",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.Ai2a1h1oSHZ7UrrB",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.UtUiBTkoXdPW8JqO",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "ExChhQdqjr1e27gR": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.mtDB51DeXsAvZNUS",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "ExChhQdqjr1e27gR",
+              "flags": {}
+            },
+            "q7Yt7lzITg7wvfzt": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.9jYQnm7yP9oZYZDP",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 13,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "q7Yt7lzITg7wvfzt",
+              "flags": {}
+            },
+            "0O7GGHYAnNOO4h6n": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.9cgdQ97F0AlbvLhA",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 18,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "0O7GGHYAnNOO4h6n",
+              "flags": {}
+            },
+            "e0AtAHwTL85KYIHs": {
+              "_id": "e0AtAHwTL85KYIHs",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 2,
+                    "replacement": false
+                  },
+                  "13": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": "spell",
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.jQqkAr2UiJEWCqbR"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.SblvhxcdRzPEUmKs"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.pFKhunqGel2ldfuY"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.fYFnzG4kWMlXPk0s"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.SwyCIaEuigZ5kiF1"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.GqCuyOvVhWldHpuC"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.fkaBKGNKlBMbSPwx"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.Dcp7LeULbissa6zS"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.cFFDXtWIjfhKgcdo"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.bv1jcEHUx0G3I976"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.pCEiOJEhKUKLo5P3"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.20hXiTscFGnQtJkB"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.4rjhJZz5ob7yJX7T"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.Z3tMfRbCs1sd6fQT"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.wdTjQttjZsDk9QVi"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.SEao5SPEfgnnDtEH"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.1Jx4KuqbfUXKGYwZ"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.VBIXahiehqmCr6fq"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.L5kEABmjx81fLsNb"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.c3NFl7Bt2doRbbTZ"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.spells.Item.TZYYKwDMcTbcg1qT"
+                  }
+                ],
+                "spell": {
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "ability": [
+                    "int"
+                  ],
+                  "prepared": 0
+                },
+                "restriction": {
+                  "level": "0",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Фокусы (выбор)",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            }
+          },
+          "spellcasting": {
+            "progression": "pact",
+            "ability": "int",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.cMjm6kJ0MFtpQqIZ",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.kxDKp0qiBa2UvMrw",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254707851,
+          "modifiedTime": 1785254707862,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-orden-neutolimoj-zhazhdy-yPeyPFXHSyPVui5Q.json",
+      "sha256": "1ad68932de4e7a009e85dd368de5ac112372d51138f988f175f8654d1558a640",
+      "name": "Орден Неутолимой Жажды",
+      "identifier": "undying-thirst",
+      "class_identifier": "blood-hunter-",
+      "document": {
+        "folder": null,
+        "name": "Орден Неутолимой Жажды",
+        "type": "subclass",
+        "img": "icons/magic/death/mouth-teeth-fangs-vampire.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Орден Неутолимой Жажды | Order of Undying Thirst</h2><p>Легенды рассказывают о древнем вампире, который пришел к сожалениям о многочисленных злодеяниях, совершенных им в порыве жажды. Он собрал вокруг себя группу охотников на вампиров, а когда они поклялись избавить мир от проклятия вампиризма, передал им свое проклятие и обучил их силе древней магии крови. Известные как Орден Неутолимой Жажды, эти Кровавые Охотники неустанно выполняют свою клятву, данную основателю, - истребить всех вампиров.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:20%;height:17px\"><p style=\"text-align:center\"><strong>Уровень</strong></p></td><td style=\"width:80%;height:17px\"><p><strong>Особенности</strong></p></td></tr></thead><tbody><tr><td><p style=\"text-align:center\">3</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.Mb1bcjpMkvQsrwys]{Специалист по магии крови}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.d77g0t3xvz0R0Xj0]{Вампирическая природа}</p></td></tr><tr><td><p style=\"text-align:center\">7</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.MUoOJh8PC3YFf4Oy]{Слив сущности}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.K7EAVGz52w81C5iU]{Зловещая стойкость}</p></td></tr><tr><td><p style=\"text-align:center\">13</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.OkLlGI9C6IwEzzaI]{Туманный побег}</p></td></tr><tr><td><p style=\"text-align:center\">18</p></td><td><p>@UUID[Compendium.laaru-dnd5-hw.classfeatures.Item.9ooN0wdMDUFyqzpI]{Багровый лорд}</p></td></tr></tbody></table><aside class=\"notable\"><p><strong>Необязательное правило: Истинный вампиризм</strong></p><p>Истинная вампирическая сила достается дорогой ценой. Если вы хотите играть за истинного вампира, то, присоединившись к этому оккультному ордену, вы получите ВСЕ нижеперечисленные способности:</p><p><em><strong>Бессмертная природа</strong></em>. Вам не нужно дышать.</p><p><em><strong>Паучьи лапы</strong></em>. Вы получаете скорость лазания, равную скорости ходьбы. Достигнув 7-го уровня, вы сможете перемещаться по вертикальным поверхностям, в том числе вверх ногами по потолку, оставляя при этом руки свободными.</p><p><em><strong>Превосходное ночное зрение</strong></em>. У вас превосходное зрение в темноте и при тусклом свете. Вы можете видеть при тусклом свете в радиусе 120 футов от вас, как при ярком свете, а в темноте - как при тусклом свете. В темноте вы не можете различать цвета, вы видите только оттенки серого.</p><p><em><strong>Чувствительность к солнечному свету</strong></em>. У вас есть помеха при бросках атаки и проверках Мудрости (Внимание), которые зависят от зрения, если вы, цель вашей атаки или то, что вы пытаетесь увидеть, находится под прямым солнечным светом.</p><p>Если у вас уже есть эта способность из другого источника, вы получаете уязвимость к лучистому урону.</p></aside>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "undying-thirst",
+          "classIdentifier": "blood-hunter-",
+          "advancement": {
+            "jRHvcjRLYYljvdCG": {
+              "_id": "jRHvcjRLYYljvdCG",
+              "type": "ScaleValue",
+              "configuration": {
+                "identifier": "rite",
+                "type": "dice",
+                "distance": {
+                  "units": ""
+                },
+                "scale": {
+                  "3": {
+                    "number": null,
+                    "faces": 6,
+                    "modifiers": []
+                  },
+                  "5": {
+                    "number": null,
+                    "faces": 8,
+                    "modifiers": []
+                  },
+                  "11": {
+                    "number": null,
+                    "faces": 10,
+                    "modifiers": []
+                  },
+                  "17": {
+                    "number": null,
+                    "faces": 12,
+                    "modifiers": []
+                  }
+                }
+              },
+              "value": {},
+              "title": "Кость обряда жажды",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "C87GsfYWBV5Ghw6T": {
+              "_id": "C87GsfYWBV5Ghw6T",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.Mb1bcjpMkvQsrwys",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.d77g0t3xvz0R0Xj0",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "flags": {}
+            },
+            "mcqL5nYA7JVgHPOA": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.MUoOJh8PC3YFf4Oy",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.K7EAVGz52w81C5iU",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 7,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "mcqL5nYA7JVgHPOA",
+              "flags": {}
+            },
+            "byuwdmG60efvmm1c": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.OkLlGI9C6IwEzzaI",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 13,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "byuwdmG60efvmm1c",
+              "flags": {}
+            },
+            "LpAVjabyw0MuIKwa": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.9ooN0wdMDUFyqzpI",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 18,
+              "title": "Особенности подкласса",
+              "hint": "",
+              "icon": null,
+              "_id": "LpAVjabyw0MuIKwa",
+              "flags": {}
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.oD7dndceheS71dhE",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.yPeyPFXHSyPVui5Q",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254710314,
+          "modifiedTime": 1785254710320,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-putь-buri-h4jNTtQ2tpBo6BBr.json",
+      "sha256": "d417a1554b16401480ff2da1ee55e18152a40aff6106029776d83c24c22355a3",
+      "name": "Путь бури",
+      "identifier": "storm",
+      "class_identifier": "barbarian-",
+      "document": {
+        "name": "Путь бури",
+        "type": "subclass",
+        "img": "icons/magic/air/wind-tornado-funnel-blue-grey.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Путь Бури | Path of the Storm</h2><p>Обитающие в местах великой силы стихий, варвары, следующие по Пути Бури, воплощают в себе разрушительную мощь самих стихий. Первобытная ярость превращает их в ходячие катастрофы: бушующие метели, разрушительные ураганы и знойные бури пламени.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> <strong>Уровень</strong></td><td style=\"width:85%;height:17px\"> <strong>Особенность</strong></td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.wUfBu3vV8vqD2oJD]{Приёмы бури}, @Compendium[laaru-dnd5-hw.classfeatures.KRbv43DJWjQ6zqMU]{Аура бури}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 6</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.RVhRXz7BGJsdDCra]{Элементальное тело}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 10</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.rP7GgCwLAvtZCeAp]{Оплот бури}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 14</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.AP0ae1k8Fkgo7ptb]{Первобытное разрушение}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "storm",
+          "classIdentifier": "barbarian-",
+          "advancement": {
+            "id1yO2yQhReBhfId": {
+              "_id": "id1yO2yQhReBhfId",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Ls297AHj9cQkQyzF",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.NgE0gjFVY5cC7FRN",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Приёмы подкласса",
+              "flags": {},
+              "hint": ""
+            },
+            "diwV11CiVskgfMvF": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.dN1NTvqZEro2C4Xr",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.SF7YDRX3yJ8xQQAc",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Приёмы подкласса",
+              "_id": "diwV11CiVskgfMvF",
+              "flags": {},
+              "hint": ""
+            },
+            "EVRa9zDfc4N4y22R": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.J3wJyKwSNuQaG9o0",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 9,
+              "title": "Приём подкласса",
+              "_id": "EVRa9zDfc4N4y22R",
+              "flags": {},
+              "hint": ""
+            },
+            "VrE61pcQBH9uOl7G": {
+              "_id": "VrE61pcQBH9uOl7G",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": null,
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.UO2GeVPMaMIaKGAt"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.rZkKoGIgmgQAgoaV"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.wshdDlHWWS8lI4VD"
+                  }
+                ],
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                },
+                "restriction": {
+                  "type": "",
+                  "subtype": "",
+                  "level": "",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Аура",
+              "hint": "Выберите вид вашей ауры. При повышении уровня, при необходимости, добавьте ауру самостоятельно.",
+              "flags": {}
+            },
+            "035O81AtEK1YaJog": {
+              "_id": "035O81AtEK1YaJog",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "6": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": null,
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.OWehJxFRCUysuJG1"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.JKfwStPqjz5wjdJp"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Jq5Cm0hqYydY1sjW"
+                  }
+                ],
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                },
+                "restriction": {
+                  "type": "",
+                  "subtype": "",
+                  "level": "",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Преимущества ауры бури",
+              "hint": "Выберите преимущество вашей актуальной ауры.",
+              "flags": {}
+            },
+            "fxTgWMCBePNZEXDr": {
+              "_id": "fxTgWMCBePNZEXDr",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "14": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": null,
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.5rqfWRHo6gZ6anHG"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.QhQCmeIaQlE93jtI"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.9CRl34WwbHLyNqui"
+                  }
+                ],
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                },
+                "restriction": {
+                  "type": "",
+                  "subtype": "",
+                  "level": "",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Преимущества ауры бури",
+              "hint": "Выберите преимущество вашей актуальной ауры.",
+              "flags": {}
+            },
+            "uyPRCxSDGsPxucNI": {
+              "_id": "uyPRCxSDGsPxucNI",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.wUfBu3vV8vqD2oJD",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.KRbv43DJWjQ6zqMU",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "YUuHeR7hPZte2ymy": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.RVhRXz7BGJsdDCra",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 6,
+              "title": "Особенность",
+              "_id": "YUuHeR7hPZte2ymy",
+              "flags": {},
+              "hint": ""
+            },
+            "u9GSkJeq7Ai3wlHL": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.rP7GgCwLAvtZCeAp",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенность",
+              "_id": "u9GSkJeq7Ai3wlHL",
+              "flags": {},
+              "hint": ""
+            },
+            "KUwsUCTN3UOLUcbe": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.AP0ae1k8Fkgo7ptb",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 14,
+              "title": "Особенность",
+              "_id": "KUwsUCTN3UOLUcbe",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {
+          "core": {}
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.WB0d97tMrCzJVfsO",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.h4jNTtQ2tpBo6BBr",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254682772,
+          "modifiedTime": 1785254682779,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "folder": null,
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-putь-krovi-i-zheleza-w4FKfk1AobSvtUFh.json",
+      "sha256": "081a489b19376105d9516a8d58c1073dad8cd6dbb2e7254bdec5373b5162d7c7",
+      "name": "Путь крови и железа",
+      "identifier": "blood",
+      "class_identifier": "barbarian-",
+      "document": {
+        "name": "Путь крови и железа",
+        "type": "subclass",
+        "img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Путь крови и железа | Path of Blood &amp; Iron</h2><p>Наслаждаясь хаосом битвы, варвары этого первобытного Пути надевают свои особенные шипастые доспехи и с головой уходят в бой. Научившись направлять свою ярость, пока носят свои характерные доспехи, эти дикие воители сражаются так, будто им безразлична собственная жизнь, а нужен только азарт битвы.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> <strong>Уровень</strong></td><td style=\"width:85%;height:17px\"> <strong>Особенность</strong></td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.R2yoEM58DMq5oeO2]{Кузнец-дикарь}, @Compendium[laaru-dnd5-hw.classfeatures.8Y7Z5mVOKdr9g92m]{Приёмы крови и железа}, @Compendium[laaru-dnd5-hw.classfeatures.zdAYHekD3OlFInIG]{Шипованная броня}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 6</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.5NJpNua2L38Z7at4]{Безрассудный отказ}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 10</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.jt9q61loh0PoD2jG]{Дикий заряд}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 14</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.cftJQMu3Rgjs4pDh]{Шипованное возмездие}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "blood",
+          "classIdentifier": "barbarian-",
+          "advancement": {
+            "Oz2EgElX2CqtDAul": {
+              "_id": "Oz2EgElX2CqtDAul",
+              "type": "Trait",
+              "configuration": {
+                "mode": "default",
+                "allowReplacements": false,
+                "grants": [
+                  "armor:hvy",
+                  "tool:art:smith"
+                ],
+                "choices": []
+              },
+              "level": 3,
+              "title": "Умения",
+              "value": {
+                "chosen": []
+              },
+              "hint": "Вы получаете умение в Инструментах кузнеца и тяжелой броне.",
+              "flags": {}
+            },
+            "dninfm0rwYP5jvfM": {
+              "_id": "dninfm0rwYP5jvfM",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.sF1UOjAx3C3vS6LK",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.6aTI5DJNN1fpdkkN",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Приёмы подкласса",
+              "flags": {},
+              "hint": ""
+            },
+            "HpzIQEatU8Sb2bZc": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.xZSwnk3uvs4SRFzM",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Pvy2vpUupZxmyh0g",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Приёмы подкласса",
+              "_id": "HpzIQEatU8Sb2bZc",
+              "flags": {},
+              "hint": ""
+            },
+            "UKxizndvinuFm7y0": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.7i2cqZ85kwYgVRm2",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 9,
+              "title": "Приём подкласса",
+              "_id": "UKxizndvinuFm7y0",
+              "flags": {},
+              "hint": ""
+            },
+            "YFkNe1R1cVKIiazI": {
+              "_id": "YFkNe1R1cVKIiazI",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.R2yoEM58DMq5oeO2",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.8Y7Z5mVOKdr9g92m",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.zdAYHekD3OlFInIG",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "8pMb0f9pFkFzQo1W": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.5NJpNua2L38Z7at4",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 6,
+              "title": "Особенность",
+              "_id": "8pMb0f9pFkFzQo1W",
+              "flags": {},
+              "hint": ""
+            },
+            "vucSmnLBGA7PrfwT": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.jt9q61loh0PoD2jG",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенность",
+              "_id": "vucSmnLBGA7PrfwT",
+              "flags": {},
+              "hint": ""
+            },
+            "lz2u4rznaur0OGKD": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.cftJQMu3Rgjs4pDh",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 14,
+              "title": "Особенность",
+              "_id": "lz2u4rznaur0OGKD",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {
+          "core": {}
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.Yg2vz501mI1rmtKA",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.w4FKfk1AobSvtUFh",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254679204,
+          "modifiedTime": 1785254679211,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "folder": null,
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-putь-zhneca-f6MFhPRvMtOsz641.json",
+      "sha256": "a5ff2c8ce9f7c436343d10e5d252d8d533dcbe7f8df84e8ac59841408460b421",
+      "name": "Путь Жнеца",
+      "identifier": "reaper",
+      "class_identifier": "monk-",
+      "document": {
+        "folder": null,
+        "name": "Путь Жнеца",
+        "type": "subclass",
+        "img": "icons/weapons/sickles/scythe-bone-green-fire.webp",
+        "system": {
+          "description": {
+            "value": "<h2 style=\"border-bottom:1px solid var(--color-underline-header)\">Путь Жнеца | Way of the Reaper</h2><p>В то время как большинство монашеских орденов учат своих учеников жить в полную силу, те, кто практикует Путь Жнеца, одержимы идеей прекращения жизни. Монахи-жнецы учатся использовать смертельную Ци для подпитки своего боевого мастерства и являются экспертами в использовании страха и других зловещих техник, чтобы высасывать жизненную силу из других, чтобы продлить свою собственную.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> <strong>Уровень</strong></td><td style=\"width:85%;height:17px\"> <strong>Особенности</strong></td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\"> @UUID[Compendium.laaru-dnd5-hw.classfeatures.vdeu9PCdOWvpWTjW]{Техники Жнеца}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.lNFaiNRGgyLmuKYE]{Страшное прикосновение}, @UUID[Compendium.laaru-dnd5-hw.classfeatures.TzHPG8D4yZaPI29y]{Некротический дух}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 6</td><td style=\"width:85%;height:17px\"> @UUID[Compendium.laaru-dnd5-hw.classfeatures.NEOrrA1qZpZoCha8]{Зловещая живучесть}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 10</td><td style=\"width:85%;height:17px\"> @UUID[Compendium.laaru-dnd5-hw.classfeatures.Cu9OB6sZlVqOxOm9]{Броня могилы}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 17</td><td style=\"width:85%;height:17px\"> @UUID[Compendium.laaru-dnd5-hw.classfeatures.urBZ0yrKvvPxAWPb]{Мастер смерти}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "reaper",
+          "classIdentifier": "monk-",
+          "advancement": {
+            "e4BAYayKpY94zrsO": {
+              "_id": "e4BAYayKpY94zrsO",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.0T1mWDjDtmlou8co",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Техника пути",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "8KS8cy8GqUBc9njH": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.dJHJ3Ji0xyXoY1Nm",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": null
+              },
+              "value": {},
+              "level": 5,
+              "title": "Техника пути",
+              "icon": null,
+              "_id": "8KS8cy8GqUBc9njH",
+              "flags": {},
+              "hint": ""
+            },
+            "QipMgRs6SOaz0XWE": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.01RlxSGoH3A8X0Rv",
+                    "optional": false
+                  }
+                ],
+                "optional": true,
+                "spell": null
+              },
+              "value": {},
+              "level": 9,
+              "title": "Техника пути",
+              "icon": null,
+              "_id": "QipMgRs6SOaz0XWE",
+              "flags": {},
+              "hint": ""
+            },
+            "iR9u37Z21R3iDXSg": {
+              "_id": "iR9u37Z21R3iDXSg",
+              "type": "Trait",
+              "configuration": {
+                "mode": "default",
+                "allowReplacements": false,
+                "grants": [
+                  "dr:necrotic"
+                ],
+                "choices": []
+              },
+              "value": {
+                "chosen": []
+              },
+              "level": 3,
+              "title": "",
+              "icon": null,
+              "hint": "У вас устойчивость к некротическому урону.",
+              "flags": {}
+            },
+            "xUswUiFayNgpsPyp": {
+              "_id": "xUswUiFayNgpsPyp",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.vdeu9PCdOWvpWTjW",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.lNFaiNRGgyLmuKYE",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.TzHPG8D4yZaPI29y",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "icon": null,
+              "flags": {},
+              "hint": ""
+            },
+            "XHlqainNqnmquRnm": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.NEOrrA1qZpZoCha8",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 6,
+              "title": "Особенность",
+              "icon": null,
+              "_id": "XHlqainNqnmquRnm",
+              "flags": {},
+              "hint": ""
+            },
+            "yIiwC025j4aQQAE1": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.Cu9OB6sZlVqOxOm9",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 10,
+              "title": "Особенность",
+              "icon": null,
+              "_id": "yIiwC025j4aQQAE1",
+              "flags": {},
+              "hint": ""
+            },
+            "DDf5n15phrpwhEGJ": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Item.urBZ0yrKvvPxAWPb",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": null
+              },
+              "value": {},
+              "level": 17,
+              "title": "Особенность",
+              "icon": null,
+              "_id": "DDf5n15phrpwhEGJ",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.NU19PGeSdQ2eeCUj",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.f6MFhPRvMtOsz641",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254720443,
+          "modifiedTime": 1785254720451,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "ownership": {
+          "default": 0
+        }
+      }
+    },
+    {
+      "source_file": "fvtt-Item-tancor-mecha-GHbAOe20rCFxbNCU.json",
+      "sha256": "19a142c1d89073309abc231b3b25aee5f8f43c484b743299162916d5183370f1",
+      "name": "Танцор меча",
+      "identifier": "sword-dancer",
+      "class_identifier": "bard-",
+      "document": {
+        "name": "Танцор меча",
+        "type": "subclass",
+        "img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+        "system": {
+          "description": {
+            "value": "<h2>Танцор меча | Sword Dancer</h2><p>Барды, придерживающиеся этой традиции, известны своими чудесными, но смертоносными выступлениями, в которых используется клинковое оружие. Далеко не обычные исполнители, эти барды используют свое умение обращаться с клинками, чтобы найти работу в качестве дуэлянтов, дружинников, а иногда даже пускаются в приключения.</p><table style=\"width:100%;height:17px\"><thead style=\"text-shadow:1px 1px var(--color-shadow-dark);border-bottom:1px solid var(--color-border-dark)\"><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> Уровень</td><td style=\"width:85%;height:17px\"> Особенность</td></tr></thead><tbody><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 3</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.1UITKyniMhcixB2n]{Изящный дуэлянт}, @Compendium[laaru-dnd5-hw.classfeatures.Kk1QU0T8mQ9cnX8O]{Боевой стиль}, @Compendium[laaru-dnd5-hw.classfeatures.yV0clZA0Ghxp25P9]{Изящные приемы}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 5</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.cIKdETfdCDgJKR0k]{Дополнительная атака}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 11</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.SBLvG5Sp7qgiBXzD]{Смертельный росчерк}</td></tr><tr style=\"height:17px\"><td style=\"width:15%;height:17px\"> 15</td><td style=\"width:85%;height:17px\">@Compendium[laaru-dnd5-hw.classfeatures.EjejxDnSCLTs3Y2g]{Мастер клинков}</td></tr></tbody></table>",
+            "chat": ""
+          },
+          "source": {
+            "book": "Laserllama",
+            "page": "",
+            "license": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identifier": "sword-dancer",
+          "classIdentifier": "bard-",
+          "advancement": {
+            "2JPEoKbxYvgnAPB8": {
+              "_id": "2JPEoKbxYvgnAPB8",
+              "type": "Trait",
+              "configuration": {
+                "mode": "default",
+                "allowReplacements": false,
+                "grants": [
+                  "skills:prf",
+                  "weapon:mar:scimitar"
+                ],
+                "choices": []
+              },
+              "level": 3,
+              "title": "Умения Танцора меча",
+              "value": {
+                "chosen": []
+              },
+              "flags": {},
+              "hint": ""
+            },
+            "v2h1Pmw4U0RS1pJD": {
+              "_id": "v2h1Pmw4U0RS1pJD",
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.1UITKyniMhcixB2n",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.Kk1QU0T8mQ9cnX8O",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.yV0clZA0Ghxp25P9",
+                    "optional": false
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.ySVMh8rgvjnbKLTI",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 3,
+              "title": "Особенности",
+              "flags": {},
+              "hint": ""
+            },
+            "sPReuEemTms8F51x": {
+              "_id": "sPReuEemTms8F51x",
+              "type": "ItemChoice",
+              "configuration": {
+                "choices": {
+                  "3": {
+                    "count": 1,
+                    "replacement": false
+                  }
+                },
+                "allowDrops": true,
+                "type": null,
+                "pool": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.LRG5OPrTazlB00Of"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.beHBnsan16fKYJdt"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.hCop9uJrWhF1QPb4"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.XQi5HAjnrDaZUtdg"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.HnFtcxiMNq9J0RIY"
+                  },
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.IYzoDJqUku3FyBn2"
+                  }
+                ],
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                },
+                "restriction": {
+                  "type": "",
+                  "subtype": "",
+                  "level": "",
+                  "list": []
+                }
+              },
+              "value": {
+                "added": {},
+                "replaced": {}
+              },
+              "title": "Боевой стиль",
+              "hint": "Выберите один боевой стиль.",
+              "flags": {}
+            },
+            "gUpOhIysry7NIKp0": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.cIKdETfdCDgJKR0k",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 5,
+              "title": "Особенность",
+              "_id": "gUpOhIysry7NIKp0",
+              "flags": {},
+              "hint": ""
+            },
+            "uVM78759C1xp22gY": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.SBLvG5Sp7qgiBXzD",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 11,
+              "title": "Особенность",
+              "_id": "uVM78759C1xp22gY",
+              "flags": {},
+              "hint": ""
+            },
+            "43CkWp01JnelYLrW": {
+              "type": "ItemGrant",
+              "configuration": {
+                "items": [
+                  {
+                    "uuid": "Compendium.laaru-dnd5-hw.classfeatures.EjejxDnSCLTs3Y2g",
+                    "optional": false
+                  }
+                ],
+                "optional": false,
+                "spell": {
+                  "ability": [
+                    ""
+                  ],
+                  "uses": {
+                    "max": "",
+                    "per": "",
+                    "requireSlot": false
+                  },
+                  "prepared": 0
+                }
+              },
+              "value": {},
+              "level": 15,
+              "title": "Особенность",
+              "_id": "43CkWp01JnelYLrW",
+              "flags": {},
+              "hint": ""
+            }
+          },
+          "spellcasting": {
+            "progression": "none",
+            "ability": "",
+            "preparation": {}
+          }
+        },
+        "effects": [],
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.laaru-dnd5-hw.subclasses.Item.rRSWmg889F5tzc9y",
+          "duplicateSource": null,
+          "exportSource": {
+            "worldId": "test",
+            "uuid": "Item.GHbAOe20rCFxbNCU",
+            "coreVersion": "13.351",
+            "systemId": "dnd5e",
+            "systemVersion": "5.3.3"
+          },
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.3",
+          "createdTime": 1785254670587,
+          "modifiedTime": 1785254670594,
+          "lastModifiedBy": "0JcNGPUY98uIPE0H"
+        },
+        "folder": null,
+        "ownership": {
+          "default": 0
+        }
+      }
+    }
+  ]
+}

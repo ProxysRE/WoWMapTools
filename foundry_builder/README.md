@@ -1,0 +1,60 @@
+# Foundry JSON Builder 1.6.0
+
+Самостоятельный сборщик контента для Foundry VTT 13.351 / dnd5e 5.3.3.
+Midi-QOL 13.0.64 и DAE 13.0.29 используются там, где этого требует механика.
+Приложение и сборщик наборов не требуют исходников или установленного модуля WoW.
+
+## Работа
+
+`start_builder_app.bat` открывает редактор с 13 режимами: NPC, особенности,
+оружие, экипировка, заклинания, расходники, добыча, усиления, наборы усилений,
+классы, подклассы, расы и предыстории. В каждом режиме доступны шаблон,
+проверка и сохранение готового JSON с отчётом.
+
+Связанный набор создаётся командой из каталога программы:
+
+```console
+python character_builder.py examples/standard_options.json --output-dir output/example
+```
+
+Устанавливаемый модуль с LevelDB-компендиумами требует Node.js и официального
+`@foundryvtt/foundryvtt-cli` 3.0.5:
+
+```console
+python character_builder.py examples/standard_options.json --output-dir output/example --module-id example-content --cli-module /path/to/node_modules/@foundryvtt/foundryvtt-cli/index.mjs
+```
+
+В Windows укажите реальный путь к `index.mjs`. JSON-каталог и ZIP отдельных
+документов не являются устанавливаемым модулем: для рабочих связанных UUID
+нужен архив с суффиксом `-module.zip`.
+
+## Руководства
+
+- `AI_FOUNDRY_BUILDER_GUIDE.md` — общая точка входа.
+- `AI_CONTENT_PACKAGE_GUIDE.md` — связанные наборы, классы, расы, предыстории,
+  общие черты и заклинания, в том числе подклассы стандартных классов.
+- `docs/BACKGROUNDS_JSON.md` — предыстории.
+- `docs/SPELLS_JSON.md`, `docs/FEATURES_JSON.md` — механика отдельных карточек.
+- `docs/PROJECT_MAINTENANCE.md` — сопровождение и упаковка.
+
+PDF читает автор контента. Сборщик принимает проверенный JSON и не распознаёт
+произвольную книгу автоматически. Автор обязан сверить уровни, выборы, цены,
+ограничения и полные тексты правил. Неавтоматизированные части указываются явно.
+
+## Проверки
+
+```console
+python builder_app.py --self-test
+python project_audit.py
+python -m unittest discover -s tests
+node tests/test_resource_runtime.mjs
+python package_project.py --output ../output/FoundryVTT_Builder_Project.zip
+```
+
+Для настоящего теста сборки и чтения LevelDB задайте `FOUNDRY_CLI_MODULE`.
+Остальные тесты выполняются без CLI. Проверки данных не заменяют тестирование
+выбора подкласса, повышения уровня и применения способностей в живом Foundry.
+
+Исходники сопровождаются в `ProxysRE/WoWMapTools`, каталог `foundry_builder`,
+ветка `foundry-builder`. Название репозитория историческое: общий сборщик
+независим от сеттинга. Контент конкретных книг хранится отдельно от программы.

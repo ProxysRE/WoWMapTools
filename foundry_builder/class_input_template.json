@@ -1,0 +1,142 @@
+{
+  "name": "Хранитель Пепла",
+  "identifier": "ash-warden",
+  "description": "<p>Воин, использующий жар угасающих Потоков.</p>",
+  "img": "systems/dnd5e/icons/svg/items/class.svg",
+  "rules": "2024",
+  "revision": 1,
+  "levels": 1,
+  "hit_die": "d10",
+  "primary_abilities": [
+    "con",
+    "wis"
+  ],
+  "primary_all": false,
+  "spellcasting": {
+    "progression": "half",
+    "ability": "wis",
+    "preparation": {
+      "formula": ""
+    }
+  },
+  "properties": [],
+  "starting_equipment": [],
+  "advancement": [
+    {
+      "type": "hit_points"
+    },
+    {
+      "type": "trait",
+      "level": 1,
+      "title": "Владения основного класса",
+      "class_restriction": "primary",
+      "grants": [
+        "armor:lgt",
+        "armor:med",
+        "weapon:sim",
+        "saves:con",
+        "saves:wis"
+      ],
+      "choices": [
+        {
+          "count": 2,
+          "pool": [
+            "skills:*"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "item_grant",
+      "level": 1,
+      "title": "Особенности класса",
+      "items": [
+        {
+          "uuid": "Compendium.my-world.classfeatures.Item.REPLACE_WITH_ID",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "type": "scale",
+      "title": "Кости пепла",
+      "identifier": "ash-dice",
+      "scale_type": "dice",
+      "scale": {
+        "1": {
+          "number": 1,
+          "faces": 6,
+          "modifiers": []
+        },
+        "5": {
+          "number": 2,
+          "faces": 6,
+          "modifiers": []
+        },
+        "11": {
+          "number": 3,
+          "faces": 8,
+          "modifiers": []
+        },
+        "17": {
+          "number": 4,
+          "faces": 10,
+          "modifiers": []
+        }
+      }
+    },
+    {
+      "type": "item_choice",
+      "title": "Путь пепла",
+      "item_type": "feat",
+      "allow_drops": true,
+      "choices": {
+        "2": {
+          "count": 1,
+          "replacement": false
+        },
+        "6": {
+          "count": 1,
+          "replacement": false
+        }
+      },
+      "pool": [
+        "Compendium.my-world.classfeatures.Item.REPLACE_WITH_ID"
+      ]
+    },
+    {
+      "type": "subclass",
+      "level": 3
+    },
+    {
+      "type": "asi",
+      "level": 4,
+      "points": 2,
+      "cap": 2
+    },
+    {
+      "type": "asi",
+      "level": 8,
+      "points": 2,
+      "cap": 2
+    },
+    {
+      "type": "asi",
+      "level": 12,
+      "points": 2,
+      "cap": 2
+    },
+    {
+      "type": "asi",
+      "level": 16,
+      "points": 2,
+      "cap": 2
+    },
+    {
+      "type": "asi",
+      "level": 19,
+      "points": 2,
+      "cap": 2
+    }
+  ]
+}
