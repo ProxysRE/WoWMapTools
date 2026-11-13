@@ -61,6 +61,24 @@ class StandardOptions(unittest.TestCase):
         self.assertFalse(activity['consumption']['spellSlot'])
         self.assertFalse(builder_app.build_document('spell', spell).compatibility['errors'])
 
+    def test_native_feature_check_has_no_false_type_warning(self):
+        from class_package_builder import _feature_item
+        check = {'ability': 'cha', 'associated': ['prf', 'lute'],
+                 'dc': {'calculation': '', 'formula': '15'}}
+        activity = {'_id': 'nativeFeatCheck1', 'type': 'check', 'name': 'Perform',
+                    'check': copy.deepcopy(check), 'activation': {'type': 'bonus', 'value': 1},
+                    'consumption': {'spellSlot': False, 'targets': []}, 'effects': []}
+        original = copy.deepcopy(activity)
+        item, report = _feature_item({'key': 'feature:performance', 'name': 'Performance',
+                                     'automation': {'mode': 'partial', 'manual': ['Resolve the check outcome manually.']}, 'activities': [activity]}, 'audit')
+        built = next(iter(item['system']['activities'].values()))
+        self.assertEqual(activity, original)
+        self.assertEqual(built['check'], check)
+        self.assertEqual(built['type'], 'check')
+        self.assertEqual(built['activation']['type'], 'bonus')
+        self.assertFalse(report['builder_warnings'])
+        self.assertFalse(report['errors'])
+
     def test_unarmed_classification_is_not_replaced(self):
         from class_package_builder import _feature_item
         item, report = _feature_item({'key': 'feature:sting', 'name': 'Sting',
