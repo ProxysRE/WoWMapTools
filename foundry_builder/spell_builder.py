@@ -1530,7 +1530,7 @@ def _audit_existing_activities(
                 deepcopy(added),
             )
         activity_type = str(activity.get("type") or "").casefold()
-        if activity_type not in ACTIVITY_TYPES:
+        if activity_type not in midi_compat.ACTIVITY_TYPES:
             report.warning(
                 f"{spell_name}: существующая activity «{key}» имеет "
                 f"неизвестный тип «{activity_type or 'пусто'}»."

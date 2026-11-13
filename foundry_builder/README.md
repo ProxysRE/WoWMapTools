@@ -1,4 +1,4 @@
-# Foundry JSON Builder 1.6.0
+# Foundry JSON Builder 1.6.1
 
 Самостоятельный сборщик контента для Foundry VTT 13.351 / dnd5e 5.3.3.
 Midi-QOL 13.0.64 и DAE 13.0.29 используются там, где этого требует механика.

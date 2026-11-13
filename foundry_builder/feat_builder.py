@@ -1344,7 +1344,7 @@ def _build_attack_activity(
     classification = str(
         attack.get("classification") or "weapon"
     ).casefold()
-    if classification not in {"weapon", "spell"}:
+    if classification not in {"weapon", "spell", "unarmed"}:
         classification = "weapon"
     activity["attack"]["type"]["value"] = attack_type
     activity["attack"]["type"]["classification"] = classification

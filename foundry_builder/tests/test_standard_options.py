@@ -21,6 +21,31 @@ def source():
 
 
 class StandardOptions(unittest.TestCase):
+    def test_native_check_activity_is_preserved(self):
+        spell = source()['spells'][0]
+        spell.pop('mechanics', None)
+        spell['system']['activities'] = {'nativeCheck00001': {
+            '_id': 'nativeCheck00001', 'type': 'check', 'name': 'Investigate Illusion',
+            'check': {'ability': '', 'associated': ['inv'], 'dc': {'calculation': 'spellcasting', 'formula': ''}},
+            'consumption': {'spellSlot': False, 'targets': []}, 'effects': []
+        }}
+        built = builder_app.build_document('spell', spell)
+        activity = built.document['system']['activities']['nativeCheck00001']
+        self.assertEqual(activity['type'], 'check')
+        self.assertEqual(activity['check']['associated'], ['inv'])
+        self.assertFalse(built.compatibility['errors'])
+
+    def test_unarmed_classification_is_not_replaced(self):
+        from class_package_builder import _feature_item
+        item, report = _feature_item({'key': 'feature:sting', 'name': 'Sting',
+            'automation': {'mode': 'full'}, 'mechanics': {
+                'activity_type': 'attack', 'attack': {'ability': 'dex', 'classification': 'unarmed'},
+                'damage': [{'formula': '1d4 + @abilities.dex.mod', 'type': 'piercing'}]
+            }}, 'audit')
+        activity = next(iter(item['system']['activities'].values()))
+        self.assertEqual(activity['attack']['type']['classification'], 'unarmed')
+        self.assertFalse(report['errors'])
+
     def test_all_categories_and_stable_references_without_wow(self):
         raw = source()
         before = copy.deepcopy(raw)
