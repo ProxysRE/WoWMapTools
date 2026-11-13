@@ -46,7 +46,7 @@ from background_builder import build_background
 
 ROOT = Path(__file__).resolve().parent
 APP_TITLE = "Foundry JSON Builder"
-APP_VERSION = "1.6.1"
+APP_VERSION = "1.6.2"
 
 WINDOWS_RESERVED_FILENAMES = {
     "CON",

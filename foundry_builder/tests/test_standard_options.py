@@ -35,6 +35,32 @@ class StandardOptions(unittest.TestCase):
         self.assertEqual(activity['check']['associated'], ['inv'])
         self.assertFalse(built.compatibility['errors'])
 
+    def test_native_summon_profiles_survive_standalone_package(self):
+        spell = source()['spells'][0]
+        spell.pop('mechanics', None)
+        profiles = [
+            {'_id': 'summonProfile001', 'uuid': 'Compendium.dnd5e.monsters.Actor.1234567890abcdef',
+             'count': '4', 'name': 'Small lights', 'level': {'min': None, 'max': None}},
+            {'_id': 'summonProfile002', 'uuid': 'Compendium.dnd5e.monsters.Actor.fedcba0987654321',
+             'count': '1', 'name': 'Combined light', 'level': {'min': None, 'max': None}}
+        ]
+        spell['system']['activities'] = {'nativeSummon0001': {
+            '_id': 'nativeSummon0001', 'type': 'summon', 'name': 'Conjure lights',
+            'profiles': copy.deepcopy(profiles), 'summon': {'identifier': '', 'mode': '', 'prompt': True},
+            'consumption': {'spellSlot': False, 'targets': []}, 'effects': []
+        }}
+        original = copy.deepcopy(spell)
+        raw = {'schema_version': 4, 'identifier': 'native-summon', 'spells': [spell]}
+        packs = prepare_documents(build_package(raw), module_id='native-summon-module')
+        activity = packs['spells'][0]['system']['activities']['nativeSummon0001']
+        self.assertEqual(spell, original)
+        self.assertEqual(activity['type'], 'summon')
+        self.assertEqual(activity['profiles'], profiles)
+        self.assertEqual(activity['summon'], original['system']['activities']['nativeSummon0001']['summon'])
+        self.assertEqual(activity['consumption']['targets'], [])
+        self.assertFalse(activity['consumption']['spellSlot'])
+        self.assertFalse(builder_app.build_document('spell', spell).compatibility['errors'])
+
     def test_unarmed_classification_is_not_replaced(self):
         from class_package_builder import _feature_item
         item, report = _feature_item({'key': 'feature:sting', 'name': 'Sting',

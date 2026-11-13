@@ -28,7 +28,7 @@ DAE_VERSION = project_config.DAE_VERSION
 DND5E_VERSION = project_config.DND5E_VERSION
 
 ACTIVITY_TYPES = {
-    "attack", "save", "damage", "heal", "utility", "cast", "enchant", "check", "forward"
+    "attack", "save", "damage", "heal", "utility", "cast", "enchant", "check", "forward", "summon"
 }
 ITEM_TYPES = {"feat", "weapon", "spell", "equipment", "consumable", "loot"}
 DOCUMENT_ID = re.compile(r"^[A-Za-z0-9]{16}$")
