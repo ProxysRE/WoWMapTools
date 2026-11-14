@@ -725,6 +725,35 @@ def audit_document(document: dict[str, Any]) -> dict[str, Any]:
                     )
                     continue
                 destination.update(str(value) for value in values)
+        # Native dnd5e enchant activities store their riders on the applied
+        # effect profile, not necessarily on the effect flags. These attacks
+        # acquire system.damage.base from the target weapon at application.
+        enchantment_ids = {
+            str(effect.get("_id") or "") for effect in effects
+            if isinstance(effect, dict) and effect.get("type") == "enchantment"
+        }
+        for activity_key, activity in activities.items():
+            if not isinstance(activity, dict) or activity.get("type") != "enchant":
+                continue
+            profiles = activity.get("effects", [])
+            if not isinstance(profiles, list):
+                continue
+            for profile in profiles:
+                if not isinstance(profile, dict) or str(profile.get("_id") or "") not in enchantment_ids:
+                    continue
+                riders = profile.get("riders", {})
+                profile_path = f"{item_path}.system.activities.{activity_key}.effects"
+                if not isinstance(riders, dict):
+                    errors.append(f"{profile_path}: riders должен быть объектом.")
+                    continue
+                for rider_type, destination in (
+                    ("activity", rider_activity_ids), ("effect", rider_effect_ids)
+                ):
+                    values = riders.get(rider_type, [])
+                    if not isinstance(values, list):
+                        errors.append(f"{profile_path}: riders.{rider_type} должен быть массивом.")
+                        continue
+                    destination.update(str(value) for value in values)
         missing_rider_activities = rider_activity_ids - set(activities)
         if missing_rider_activities:
             errors.append(
@@ -742,7 +771,7 @@ def audit_document(document: dict[str, Any]) -> dict[str, Any]:
                 + "."
             )
 
-        referenced_effects: set[str] = set()
+        referenced_effects: set[str] = set(rider_effect_ids)
         for activity_key, activity in activities.items():
             activity_count += 1
             activity_path = (

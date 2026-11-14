@@ -21,6 +21,53 @@ def source():
 
 
 class StandardOptions(unittest.TestCase):
+    def enchantment_spell(self):
+        spell = source()['spells'][0]
+        spell.pop('mechanics', None)
+        spell['_id'] = 'enchantSpell0001'
+        spell['effects'] = [{'_id': 'enchantEffect001', 'type': 'enchantment',
+                             'name': 'Weapon enhancement', 'changes': [], 'statuses': [],
+                             'transfer': False, 'flags': {}}]
+        spell['system']['activities'] = {
+            'enchantApply0001': {'_id': 'enchantApply0001', 'type': 'enchant',
+                'name': 'Enhance weapon', 'consumption': {'spellSlot': True, 'targets': []},
+                'effects': [{'_id': 'enchantEffect001', 'riders': {
+                    'activity': ['enchantAttack001'], 'effect': [], 'item': []}}]},
+            'enchantAttack001': {'_id': 'enchantAttack001', 'type': 'attack',
+                'name': 'Target weapon attack', 'consumption': {'spellSlot': False, 'targets': []},
+                'attack': {'type': {'value': 'melee', 'classification': 'weapon'}},
+                'damage': {'includeBase': True, 'parts': []}, 'effects': []}}
+        return spell
+
+    def test_native_enchantment_profile_rider_uses_target_weapon_damage(self):
+        spell = self.enchantment_spell()
+        original = copy.deepcopy(spell)
+        built = builder_app.build_document('spell', spell)
+        self.assertFalse(built.compatibility['errors'])
+        self.assertEqual(spell, original)
+        rider = built.document['system']['activities']['enchantAttack001']
+        self.assertTrue(rider['damage']['includeBase'])
+        self.assertEqual(rider['damage']['parts'], [])
+        self.assertFalse(rider['consumption']['spellSlot'])
+        prepared = prepare_documents(build_package({'schema_version': 4, 'identifier': 'enhancement-test', 'spells': [spell]}))
+        self.assertEqual(prepared['spells'][0]['system']['activities']['enchantAttack001']['damage']['parts'], [])
+
+    def test_unlinked_attack_does_not_bypass_effective_damage_check(self):
+        spell = self.enchantment_spell()
+        spell['system']['activities']['enchantApply0001']['effects'][0]['riders']['activity'] = []
+        with self.assertRaisesRegex(builder_app.AppBuildError, 'эффективного'):
+            builder_app.build_document('spell', spell)
+
+    def test_enchantment_profile_missing_rider_and_invalid_array_rejected(self):
+        spell = self.enchantment_spell()
+        profile = spell['system']['activities']['enchantApply0001']['effects'][0]
+        profile['riders']['activity'].append('missingAttack001')
+        with self.assertRaisesRegex(builder_app.AppBuildError, 'missingAttack001'):
+            builder_app.build_document('spell', spell)
+        profile['riders']['effect'] = 'bad array'
+        with self.assertRaisesRegex(builder_app.AppBuildError, 'riders.effect'):
+            builder_app.build_document('spell', spell)
+
     def test_native_check_activity_is_preserved(self):
         spell = source()['spells'][0]
         spell.pop('mechanics', None)
