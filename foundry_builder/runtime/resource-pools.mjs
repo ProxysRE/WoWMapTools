@@ -21,8 +21,12 @@ function number(formula, actor) {
 Hooks.on('dnd5e.activityConsumption', (activity, usage, message, updates) => {
   // Native Cast prepares the source's targets recursively, but emits this
   // hook only on the cached spell. Resolve the source pool on its main cast.
-  const linked=activity.consumption?.spellSlot && usage?.cause?.resources
-    ? activity.getLinkedActivity?.(usage.cause.activity) : null;
+  const source=activity.consumption?.spellSlot
+    ? activity.getLinkedActivity?.(usage?.cause?.activity) : null;
+  // With no native source targets, dnd5e defaults cause.resources to false
+  // even though the custom shared pool is still required.
+  const linked=usage?.consume!==false && (usage?.cause?.resources
+    || (usage?.cause?.activity && !(source?.consumption?.targets?.length))) ? source : null;
   const own=configFor(activity);
   if (upgrading && own?.key) return;
   const cfg=own?.key ? own : configFor(linked);

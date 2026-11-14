@@ -64,7 +64,7 @@ console.log('Resource runtime: 41 scenarios passed (mocked native consumption ho
 
 // Real Cast routing emits the consumption hook on the spell, not on the source.
 pool.system.uses.max='6';pool.system.uses.spent=4;
-const linked={flags:{[NS]:{resourcePool:{key:'rage',cost:'1'}}}},cached={item:{actor},consumption:{spellSlot:true},getLinkedActivity:id=>{assert.equal(id,'Item.source.Activity.cast');return linked;}};
+const linked={consumption:{targets:[{}]},flags:{[NS]:{resourcePool:{key:'rage',cost:'1'}}}},cached={item:{actor},consumption:{spellSlot:true},getLinkedActivity:id=>{assert.equal(id,'Item.source.Activity.cast');return linked;}};
 const usage={cause:{activity:'Item.source.Activity.cast',resources:true}},u={actor:{'system.spells.pact.value':0},item:[{_id:'source','system.uses.spent':1}]};
 assert.notEqual(hooks.get('dnd5e.activityConsumption')(cached,usage,{},u),false);assert.equal(u.item.find(i=>i._id===pool.id)['system.uses.spent'],5);assert.equal(u.item[0]['system.uses.spent'],1);assert.equal(u.actor['system.spells.pact.value'],0);
 for(const [spellSlot,cause] of [[false,usage.cause],[true,{...usage.cause,resources:false}]]){const v={item:[]};hooks.get('dnd5e.activityConsumption')({...cached,consumption:{spellSlot}}, {cause},{},v);assert.equal(v.item.length,0);}
@@ -77,3 +77,7 @@ const upgradeHooks=[],upgradeCtx={...ctx,Hooks:{on:(name,fn)=>upgradeHooks.push(
 vm.runInNewContext(fs.readFileSync(new URL('../runtime/resource-pools.mjs',import.meta.url),'utf8'),upgradeCtx);assert.equal(upgradeHooks.length,1);assert.equal(upgradeHooks[0][0],'dnd5e.activityConsumption');
 pool.system.uses.spent=4;const ownUpdates={item:[]};upgradeHooks[0][1](own,usage,{},ownUpdates);assert.equal(ownUpdates.item.length,0);const castUpdates={item:[]};upgradeHooks[0][1](cached,usage,{},castUpdates);assert.equal(castUpdates.item[0]['system.uses.spent'],5);
 vm.runInNewContext(fs.readFileSync(new URL('../runtime/resource-pools.mjs',import.meta.url),'utf8'),upgradeCtx);assert.equal(upgradeHooks.length,1);console.log('Resource runtime upgrade: v5-first modules gain the linked branch once without duplicate ordinary hooks or creation hooks.');
+
+// A source containing only a custom pool has cause.resources=false by native default.
+const customOnly={...cached,getLinkedActivity:()=>({...linked,consumption:{targets:[]}})},customUsage={consume:{resources:[]},cause:{activity:'Item.custom.Activity.cast',resources:false}},customUpdates={item:[]};
+hooks.get('dnd5e.activityConsumption')(customOnly,customUsage,{},customUpdates);assert.equal(customUpdates.item[0]['system.uses.spent'],5);const disabled={item:[]};hooks.get('dnd5e.activityConsumption')(customOnly,{...customUsage,consume:false},{},disabled);assert.equal(disabled.item.length,0);console.log('Resource-only Cast source: native default cause.resources=false still charges the custom pool; explicit whole consumption disable remains respected.');
