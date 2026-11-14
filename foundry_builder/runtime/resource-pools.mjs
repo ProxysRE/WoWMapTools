@@ -1,7 +1,11 @@
 {
 const registration = Symbol.for('foundry-content-generator.resource-pools');
-if (!globalThis[registration]) {
-globalThis[registration] = { version: 5 };
+const previous=globalThis[registration];
+if (!previous || Number(previous.version ?? 0)<6) {
+// A module shipping v5 may already own the ordinary-resource hook. Add only
+// the missing linked-Cast branch in that case, so both load orders charge once.
+const upgrading=!!previous;
+globalThis[registration] = { version: 6 };
 const NS = 'foundry-content-generator';
 const configFor = x => foundry.utils.getProperty(x, `flags.${NS}.resourcePool`);
 function number(formula, actor) {
@@ -15,7 +19,13 @@ function number(formula, actor) {
 // The system applies these updates together with native item uses.
 // Running on activityConsumption avoids spending resources when the usage dialog is canceled.
 Hooks.on('dnd5e.activityConsumption', (activity, usage, message, updates) => {
-  const cfg=configFor(activity);
+  // Native Cast prepares the source's targets recursively, but emits this
+  // hook only on the cached spell. Resolve the source pool on its main cast.
+  const linked=activity.consumption?.spellSlot && usage?.cause?.resources
+    ? activity.getLinkedActivity?.(usage.cause.activity) : null;
+  const own=configFor(activity);
+  if (upgrading && own?.key) return;
+  const cfg=own?.key ? own : configFor(linked);
   if (!cfg?.key) return;
   try {
     const actor=activity.item?.actor ?? activity.actor;
@@ -53,7 +63,7 @@ Hooks.on('dnd5e.activityConsumption', (activity, usage, message, updates) => {
     update['system.uses.spent']=next;
   } catch(error) { ui.notifications.error(error.message); return false; }
 });
-Hooks.on('preCreateItem',(item)=>{
+if (!upgrading) Hooks.on('preCreateItem',(item)=>{
   const cfg=configFor(item), actor=item.actor ?? item.parent;
   if (!cfg?.initialEmpty || !actor?.getRollData) return;
   try { item.updateSource({'system.uses.spent':number(item.system.uses.max,actor)}); }

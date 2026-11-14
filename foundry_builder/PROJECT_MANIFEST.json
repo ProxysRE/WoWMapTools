@@ -1,6 +1,6 @@
 {
   "project": "Генератор JSON для импорта в FoundryVTT",
-  "manifest_version": 30,
+  "manifest_version": 31,
   "canonical_directory": "/Генератор JSON для импорта в FoundryVTT",
   "targets": {
     "foundry": "13.351",
@@ -124,6 +124,6 @@
       "tests/test_standard_options.py"
     ]
   },
-  "application_version": "1.6.5",
+  "application_version": "1.6.6",
   "character_entry_point": "character_builder.py"
 }

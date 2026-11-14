@@ -61,3 +61,19 @@ r=run({cost:'1',maxCost:'bad'});assert.equal(r.result,false);
 r=run({cost:'4',maxCost:'@scale.reserve'});assert.equal(r.result,false);
 r=run({cost:'4'});assert.notEqual(r.result,false);assert.equal(r.updates.item[0]['system.uses.spent'],4);
 console.log('Resource runtime: 41 scenarios passed (mocked native consumption hook; live Foundry still required).');
+
+// Real Cast routing emits the consumption hook on the spell, not on the source.
+pool.system.uses.max='6';pool.system.uses.spent=4;
+const linked={flags:{[NS]:{resourcePool:{key:'rage',cost:'1'}}}},cached={item:{actor},consumption:{spellSlot:true},getLinkedActivity:id=>{assert.equal(id,'Item.source.Activity.cast');return linked;}};
+const usage={cause:{activity:'Item.source.Activity.cast',resources:true}},u={actor:{'system.spells.pact.value':0},item:[{_id:'source','system.uses.spent':1}]};
+assert.notEqual(hooks.get('dnd5e.activityConsumption')(cached,usage,{},u),false);assert.equal(u.item.find(i=>i._id===pool.id)['system.uses.spent'],5);assert.equal(u.item[0]['system.uses.spent'],1);assert.equal(u.actor['system.spells.pact.value'],0);
+for(const [spellSlot,cause] of [[false,usage.cause],[true,{...usage.cause,resources:false}]]){const v={item:[]};hooks.get('dnd5e.activityConsumption')({...cached,consumption:{spellSlot}}, {cause},{},v);assert.equal(v.item.length,0);}
+const own={...cached,flags:{[NS]:{resourcePool:{key:'rage',cost:'2'}}}},v={item:[]};hooks.get('dnd5e.activityConsumption')(own,usage,{},v);assert.equal(v.item[0]['system.uses.spent'],6);assert.equal(v.item.length,1);
+pool.system.uses.spent=6;const denied={item:[]};assert.equal(hooks.get('dnd5e.activityConsumption')(cached,usage,{},denied),false);assert.equal(denied.item.length,0);
+console.log('Resource Cast routing: source pool plus native item/slot updates staged once; helpers and disabled linked resources excluded.');
+
+// If an older content module loaded v5 first, patch only its missing Cast branch.
+const upgradeHooks=[],upgradeCtx={...ctx,Hooks:{on:(name,fn)=>upgradeHooks.push([name,fn])}};upgradeCtx[Symbol.for('foundry-content-generator.resource-pools')]={version:5};
+vm.runInNewContext(fs.readFileSync(new URL('../runtime/resource-pools.mjs',import.meta.url),'utf8'),upgradeCtx);assert.equal(upgradeHooks.length,1);assert.equal(upgradeHooks[0][0],'dnd5e.activityConsumption');
+pool.system.uses.spent=4;const ownUpdates={item:[]};upgradeHooks[0][1](own,usage,{},ownUpdates);assert.equal(ownUpdates.item.length,0);const castUpdates={item:[]};upgradeHooks[0][1](cached,usage,{},castUpdates);assert.equal(castUpdates.item[0]['system.uses.spent'],5);
+vm.runInNewContext(fs.readFileSync(new URL('../runtime/resource-pools.mjs',import.meta.url),'utf8'),upgradeCtx);assert.equal(upgradeHooks.length,1);console.log('Resource runtime upgrade: v5-first modules gain the linked branch once without duplicate ordinary hooks or creation hooks.');
