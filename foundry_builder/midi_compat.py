@@ -907,9 +907,24 @@ def audit_document(document: dict[str, Any]) -> dict[str, Any]:
                         activity_id in rider_activity_ids
                         and include_base
                     )
+                    # Control-only attacks (e.g. a hit that only knocks prone)
+                    # need no damage button, but must apply a real native effect.
+                    applied_ids = {
+                        str(ref.get("_id") or "")
+                        for ref in activity.get("effects", [])
+                        if isinstance(ref, dict)
+                    } if isinstance(activity.get("effects", []), list) else set()
+                    has_control_effect = any(
+                        isinstance(effect, dict)
+                        and str(effect.get("_id") or "") in applied_ids
+                        and not effect.get("disabled", False)
+                        and not effect.get("transfer", False)
+                        and bool(effect.get("changes") or effect.get("statuses"))
+                        for effect in effects
+                    )
                     if not has_activity_damage and not (
                         include_base and has_base_damage
-                    ) and not rider_uses_target_base:
+                    ) and not rider_uses_target_base and not has_control_effect:
                         errors.append(
                             f"{activity_path}: атака не имеет эффективного "
                             "урона для кнопки броска."

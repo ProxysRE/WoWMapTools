@@ -68,6 +68,38 @@ class StandardOptions(unittest.TestCase):
         with self.assertRaisesRegex(builder_app.AppBuildError, 'riders.effect'):
             builder_app.build_document('spell', spell)
 
+    def test_control_only_attack_requires_a_linked_native_effect(self):
+        spell = source()['spells'][0]
+        spell.pop('mechanics', None)
+        spell['effects'] = [{'_id': 'controlEffect001', 'name': 'Knock prone',
+                             'statuses': ['prone'], 'changes': [],
+                             'disabled': False, 'transfer': False}]
+        spell['system']['activities'] = {
+            'controlAttack001': {'_id': 'controlAttack001', 'type': 'attack',
+                'name': 'Knock prone on a hit',
+                'consumption': {'spellSlot': True, 'targets': []},
+                'attack': {'ability': 'spellcasting',
+                           'type': {'value': 'melee', 'classification': 'spell'}},
+                'damage': {'includeBase': False, 'parts': []},
+                'effects': [{'_id': 'controlEffect001'}]}}
+        original = copy.deepcopy(spell)
+        built = builder_app.build_document('spell', spell)
+        self.assertFalse(built.compatibility['errors'])
+        self.assertEqual(spell, original)
+        self.assertEqual(built.document['system']['activities']['controlAttack001']['damage']['parts'], [])
+        self.assertEqual(build_package({'schema_version': 4, 'identifier': 'control-test',
+                                       'spells': [spell]})['documents']['spells'][0]['system']['activities']['controlAttack001']['damage']['parts'], [])
+        for mutation in ['unlinked', 'empty', 'disabled', 'transfer']:
+            candidate = copy.deepcopy(spell)
+            if mutation == 'unlinked':
+                candidate['system']['activities']['controlAttack001']['effects'] = []
+            elif mutation == 'empty':
+                candidate['effects'][0]['statuses'] = []
+            else:
+                candidate['effects'][0][mutation] = True
+            with self.subTest(mutation=mutation), self.assertRaisesRegex(builder_app.AppBuildError, 'эффективного'):
+                builder_app.build_document('spell', candidate)
+
     def test_native_check_activity_is_preserved(self):
         spell = source()['spells'][0]
         spell.pop('mechanics', None)
